@@ -1,0 +1,8 @@
+**
+!pages
+!public
+!styles
+!next-env.d.ts
+!package.json
+!package-lock.json
+!tsconfig.json

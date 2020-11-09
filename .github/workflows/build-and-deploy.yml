@@ -1,0 +1,48 @@
+name: Build and deploy prod-gcp
+on:
+  push:
+    branches:
+      - "main"
+env:
+  CI: true
+  DOCKER_IMAGE: docker.pkg.github.com/${{ github.repository }}/${{ github.event.repository.name }}
+jobs:
+  build:
+    name: Build and push docker image
+    runs-on: ubuntu-latest
+    outputs:
+      IMAGE_TAG: ${{ steps.docker-tag.outputs.IMAGE_TAG }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Login to GitHub package registry
+        run: |
+          echo ${GITHUB_TOKEN} | docker login -u ${GITHUB_REPOSITORY} --password-stdin docker.pkg.github.com
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create docker image tags
+        run: |
+          echo "DOCKER_TAG=${{ env.DOCKER_IMAGE }}:latest" >> $GITHUB_ENV
+      - name: Build docker image
+        run: docker build -t ${{ env.DOCKER_TAG }} .
+      - name: Push docker image
+        run: |
+          docker push ${{ env.DOCKER_TAG }}
+      - name: output docker image tag
+        id: docker-tag
+        run: |
+          echo "::set-output name=IMAGE_TAG::${{ env.DOCKER_TAG }}"
+  deploy:
+    name: Deploy to labs-gcp
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy til labs-gcp
+        uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          RESOURCE: nais.yml
+          CLUSTER: labs-gcp
+          REF: ${{ github.sha }}
+          PRINT_PAYLOAD: true
+          IMAGE: ${{ needs.build.outputs.IMAGE_TAG }}
