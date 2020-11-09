@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "jest"
+    "test": "jest --watch"
   },
   "dependencies": {
     "identity-obj-proxy": "3.0.0",
