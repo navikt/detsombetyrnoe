@@ -11,7 +11,7 @@ spec:
   liveness:
     path: /api/isAlive
   readiness:
-    path: /api/isReady
+    path: /api/isAlive
   replicas:
     min: 1
     max: 1
@@ -27,9 +27,9 @@ spec:
     outbound:
       external:
         - host: api.sanity.io
-        - host: PROJECT.api.sanity.io
+        - host: c9hptfq7.api.sanity.io
         - host: apicdn.sanity.io
-        - host: PROJECT.apicdn.sanity.io
+        - host: c9hptfq7.apicdn.sanity.io
         - host: cdn.sanity.io
   ingresses:
     - https://detsombetyrnoe-next.labs.nais.io

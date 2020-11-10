@@ -1,8 +1,10 @@
-**
-!pages
+sanity
+!src
 !public
-!styles
 !next-env.d.ts
 !package.json
 !package-lock.json
 !tsconfig.json
+!babelrc
+!jest.config.js
+!jest.setup.js
