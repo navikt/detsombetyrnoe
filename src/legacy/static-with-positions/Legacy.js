@@ -16,8 +16,8 @@ function Legacy() {
         />
         <meta property="og:image" content="http://www.detsombetyrnoe.no/detsombetyrnoe.jpg" />
         <link href="https://www.nav.no/dekoratoren/media/favicon.ico" rel="icon" type="image/x-icon" />
-        <link rel="stylesheet" href="bootstrap.css" />
-        <link rel="stylesheet" href="main.css" />
+        <link rel="stylesheet" href="legacy/bootstrap.css" />
+        <link rel="stylesheet" href="legacy/main.css" />
         <title>Tør du å skape det som betyr noe?</title>
       </Head>
 
