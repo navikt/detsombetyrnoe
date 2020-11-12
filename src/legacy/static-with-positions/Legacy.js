@@ -1,7 +1,11 @@
 import Head from "next/head";
+import useSWR from "swr";
 import Stillinger from "../../components/stillinger";
 
+const fetcher = (url) => fetch(url).then((r) => r.json());
+
 function Legacy() {
+  const { data: stillinger, error } = useSWR("/api/stillinger", fetcher);
   return (
     <>
       <Head>
@@ -105,7 +109,7 @@ function Legacy() {
             <script src="https://player.vimeo.com/api/player.js"></script>
           </div>
 
-          <Stillinger />
+          {stillinger && <Stillinger stillinger={stillinger} />}
 
           <div className="row justify-content-center mb-4 pb-4">
             <div className="col col-12 col-lg-6">
