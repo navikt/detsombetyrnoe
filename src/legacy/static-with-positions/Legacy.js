@@ -41,7 +41,7 @@ function Legacy() {
 
           <div className="row hidden-md-up" aria-hidden="true">
             <div className="col p-0">
-              <img src="topp-sm.jpg" className="img-fluid" />
+              <img src="legacy/topp-sm.jpg" className="img-fluid" />
             </div>
           </div>
 
