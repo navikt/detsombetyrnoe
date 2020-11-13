@@ -31,5 +31,6 @@ spec:
         - host: apicdn.sanity.io
         - host: c9hptfq7.apicdn.sanity.io
         - host: cdn.sanity.io
+        - host: arbeidsplassen.nav.no
   ingresses:
     - https://detsombetyrnoe-next.labs.nais.io
