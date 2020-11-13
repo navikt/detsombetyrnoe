@@ -1,3 +1,4 @@
+const getStillinger = require("../../lib/get-stillinger");
 const stillinger = [
   {
     id: "656d9e26-0e6c-433c-84a3-b6e973f734f6",
@@ -43,7 +44,8 @@ const stillinger = [
   },
 ];
 
-export default (request, response) => {
+export default async (request, response) => {
+  const stillinger = await getStillinger();
   response.statusCode = 200;
   response.json(stillinger);
 };
