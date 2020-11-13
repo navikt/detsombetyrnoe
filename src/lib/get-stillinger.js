@@ -1,3 +1,5 @@
+const { title } = require("process");
+
 module.exports = async () => {
   const axios = require("axios");
   const { writeFile } = require("fs").promises;
@@ -16,10 +18,22 @@ module.exports = async () => {
     const dato = new Date(date);
     return `${dato.getDate()}.${dato.getMonth() + 1}.${dato.getFullYear()}`;
   };
+
+  const getStillingstype = (title) => {
+    let stilling = "diverse";
+    if (/utvikler/i.test(title)) {
+      stilling = "utvikling";
+    }
+    if (/designer/i.test(title)) {
+      stilling = "design";
+    }
+    return stilling;
+  };
+
   const repack = (data) => {
     return {
       id: data.uuid,
-      stillingsType: "utvikling",
+      stillingsType: getStillingstype(data.title),
       title: data.title,
       description: createDescription(data.properties.adtext),
       frist: formatDate(data.properties.applicationdue),

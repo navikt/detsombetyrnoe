@@ -44,6 +44,7 @@ const Stillinger = ({ stillinger }) => {
       <Gruppe stillinger={stillinger} stillingsType={"utvikling"} />
       <Gruppe stillinger={stillinger} stillingsType={"design"} />
       <Gruppe stillinger={stillinger} stillingsType={"analyse"} />
+      <Gruppe stillinger={stillinger} stillingsType={"diverse"} />
     </>
   );
 };
