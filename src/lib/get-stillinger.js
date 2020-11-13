@@ -9,8 +9,6 @@ module.exports = async () => {
     text = text.replace(/<p>/g, "\n");
     text = text.replace(/<\/p>/g, "\n");
     text = text.replace(/<br \/>/g, "\n");
-    text = text.replace(/\\n\\n/g, "\n");
-    text = text.replace(/\\n\\n/, "\n");
     return text.split("\n").filter((line) => line !== "")[1];
   };
 
