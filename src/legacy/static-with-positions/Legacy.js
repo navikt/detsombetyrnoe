@@ -9,18 +9,6 @@ function Legacy() {
   return (
     <>
       <Head>
-        <meta charSet="UTF-8" />
-        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <meta property="og:title" content="Tør du å skape det som betyr noe?" />
-        <meta property="og:site_name" content="NAV IT" />
-        <meta property="og:url" content="http://www.detsombetyrnoe.no/" />
-        <meta
-          property="og:description"
-          content="NAV skal utvikle verdens beste velferdsløsninger - for deg og dine, for NAV og for samfunnet. Vi ser
-                    etter mennesker som tør å ta det ansvaret."
-        />
-        <meta property="og:image" content="http://www.detsombetyrnoe.no/detsombetyrnoe.jpg" />
-        <link href="https://www.nav.no/dekoratoren/media/favicon.ico" rel="icon" type="image/x-icon" />
         <link rel="stylesheet" href="legacy/bootstrap.css" />
         <link rel="stylesheet" href="legacy/main.css" />
         <title>Tør du å skape det som betyr noe?</title>
