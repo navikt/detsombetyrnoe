@@ -1,30 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# detsombetyrnoe.no
 
-## Getting Started
+Nextjs-frontend og sanity-cms oppsett for karrieresidene på [detsombetyrnoe.no](https://www.detsombetyrnoe.no)
 
-First, run the development server:
+## Utvikling
 
-```bash
+```
+npm i
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## API'er
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Github-api'et er avhengig av et access token.
+Dette kan du fikse for lokal utvikling ved å opprett filen `.env.local` i root-folderet med innholdet:
 
-## Learn More
+```
+# SECRET - DO NOT COMMIT TO GIT
 
-To learn more about Next.js, take a look at the following resources:
+# Trengs for at api/github endepunktet skal funke
+GITHUB_API_TOKEN="MITT_HEMMELIGE_TOKEN"
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Github-token til lokal utvikling
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+`github.com -> Settings -> Developer settings -> Personal access tokens`
+Du trenger tilgang til `public_repo, read:org` og skru på SSO for tokenet.

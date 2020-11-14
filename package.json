@@ -10,7 +10,9 @@
     "test-ci": "jest"
   },
   "dependencies": {
+    "@apollo/client": "^3.2.5",
     "axios": "0.21.0",
+    "graphql": "^15.4.0",
     "identity-obj-proxy": "3.0.0",
     "next": "10.0.1",
     "next-sanity": "0.1.8",
