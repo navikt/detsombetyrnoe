@@ -24,9 +24,12 @@ const query = gql`
     nodes {
       name
       updatedAt
+      pushedAt
       url
+      id
       primaryLanguage {
         name
+        color
       }
       defaultBranchRef {
         target {
@@ -43,7 +46,8 @@ const query = gql`
       name
       websiteUrl
       url
-      repositories(first: 10, orderBy: { field: UPDATED_AT, direction: DESC }, privacy: PUBLIC) {
+      description
+      publicRepositories: repositories(first: 10, orderBy: { field: UPDATED_AT, direction: DESC }, privacy: PUBLIC) {
         ...Repo
         totalCount
       }
