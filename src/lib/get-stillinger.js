@@ -2,7 +2,6 @@ const { title } = require("process");
 
 module.exports = async () => {
   const axios = require("axios");
-  const { writeFile } = require("fs").promises;
   const searchUrl = "https://arbeidsplassen.nav.no/stillinger/api/search?q=nav&occupationFirstLevels[]=IT";
   const addUrl = "https://arbeidsplassen.nav.no/stillinger/api/stilling";
   const applyUrl = "https://arbeidsplassen.nav.no/stillinger/stilling/";
@@ -24,7 +23,7 @@ module.exports = async () => {
     if (/utvikler/i.test(title)) {
       stilling = "utvikling";
     }
-    if (/designer/i.test(title)) {
+    if (/design/i.test(title)) {
       stilling = "design";
     }
     return stilling;
@@ -44,7 +43,10 @@ module.exports = async () => {
   const { data } = await axios.get(searchUrl);
   const annonsesok = data.hits.hits
     .map((stilling) => stilling._source)
-    .filter((stilling) => /NAV_webcruiter/.test(stilling.reference))
+    .filter(
+      (stilling) =>
+        /nav_webcruiter/i.test(stilling.reference) || /velferdsdirektoratet_webcruiter/i.test(stilling.reference)
+    )
     .map((stilling) => `${addUrl}/${stilling.uuid}`)
     .map((url) => axios.get(url));
 
