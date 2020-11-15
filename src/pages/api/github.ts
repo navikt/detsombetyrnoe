@@ -7,10 +7,11 @@ const httpLink = createHttpLink({
   uri: "https://api.github.com/graphql",
 });
 
+const token = process.env.GITHUB_API_TOKEN;
 const authLink = setContext((_, { headers }) => ({
   headers: {
     ...headers,
-    authorization: `Bearer ${process.env.GITHUB_API_TOKEN}`,
+    authorization: token ? `Bearer ${token}` : undefined,
   },
 }));
 
@@ -27,6 +28,8 @@ const query = gql`
       pushedAt
       url
       id
+      description
+      homepageUrl
       primaryLanguage {
         name
         color
@@ -35,6 +38,11 @@ const query = gql`
         target {
           ... on Commit {
             message
+            additions
+            deletions
+            history {
+              totalCount
+            }
           }
         }
       }

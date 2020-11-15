@@ -1,40 +1,50 @@
 import * as React from "react";
-import { Repository } from "../../types/github";
+import { Repository } from "../../types/githubData";
 import { format } from "date-fns";
 import { nb } from "date-fns/locale";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const Style = styled.ol`
   align-items: stretch !important;
-  max-width: 100%;
+  max-width: calc(100% - 1rem);
+  overflow: hidden;
 `;
 
-const Repo = styled.li`
+const animation = keyframes`
+  from {
+  opacity: 0;
+    transform: translateX(2rem);
+  }
+`;
+
+const RepoStyle = styled.li<{ index: number }>`
+  animation: ${animation} 0.5s backwards ${(props) => props.index / 6}s;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
   &:nth-child(2n) {
     background-color: rgba(0, 0, 0, 0.1);
   }
-`;
-
-const RepoLenke = styled.a`
-  display: flex;
-  align-items: center;
   > * {
     padding: 1rem;
+    word-break: break-word;
+    &:not(:last-child) {
+      margin-right: 0.25rem;
+    }
+    &:nth-child(1) {
+      flex: 16ch 0 0;
+    }
+    &:nth-child(2) {
+      flex: 24ch 0 0;
+    }
   }
-  > *:not(:last-child) {
-    margin-right: 0.25rem;
-  }
-  padding: 0 1rem;
+`;
+
+const Lenke = styled.a`
   color: white;
   text-decoration: none;
   &:hover {
     text-decoration: underline;
-  }
-  > *:nth-child(1) {
-    flex: 16ch 0 0;
-  }
-  > *:nth-child(2) {
-    flex: 20ch 0 0;
   }
 `;
 
@@ -49,28 +59,54 @@ const Timestamp = styled.p`
   opacity: 0.7;
 `;
 
-const Message = styled.p`
+const Message = styled.p.attrs((props) => ({ title: props.children }))`
   font-size: 0.8rem;
   font-weight: 300;
   opacity: 0.9;
-
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
   @media (max-width: 80ch) {
     display: none;
   }
+  &:last-child {
+    font-style: italic;
+  }
 `;
+
+const TextWrapper = styled.div`
+  overflow: hidden;
+  > *:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+`;
+
+function Repo(props: { repo: Repository; index: number }) {
+  const { repo, index } = props;
+  const updatedAt = format(new Date(repo.updatedAt), "d MMM p", { locale: nb });
+  return (
+    <RepoStyle index={index}>
+      <Timestamp>{updatedAt}</Timestamp>
+      <Lenke href={repo.url}>{repo.name}</Lenke>
+      {repo.homepageUrl && (
+        <Lenke aria-label={`Gå til ${repo.name} sin hjemmeside`} href={repo.homepageUrl}>
+          🚀
+        </Lenke>
+      )}
+      <TextWrapper>
+        <Message>{repo.description}</Message>
+        <Message>{repo.defaultBranchRef.target.message}</Message>
+      </TextWrapper>
+    </RepoStyle>
+  );
+}
 
 function Repositories(props: { repos: Repository[] }) {
   return (
     <Style>
       <Header>Siste aktivitet:</Header>
-      {props.repos?.map((repo) => (
-        <Repo key={repo.id}>
-          <RepoLenke href={repo.url}>
-            <Timestamp>{format(new Date(repo.updatedAt), "d MMM p", { locale: nb })}</Timestamp>
-            <p>{repo.name}</p>
-            <Message>{repo.defaultBranchRef.target.message}</Message>
-          </RepoLenke>
-        </Repo>
+      {props.repos?.map((repo, i) => (
+        <Repo key={repo.id} repo={repo} index={i} />
       ))}
     </Style>
   );

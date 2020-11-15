@@ -2,6 +2,10 @@ import { createGlobalStyle } from "styled-components";
 import { navFrontend } from "./navFarger";
 
 export const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: darkslategray;
+  }
+
   * {
     box-sizing: border-box;
     line-height: 1.3;

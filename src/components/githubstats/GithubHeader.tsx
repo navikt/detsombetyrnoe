@@ -1,9 +1,9 @@
 import * as React from "react";
-import { Github } from "../../types/github";
+import { GithubData } from "../../types/githubData";
 import styled from "styled-components";
 
 interface Props {
-  github: Github;
+  github: GithubData;
 }
 
 const Header = styled.h2`

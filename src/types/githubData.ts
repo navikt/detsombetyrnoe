@@ -1,4 +1,4 @@
-export interface Github {
+export interface GithubData {
   organization: {
     name: string;
     websiteUrl: string;
@@ -17,6 +17,8 @@ export interface Repository {
   pushedAt: string;
   url: string;
   id: string;
+  description?: string;
+  homepageUrl?: string;
   primaryLanguage: Language;
   defaultBranchRef: {
     target: Commit;
@@ -30,4 +32,9 @@ export interface Language {
 
 export interface Commit {
   message: string;
+  additions: number;
+  deletions: number;
+  history: {
+    totalCount: number;
+  };
 }
