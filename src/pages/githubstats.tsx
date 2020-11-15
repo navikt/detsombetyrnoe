@@ -33,7 +33,7 @@ const ErrorLoadingStyle = styled.div`
   justify-content: center;
   min-height: 20rem;
   background-color: ${navFrontend.navBla};
-  font-size: 1.3;
+  font-size: 1.3rem;
 `;
 
 function Githubstats(props: { data?: GithubData; error: Error }) {
