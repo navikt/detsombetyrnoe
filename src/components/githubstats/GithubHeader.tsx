@@ -1,6 +1,6 @@
 import * as React from "react";
-import { GithubData } from "../../types/githubData";
 import styled from "styled-components";
+import { GithubData } from "../../api-utils/github/types";
 
 interface Props {
   github: GithubData;

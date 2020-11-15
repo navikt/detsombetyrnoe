@@ -3,7 +3,7 @@ import GithubHeader from "./GithubHeader";
 import Repositories from "./Repositories";
 import styled from "styled-components";
 import { navFrontend } from "../../styles/navFarger";
-import { GithubData } from "../../types/githubData";
+import { GithubData } from "../../api-utils/github/types";
 
 const Style = styled.div`
   font-family: "Comfortaa", sans-serif;

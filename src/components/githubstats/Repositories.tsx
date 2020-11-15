@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Repository } from "../../types/githubData";
 import { format } from "date-fns";
 import { nb } from "date-fns/locale";
 import styled, { keyframes } from "styled-components";
+import { Repository } from "../../api-utils/github/types";
 
 const Style = styled.ol`
   align-items: stretch !important;
