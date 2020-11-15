@@ -1,7 +1,5 @@
 import * as React from "react";
 import { GetStaticProps } from "next";
-import { serverUrl } from "../utils/serverUrl";
-import { GithubData } from "../types/githubData";
 import Head from "next/head";
 import { ResetCSS } from "../styles/reset.css";
 import { GlobalStyle } from "../styles/GlobalStyle";
@@ -9,21 +7,22 @@ import { loggError } from "../utils/logger";
 import GithubstatsView from "../components/githubstats/GithubstatsView";
 import styled from "styled-components";
 import { navFrontend } from "../styles/navFarger";
+import { GithubData } from "../api-utils/github/types";
+import { fetchGithubData } from "../api-utils/github/api";
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(`${serverUrl}/api/github`);
-  if (!res.ok) {
+  try {
+    const { data } = await fetchGithubData();
     return {
-      props: { error: res.statusText },
+      props: { data },
+      revalidate: 60,
+    };
+  } catch (e) {
+    return {
+      props: { error: e.message },
       revalidate: 30,
     };
   }
-
-  const data = await res.json();
-  return {
-    props: { data },
-    revalidate: 60,
-  };
 };
 
 const ErrorLoadingStyle = styled.div`
@@ -36,7 +35,7 @@ const ErrorLoadingStyle = styled.div`
   font-size: 1.3rem;
 `;
 
-function Githubstats(props: { data?: GithubData; error: Error }) {
+function Githubstats(props: { data?: GithubData; error?: Error }) {
   if (props.error) {
     loggError(props.error);
     return <ErrorLoadingStyle>Kunne ikke hente github-data</ErrorLoadingStyle>;

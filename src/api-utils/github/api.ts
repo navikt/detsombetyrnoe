@@ -1,7 +1,7 @@
 import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { gql } from "@apollo/client/core";
-import { NextApiHandler } from "next";
+import { GithubData } from "./types";
 
 const httpLink = createHttpLink({
   uri: "https://api.github.com/graphql",
@@ -63,13 +63,4 @@ const query = gql`
   }
 `;
 
-const apiHandler: NextApiHandler = async (request, response) => {
-  try {
-    const data = await client.query({ query });
-    response.status(200).json(data.data);
-  } catch (error) {
-    response.status(500).json("Det skjedde en feil: " + JSON.stringify(error));
-  }
-};
-
-export default apiHandler;
+export const fetchGithubData = () => client.query<GithubData>({ query });
