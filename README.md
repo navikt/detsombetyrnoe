@@ -18,7 +18,7 @@ Dette kan du fikse for lokal utvikling ved å opprett filen `.env.local` i root-
 # SECRET - DO NOT COMMIT TO GIT
 
 # Trengs for at api/github endepunktet skal funke
-GITHUB_API_TOKEN="MITT_HEMMELIGE_TOKEN"
+API_GITHUB_TOKEN="MITT_HEMMELIGE_TOKEN"
 ```
 
 #### Github-token til lokal utvikling
