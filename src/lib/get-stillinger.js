@@ -4,7 +4,7 @@ module.exports = async () => {
   const axios = require("axios");
   const searchUrl = "https://arbeidsplassen.nav.no/stillinger/api/search?q=nav&occupationFirstLevels[]=IT";
   const addUrl = "https://arbeidsplassen.nav.no/stillinger/api/stilling";
-  const applyUrl = "https://arbeidsplassen.nav.no/stillinger/stilling/";
+  const applyUrl = "https://arbeidsplassen.nav.no/stillinger/stilling";
 
   const createDescription = (text) => {
     text = text.replace(/<p>/g, "\n");
