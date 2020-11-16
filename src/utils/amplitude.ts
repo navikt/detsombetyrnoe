@@ -2,7 +2,7 @@ import { AMPLITUDE_DEV_KEY, AMPLITUDE_PROD_KEY } from "../../config";
 import isProduction from "./is-production";
 // Hindrer crash ved server-side kjøring (amplitude.js fungerer kun i browser)
 const amplitude = typeof window !== "undefined" ? require("amplitude-js") : () => null;
-const apiKey = isProduction ? AMPLITUDE_PROD_KEY : AMPLITUDE_DEV_KEY;
+const apiKey = isProduction() ? AMPLITUDE_PROD_KEY : AMPLITUDE_DEV_KEY;
 
 const config = {
   saveEvents: false,
