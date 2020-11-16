@@ -25,6 +25,10 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 };
 
+const Style = styled.div`
+  font-family: "Comfortaa", sans-serif;
+`;
+
 const ErrorLoadingStyle = styled.div`
   color: white;
   display: flex;
@@ -46,7 +50,7 @@ function Githubstats(props: { data?: GithubData; error?: Error }) {
   }
 
   return (
-    <>
+    <Style>
       <GlobalStyle />
       <ResetCSS />
       <Head>
@@ -54,7 +58,7 @@ function Githubstats(props: { data?: GithubData; error?: Error }) {
         <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;500&display=swap" rel="stylesheet" />
       </Head>
       <GithubstatsView {...props.data} />
-    </>
+    </Style>
   );
 }
 

@@ -1,38 +1,38 @@
 import * as React from "react";
 import { format } from "date-fns";
 import { nb } from "date-fns/locale";
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { Repository } from "../../api-utils/github/types";
 
 const Style = styled.ol`
   align-items: stretch !important;
-  max-width: calc(100% - 1rem);
+  max-width: calc(100% - 2vmin);
   overflow: hidden;
 `;
 
 const animation = keyframes`
   from {
-  opacity: 0;
-    transform: translateX(2rem);
+    opacity: 0;
+    transform: translateX(1rem);
   }
 `;
 
 const RepoStyle = styled.li<{ index: number }>`
-  animation: ${animation} 0.5s backwards ${(props) => props.index / 6}s;
+  animation: ${animation} 0.2s backwards ${(props) => props.index / 15}s;
   display: flex;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0 2vmin;
   &:nth-child(2n) {
     background-color: rgba(0, 0, 0, 0.1);
   }
   > * {
-    padding: 1rem;
+    padding: 0.75rem 0.25rem;
     word-break: break-word;
     &:not(:last-child) {
-      margin-right: 0.25rem;
+      margin-right: 0.25vmin;
     }
     &:nth-child(1) {
-      flex: 16ch 0 0;
+      flex: 13ch 0 0;
     }
     &:nth-child(2) {
       flex: 24ch 0 0;
@@ -40,12 +40,22 @@ const RepoStyle = styled.li<{ index: number }>`
   }
 `;
 
-const Lenke = styled.a`
+const lenkeStyle = css`
   color: white;
   text-decoration: none;
   &:hover {
     text-decoration: underline;
   }
+`;
+
+const RepoLenke = styled.a`
+  ${lenkeStyle};
+`;
+
+const HjemmesideLenke = styled.a`
+  ${lenkeStyle};
+  min-width: 3rem;
+  text-align: center;
 `;
 
 const Header = styled.h4`
@@ -59,19 +69,18 @@ const Timestamp = styled.p`
   opacity: 0.7;
 `;
 
-const Message = styled.p.attrs((props) => ({ title: props.children }))`
+const Description = styled.p.attrs((props) => ({ title: props.children }))`
   font-size: 0.8rem;
   font-weight: 300;
   opacity: 0.9;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  @media (max-width: 80ch) {
-    display: none;
-  }
-  &:last-child {
-    font-style: italic;
-  }
+`;
+
+const CommitMessage = styled(Description).attrs({ as: "a" })`
+  display: block;
+  ${lenkeStyle};
 `;
 
 const TextWrapper = styled.div`
@@ -79,23 +88,30 @@ const TextWrapper = styled.div`
   > *:not(:last-child) {
     margin-bottom: 0.5rem;
   }
+  @media (max-width: 80ch) {
+    display: none;
+  }
+  > *:last-child {
+    font-style: italic;
+  }
 `;
 
 function Repo(props: { repo: Repository; index: number }) {
   const { repo, index } = props;
   const updatedAt = format(new Date(repo.updatedAt), "d MMM p", { locale: nb });
+  const lastCommit = repo.defaultBranchRef.target;
   return (
     <RepoStyle index={index}>
       <Timestamp>{updatedAt}</Timestamp>
-      <Lenke href={repo.url}>{repo.name}</Lenke>
+      <RepoLenke href={repo.url}>{repo.name}</RepoLenke>
       {repo.homepageUrl && (
-        <Lenke aria-label={`Gå til ${repo.name} sin hjemmeside`} href={repo.homepageUrl}>
+        <HjemmesideLenke aria-label={`Gå til ${repo.name} sin hjemmeside`} href={repo.homepageUrl}>
           🚀
-        </Lenke>
+        </HjemmesideLenke>
       )}
       <TextWrapper>
-        <Message>{repo.description}</Message>
-        <Message>{repo.defaultBranchRef.target.message}</Message>
+        <Description>{repo.description}</Description>
+        <CommitMessage href={lastCommit.commitUrl}>{lastCommit.message}</CommitMessage>
       </TextWrapper>
     </RepoStyle>
   );

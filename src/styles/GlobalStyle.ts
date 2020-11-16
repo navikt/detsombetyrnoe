@@ -5,6 +5,11 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background-color: darkslategray;
   }
+  
+  html {
+    font-size: 112.5%;
+    font-weight: 300;
+  }
 
   * {
     box-sizing: border-box;

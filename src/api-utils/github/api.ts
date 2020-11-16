@@ -40,6 +40,7 @@ const query = gql`
             message
             additions
             deletions
+            commitUrl
             history {
               totalCount
             }
@@ -55,7 +56,7 @@ const query = gql`
       websiteUrl
       url
       description
-      publicRepositories: repositories(first: 10, orderBy: { field: UPDATED_AT, direction: DESC }, privacy: PUBLIC) {
+      publicRepositories: repositories(first: 15, orderBy: { field: UPDATED_AT, direction: DESC }, privacy: PUBLIC) {
         ...Repo
         totalCount
       }

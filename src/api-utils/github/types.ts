@@ -34,6 +34,7 @@ export interface Commit {
   message: string;
   additions: number;
   deletions: number;
+  commitUrl: string;
   history: {
     totalCount: number;
   };
