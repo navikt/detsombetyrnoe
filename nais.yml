@@ -32,5 +32,6 @@ spec:
         - host: c9hptfq7.apicdn.sanity.io
         - host: cdn.sanity.io
         - host: arbeidsplassen.nav.no
+        - host: api.amplitude.com
   ingresses:
     - https://detsombetyrnoe-next.labs.nais.io
