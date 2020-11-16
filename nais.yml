@@ -1,3 +1,5 @@
+env:
+  API_GITHUB_TOKEN: ${{ secrets.API_GITHUB_TOKEN }}
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
