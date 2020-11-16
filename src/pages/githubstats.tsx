@@ -35,7 +35,7 @@ const ErrorLoadingStyle = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 20rem;
-  background-color: ${navFrontend.navBla};
+  background-color: ${navFrontend.navBlaDarken60};
   font-size: 1.3rem;
 `;
 

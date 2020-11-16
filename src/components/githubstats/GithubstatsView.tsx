@@ -6,10 +6,10 @@ import { navFrontend } from "../../styles/navFarger";
 import { GithubData } from "../../api-utils/github/types";
 
 const Style = styled.div`
-  background-color: ${navFrontend.navBla};
+  background-color: ${navFrontend.navBlaDarken60};
   color: white;
   min-height: 100vh;
-  padding: 2vmin;
+  padding: 15vmin 2vmin;
   display: flex;
   flex-wrap: wrap;
   align-content: start;
