@@ -34,4 +34,4 @@ spec:
         - host: arbeidsplassen.nav.no
         - host: api.amplitude.com
   ingresses:
-    - https://detsombetyrnoe-next.labs.nais.io
+    - https://detsombetyrnoe.labs.nais.io
