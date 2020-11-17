@@ -1,6 +1,7 @@
-import { logAmplitudeEvent } from "../utils/amplitude";
+import { useAmplitude } from "../contexts/amplitude-context";
 
 const Stilling = (props) => {
+  const { logAmplitudeEvent } = useAmplitude();
   const { frist, url, title, description } = props;
 
   const handleClick = (event) => {

@@ -1,16 +1,12 @@
-import { useEffect } from "react";
 import Head from "next/head";
 import useSWR from "swr";
-import { initAmplitude } from "../../utils/amplitude";
 import Stillinger from "../../components/stillinger";
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
 function Legacy() {
   const { data: stillinger, error } = useSWR("/api/stillinger", fetcher);
-  useEffect(() => {
-    initAmplitude();
-  }, []);
+
   return (
     <>
       <Head>
