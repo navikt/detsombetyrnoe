@@ -19,7 +19,7 @@ FROM node:14.15.0-alpine
 WORKDIR /usr/src/app
 COPY --from=builder /usr/src/app/ /usr/src/app
 
-RUN ln -s .env env
+RUN ln -s env .env
 
 EXPOSE 3000
 CMD npm run start

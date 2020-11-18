@@ -6,7 +6,7 @@ metadata:
   labels:
     team: detsombetyrnoe
 spec:
-  image: { { image } }
+  image: {{image}}
   port: 3000
   liveness:
     path: /api/isAlive
@@ -37,4 +37,4 @@ spec:
     - https://detsombetyrnoe.labs.nais.io
   filesFrom:
     - secret: env
-      mountPath: /usr/src/app/.env
+      mountPath: /usr/src/app
