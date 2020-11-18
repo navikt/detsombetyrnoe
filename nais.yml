@@ -6,7 +6,7 @@ metadata:
   labels:
     team: detsombetyrnoe
 spec:
-  image: {{image}}
+  image: { { image } }
   port: 3000
   liveness:
     path: /api/isAlive
@@ -35,3 +35,6 @@ spec:
         - host: api.amplitude.com
   ingresses:
     - https://detsombetyrnoe.labs.nais.io
+  filesFrom:
+    - secret: env
+      mountPath: /usr/src/app/.env
