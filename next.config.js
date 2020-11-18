@@ -3,4 +3,7 @@ module.exports = {
     locales: ["no"],
     defaultLocale: "no",
   },
+  images: {
+    domains: ["cdn.sanity.io"],
+  },
 };
