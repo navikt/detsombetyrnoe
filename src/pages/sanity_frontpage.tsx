@@ -119,5 +119,6 @@ export async function getStaticProps({ preview = false }) {
       preview,
       data: frontpage,
     },
+    revalidate: 60,
   };
 }
