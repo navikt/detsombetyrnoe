@@ -9,9 +9,8 @@ const Stilling = (props) => {
     logAmplitudeEvent("Går til stilling", {
       title,
       url,
-    }).then(() => {
-      window.location.assign(url);
     });
+    window.location.assign(url);
   };
 
   return (
