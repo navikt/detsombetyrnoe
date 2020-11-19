@@ -1,17 +1,25 @@
 const { title } = require("process");
 
+function createDescription(text) {
+  text = text.replace(/<p>/g, "\n");
+  text = text.replace(/<\/p>/g, "\n");
+  text = text.replace(/<br \/>/g, "\n");
+  const lines = text
+    .split("\n")
+    .filter((line) => line !== "")
+    .slice(1);
+  let description = lines.shift();
+  while (!(description.endsWith(".") || description.endsWith("!") || description.endsWith("?"))) {
+    description = `${description} ${lines.shift()}`;
+  }
+  return description;
+}
+
 module.exports = async () => {
   const axios = require("axios");
   const searchUrl = "https://arbeidsplassen.nav.no/stillinger/api/search?q=nav&occupationFirstLevels[]=IT";
   const addUrl = "https://arbeidsplassen.nav.no/stillinger/api/stilling";
   const applyUrl = "https://arbeidsplassen.nav.no/stillinger/stilling";
-
-  const createDescription = (text) => {
-    text = text.replace(/<p>/g, "\n");
-    text = text.replace(/<\/p>/g, "\n");
-    text = text.replace(/<br \/>/g, "\n");
-    return text.split("\n").filter((line) => line !== "")[1];
-  };
 
   const formatDate = (date) => {
     const dato = new Date(date);
