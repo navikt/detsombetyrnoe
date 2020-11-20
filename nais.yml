@@ -35,6 +35,8 @@ spec:
         - host: api.amplitude.com
         - host: api.github.com
   ingresses:
+    - https://detsombetyrnoe.no
+    - https://www.detsombetyrnoe.no
     - https://detsombetyrnoe.labs.nais.io
   filesFrom:
     - secret: env
