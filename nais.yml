@@ -33,6 +33,7 @@ spec:
         - host: cdn.sanity.io
         - host: arbeidsplassen.nav.no
         - host: api.amplitude.com
+        - host: api.github.com
   ingresses:
     - https://detsombetyrnoe.labs.nais.io
   filesFrom:
