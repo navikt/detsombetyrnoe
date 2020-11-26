@@ -2,10 +2,10 @@
 
 !src
 !public
-!next-env.d.ts
-!package.json
-!package-lock.json
+!next*.js
+!next*.ts
+!package*.json
 !tsconfig.json
 !babelrc
-!jest.config.js
-!jest.setup.js
+!jest*.js
+!config.ts
