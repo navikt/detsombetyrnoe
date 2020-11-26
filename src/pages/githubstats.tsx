@@ -7,24 +7,7 @@ import { loggError } from "../utils/logger";
 import GithubstatsView from "../components/githubstats/GithubstatsView";
 import styled from "styled-components";
 import { navFrontend } from "../styles/navFarger";
-import { GithubData } from "../api-utils/github/types";
-import { fetchGithubData } from "../api-utils/github/api";
-
-export const getStaticProps: GetStaticProps = async () => {
-  try {
-    const { data } = await fetchGithubData();
-    return {
-      props: { data },
-      revalidate: 60,
-    };
-  } catch (e) {
-    console.error(e);
-    return {
-      props: { error: e.message },
-      revalidate: 30,
-    };
-  }
-};
+import useSWR from "swr";
 
 const Style = styled.div`
   font-family: "Comfortaa", sans-serif;
@@ -40,13 +23,17 @@ const ErrorLoadingStyle = styled.div`
   font-size: 1.3rem;
 `;
 
-function Githubstats(props: { data?: GithubData; error?: Error }) {
-  if (props.error) {
-    loggError(props.error);
+const fetcher = (url) => fetch(url).then((r) => r.json());
+
+function Githubstats() {
+  const { data, error } = useSWR("/api/github", fetcher);
+
+  if (error) {
+    loggError(error);
     return <ErrorLoadingStyle>Kunne ikke hente github-data</ErrorLoadingStyle>;
   }
 
-  if (!props.data) {
+  if (!data) {
     return <ErrorLoadingStyle>Loading..</ErrorLoadingStyle>;
   }
 
@@ -58,7 +45,7 @@ function Githubstats(props: { data?: GithubData; error?: Error }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;500&display=swap" rel="stylesheet" />
       </Head>
-      <GithubstatsView {...props.data} />
+      <GithubstatsView {...data} />
     </Style>
   );
 }
