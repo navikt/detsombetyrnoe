@@ -2,7 +2,7 @@ import Head from "next/head";
 import useSWR from "swr";
 import Stillinger from "../../components/stillinger";
 import Githubstats from "../../pages/githubstats";
-import isProduction from "../../utils/is-production";
+import { isDevelopment } from "../../utils/environment";
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
@@ -117,7 +117,7 @@ function Legacy() {
             </div>
           </div>
 
-          {!isProduction() && <Githubstats />}
+          {isDevelopment() && <Githubstats />}
 
           <div className="row pb-5 pb-md-0 quote-bg">
             <div className="col col-12 col-md-5 push-md-1 col-lg-4 push-lg-2 py-3 pb-sm-5 quote-content">
