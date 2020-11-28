@@ -5,6 +5,7 @@ function useInViewport(ref: React.MutableRefObject<HTMLElement>) {
 
   useEffect(() => {
     const handler = () => setInViewport(ref.current?.getBoundingClientRect().top < window.innerHeight);
+    handler();
     window.addEventListener("scroll", handler);
     return () => window.removeEventListener("scroll", handler);
   }, []);

@@ -20,7 +20,7 @@ const animation = keyframes`
 `;
 
 const RepoStyle = styled.li<{ index: number; inVeiwport: boolean }>`
-  animation: ${animation} 0.2s backwards ${(props) => props.index / 10 + 0.5}s;
+  animation: ${animation} 0.2s backwards ${(props) => props.index / 10 + 0.2}s;
   animation-play-state: ${(props) => (props.inVeiwport ? "running" : "paused")};
   display: flex;
   align-items: center;
@@ -48,6 +48,7 @@ const lenkeStyle = css`
   text-decoration: none;
   &:hover {
     text-decoration: underline;
+    color: palegoldenrod;
   }
 `;
 

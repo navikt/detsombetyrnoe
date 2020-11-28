@@ -2,13 +2,10 @@ import { createGlobalStyle } from "styled-components";
 import { navFrontend } from "./navFarger";
 
 export const GlobalStyle = createGlobalStyle`
-  body {
-    background-color: darkslategray;
-  }
-  
   html {
     font-size: 112.5%;
     font-weight: 300;
+    background-color: ${navFrontend.navBlaDarken40};
   }
 
   * {

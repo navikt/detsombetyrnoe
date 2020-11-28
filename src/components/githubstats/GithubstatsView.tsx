@@ -9,7 +9,7 @@ const Style = styled.div`
   background-color: ${navFrontend.navBlaDarken60};
   color: white;
   min-height: 100vh;
-  padding: 15vmin 2vmin;
+  padding: 5vmin 2vmin;
   display: flex;
   flex-wrap: wrap;
   align-content: start;

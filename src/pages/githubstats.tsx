@@ -11,6 +11,7 @@ import useSWR from "swr";
 
 const Style = styled.div`
   font-family: "Comfortaa", sans-serif;
+  margin: 1rem 0;
 `;
 
 const ErrorLoadingStyle = styled.div`
