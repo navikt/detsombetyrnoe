@@ -44,5 +44,15 @@ export default {
         },
       ],
     },
+    {
+      name: "showcases",
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "showcase" }],
+        },
+      ],
+    },
   ],
 };
