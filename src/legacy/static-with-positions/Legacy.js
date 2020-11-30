@@ -3,6 +3,7 @@ import useSWR from "swr";
 import Stillinger from "../../components/stillinger";
 import Githubstats from "../../pages/githubstats";
 import { isDevelopment } from "../../utils/environment";
+import GithubrepoLenke from "../../components/GithubrepoLenke";
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
@@ -34,6 +35,8 @@ function Legacy() {
               </p>
             </div>
           </div>
+
+          <GithubrepoLenke />
 
           <div className="row hidden-md-up" aria-hidden="true">
             <div className="col p-0">

@@ -6,6 +6,7 @@ import React from "react";
 import useSWR from "swr";
 import Stillinger from "../components/stillinger";
 import { getClient, PortableText, urlFor, usePreviewSubscription } from "../lib/sanity";
+import GithubrepoLenke from "../components/GithubrepoLenke";
 
 const frontpageQuery = groq`*[_id == "forside"][0]
 {
@@ -53,6 +54,8 @@ export default function SanityFrontpage({ data, preview }) {
               <p className="lead my-5 hg-text">{frontpage.beskrivelse}</p>
             </div>
           </div>
+
+          <GithubrepoLenke />
 
           {frontpage.bolker.map((bolk) => {
             if (bolk._type === "innholdsbolk") {
