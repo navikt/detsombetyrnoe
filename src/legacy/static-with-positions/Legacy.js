@@ -120,8 +120,6 @@ function Legacy() {
             </div>
           </div>
 
-          <Githubstats />
-
           <div className="row pb-5 pb-md-0 quote-bg">
             <div className="col col-12 col-md-5 push-md-1 col-lg-4 push-lg-2 py-3 pb-sm-5 quote-content">
               <div className="white-bg mt-md-5 p-5">
@@ -139,6 +137,7 @@ function Legacy() {
             </div>
           </div>
         </div>
+        <Githubstats />
       </main>
     </>
   );

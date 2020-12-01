@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
   html {
     font-size: 112.5%;
     font-weight: 300;
-    background-color: ${navFrontend.navBlaDarken40};
+    background-color: ${navFrontend.navBlaDarken80};
   }
 
   * {
