@@ -1,39 +1,17 @@
-name: Build and deploy prod-gcp
+name: Test and deploy to Vercel
 on:
   push:
-    branches:
-      - "main"
-env:
-  CI: true
-  IMAGE: docker.pkg.github.com/${{ github.repository }}/${{ github.event.repository.name }}:${{ github.sha }}
+    branches: [main]
 jobs:
   build:
-    name: Build and push docker image
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Login to GitHub package registry
-        run: |
-          echo ${GITHUB_TOKEN} | docker login -u ${GITHUB_REPOSITORY} --password-stdin docker.pkg.github.com
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build docker image
-        run: docker build -t ${{ env.IMAGE }} .
-      - name: Push docker image
-        run: docker push ${{ env.IMAGE }}
-
-  deploy:
-    name: Deploy to labs-gcp
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Deploy til labs-gcp
-        uses: nais/deploy/actions/deploy@v1
-        env:
-          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
-          RESOURCE: nais.yml
-          CLUSTER: labs-gcp
-          REF: ${{ github.sha }}
-          PRINT_PAYLOAD: true
-          IMAGE: ${{ env.IMAGE }}
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 12
+    - run: npm install
+    - run: npm run test-ci
+    - run: now --prod --confirm --token ${VERCEL_TOKEN}
+      env:
+        VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
