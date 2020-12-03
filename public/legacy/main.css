@@ -253,6 +253,7 @@ a:focus {
   color: #0067c5 !important;
   border: 0;
   padding: 0;
+  margin-top: 0.5rem;
   background: none;
   text-decoration: none !important;
   border-bottom: solid 1px #b7b1a9;
