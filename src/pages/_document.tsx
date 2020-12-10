@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Document from "next/document";
 import { ServerStyleSheet } from "styled-components";
 import { NextPageContext } from "next";

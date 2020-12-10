@@ -1,5 +1,4 @@
 import * as React from "react";
-import { GetStaticProps } from "next";
 import Head from "next/head";
 import { ResetCSS } from "../styles/reset.css";
 import { GlobalStyle } from "../styles/GlobalStyle";

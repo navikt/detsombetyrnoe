@@ -4,12 +4,9 @@ import Repositories from "./Repositories";
 import styled from "styled-components";
 import { navFrontend } from "../../styles/navFarger";
 import { GithubData } from "../../api-utils/github/types";
+import Panel from "../Panel";
 
 const Style = styled.div`
-  background-color: ${navFrontend.navBlaDarken60};
-  color: white;
-  min-height: 100vh;
-  padding: 20vmin 2vmin;
   display: flex;
   flex-wrap: wrap;
   align-content: start;
@@ -26,10 +23,12 @@ const Style = styled.div`
 
 function GithubstatsView(props: GithubData) {
   return (
-    <Style>
-      <GithubHeader github={props} />
-      <Repositories repos={props.organization.publicRepositories.nodes} />
-    </Style>
+    <Panel backgroundColor={navFrontend.navBlaDarken60} fontColor="white">
+      <Style>
+        <GithubHeader github={props} />
+        <Repositories repos={props.organization.publicRepositories.nodes} />
+      </Style>
+    </Panel>
   );
 }
 
