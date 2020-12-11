@@ -16,15 +16,18 @@ interface Props {
 export default function NyttDesign(props: Props) {
   return (
     <Style>
-      <Panel backgroundColor={navFrontend.navBlaDarken40} fontColor="white">
+      <Panel backgroundColor={"white"} fontColor="black">
         Hei på deg
       </Panel>
-      <Nøkkeltall nokkeltall={props.nokkeltallData?.nokkeltall} />
-      <Panel backgroundColor={navFrontend.navBlaDarken40} fontColor="white">
+      <Panel backgroundColor={"#F1F1F1"} fontColor="black">
         Nytt panel
       </Panel>
-      <Panel backgroundColor={navFrontend.navLilla} fontColor="white">
+      <Nøkkeltall nokkeltall={props.nokkeltallData?.nokkeltall} />
+      <Panel backgroundColor={navFrontend.navLysBla} fontColor="black">
         Litt mer innhold
+      </Panel>
+      <Panel backgroundColor={"white"} fontColor="black">
+        Bli med oss
       </Panel>
       <Githubstats />
     </Style>
