@@ -18,8 +18,10 @@ const frontpageQuery = groq`*[_id == "nokkeltall"][0]
 const StyledUl = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 15rem));
+  @media (min-width: 80rem) {
+    grid-template-columns: repeat(4, 15rem);
+  }
   grid-gap: 4rem;
-  max-width: 80rem;
 `;
 
 function Nøkkeltall() {
@@ -32,7 +34,7 @@ function Nøkkeltall() {
     <Panel backgroundColor={"white"} fontColor="black" spinner={loading}>
       <StyledUl>
         {data?.nokkeltall?.map((tall) => (
-          <Tall nøkkeltall={tall} />
+          <Tall key={tall._key} nøkkeltall={tall} />
         ))}
       </StyledUl>
     </Panel>
