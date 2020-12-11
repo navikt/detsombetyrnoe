@@ -7,8 +7,9 @@ import stillinger from "./stillinger";
 import vimeo from "./vimeo";
 import sitat from "./sitat";
 import showcase from "./showCase/showcase";
+import { nøkkeltall } from "./nøkkeltall";
 
 export default createSchema({
   name: "default",
-  types: schemaTypes.concat([blockContent, forside, innholdsbolk, sitat, stillinger, vimeo, showcase]),
+  types: schemaTypes.concat([blockContent, forside, innholdsbolk, sitat, stillinger, vimeo, showcase, ...nøkkeltall]),
 });

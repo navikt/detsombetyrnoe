@@ -1,7 +1,10 @@
+import { BsFillChatQuoteFill } from "react-icons/bs";
+
 export default {
   name: "sitat",
   title: "Sitat",
   type: "document",
+  icon: BsFillChatQuoteFill,
   fields: [
     {
       name: "overskrift",

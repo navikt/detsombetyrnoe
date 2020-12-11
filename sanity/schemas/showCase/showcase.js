@@ -1,7 +1,10 @@
+import { FaTrophy } from "react-icons/fa";
+
 export default {
   name: "showcase",
   title: "Showcase",
   type: "document",
+  icon: FaTrophy,
   fields: [
     {
       name: "tittel",
