@@ -10,7 +10,7 @@ import { groq } from "next-sanity";
 const Style = styled.div``;
 
 interface Props {
-  nokkeltallData: NøkkeltallData;
+  nokkeltallData?: NøkkeltallData;
 }
 
 export default function NyttDesign(props: Props) {
@@ -19,7 +19,7 @@ export default function NyttDesign(props: Props) {
       <Panel backgroundColor={navFrontend.navBlaDarken40} fontColor="white">
         Hei på deg
       </Panel>
-      <Nøkkeltall nokkeltall={props.nokkeltallData.nokkeltall} />
+      <Nøkkeltall nokkeltall={props.nokkeltallData?.nokkeltall} />
       <Panel backgroundColor={navFrontend.navBlaDarken40} fontColor="white">
         Nytt panel
       </Panel>
