@@ -1,5 +1,4 @@
 import * as React from "react";
-import Head from "next/head";
 import { ResetCSS } from "../styles/reset.css";
 import { GlobalStyle } from "../styles/GlobalStyle";
 import { loggError } from "../utils/logger";
@@ -7,10 +6,6 @@ import GithubstatsView from "../components/githubstats/GithubstatsView";
 import styled from "styled-components";
 import { navFrontend } from "../styles/navFarger";
 import useSWR from "swr";
-
-const Style = styled.div`
-  font-family: "Comfortaa", sans-serif;
-`;
 
 const ErrorLoadingStyle = styled.div`
   color: white;
@@ -36,17 +31,7 @@ function Githubstats() {
     return <ErrorLoadingStyle>Loading..</ErrorLoadingStyle>;
   }
 
-  return (
-    <Style>
-      <GlobalStyle />
-      <ResetCSS />
-      <Head>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;500&display=swap" rel="stylesheet" />
-      </Head>
-      <GithubstatsView {...data} />
-    </Style>
-  );
+  return <GithubstatsView {...data} />;
 }
 
 export default Githubstats;

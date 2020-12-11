@@ -1,11 +1,12 @@
 import {
+  ClientConfig,
   createClient,
   createImageUrlBuilder,
   createPortableTextComponent,
   createPreviewSubscriptionHook,
 } from "next-sanity";
 
-const config = {
+const config: ClientConfig = {
   dataset: "production",
   projectId: "c9hptfq7",
   useCdn: process.env.NODE_ENV === "production",

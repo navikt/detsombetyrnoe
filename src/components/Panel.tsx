@@ -1,32 +1,34 @@
 import * as React from "react";
 import styled from "styled-components";
 import { ReactNode } from "react";
+import Spinner from "./Spinner";
 
 interface Props {
   backgroundColor?: string;
   fontColor?: string;
   children: ReactNode;
+  spinner?: boolean;
+  className?: string;
+  tag?: "a" | "ul" | "ol";
 }
 
 const Style = styled.div<{ backgroundColor: string; fontColor: string }>`
   background-color: ${(props) => props.backgroundColor};
   color: ${(props) => props.fontColor};
-  min-height: 100vh;
+  min-height: 110vh;
   padding: 20vmin 5vmin;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-`;
-
-const Content = styled.div`
-  max-width: 100vw;
+  > * {
+    max-width: 100%;
+  }
 `;
 
 function Panel(props: Props) {
   return (
     <Style backgroundColor={props.backgroundColor || "white"} fontColor={props.fontColor || "black"}>
-      <Content>{props.children}</Content>
+      {props.spinner ? <Spinner /> : props.children}
     </Style>
   );
 }
