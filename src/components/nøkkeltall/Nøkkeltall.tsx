@@ -1,7 +1,7 @@
 import * as React from "react";
 import { groq } from "next-sanity";
 import { NøkkeltallListe, NøkkeltallTekst } from "./types";
-import { getClient, usePreviewSubscription } from "../../lib/sanity";
+import { useSWRSanity } from "../../lib/sanity";
 import Panel from "../Panel";
 import Tall from "./Tall";
 import styled from "styled-components";
@@ -24,18 +24,15 @@ const StyledUl = styled.ul`
   grid-gap: 4rem;
 `;
 
-function Nøkkeltall({ data: initialData, preview }: any) {
-  const { data, error, loading } = usePreviewSubscription<Data>(query, {
-    initialData: initialData,
-    enabled: preview,
-  });
+export default function Nøkkeltall() {
+  const { data, error } = useSWRSanity<Data>(query);
 
   if (error) {
     return <div>Det skjedde en feil 🤷‍♀️</div>;
   }
 
   return (
-    <Panel backgroundColor={"white"} fontColor="black" spinner={loading}>
+    <Panel backgroundColor={"white"} fontColor="black" spinner={!data}>
       <StyledUl>
         {data?.nokkeltall?.map((tall) => (
           <Tall key={tall._key} nøkkeltall={tall} />
@@ -44,16 +41,3 @@ function Nøkkeltall({ data: initialData, preview }: any) {
     </Panel>
   );
 }
-
-export async function getStaticProps({ preview = false }) {
-  const data = await getClient(preview).fetch(query);
-  return {
-    props: {
-      preview,
-      data,
-    },
-    revalidate: 60,
-  };
-}
-
-export default Nøkkeltall;

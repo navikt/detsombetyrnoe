@@ -5,6 +5,8 @@ import {
   createPortableTextComponent,
   createPreviewSubscriptionHook,
 } from "next-sanity";
+import useSWR from "swr";
+import { isDevelopment } from "../utils/environment";
 
 const config: ClientConfig = {
   dataset: "production",
@@ -30,3 +32,6 @@ const previewClient = createClient({
 });
 
 export const getClient = (usePreview: boolean) => (usePreview ? previewClient : sanityClient);
+
+export const useSWRSanity = <Data>(query: string) =>
+  useSWR<Data>(query, (query: string) => getClient(isDevelopment()).fetch(query));
