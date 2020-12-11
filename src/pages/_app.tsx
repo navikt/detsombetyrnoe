@@ -3,9 +3,12 @@ import "../styles/globals.css";
 import { ResetCSS } from "../styles/reset.css";
 import { GlobalStyle } from "../styles/GlobalStyle";
 import Metadata from "../components/Metadata";
-import React from "react";
+import React, { useEffect } from "react";
+import useScrollToHashOnPageLoad from "../utils/useScrollToHashOnPageLoad";
 
-function MyApp({ Component, pageProps }: any) {
+function App({ Component, pageProps }: any) {
+  useScrollToHashOnPageLoad();
+
   return (
     <>
       <ResetCSS />
@@ -18,4 +21,4 @@ function MyApp({ Component, pageProps }: any) {
   );
 }
 
-export default MyApp;
+export default App;
