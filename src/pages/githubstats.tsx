@@ -17,7 +17,7 @@ const ErrorLoadingStyle = styled.div`
   font-size: 1.3rem;
 `;
 
-const fetcher = (url) => fetch(url).then((r) => r.json());
+const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
 function Githubstats() {
   const { data, error } = useSWR("/api/github", fetcher);

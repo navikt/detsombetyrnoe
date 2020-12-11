@@ -18,9 +18,9 @@ const frontpageQuery = groq`*[_id == "forside"][0]
     "bolker": bolker[],
 }`;
 
-const fetcher = (url) => fetch(url).then((r) => r.json());
+const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
-export default function SanityFrontpage({ data, preview }) {
+export default function SanityFrontpage({ data, preview }: any) {
   const { data: frontpage } = usePreviewSubscription(frontpageQuery, {
     initialData: data,
     enabled: preview,
@@ -48,7 +48,7 @@ export default function SanityFrontpage({ data, preview }) {
           <div className="row topp-bg p-4">
             <div className="text-white col col-12 col-md-6 px-md-5 pb-4">
               <a className="my-md-5 mt-3 mt-lg-5 mb-5" href="http://www.nav.no" title="Hjem">
-                <Image src={urlFor(frontpage.navLogo).url()} alt="NAV logo" width={140} height={88} />
+                <Image src={urlFor(frontpage.navLogo).url() || ""} alt="NAV logo" width={140} height={88} />
               </a>
               <h1 className="mt-md-2 mt-lg-5 pt-lg-5 hg-title">{frontpage.tittel}</h1>
               <p className="lead my-5 hg-text">{frontpage.beskrivelse}</p>
@@ -57,7 +57,7 @@ export default function SanityFrontpage({ data, preview }) {
 
           <GithubrepoLenke />
 
-          {frontpage.bolker.map((bolk) => {
+          {frontpage.bolker.map((bolk: any) => {
             if (bolk._type === "innholdsbolk") {
               return (
                 <div className="row justify-content-center mb-4 pb-4">
@@ -72,7 +72,7 @@ export default function SanityFrontpage({ data, preview }) {
                       (bolk.videoer.length == 1 ? (
                         <Vimeo video={bolk.videoer[0].url} />
                       ) : (
-                        bolk.videoer.map((video) => {
+                        bolk.videoer.map((video: any) => {
                           return (
                             <>
                               {video.tittel && <h3 className="title--padding text-center">{video.tittel}</h3>}

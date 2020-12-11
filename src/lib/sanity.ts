@@ -12,7 +12,7 @@ const config: ClientConfig = {
   useCdn: process.env.NODE_ENV === "production",
 };
 
-export const urlFor = (source) => createImageUrlBuilder(config).image(source);
+export const urlFor = (source: any) => createImageUrlBuilder(config).image(source);
 
 export const usePreviewSubscription = createPreviewSubscriptionHook(config);
 
@@ -29,4 +29,4 @@ const previewClient = createClient({
   token: process.env.SANITY_API_TOKEN,
 });
 
-export const getClient = (usePreview) => (usePreview ? previewClient : sanityClient);
+export const getClient = (usePreview: boolean) => (usePreview ? previewClient : sanityClient);

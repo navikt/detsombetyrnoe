@@ -4,7 +4,7 @@ import { NextPageContext } from "next";
 import { RenderPage } from "next/dist/next-server/lib/utils";
 
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx) {
+  static async getInitialProps(ctx: any) {
     return await renderServersideStyledComponentsStylesheet(ctx);
   }
 }

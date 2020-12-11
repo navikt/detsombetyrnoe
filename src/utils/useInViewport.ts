@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 
-function useInViewport(ref: React.MutableRefObject<HTMLElement>) {
+function useInViewport<T extends HTMLElement>(ref: React.RefObject<T>) {
   const [inViewPort, setInViewport] = useState(false);
 
   useEffect(() => {
-    const handler = () => setInViewport(ref.current?.getBoundingClientRect().top < window.innerHeight);
+    const top = ref.current?.getBoundingClientRect().top;
+    const handler = () => setInViewport(top ? top < window.innerHeight : true);
     handler();
     window.addEventListener("scroll", handler);
     return () => window.removeEventListener("scroll", handler);
