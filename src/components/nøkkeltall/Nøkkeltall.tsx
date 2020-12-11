@@ -19,7 +19,7 @@ const StyledUl = styled.ul`
 
 export default function Nøkkeltall(props: NøkkeltallData) {
   return (
-    <Panel backgroundColor={"white"} fontColor="black">
+    <Panel backgroundColor={"white"} fontColor="black" id="nokkeltall">
       <StyledUl>
         {props.nokkeltall?.map((tall) => (
           <Tall key={tall._key} nøkkeltall={tall} />

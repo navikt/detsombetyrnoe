@@ -9,6 +9,7 @@ interface Props {
   children: ReactNode;
   spinner?: boolean;
   className?: string;
+  id?: string;
   tag?: "a" | "ul" | "ol";
 }
 
@@ -27,7 +28,7 @@ const Style = styled.div<{ backgroundColor: string; fontColor: string }>`
 
 function Panel(props: Props) {
   return (
-    <Style backgroundColor={props.backgroundColor || "white"} fontColor={props.fontColor || "black"}>
+    <Style backgroundColor={props.backgroundColor || "white"} fontColor={props.fontColor || "black"} id={props.id}>
       {props.spinner ? <Spinner /> : props.children}
     </Style>
   );
