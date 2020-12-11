@@ -29,7 +29,7 @@ export default {
     prepare(selection) {
       const { nokkeltall } = selection;
       return {
-        title: `Nokkeltall (${console.log(nokkeltall) || nokkeltall?.length})`,
+        title: `Nokkeltall (${nokkeltall?.length})`,
       };
     },
   },
