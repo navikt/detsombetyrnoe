@@ -1,7 +1,9 @@
 import * as React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { isNøkkeltallTekst, NøkkeltallListe, NøkkeltallTekst } from "./types";
 import { navFrontend } from "../../styles/navFarger";
+import useInViewport from "../../utils/useInViewport";
+import { useRef } from "react";
 
 const Style = styled.li`
   text-align: center;
@@ -10,7 +12,16 @@ const Style = styled.li`
   }
 `;
 
-const NumberStyle = styled.p`
+const animation = keyframes`
+  from {
+    transform: rotateX(90deg) scaleY(2);
+  }
+`;
+
+const NumberStyle = styled.p<{ inVeiwport: boolean; delay: number }>`
+  animation: ${animation} 0.5s backwards ${(props) => props.delay}s;
+  animation-play-state: ${(props) => (props.inVeiwport ? "running" : "paused")};
+  transform-origin: bottom;
   font-size: 5rem;
   line-height: 0.9;
   font-weight: 600;
@@ -27,6 +38,8 @@ const TekstStyle = styled.p`
 
 interface Props {
   nøkkeltall: NøkkeltallListe | NøkkeltallTekst;
+  index: number;
+  inViewport: boolean;
 }
 
 function Tall(props: Props) {
@@ -35,9 +48,14 @@ function Tall(props: Props) {
   const tittel = nøkkeltall.title;
   const description = isNøkkeltallTekst(nøkkeltall) ? nøkkeltall.description : nøkkeltall.liste?.join(", ");
 
+  const ref = useRef<HTMLLIElement>(null);
+  const delay = (ref.current?.getBoundingClientRect().left || 0) / 2000 + props.index / 30 + 0.2;
+
   return (
-    <Style>
-      <NumberStyle>{tall}</NumberStyle>
+    <Style ref={ref}>
+      <NumberStyle inVeiwport={props.inViewport} delay={delay}>
+        {tall}
+      </NumberStyle>
       <TitleStyle>{tittel}</TitleStyle>
       <TekstStyle>{description}</TekstStyle>
     </Style>

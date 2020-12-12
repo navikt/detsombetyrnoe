@@ -3,6 +3,8 @@ import { NøkkeltallListe, NøkkeltallTekst } from "./types";
 import Panel from "../Panel";
 import Tall from "./Tall";
 import styled from "styled-components";
+import { useRef } from "react";
+import useInViewport from "../../utils/useInViewport";
 
 export interface NøkkeltallData {
   nokkeltall?: (NøkkeltallTekst | NøkkeltallListe)[];
@@ -18,11 +20,14 @@ const StyledUl = styled.ul`
 `;
 
 export default function Nøkkeltall(props: NøkkeltallData) {
+  const ref = useRef<HTMLUListElement>(null);
+  const inViewport = useInViewport(ref);
+
   return (
     <Panel backgroundColor={"white"} fontColor="black" id="nokkeltall">
-      <StyledUl>
-        {props.nokkeltall?.map((tall) => (
-          <Tall key={tall._key} nøkkeltall={tall} />
+      <StyledUl ref={ref}>
+        {props.nokkeltall?.map((tall, i) => (
+          <Tall key={tall._key} nøkkeltall={tall} index={i} inViewport={inViewport} />
         ))}
       </StyledUl>
     </Panel>
