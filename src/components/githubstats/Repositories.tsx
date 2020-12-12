@@ -20,7 +20,7 @@ const animation = keyframes`
 `;
 
 const RepoStyle = styled.li<{ index: number; inVeiwport: boolean }>`
-  animation: ${animation} 0.2s backwards ${(props) => props.index / 10 + 0.2}s;
+  animation: ${animation} 0.2s backwards ${(props) => props.index / 10}s;
   animation-play-state: ${(props) => (props.inVeiwport ? "running" : "paused")};
   display: flex;
   align-items: center;
@@ -119,7 +119,7 @@ function Repo(props: { repo: Repository; index: number; inVeiwport: boolean }) {
 
 function Repositories(props: { repos: Repository[] }) {
   const ref = useRef<HTMLOListElement>(null);
-  const inViewport = useInViewport(ref);
+  const inViewport = useInViewport(ref, 200);
   return (
     <Style ref={ref}>
       <Header>Siste aktivitet:</Header>

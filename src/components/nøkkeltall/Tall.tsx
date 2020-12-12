@@ -14,12 +14,13 @@ const Style = styled.li`
 
 const animation = keyframes`
   from {
-    transform: rotateX(90deg) scaleY(2);
+    transform: rotateX(90deg) scaleY(2) translateY(-.5rem);
   }
 `;
 
 const NumberStyle = styled.p<{ inVeiwport: boolean; delay: number }>`
-  animation: ${animation} 0.5s backwards ${(props) => props.delay}s;
+  animation: ${animation} 0.5s backwards;
+  animation-delay: ${(props) => props.delay}s;
   animation-play-state: ${(props) => (props.inVeiwport ? "running" : "paused")};
   transform-origin: bottom;
   font-size: 5rem;
@@ -38,7 +39,6 @@ const TekstStyle = styled.p`
 
 interface Props {
   nøkkeltall: NøkkeltallListe | NøkkeltallTekst;
-  index: number;
   inViewport: boolean;
 }
 
@@ -49,7 +49,8 @@ function Tall(props: Props) {
   const description = isNøkkeltallTekst(nøkkeltall) ? nøkkeltall.description : nøkkeltall.liste?.join(", ");
 
   const ref = useRef<HTMLLIElement>(null);
-  const delay = (ref.current?.getBoundingClientRect().left || 0) / 2000 + props.index / 30 + 0.2;
+  const rect = ref.current?.getBoundingClientRect();
+  const delay = rect ? (rect.left / 3 + rect.top / 4) * 0.001 : 0;
 
   return (
     <Style ref={ref}>

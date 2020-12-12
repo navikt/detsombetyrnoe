@@ -21,13 +21,13 @@ const StyledUl = styled.ul`
 
 export default function Nøkkeltall(props: NøkkeltallData) {
   const ref = useRef<HTMLUListElement>(null);
-  const inViewport = useInViewport(ref);
+  const inViewport = useInViewport(ref, 200);
 
   return (
     <Panel backgroundColor={"white"} fontColor="black" id="nokkeltall">
       <StyledUl ref={ref}>
         {props.nokkeltall?.map((tall, i) => (
-          <Tall key={tall._key} nøkkeltall={tall} index={i} inViewport={inViewport} />
+          <Tall key={tall._key} nøkkeltall={tall} inViewport={inViewport} />
         ))}
       </StyledUl>
     </Panel>
