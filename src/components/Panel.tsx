@@ -14,6 +14,7 @@ interface Props {
 }
 
 const Style = styled.div<{ backgroundColor: string; fontColor: string }>`
+  scroll-snap-align: start;
   background-color: ${(props) => props.backgroundColor};
   color: ${(props) => props.fontColor};
   min-height: 110vh;
