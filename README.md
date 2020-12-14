@@ -25,3 +25,7 @@ API_GITHUB_TOKEN="MITT_HEMMELIGE_TOKEN"
 
 `github.com -> Settings -> Developer settings -> Personal access tokens`
 Du trenger tilgang til `public_repo, read:org` og skru på SSO for tokenet.
+
+## Gamle sider
+
+Leter du etter det gamle repoet? Det finner du nå her [https://github.com/navikt/detsombetyrnoe-legacy](https://github.com/navikt/detsombetyrnoe-legacy)
