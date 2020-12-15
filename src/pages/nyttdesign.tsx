@@ -9,12 +9,6 @@ import { groq } from "next-sanity";
 
 const Style = styled.div``;
 
-const ScrollSnap = createGlobalStyle`
-  html {
-    scroll-snap-type: y mandatory;
-  }
-`;
-
 interface Props {
   nokkeltallData?: NøkkeltallData;
 }
@@ -22,7 +16,6 @@ interface Props {
 export default function NyttDesign(props: Props) {
   return (
     <>
-      <ScrollSnap />
       <Style>
         <Panel backgroundColor={"white"} fontColor="black">
           Hei på deg
