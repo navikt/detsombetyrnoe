@@ -11,6 +11,7 @@ import Snø from "./Snø";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import { detect } from "detect-browser";
+import withErrorBoundary from "../withErrorBoundary";
 
 const Style = styled.div<{ height: number }>`
   position: relative;
@@ -146,4 +147,4 @@ function Julekort() {
   );
 }
 
-export default Julekort;
+export default withErrorBoundary(Julekort, "Julekort");
