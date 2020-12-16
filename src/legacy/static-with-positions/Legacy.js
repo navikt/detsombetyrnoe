@@ -2,8 +2,8 @@ import Head from "next/head";
 import useSWR from "swr";
 import Stillinger from "../../components/stillinger";
 import Githubstats from "../../pages/githubstats";
-import { isDevelopment } from "../../utils/environment";
 import GithubrepoLenke from "../../components/GithubrepoLenke";
+import Julekort from "../../components/julekort/Julekort";
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
@@ -19,6 +19,7 @@ function Legacy() {
       </Head>
 
       <main role="main">
+        <Julekort />
         <div className="container-fluid">
           <div className="row topp-bg p-4">
             <div className="text-white col col-12 col-md-6 px-md-5 pb-4">
