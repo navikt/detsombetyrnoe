@@ -1,11 +1,10 @@
 import * as React from "react";
-import { ResetCSS } from "../styles/reset.css";
-import { GlobalStyle } from "../styles/GlobalStyle";
 import { loggError } from "../utils/logger";
 import GithubstatsView from "../components/githubstats/GithubstatsView";
 import styled from "styled-components";
 import { navFrontend } from "../styles/navFarger";
 import useSWR from "swr";
+import withErrorBoundary from "../components/withErrorBoundary";
 
 const ErrorLoadingStyle = styled.div`
   color: white;
@@ -34,4 +33,4 @@ function Githubstats() {
   return <GithubstatsView {...data} />;
 }
 
-export default Githubstats;
+export default withErrorBoundary(Githubstats, "Githubstats");
