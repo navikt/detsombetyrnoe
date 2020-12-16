@@ -6,7 +6,7 @@ Nextjs-frontend og sanity-cms oppsett for karrieresidene på [detsombetyrnoe.no]
 
 Innhold kan redigeres på [https://detsombetyrnoe.sanity.studio](https://detsombetyrnoe.sanity.studio)
 
-## Utvikling
+## Utvikling 
 
 ```
 npm i
