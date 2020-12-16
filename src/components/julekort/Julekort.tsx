@@ -79,7 +79,7 @@ const StyledMåne = styled(Måne)`
   animation: ${måneAnimasjon} 3s backwards 1s;
 `;
 
-const Tekst = styled.h1`
+const Tekst = styled.h2`
   font-weight: 400;
   animation: ${animasjoner.fadeIn} 5s;
   font-family: "Lobster", cursive;
