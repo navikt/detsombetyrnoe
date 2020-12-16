@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useEffect, useState } from "react";
 import styled, { css, keyframes } from "styled-components/macro";
 import Bondegård from "./ikoner/Bondegård";
 import Fjell from "./ikoner/Fjell";
@@ -8,9 +9,7 @@ import Måne from "./ikoner/Måne";
 import Juletre from "./Juletre";
 import { animasjoner, delay } from "./animasjoner";
 import Snø from "./Snø";
-import { useEffect, useState } from "react";
 import Head from "next/head";
-import { detect } from "detect-browser";
 import withErrorBoundary from "../withErrorBoundary";
 
 const Style = styled.div<{ height: number }>`
@@ -102,23 +101,8 @@ const useWindowHeight = () => {
   return height;
 };
 
-const useSupportedBrowser = () => {
-  const [supported, setSupported] = useState(true);
-  useEffect(() => {
-    const browser = detect();
-    const compatibleBrowser = !["edge", "ie"].includes(browser?.name || "");
-    setSupported(compatibleBrowser);
-  }, []);
-  return supported;
-};
-
 function Julekort() {
   const height = useWindowHeight();
-  const supportedBrowser = useSupportedBrowser();
-
-  if (!supportedBrowser) {
-    return null;
-  }
 
   return (
     <>

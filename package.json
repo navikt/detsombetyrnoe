@@ -18,7 +18,6 @@
     "amplitude-js": "7.3.3",
     "axios": "0.21.0",
     "date-fns": "2.16.1",
-    "detect-browser": "^5.2.0",
     "graphql": "15.4.0",
     "identity-obj-proxy": "3.0.0",
     "next": "10.0.3",
