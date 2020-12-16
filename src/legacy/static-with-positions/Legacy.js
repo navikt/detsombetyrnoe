@@ -45,69 +45,6 @@ function Legacy() {
             </div>
           </div>
 
-          <div className="videos-container row">
-            <h2 className="title-rekruttering title--padding text-center red-text">Et møte med NAV i 2035</h2>
-
-            <div className="video-rekruttering video--position">
-              <iframe
-                title="Et møte med NAV i 2035"
-                className="video-frame"
-                src="https://player.vimeo.com/video/304780760?title=0&byline=0&portrait=0"
-                frameBorder="0"
-                webkitallowfullscreen="true"
-                mozallowfullscreen="true"
-                allowFullScreen
-              ></iframe>
-            </div>
-            <script src="https://player.vimeo.com/api/player.js"></script>
-
-            <h2 className="title-segment title--padding text-center red-text">
-              Hils på noen av oss som bygger neste generasjons velferdsløsninger
-            </h2>
-
-            <h3 className="title-marianne title--padding text-center">Marianne</h3>
-            <div className="video-marianne video--height video--position">
-              <iframe
-                title="Marianne om NAV IT"
-                src="https://player.vimeo.com/video/286477034?title=0&byline=0&portrait=0"
-                className="video-frame"
-                frameBorder="0"
-                webkitallowfullscreen="true"
-                mozallowfullscreen="true"
-                allowFullScreen
-              ></iframe>
-            </div>
-            <script src="https://player.vimeo.com/api/player.js"></script>
-
-            <h3 className="title-audun title--padding text-center">Audun</h3>
-            <div className="video-audun video--height video--position">
-              <iframe
-                title="Audun om NAV IT"
-                src="https://player.vimeo.com/video/285805067?title=0&byline=0&portrait=0"
-                className="video-frame"
-                frameBorder="0"
-                webkitallowfullscreen="true"
-                mozallowfullscreen="true"
-                allowFullScreen
-              ></iframe>
-            </div>
-            <script src="https://player.vimeo.com/api/player.js"></script>
-
-            <h3 className="title-ingrid title--padding text-center">Ingrid</h3>
-            <div className="video-ingrid video--height video--position">
-              <iframe
-                title="Ingrid om NAV IT"
-                src="https://player.vimeo.com/video/285805346?title=0&byline=0&portrait=0"
-                className="video-frame"
-                frameBorder="0"
-                webkitallowfullscreen="true"
-                mozallowfullscreen="true"
-                allowFullScreen
-              ></iframe>
-            </div>
-            <script src="https://player.vimeo.com/api/player.js"></script>
-          </div>
-
           {stillinger && <Stillinger stillinger={stillinger} />}
 
           <div className="row justify-content-center mb-4 pb-4">
