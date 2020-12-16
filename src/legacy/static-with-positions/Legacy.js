@@ -45,32 +45,34 @@ function Legacy() {
           </div>
 
           <div className="videos-container row">
-            <h1 className="title-rekruttering title--padding text-center red-text">Et møte med NAV i 2035</h1>
+            <h2 className="title-rekruttering title--padding text-center red-text">Et møte med NAV i 2035</h2>
 
             <div className="video-rekruttering video--position">
               <iframe
+                title="Et møte med NAV i 2035"
                 className="video-frame"
                 src="https://player.vimeo.com/video/304780760?title=0&byline=0&portrait=0"
                 frameBorder="0"
-                webkitallowfullscreen
-                mozallowfullscreen
+                webkitallowfullscreen="true"
+                mozallowfullscreen="true"
                 allowFullScreen
               ></iframe>
             </div>
             <script src="https://player.vimeo.com/api/player.js"></script>
 
-            <h1 className="title-segment title--padding text-center red-text">
+            <h2 className="title-segment title--padding text-center red-text">
               Hils på noen av oss som bygger neste generasjons velferdsløsninger
-            </h1>
+            </h2>
 
             <h3 className="title-marianne title--padding text-center">Marianne</h3>
             <div className="video-marianne video--height video--position">
               <iframe
+                title="Marianne om NAV IT"
                 src="https://player.vimeo.com/video/286477034?title=0&byline=0&portrait=0"
                 className="video-frame"
                 frameBorder="0"
-                webkitallowfullscreen
-                mozallowfullscreen
+                webkitallowfullscreen="true"
+                mozallowfullscreen="true"
                 allowFullScreen
               ></iframe>
             </div>
@@ -79,11 +81,12 @@ function Legacy() {
             <h3 className="title-audun title--padding text-center">Audun</h3>
             <div className="video-audun video--height video--position">
               <iframe
+                title="Audun om NAV IT"
                 src="https://player.vimeo.com/video/285805067?title=0&byline=0&portrait=0"
                 className="video-frame"
                 frameBorder="0"
-                webkitallowfullscreen
-                mozallowfullscreen
+                webkitallowfullscreen="true"
+                mozallowfullscreen="true"
                 allowFullScreen
               ></iframe>
             </div>
@@ -92,11 +95,12 @@ function Legacy() {
             <h3 className="title-ingrid title--padding text-center">Ingrid</h3>
             <div className="video-ingrid video--height video--position">
               <iframe
+                title="Ingrid om NAV IT"
                 src="https://player.vimeo.com/video/285805346?title=0&byline=0&portrait=0"
                 className="video-frame"
                 frameBorder="0"
-                webkitallowfullscreen
-                mozallowfullscreen
+                webkitallowfullscreen="true"
+                mozallowfullscreen="true"
                 allowFullScreen
               ></iframe>
             </div>
@@ -110,7 +114,7 @@ function Legacy() {
               <h2 className="text-center mb-4 mb-md-3 mt-5 red-text">Ingen stillinger som passer din profil?</h2>
               <p className="text-center mb-md-4">Ta kontakt for en uforpliktende prat:</p>
               <div className="text-center">
-                <h5>Stig Øwre</h5>
+                <p>Stig Øwre</p>
                 <p>
                   Seksjonssjef Utvikling
                   <br />

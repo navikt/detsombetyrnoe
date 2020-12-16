@@ -62,7 +62,7 @@ const HjemmesideLenke = styled.a`
   text-align: center;
 `;
 
-const Header = styled.h4`
+const Header = styled.h3`
   padding: 1rem;
   text-align: center;
   font-weight: 600;
@@ -122,7 +122,9 @@ function Repositories(props: { repos: Repository[] }) {
   const inViewport = useInViewport(ref, 200);
   return (
     <Style ref={ref}>
-      <Header>Siste aktivitet:</Header>
+      <li>
+        <Header>Siste aktivitet:</Header>
+      </li>
       {props.repos?.map((repo, i) => (
         <Repo key={repo.id} repo={repo} index={i} inVeiwport={inViewport} />
       ))}
