@@ -99,7 +99,7 @@ const TextWrapper = styled.div`
 function Repo(props: { repo: Repository; index: number; inVeiwport: boolean }) {
   const { repo, index } = props;
   const updatedAt = format(new Date(repo.updatedAt), "d MMM p", { locale: nb });
-  const lastCommit = repo.defaultBranchRef.target;
+  const lastCommit = repo.defaultBranchRef?.target ?? { commitUrl: "", message: "" };
   return (
     <RepoStyle index={index} inVeiwport={props.inVeiwport}>
       <Timestamp>{updatedAt}</Timestamp>
