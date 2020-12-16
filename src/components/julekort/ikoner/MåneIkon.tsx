@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function Måne(props: React.SVGProps<SVGSVGElement>) {
+function MåneIkon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 15 24" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
@@ -13,4 +13,4 @@ function Måne(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export default Måne;
+export default MåneIkon;
