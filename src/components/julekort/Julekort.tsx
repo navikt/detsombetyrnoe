@@ -11,6 +11,7 @@ import { animasjoner, delay } from "./animasjoner";
 import Snø from "./Snø";
 import Head from "next/head";
 import withErrorBoundary from "../withErrorBoundary";
+import Stativ from "./Stativ";
 
 const Style = styled.div<{ height: number }>`
   position: relative;
@@ -59,7 +60,7 @@ const StyledLitenStjerne = styled(LitenStjerne)<{ top: number; right: number; si
   stroke: none;
   fill: gold;
   animation: ${animasjoner.dropDown} 1s backwards, ${animasjoner.blink} 4s infinite;
-  animation-delay: ${(props) => 1 / props.size + 2.2 + delay}s;
+  animation-delay: ${(props) => 1 / props.size + 2.8 + delay}s;
 `;
 
 const måneAnimasjon = keyframes`
@@ -122,6 +123,7 @@ function Julekort() {
         <StyledFjell aria-label="Fjell med snø i det fjerne" />
         <Snø />
         <StyledBondegård aria-label="Bondegård med snø på taket" />
+        <Stativ />
         <Juletre />
         <Tekst>
           <span>God</span>

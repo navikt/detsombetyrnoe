@@ -23,7 +23,7 @@ const popUp = keyframes`
 
 const PopInAnimation = styled.div<Props>`
   animation: ${popUp} 0.5s backwards 1s;
-  animation-delay: ${(props) => delay + 2 + props.delay}s;
+  animation-delay: ${(props) => delay + 1.7 + props.delay}s;
   position: absolute;
   top: ${(props) => props.top}%;
   left: ${(props) => props.left}%;
