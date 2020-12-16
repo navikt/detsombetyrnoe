@@ -27,18 +27,34 @@ const AnimationWrapper = styled.div<Props>`
   position: absolute;
   top: ${(props) => props.top}%;
   left: ${(props) => props.left}%;
+`;
+
+const shake = keyframes`
+  from {
+  transform: rotate(5deg);
+  }
+  to {
+  transform: rotate(-5deg);
+  }
+`;
+
+const ShakeAnimation = styled.div`
+  animation: ${shake} 0.1s 6 alternate linear -0.05s;
+  transform-origin: top;
+  &:hover {
+    animation: none;
+  }
+`;
+
+const JulekuleStyle = styled.div<Props>`
+  transform: rotate(${(props) => props.rotation}deg);
+  display: flex;
   background-color: ${(props) => props.farge};
   font-family: "Lobster", cursive;
   background-image: radial-gradient(circle at right bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
   border-radius: 50%;
   height: ${size};
   width: ${size};
-`;
-
-const JulekuleStyle = styled.div<Props>`
-  transform: rotate(${(props) => props.rotation}deg);
-  display: flex;
-  height: 100%;
   align-items: center;
   justify-content: center;
   color: white;
@@ -85,11 +101,13 @@ const Snor = styled.span`
 const Julekule = (props: Props) => {
   return (
     <AnimationWrapper {...props}>
-      <JulekuleStyle aria-label="Julekule" {...props}>
-        <Snor />
-        <Base />
-        nav
-      </JulekuleStyle>
+      <ShakeAnimation>
+        <JulekuleStyle aria-label="Julekule" {...props}>
+          <Snor />
+          <Base />
+          nav
+        </JulekuleStyle>
+      </ShakeAnimation>
     </AnimationWrapper>
   );
 };
