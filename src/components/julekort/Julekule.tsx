@@ -17,11 +17,11 @@ const popUp = keyframes`
     transform: scale(0);
   }
   70% {
-  transform: scale(1.2);
+    transform: scale(1.2);
   }
 `;
 
-const AnimationWrapper = styled.div<Props>`
+const PopInAnimation = styled.div<Props>`
   animation: ${popUp} 0.5s backwards 1s;
   animation-delay: ${(props) => delay + 2 + props.delay}s;
   position: absolute;
@@ -31,10 +31,10 @@ const AnimationWrapper = styled.div<Props>`
 
 const shake = keyframes`
   from {
-  transform: rotate(5deg);
+    transform: rotate(5deg);
   }
   to {
-  transform: rotate(-5deg);
+    transform: rotate(-5deg);
   }
 `;
 
@@ -62,7 +62,6 @@ const JulekuleStyle = styled.div<Props>`
 
 const Base = styled.span`
   position: absolute;
-  content: "";
   display: block;
   width: 1em;
   height: 0.3em;
@@ -100,7 +99,7 @@ const Snor = styled.span`
 
 const Julekule = (props: Props) => {
   return (
-    <AnimationWrapper {...props}>
+    <PopInAnimation {...props}>
       <ShakeAnimation>
         <JulekuleStyle aria-label="Julekule" {...props}>
           <Snor />
@@ -108,7 +107,7 @@ const Julekule = (props: Props) => {
           nav
         </JulekuleStyle>
       </ShakeAnimation>
-    </AnimationWrapper>
+    </PopInAnimation>
   );
 };
 export default Julekule;

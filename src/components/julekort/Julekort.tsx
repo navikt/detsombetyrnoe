@@ -17,6 +17,7 @@ const Style = styled.div<{ height: number }>`
   position: relative;
   transition: height 0.2s;
   height: ${(props) => (props.height ? `${props.height}px` : "100vh")};
+  max-height: 100vh;
   overflow: hidden;
   background: linear-gradient(#103, #108);
   color: palegoldenrod;
