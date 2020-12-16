@@ -91,7 +91,7 @@ const Tekst = styled.h2`
   color: goldenrod;
   span:last-child {
     display: block;
-    transform: translate(1em, -0.2em);
+    transform: translate(1em, -0.4em);
   }
 `;
 
