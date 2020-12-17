@@ -43,6 +43,7 @@ const StyledFjell = styled(Fjell)`
   animation: ${animasjoner.vippOpp} 1s backwards;
   animation-delay: ${delay}s;
   transform-origin: bottom;
+  pointer-events: none;
 `;
 
 const StyledSky = styled(Sky)`
@@ -50,6 +51,7 @@ const StyledSky = styled(Sky)`
   animation: ${animasjoner.skyAnimasjon} 30s infinite alternate, ${animasjoner.popIn} 1s backwards ${delay + 1}s;
   width: 30%;
   left: 5%;
+  pointer-events: none;
 `;
 
 const StyledLitenStjerne = styled(LitenStjerne)<{ top: number; right: number; size: number }>`
