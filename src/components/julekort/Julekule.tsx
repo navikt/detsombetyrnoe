@@ -44,6 +44,7 @@ const ShakeAnimation = styled.div`
   &:hover {
     animation: none;
   }
+  pointer-events: auto;
 `;
 
 const JulekuleStyle = styled.div<Props>`
