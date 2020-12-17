@@ -20,6 +20,7 @@ const StyledJuletre = styled(JuletreIkon)`
   height: 100%;
   transform: translateY(10%);
   filter: brightness(50%);
+  pointer-events: none;
 `;
 
 const JuletreSjerne = styled(LitenStjerne)`
