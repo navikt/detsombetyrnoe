@@ -1,5 +1,7 @@
 import * as React from "react";
 import styled, { keyframes } from "styled-components/macro";
+import { useProgressContext } from "../../progress/ProgressContext";
+import { useMount } from "react-use";
 
 const descend = keyframes`
     from {
@@ -48,6 +50,9 @@ const SnoFlak = styled.div<{ offset: number; speed: number; sway: number }>`
 `;
 
 function Sno() {
+  const [, dispatch] = useProgressContext();
+  useMount(() => dispatch("snø"));
+
   return (
     <Base>
       {[...new Array(10)].map((_, index) => (

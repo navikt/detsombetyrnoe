@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import styled, { css, keyframes } from "styled-components/macro";
 import Sno from "./Sno";
 import NisselueIkon from "./NisselueIkon";
+import { useProgressContext } from "../../progress/ProgressContext";
+import { useMount } from "react-use";
 
 const dropDown = keyframes`
   from {
@@ -42,6 +44,9 @@ const StyledNisselue = styled(NisselueIkon)<{ shake: boolean; clickable: boolean
 
 function Nisselue() {
   const [sno, setSno] = useState(false);
+
+  const [, dispatch] = useProgressContext();
+  useMount(() => dispatch("nisselue"));
 
   useEffect(() => {
     if (sno) {

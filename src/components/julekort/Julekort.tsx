@@ -12,6 +12,8 @@ import Head from "next/head";
 import withErrorBoundary from "../withErrorBoundary";
 import Stativ from "./Stativ";
 import Måne from "./Måne/Måne";
+import Progress from "./progress/Progress";
+import { ProgressContextProvider } from "./progress/ProgressContext";
 
 const Style = styled.div<{ height: number }>`
   position: relative;
@@ -91,7 +93,7 @@ function Julekort() {
   const height = useWindowHeight();
 
   return (
-    <>
+    <ProgressContextProvider>
       <Head>
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet" />
@@ -110,12 +112,13 @@ function Julekort() {
         <StyledBondegård aria-label="Bondegård med snø på taket" />
         <Stativ />
         <Juletre />
+        <Progress />
         <Tekst>
           <span>God</span>
           <span>jul</span>
         </Tekst>
       </Style>
-    </>
+    </ProgressContextProvider>
   );
 }
 
