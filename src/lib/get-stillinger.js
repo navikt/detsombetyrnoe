@@ -24,7 +24,7 @@ module.exports = async () => {
 
   const formatDate = (date) => {
     const dato = new Date(date);
-    return `${dato.getDate()}.${dato.getMonth() + 1}.${dato.getFullYear()}`;
+    return dato.toLocaleDateString("nb-NO", { day: "2-digit", month: "long", year: "numeric" });
   };
 
   const getStillingstype = (title) => {
