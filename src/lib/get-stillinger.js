@@ -1,3 +1,4 @@
+const striptags = require("striptags");
 const { title } = require("process");
 
 function createDescription(text) {
@@ -12,7 +13,7 @@ function createDescription(text) {
   while (!(description.endsWith(".") || description.endsWith("!") || description.endsWith("?"))) {
     description = `${description} ${lines.shift()}`;
   }
-  return description;
+  return striptags(description);
 }
 
 module.exports = async () => {
