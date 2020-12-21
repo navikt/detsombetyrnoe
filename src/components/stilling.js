@@ -23,7 +23,7 @@ const Stilling = (props) => {
       </h4>
       <p className="lead">{description}</p>
       <a className="navLink" href={url} onClick={handleClick} target="_blank">
-        Les mer om stillingen
+        Les mer om "{title}"
       </a>
     </li>
   );

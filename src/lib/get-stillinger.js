@@ -1,3 +1,4 @@
+const striptags = require("striptags");
 const { title } = require("process");
 
 function createDescription(text) {
@@ -12,7 +13,7 @@ function createDescription(text) {
   while (!(description.endsWith(".") || description.endsWith("!") || description.endsWith("?"))) {
     description = `${description} ${lines.shift()}`;
   }
-  return description;
+  return striptags(description);
 }
 
 module.exports = async () => {
@@ -23,7 +24,7 @@ module.exports = async () => {
 
   const formatDate = (date) => {
     const dato = new Date(date);
-    return `${dato.getDate()}.${dato.getMonth() + 1}.${dato.getFullYear()}`;
+    return dato.toLocaleDateString("nb-NO", { day: "2-digit", month: "long", year: "numeric" });
   };
 
   const getStillingstype = (title) => {
