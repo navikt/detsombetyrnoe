@@ -92,6 +92,14 @@ const useWindowHeight = () => {
 function Julekort() {
   const height = useWindowHeight();
 
+  const date = new Date().getDate();
+  const month = new Date().getMonth();
+  const erJul = month === 11 && date > 15 && date < 27;
+
+  if (!erJul) {
+    return null;
+  }
+
   return (
     <ProgressContextProvider>
       <Head>
