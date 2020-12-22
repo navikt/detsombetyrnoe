@@ -1,5 +1,16 @@
+const axios = require("axios");
 const striptags = require("striptags");
-const { title } = require("process");
+const stillinger = require("./stillinger.json");
+
+const fetcher = async (url) => {
+  try {
+    const { data } = await axios.get(url);
+    return data;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+};
 
 function createDescription(text) {
   text = text.replace(/<p>/g, "\n");
@@ -17,7 +28,8 @@ function createDescription(text) {
 }
 
 module.exports = async () => {
-  const axios = require("axios");
+  return stillinger;
+  /*
   const searchUrl = "https://arbeidsplassen.nav.no/stillinger/api/search?q=nav&occupationFirstLevels[]=IT";
   const addUrl = "https://arbeidsplassen.nav.no/stillinger/api/stilling";
   const applyUrl = "https://arbeidsplassen.nav.no/stillinger/stilling";
@@ -49,7 +61,10 @@ module.exports = async () => {
     };
   };
 
-  const { data } = await axios.get(searchUrl);
+  const data = await fetcher(searchUrl);
+  if (!data) {
+    return []
+  }
   const annonsesok = data.hits.hits
     .map((stilling) => stilling._source)
     .filter(
@@ -67,4 +82,5 @@ module.exports = async () => {
     console.error(error);
     return [];
   }
+  */
 };

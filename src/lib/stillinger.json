@@ -1,0 +1,82 @@
+[
+  {
+    "id": "c54282c9-189b-481c-ba5b-823ee5b26e5e",
+    "stillingsType": "diverse",
+    "title": "Vil du bidra til at NAV blir enda smidigere?",
+    "description": "Og mener du at digitale velferdstjenester i verdensklasse skapes i tverrfaglige team? Kanskje er du til og med blant dem som mener at et team ikke bare er et team? Vi leter etter deg som drives av å utvikle folk, team og teamets omgivelser. Team og «team of teams» i NAV setter strategisk retning med fokus på livshendelser og tjenester, og teamene finner gode løsninger basert på kontinuerlig innsikt i brukerbehov, kontinuerlig læring og godt håndverk.",
+    "frist": "10. januar 2021",
+    "url": "https://arbeidsplassen.nav.no/stillinger/stilling/c54282c9-189b-481c-ba5b-823ee5b26e5e"
+  },
+  {
+    "id": "ee6f97ac-5c7d-4c44-97d3-1f0a3a498946",
+    "stillingsType": "utvikling",
+    "title": "Fullstack-utvikler innenfor arbeidsrettet oppfølging",
+    "description": "Er du en utvikler som mener at den beste måten å møte fremtiden på er å skape den selv? Vi jobber med kontinuerlig verdiskaping og produktutvikling innenfor arbeidsrettet oppfølging, med et tydelig samfunnsansvar for å hjelpe våre brukere å enten beholde jobben sin eller skaffe seg en ny. Vi har organisert oss i autonome team som lager samhandlingsverktøy mellom brukere og NAV, samt egne løsninger for NAV-veiledere. Denne videoen oppsummerer hva vi har gjort så langt: https://vimeo.com/344976926 Vi tror at utviklere trives best når de i stor grad får mulighet til selv å bestemme over sin egen arbeidshverdag og vi mener at det å bygge opp et internt miljø med egne utviklere er helt essensielt for de endringene som NAV skal gjennom de neste årene. Utviklere kan velge mellom Windows og Mac på laptop, og har friheten til å bruke de lokale verktøyene de liker best til utvikling. Enten det måtte være Visual Studio Code, IntelliJ eller Eclipse. Det jobbes også med å forbedre opplevelsen for de som ønsker å utvikle på Linux, her er vi kun noen brannmuråpninger unna å kunne tilby en fullgod opplevelse også her. Ny programkode i NAV er som default open source og ligger på Github - https://github.com/navikt. Lukkede repositories brukes bare unntaksvis, basert på en vurdering av teamet selv.",
+    "frist": "22. januar 2021",
+    "url": "https://arbeidsplassen.nav.no/stillinger/stilling/ee6f97ac-5c7d-4c44-97d3-1f0a3a498946"
+  },
+  {
+    "id": "44774107-a537-4a20-b044-53d5291f00a0",
+    "stillingsType": "utvikling",
+    "title": "Utvikler som vil utvikle utviklerhverdagen",
+    "description": "Vi i “Tjenesteplattform Team” jobber for å støtte teamene i NAV slik at de kan jobbe enda bedre. Dette gjør vi ved å lage løsninger, verktøy og plattformer som legger til rette for at produktteamene kan fokusere mest mulig på å lage gode produkter til brukerne av NAV.",
+    "frist": "17. januar 2021",
+    "url": "https://arbeidsplassen.nav.no/stillinger/stilling/44774107-a537-4a20-b044-53d5291f00a0"
+  },
+  {
+    "id": "df594845-60af-45db-9966-083976455db0",
+    "stillingsType": "utvikling",
+    "title": "Frontend-utvikler til verdens beste velferdsløsninger",
+    "description": "Som frontend-utvikler i et av NAVs mange autonome team, vil du være med på å forme løsningen fra tidlig idé, til å ha en levende løsning i produksjon på kort tid. Du vil samarbeide tett på fagfolk og ekspertpersoner på relevante fagområder; jurister, designere, statsvitere mfl. som alle sikter etter å få til den beste mulige løsningen for brukerne. I NAV dyrker vi tverrfaglig samarbeid, og vi ønsker og forventer at frontend-utviklerne tar en sentral rolle i valgene som tas rundt utforming, design og teknisk oppbygning av produktene vi lager.",
+    "frist": "15. januar 2021",
+    "url": "https://arbeidsplassen.nav.no/stillinger/stilling/df594845-60af-45db-9966-083976455db0"
+  },
+  {
+    "id": "3258b3d7-92ef-4593-aee4-8457c77e572c",
+    "stillingsType": "utvikling",
+    "title": "Utvikler som vil dele på godene",
+    "description": "Vi søker samfunnsengasjerte og kvalitetsbevisste utviklere som har erfaring med Kotlin/Java og devops. Folk som er flinke til å dele kompetanse med sine teammedlemmer og kan jobbe selvstendig når det kreves.",
+    "frist": "10. januar 2021",
+    "url": "https://arbeidsplassen.nav.no/stillinger/stilling/3258b3d7-92ef-4593-aee4-8457c77e572c"
+  },
+  {
+    "id": "04b9bbb6-c1e5-4a37-b240-a54e921dc2d4",
+    "stillingsType": "diverse",
+    "title": "Erfarne og samfunnsengasjerte data engineers",
+    "description": "Er du en erfaren og samfunnsengasjert datautvikler som vil gjøre en forskjell for velferdssamfunnet, og samtidig jobbe med data og spennende teknologier? Vi ønsker å få deg med på laget slik at vi kan få bruke din kompetanse og nysgjerrighet til å løse vårt samfunnsoppdrag på en enda bedre måte -- samtidig som vi vil være med på å utvikle deg.",
+    "frist": "04. januar 2021",
+    "url": "https://arbeidsplassen.nav.no/stillinger/stilling/04b9bbb6-c1e5-4a37-b240-a54e921dc2d4"
+  },
+  {
+    "id": "29812a97-ee0f-4c7f-9ea9-470e0ea74981",
+    "stillingsType": "utvikling",
+    "title": "Innsiktsutviklere med skarpe hoder og varme hjerter",
+    "description": "Er du analytisk anlagt og vil ha en jobb hvor du kan gjøre en stor forskjell for våre brukere, og samtidig jobbe med data og spennende teknologier? Vi ønsker å få deg med på laget slik at vi kan få bruke din kompetanse og nysgjerrighet til å løse vårt samfunnsoppdrag på en enda bedre måte -- samtidig som vi vil være med på å utvikle deg.",
+    "frist": "11. januar 2021",
+    "url": "https://arbeidsplassen.nav.no/stillinger/stilling/29812a97-ee0f-4c7f-9ea9-470e0ea74981"
+  },
+  {
+    "id": "30e142b5-571f-446f-80b5-2fdf2e234518",
+    "stillingsType": "design",
+    "title": "Visuell designer",
+    "description": "Hvem er du? Du vil gjøre en forskjell, og du bryr deg om kvaliteten og virkningen av arbeidet ditt. Du foretrekker å angripe problemer ved først å forstå dem. Du er ikke redd for å utfordre oss hvis du tror vi kaster bort tid på å løse de gale problemene. Du er opptatt av å lage løsninger som har som mål å gjøre livet til mennesker i ulike livssituasjoner så enkle og forståelig som mulig, samt gi en positiv opplevelse. Du er grunnleggende opptatt av inkluderende design og universell utforming. Du liker å bruke designelementer til å gi helhet og god brukeropplevelse. Du er opptatt av merkevarer og merkevarebygging.",
+    "frist": "10. januar 2021",
+    "url": "https://arbeidsplassen.nav.no/stillinger/stilling/30e142b5-571f-446f-80b5-2fdf2e234518"
+  },
+  {
+    "id": "f2053e1c-04da-42e3-9dfc-8afb0b375aa9",
+    "stillingsType": "design",
+    "title": "Digital produktdesigner til Designsystem",
+    "description": "Hvem er du? Du vil gjøre en forskjell, og du bryr deg om kvaliteten og virkningen av arbeidet ditt. Du foretrekker å angripe problemer ved først å forstå dem. Du er ikke redd for å utfordre oss hvis du tror vi kaster bort tid på å løse de gale problemene. Du elsker front-end design og å lage gode designsystemer. Du er opptatt av inkluderende design og universell utforming.",
+    "frist": "10. januar 2021",
+    "url": "https://arbeidsplassen.nav.no/stillinger/stilling/f2053e1c-04da-42e3-9dfc-8afb0b375aa9"
+  },
+  {
+    "id": "60f2f23b-69d0-4530-b0e9-99db674f2c43",
+    "stillingsType": "design",
+    "title": "Digital produktdesigner",
+    "description": "Hvem er du? Du vil gjøre en forskjell, og du bryr deg om kvaliteten og virkningen av arbeidet ditt. Du foretrekker å angripe problemer ved først å forstå dem. Du er ikke redd for å utfordre oss hvis du tror vi kaster bort tid på å løse de gale problemene. Du elsker design og å lage løsninger som folk forstår og liker å bruke. Du er grunnleggende opptatt av inkluderende design og universell utforming. Uansett om du i dag setter innhold, UX, UI, Produkt, Service, Interaksjon eller noe annet før din nåværende designtittel, spiller ingen rolle for oss så lenge du liker å samle inn innsikt, skape prototyper, teste løsninger og raffinere dem når de blir bygget og satt foran brukere.",
+    "frist": "10. januar 2021",
+    "url": "https://arbeidsplassen.nav.no/stillinger/stilling/60f2f23b-69d0-4530-b0e9-99db674f2c43"
+  }
+]
