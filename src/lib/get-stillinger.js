@@ -1,15 +1,18 @@
 const axios = require("axios");
 const striptags = require("striptags");
-const stillinger = require("./stillinger.json");
 
-const fetcher = async (url) => {
-  try {
-    const { data } = await axios.get(url);
-    return data;
-  } catch (error) {
-    console.error(error);
-    return false;
-  }
+const fetcher = (url) => {
+  return new Promise((resolve) => {
+    axios
+      .get(url)
+      .then((result) => {
+        resolve(result.data);
+      })
+      .catch((error) => {
+        console.error(error);
+        resolve(false);
+      });
+  });
 };
 
 function createDescription(text) {
@@ -28,8 +31,6 @@ function createDescription(text) {
 }
 
 module.exports = async () => {
-  return stillinger;
-  /*
   const searchUrl = "https://arbeidsplassen.nav.no/stillinger/api/search?q=nav&occupationFirstLevels[]=IT";
   const addUrl = "https://arbeidsplassen.nav.no/stillinger/api/stilling";
   const applyUrl = "https://arbeidsplassen.nav.no/stillinger/stilling";
@@ -63,7 +64,7 @@ module.exports = async () => {
 
   const data = await fetcher(searchUrl);
   if (!data) {
-    return []
+    return [];
   }
   const annonsesok = data.hits.hits
     .map((stilling) => stilling._source)
@@ -76,11 +77,13 @@ module.exports = async () => {
 
   try {
     const annonser = await Promise.all(annonsesok);
-    const stillinger = annonser.map((annonse) => ({ uuid: annonse.data._id, ...annonse.data._source })).map(repack);
+    const stillinger = annonser
+      .filter((annonse) => annonse)
+      .map((annonse) => ({ uuid: annonse.data._id, ...annonse.data._source }))
+      .map(repack);
     return stillinger;
   } catch (error) {
     console.error(error);
     return [];
   }
-  */
 };
