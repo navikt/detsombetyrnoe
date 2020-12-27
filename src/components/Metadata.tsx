@@ -13,7 +13,7 @@ function Metadata() {
         content="NAV skal utvikle verdens beste velferdsløsninger - for deg og dine, for NAV og for samfunnet. Vi ser
                     etter mennesker som tør å ta det ansvaret."
       />
-      <meta property="og:image" content="https://www.detsombetyrnoe.no/detsombetyrnoe.jpg" />
+      <meta property="og:image" content="https://www.detsombetyrnoe.no/legacy/detsombetyrnoe.jpg" />
       <link href="https://www.nav.no/dekoratoren/media/favicon.ico" rel="icon" type="image/x-icon" />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link
