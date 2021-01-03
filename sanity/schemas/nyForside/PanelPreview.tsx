@@ -15,6 +15,7 @@ const Style = styled.div`
   padding: 0.7rem 1.5rem;
   border-radius: 0.5rem;
   margin: 0.2rem 0;
+  box-shadow: 0 0.1rem 0.2rem #888;
   &:first-letter {
     text-transform: uppercase;
   }
