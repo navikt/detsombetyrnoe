@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import styled from "styled-components";
+// @ts-ignore
 import PatchEvent, { set, unset } from "part:@sanity/form-builder/patch-event";
 
 export type ColorInputColor = { color: string; name: string };
