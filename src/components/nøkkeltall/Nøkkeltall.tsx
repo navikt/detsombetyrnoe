@@ -6,8 +6,11 @@ import styled from "styled-components";
 import { useRef } from "react";
 import useInViewport from "../../utils/useInViewport";
 
+type NøkkeltallEntry = NøkkeltallTekst | NøkkeltallListe;
+
 export interface NøkkeltallData {
-  nokkeltall?: (NøkkeltallTekst | NøkkeltallListe)[];
+  _type: "nokkeltall";
+  nokkeltall?: NøkkeltallEntry[];
 }
 
 const StyledUl = styled.ul`
@@ -24,12 +27,10 @@ export default function Nøkkeltall(props: NøkkeltallData) {
   const inViewport = useInViewport(ref, 200);
 
   return (
-    <Panel backgroundColor={"white"} fontColor="black" id="nokkeltall">
-      <StyledUl ref={ref}>
-        {props.nokkeltall?.map((tall, i) => (
-          <Tall key={tall._key} nøkkeltall={tall} inViewport={inViewport} />
-        ))}
-      </StyledUl>
-    </Panel>
+    <StyledUl ref={ref}>
+      {props.nokkeltall?.map((tall, i) => (
+        <Tall key={tall._key} nøkkeltall={tall} inViewport={inViewport} />
+      ))}
+    </StyledUl>
   );
 }

@@ -1,73 +1,84 @@
 import * as React from "react";
-import styled, { createGlobalStyle } from "styled-components";
 import Panel from "../components/Panel";
-import { navFrontend } from "../styles/navFarger";
-import Githubstats from "./githubstats";
-import Nøkkeltall, { NøkkeltallData } from "../components/nøkkeltall/Nøkkeltall";
 import { getClient } from "../lib/sanity";
 import { groq } from "next-sanity";
-import HvemViEr from "../components/HvemViEr";
+import Nøkkeltall, { NøkkeltallData } from "../components/nøkkeltall/Nøkkeltall";
+import { Typografi } from "../styles/TypografiNyttDesign";
+import CustomComponent, { CustomComponentProps } from "../components/CustomComponent";
 
-const GlobalStyle = createGlobalStyle`
-h1, h2, h3, h4, h5 {
-  font-weight: bold;
-  line-height: .8;
+const landingssideQuery = groq`*[_id == "landingsside"][0] {
+  paneler[] {
+    lysTekst,
+    _key,
+    bakgrunnsfarge,
+    innhold->,
+    id,
+    _type
+  }
+}`;
+
+interface Placeholder {
+  _type: "placeholder";
+  title: string;
 }
-h1 {
-  font-size: 7rem;
+
+type Innhold = NøkkeltallData | Placeholder;
+
+interface PanelProps {
+  _key: string;
+  _type: "panel";
+  bakgrunnsfarge?: string;
+  lysTekst?: boolean;
+  innhold?: Innhold;
 }
-h2 {
-  font-size: 5rem;
-}
-h3 {
-  font-size: 3rem;
-}
-h4 {
-  font-size: 2rem;
-}
-h5 {
-  font-size: 1.5rem;
-}
-a  {
-  color: #FF6AA0;
-}
-`;
 
 interface Props {
-  nokkeltallData?: NøkkeltallData;
+  data?: {
+    paneler?: (PanelProps | CustomComponentProps)[];
+  };
+}
+
+function getChildren(innhold?: Innhold) {
+  if (!innhold) {
+    return "Mangler innhold";
+  }
+
+  switch (innhold._type) {
+    case "nokkeltall":
+      return <Nøkkeltall {...innhold} />;
+    case "placeholder":
+      return innhold.title;
+    default:
+      // @ts-ignore
+      return `Fant ikke innhold for ${innhold._type} 🤷‍♀️`;
+  }
 }
 
 export default function NyttDesign(props: Props) {
   return (
     <>
-      <GlobalStyle />
-      <Panel backgroundColor={"white"} fontColor="black">
-        Hei på deg
-      </Panel>
-      <HvemViEr />
-      <Nøkkeltall nokkeltall={props.nokkeltallData?.nokkeltall} />
-      <Panel backgroundColor={navFrontend.navLysBla} fontColor="black">
-        Litt mer innhold
-      </Panel>
-      <Panel backgroundColor={"white"} fontColor="black">
-        Bli med oss
-      </Panel>
-      <Githubstats />
+      <Typografi />
+      {props.data?.paneler?.map((panel) =>
+        panel._type === "customComponent" ? (
+          <CustomComponent {...panel} />
+        ) : (
+          <Panel
+            backgroundColor={panel.bakgrunnsfarge}
+            fontColor={panel.lysTekst ? "#FFF" : "#333"}
+            children={getChildren(panel.innhold)}
+          />
+        )
+      )}
     </>
   );
 }
 
-const nøkkeltallQuery = groq`*[_id == "nokkeltall"][0]
-{
-    nokkeltall
-}`;
-
 export async function getStaticProps({ preview = false }) {
-  const nokkeltallData = await getClient(preview).fetch(nøkkeltallQuery);
+  const data = await getClient(preview).fetch(landingssideQuery);
   return {
     props: {
       preview,
-      nokkeltallData,
+      data,
     },
     revalidate: 60,
   };
