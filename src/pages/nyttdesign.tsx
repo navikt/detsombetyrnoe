@@ -1,18 +1,19 @@
 import * as React from "react";
 import Panel from "../components/Panel";
-import Githubstats from "./githubstats";
 import { getClient } from "../lib/sanity";
 import { groq } from "next-sanity";
-import HvemViEr from "../components/HvemViEr";
 import Nøkkeltall, { NøkkeltallData } from "../components/nøkkeltall/Nøkkeltall";
 import { Typografi } from "../styles/TypografiNyttDesign";
+import CustomComponent, { CustomComponentProps } from "../components/CustomComponent";
 
 const landingssideQuery = groq`*[_id == "landingsside"][0] {
   paneler[] {
     lysTekst,
     _key,
     bakgrunnsfarge,
-    innhold->
+    innhold->,
+    id,
+    _type
   }
 }`;
 
@@ -23,8 +24,9 @@ interface Placeholder {
 
 type Innhold = NøkkeltallData | Placeholder;
 
-interface Panel {
+interface PanelProps {
   _key: string;
+  _type: "panel";
   bakgrunnsfarge?: string;
   lysTekst?: boolean;
   innhold?: Innhold;
@@ -32,7 +34,7 @@ interface Panel {
 
 interface Props {
   data?: {
-    paneler?: Panel[];
+    paneler?: (PanelProps | CustomComponentProps)[];
   };
 }
 
@@ -56,15 +58,17 @@ export default function NyttDesign(props: Props) {
   return (
     <>
       <Typografi />
-      {props.data?.paneler?.map((panel) => (
-        <Panel
-          backgroundColor={panel.bakgrunnsfarge}
-          fontColor={panel.lysTekst ? "#FFF" : "#333"}
-          children={getChildren(panel.innhold)}
-        />
-      ))}
-      <HvemViEr />
-      <Githubstats />
+      {props.data?.paneler?.map((panel) =>
+        panel._type === "customComponent" ? (
+          <CustomComponent {...panel} />
+        ) : (
+          <Panel
+            backgroundColor={panel.bakgrunnsfarge}
+            fontColor={panel.lysTekst ? "#FFF" : "#333"}
+            children={getChildren(panel.innhold)}
+          />
+        )
+      )}
     </>
   );
 }
