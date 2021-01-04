@@ -1,6 +1,6 @@
 import S from "@sanity/desk-tool/structure-builder";
-import { NøkkeltallIkon } from "./schemas/nøkkeltall/nokkeltall";
 import { LandingssideIkon } from "./schemas/nyForside/landingsside";
+import { NøkkeltallIkon } from "./schemas/nyForside/nøkkeltall/nokkeltall";
 
 export default () =>
   S.list()
