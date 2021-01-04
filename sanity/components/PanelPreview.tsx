@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import withErrorBoundary from "../../../src/components/withErrorBoundary";
+import withErrorBoundary from "../../src/components/withErrorBoundary";
 
 interface Props {
   value: {

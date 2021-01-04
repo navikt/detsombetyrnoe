@@ -1,6 +1,6 @@
 import * as React from "react";
 import NavColorInput from "../../components/NavColorInput";
-import PanelPreview from "./PanelPreview";
+import PanelPreview from "../../components/PanelPreview";
 
 export default {
   name: "panel",

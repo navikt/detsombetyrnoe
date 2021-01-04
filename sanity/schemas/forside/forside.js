@@ -1,13 +1,13 @@
 import { MdWeb } from "react-icons/md";
 import { GiUnicorn } from "react-icons/gi";
 
-export const LandingssideIkon = MdWeb;
+export const ForsideIkon = MdWeb;
 
 export default {
-  name: "landingsside",
-  title: "Landingsside",
+  name: "forside",
+  title: "Forside",
   type: "document",
-  icon: LandingssideIkon,
+  icon: ForsideIkon,
   fields: [
     {
       name: "paneler",
@@ -34,7 +34,7 @@ export default {
   ],
   preview: {
     prepare: () => ({
-      title: `Landingsside`,
+      title: `Forside`,
     }),
   },
 };

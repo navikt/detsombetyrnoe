@@ -6,7 +6,7 @@ import Nøkkeltall, { NøkkeltallData } from "../components/nøkkeltall/Nøkkelt
 import { Typografi } from "../styles/TypografiNyttDesign";
 import CustomComponent, { CustomComponentProps } from "../components/CustomComponent";
 
-const landingssideQuery = groq`*[_id == "landingsside"][0] {
+const landingssideQuery = groq`*[_id == "forside"][0] {
   paneler[] {
     lysTekst,
     _key,

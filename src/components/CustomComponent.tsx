@@ -1,6 +1,6 @@
 import * as React from "react";
-import Githubstats from "../pages/githubstats";
 import HvemViEr from "./HvemViEr";
+import Githubstats from "./githubstats/Githubstats";
 
 export interface CustomComponentProps {
   _type: "customComponent";

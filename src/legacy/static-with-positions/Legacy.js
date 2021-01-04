@@ -1,9 +1,9 @@
 import Head from "next/head";
 import useSWR from "swr";
 import Stillinger from "../../components/stillinger";
-import Githubstats from "../../pages/githubstats";
 import GithubrepoLenke from "../../components/GithubrepoLenke";
 import Julekort from "../../components/julekort/Julekort";
+import Githubstats from "../../components/githubstats/Githubstats";
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 

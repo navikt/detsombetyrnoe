@@ -1,10 +1,10 @@
 import * as React from "react";
-import { loggError } from "../utils/logger";
-import GithubstatsView from "../components/githubstats/GithubstatsView";
 import styled from "styled-components";
-import { navFrontend } from "../styles/navFarger";
 import useSWR from "swr";
-import withErrorBoundary from "../components/withErrorBoundary";
+import { navFrontend } from "../../styles/navFarger";
+import { loggError } from "../../utils/logger";
+import GithubstatsView from "./GithubstatsView";
+import withErrorBoundary from "../withErrorBoundary";
 
 const ErrorLoadingStyle = styled.div`
   color: white;
