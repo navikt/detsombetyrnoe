@@ -9,6 +9,7 @@ const Stilling = (props) => {
     });
     window.location.assign(url);
   };
+
   if (!url) return null;
 
   return (
