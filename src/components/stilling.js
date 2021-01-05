@@ -1,8 +1,5 @@
-import { useAmplitude } from "../contexts/amplitude-context";
-
 const Stilling = (props) => {
-  const { logAmplitudeEvent } = useAmplitude();
-  const { frist, url, title, description } = props;
+  const { frist, url, title, description, logAmplitudeEvent } = props;
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -12,6 +9,8 @@ const Stilling = (props) => {
     });
     window.location.assign(url);
   };
+
+  if (!url) return null;
 
   return (
     <li className="stilling">
