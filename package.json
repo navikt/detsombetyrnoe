@@ -17,7 +17,7 @@
     "@types/styled-components": "5.1.7",
     "@u-wave/react-vimeo": "0.9.2",
     "amplitude-js": "7.3.3",
-    "axios": "0.21.0",
+    "axios": "0.21.1",
     "basicscroll": "3.0.3",
     "date-fns": "2.16.1",
     "graphql": "15.4.0",
