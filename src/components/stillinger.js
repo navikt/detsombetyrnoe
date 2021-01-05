@@ -1,3 +1,4 @@
+import { useAmplitude } from "../contexts/amplitude-context";
 import Stilling from "./stilling";
 
 const capitalize = (word) => {
@@ -6,6 +7,7 @@ const capitalize = (word) => {
 };
 
 const Gruppe = ({ stillingsType, stillinger }) => {
+  const { logAmplitudeEvent } = useAmplitude();
   const typeStillinger = stillinger.filter((stilling) => stilling.stillingsType === stillingsType);
   if (typeStillinger.length === 0) {
     return null;
@@ -22,7 +24,7 @@ const Gruppe = ({ stillingsType, stillinger }) => {
       <div className="row justify-content-center">
         <ul className="col col-12 col-md-10 col-lg-8 list-unstyled">
           {typeStillinger.map((stilling) => (
-            <Stilling key={stilling.id} {...stilling} />
+            <Stilling key={stilling.id} {...stilling} logAmplitudeEvent={logAmplitudeEvent} />
           ))}
         </ul>
       </div>
