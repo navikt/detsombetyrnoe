@@ -4,6 +4,9 @@ import { navFrontend } from "./navFarger";
 export const GlobalStyle = createGlobalStyle`
   html {
     font-size: 112.5%;
+    @media (min-width: 1000px) {
+      font-size: 125%;
+    }
     font-weight: 300;
     background-color: ${navFrontend.navBlaDarken80};
   }

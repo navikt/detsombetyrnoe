@@ -14,14 +14,16 @@ const Style = styled.article`
   background-color: #faeadb;
 `;
 
-const maxWidth = "55rem";
+const contentMaxWidth = "60ch";
+const layoutWidth = "50rem";
 
 const Heading = styled.div`
   position: relative;
   padding: 4rem;
-  max-width: ${maxWidth};
+  width: ${layoutWidth};
+  max-width: 100vw;
   margin: auto;
-  min-height: 80vh;
+  min-height: 50vh;
   background: #aaa no-repeat;
   background-size: cover;
   h1 {
@@ -43,7 +45,8 @@ const Heading = styled.div`
 `;
 
 const IngressStyle = styled.p`
-  max-width: ${maxWidth};
+  width: ${layoutWidth};
+  max-width: 100vw;
   margin: auto;
   padding: 2rem;
   font-size: 1.1rem;
@@ -52,11 +55,16 @@ const IngressStyle = styled.p`
 
 const ContentStyle = styled.div`
   background-color: white;
-  max-width: ${maxWidth};
+  width: ${layoutWidth};
+  max-width: 100vw;
   margin: auto;
-  padding: 2rem;
+  padding: 4rem 2rem 6rem;
+  > * {
+    max-width: ${contentMaxWidth};
+  }
   p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
   }
 `;
 
