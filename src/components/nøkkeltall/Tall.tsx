@@ -34,7 +34,7 @@ const TitleStyle = styled.p`
 `;
 
 const TekstStyle = styled.p`
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 `;
 
 interface Props {
