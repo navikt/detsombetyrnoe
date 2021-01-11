@@ -13,6 +13,7 @@ export default {
     {
       name: "slug",
       type: "slug",
+      description: "Url til siden",
       options: {
         source: "tittel",
         maxLength: 96,
@@ -21,10 +22,12 @@ export default {
     {
       name: "lesMerTekst",
       type: "string",
+      description: "Dette er teksten som vil stå på lenken man trykker på for å lese mer",
     },
     {
       name: "ingress",
       type: "text",
+      description: "Denne teksten vises både i preview og som ingress i artikkelen",
     },
     {
       name: "bilder",
