@@ -1,5 +1,5 @@
 export default {
   type: "document",
   name: "placeholder",
-  fields: [{ type: "string", name: "title" }],
+  fields: [{ type: "string", name: "tittel" }],
 };

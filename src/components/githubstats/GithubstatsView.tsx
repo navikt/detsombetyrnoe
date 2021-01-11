@@ -23,7 +23,7 @@ const Style = styled.div`
 
 function GithubstatsView(props: GithubData) {
   return (
-    <Panel backgroundColor={navFrontend.navBlaDarken60} fontColor="white">
+    <Panel backgroundColor={navFrontend.navBlaDarken60} lysTekst={true}>
       <Style>
         <GithubHeader github={props} />
         <Repositories repos={props.organization.publicRepositories.nodes} />

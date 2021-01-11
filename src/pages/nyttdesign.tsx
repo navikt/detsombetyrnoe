@@ -5,6 +5,8 @@ import { groq } from "next-sanity";
 import Nøkkeltall, { NøkkeltallData } from "../components/nøkkeltall/Nøkkeltall";
 import { Typografi } from "../styles/TypografiNyttDesign";
 import CustomComponent, { CustomComponentProps } from "../components/CustomComponent";
+import { ArtikkelI } from "../components/artikkel/types";
+import ArtikkelPreview from "../components/artikkel/ArtikkelPreview";
 
 const landingssideQuery = groq`*[_id == "forside"][0] {
   paneler[] {
@@ -19,10 +21,10 @@ const landingssideQuery = groq`*[_id == "forside"][0] {
 
 interface Placeholder {
   _type: "placeholder";
-  title: string;
+  tittel: string;
 }
 
-type Innhold = NøkkeltallData | Placeholder;
+type Innhold = NøkkeltallData | Placeholder | ArtikkelI;
 
 interface PanelProps {
   _key: string;
@@ -47,7 +49,9 @@ function getChildren(innhold?: Innhold) {
     case "nokkeltall":
       return <Nøkkeltall {...innhold} />;
     case "placeholder":
-      return innhold.title;
+      return innhold.tittel;
+    case "artikkel":
+      return <ArtikkelPreview {...innhold} />;
     default:
       // @ts-ignore
       return `Fant ikke innhold for ${innhold._type} 🤷‍♀️`;
@@ -60,11 +64,12 @@ export default function NyttDesign(props: Props) {
       <Typografi />
       {props.data?.paneler?.map((panel) =>
         panel._type === "customComponent" ? (
-          <CustomComponent {...panel} />
+          <CustomComponent {...panel} key={panel.id} />
         ) : (
           <Panel
+            key={panel._key}
             backgroundColor={panel.bakgrunnsfarge}
-            fontColor={panel.lysTekst ? "#FFF" : "#333"}
+            lysTekst={panel.lysTekst}
             children={getChildren(panel.innhold)}
           />
         )

@@ -18,7 +18,7 @@ export default {
     {
       name: "innhold",
       type: "reference",
-      to: [{ type: "nokkeltall" }, { type: "placeholder" }],
+      to: [{ type: "nokkeltall" }, { type: "placeholder" }, { type: "artikkel" }],
     },
   ],
   preview: {
@@ -26,7 +26,7 @@ export default {
       bakgrunnsfarge: "bakgrunnsfarge",
       type: "innhold._type",
       lysTekst: "lysTekst",
-      title: "innhold.title",
+      tittel: "innhold.tittel",
     },
     prepare: (selection) => selection,
     component: (selection) => <PanelPreview {...selection} />,

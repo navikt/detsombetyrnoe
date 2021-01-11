@@ -7,7 +7,7 @@ interface Props {
     bakgrunnsfarge: string;
     type: string;
     lysTekst: boolean;
-    title: string;
+    tittel: string;
   };
 }
 
@@ -26,9 +26,10 @@ function PanelPreview(props: Props) {
     return null;
   }
 
+  const tittel = props.value.tittel;
   return (
     <Style style={{ backgroundColor: props.value.bakgrunnsfarge, color: props.value.lysTekst ? "#FFF" : "#333" }}>
-      {props.value.title || props.value.type}
+      {props.value.type} {tittel && `: ${tittel}`}
     </Style>
   );
 }
