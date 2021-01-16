@@ -9,10 +9,12 @@ export const GlobalStyle = createGlobalStyle`
     }
     font-weight: 300;
     background-color: ${navFrontend.navBlaDarken80};
+    color: #333;
   }
   
   body {
     font-family: 'Source Sans Pro', sans-serif;
+    background-color: white;
   }
 
   * {

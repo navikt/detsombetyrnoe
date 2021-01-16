@@ -36,10 +36,10 @@ function BildeKollasj(props: Props) {
   if (props.bilder.length === 2) {
     return (
       <TwoImageWrapper>
-        <Parallax speedY={-5} speedX={5} style={{ position: "absolute", bottom: 0, left: 0 }}>
+        <Parallax speedY={-2} speedX={2} style={{ position: "absolute", bottom: 0, left: 0 }}>
           <img src={getUrl(props.bilder[0])} />
         </Parallax>
-        <Parallax speedY={5} speedX={-5} style={{ position: "absolute", top: 0, right: 0 }}>
+        <Parallax speedY={2} speedX={-2} style={{ position: "absolute", top: 0, right: 0 }}>
           <img src={getUrl(props.bilder[1])} />
         </Parallax>
       </TwoImageWrapper>

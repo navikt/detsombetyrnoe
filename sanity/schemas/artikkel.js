@@ -35,20 +35,7 @@ export default {
       of: [
         {
           name: "bilde",
-          type: "image",
-          options: {
-            hotspot: true,
-          },
-          fields: [
-            {
-              name: "altTekst",
-              title: "Alttekst",
-              type: "string",
-              options: {
-                isHighlighted: true,
-              },
-            },
-          ],
+          type: "bilde",
         },
       ],
     },

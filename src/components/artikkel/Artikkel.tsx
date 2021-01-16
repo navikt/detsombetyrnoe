@@ -1,18 +1,15 @@
 import * as React from "react";
 import styled from "styled-components/macro";
 import { ArtikkelI } from "./types";
-// @ts-ignore
-import BlockContent from "@sanity/block-content-to-react";
 import Error from "next/error";
 import { urlFor } from "../../lib/sanity";
+import BlockContent from "../BlockContent";
 
 interface Props {
   data: ArtikkelI;
 }
 
-const Style = styled.article`
-  background-color: #faeadb;
-`;
+const Style = styled.article``;
 
 const contentMaxWidth = "60ch";
 const layoutWidth = "50rem";
@@ -61,10 +58,6 @@ const ContentStyle = styled.div`
   padding: 4rem 2rem 6rem;
   > * {
     max-width: ${contentMaxWidth};
-  }
-  p {
-    margin-bottom: 1.5rem;
-    line-height: 1.5;
   }
 `;
 
