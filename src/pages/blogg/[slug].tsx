@@ -60,7 +60,7 @@ export async function getStaticProps(props: { params: { slug: string } }): Promi
   const data = await getClient(false).fetch(blogQuery);
   return {
     props: data,
-    revalidate: 3600,
+    revalidate: 600,
   };
 }
 
