@@ -25,5 +25,8 @@ export default {
     {
       type: "bilde",
     },
+    {
+      type: "code",
+    },
   ],
 };

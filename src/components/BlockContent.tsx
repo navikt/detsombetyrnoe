@@ -3,6 +3,7 @@ import * as React from "react";
 import SanityBlockContent from "@sanity/block-content-to-react";
 import styled from "styled-components";
 import ArtikkelBilde from "./ArtikkelBilde";
+import Code from "./Code/Code";
 
 const StyledSanityBlockContent = styled(SanityBlockContent)`
   p {
@@ -14,6 +15,7 @@ const StyledSanityBlockContent = styled(SanityBlockContent)`
 const serializers = {
   types: {
     bilde: ArtikkelBilde,
+    code: Code,
   },
 };
 

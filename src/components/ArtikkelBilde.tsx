@@ -5,13 +5,15 @@ import { SanityImageI } from "../pages/blogg/[slug]";
 import { useState } from "react";
 
 const StyledFigure = styled.figure<{ zoom: boolean }>`
-  margin: 3rem auto;
   figcaption {
     opacity: 0.9;
     font-size: 0.8em;
   }
-  max-width: ${(props) => (props.zoom ? "100%" : "35rem")};
-  transition: 0.3s;
+  && {
+    margin: 3rem auto;
+    max-width: ${(props) => (props.zoom ? "100%" : "35rem")};
+    transition: 0.3s;
+  }
 `;
 
 const Image = styled.img`
