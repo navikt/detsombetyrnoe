@@ -1,4 +1,5 @@
 import { FaToiletPaper } from "react-icons/fa";
+import { formatterDato } from "../utils/formatterDato";
 
 export default {
   name: "blogpost",
@@ -45,4 +46,25 @@ export default {
       validation: (Rule) => Rule.required(),
     },
   ],
+  preview: {
+    select: {
+      title: "tittel",
+      date: "_createdAt",
+      forfatter0: "forfattere.0.navn",
+      forfatter1: "forfattere.1.navn",
+      forfatter2: "forfattere.2.navn",
+      image: "mainImage",
+    },
+    prepare(selection) {
+      const { title, forfatter0, forfatter1, forfatter2, date, image } = selection;
+      const forfattere = [forfatter0, forfatter1].filter(Boolean);
+      const hasMoreAuthors = Boolean(forfatter2);
+      const subtitle = `${formatterDato(date)} ${forfattere.join(" & ")}${hasMoreAuthors ? " & ..." : ""}`;
+      return {
+        title,
+        subtitle,
+        media: image,
+      };
+    },
+  },
 };
