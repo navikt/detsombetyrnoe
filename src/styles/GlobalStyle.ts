@@ -9,10 +9,12 @@ export const GlobalStyle = createGlobalStyle`
     }
     font-weight: 300;
     background-color: ${navFrontend.navBlaDarken80};
+    color: #333;
   }
   
   body {
     font-family: 'Source Sans Pro', sans-serif;
+    background-color: white;
   }
 
   * {
@@ -22,6 +24,6 @@ export const GlobalStyle = createGlobalStyle`
   
   *:focus {
     outline: none;
-    box-shadow: 0 0 0 .2rem ${navFrontend.orangeFocus};
+    box-shadow: 0 0 0 .2rem ${navFrontend.fokusFarge};
   }
 `;

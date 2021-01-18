@@ -23,8 +23,10 @@ export default {
       },
     },
     {
-      type: "image",
-      options: { hotspot: true },
+      type: "bilde",
+    },
+    {
+      type: "code",
     },
   ],
 };
