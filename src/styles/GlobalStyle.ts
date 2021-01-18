@@ -24,6 +24,6 @@ export const GlobalStyle = createGlobalStyle`
   
   *:focus {
     outline: none;
-    box-shadow: 0 0 0 .2rem ${navFrontend.orangeFocus};
+    box-shadow: 0 0 0 .2rem ${navFrontend.fokusFarge};
   }
 `;

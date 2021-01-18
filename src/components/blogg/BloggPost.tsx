@@ -10,15 +10,16 @@ import { nb } from "date-fns/locale";
 
 const Style = styled.div`
   min-height: 100vh;
-  padding: 2rem 2rem 10rem;
+  padding: 4vmin 4vmin 30vmin;
   font-size: 1.1rem;
+  --content-max-width: 30rem;
 `;
 
 const Content = styled.div`
   max-width: 50rem;
   margin: 0 auto;
   h1 {
-    font-size: 5.5rem;
+    font-size: calc(1rem + 10vmin);
     font-weight: 600;
     line-height: 1;
     margin: 4rem 0 1rem;
@@ -35,7 +36,7 @@ const MainImage = styled.img`
 `;
 
 const PublishedDate = styled.div`
-  max-width: 30rem;
+  max-width: var(--content-max-width);
   margin: 0 auto;
   margin-bottom: 2rem;
   font-family: monospace;
@@ -43,7 +44,7 @@ const PublishedDate = styled.div`
 
 const StyledBlockContent = styled(BlockContent)`
   > * {
-    max-width: 30rem;
+    max-width: var(--content-max-width);
     margin: 0 auto;
   }
 `;

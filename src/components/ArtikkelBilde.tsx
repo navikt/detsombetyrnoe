@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "styled-components/macro";
+import styled, { css } from "styled-components/macro";
 import { urlFor } from "../lib/sanity";
 import { SanityImageI } from "../pages/blogg/[slug]";
 import { useState } from "react";
@@ -11,7 +11,7 @@ const StyledFigure = styled.figure<{ zoom: boolean }>`
   }
   && {
     margin: 3rem auto;
-    max-width: ${(props) => (props.zoom ? "100%" : "35rem")};
+    max-width: ${(props) => (props.zoom ? "100%" : css`calc(var(--content-max-width) * 1.3)`)};
     transition: 0.3s;
   }
 `;

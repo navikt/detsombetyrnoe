@@ -9,15 +9,15 @@ interface Props {
   data: ArtikkelI;
 }
 
-const Style = styled.article``;
-
-const contentMaxWidth = "60ch";
-const layoutWidth = "50rem";
+const Style = styled.article`
+  --content-max-width: 30rem;
+  --layout-max-width: 50rem;
+`;
 
 const Heading = styled.div`
   position: relative;
-  padding: 4rem;
-  width: ${layoutWidth};
+  padding: 4vmin;
+  width: 50rem;
   max-width: 100vw;
   margin: auto;
   min-height: 50vh;
@@ -42,22 +42,23 @@ const Heading = styled.div`
 `;
 
 const IngressStyle = styled.p`
-  width: ${layoutWidth};
+  width: var(--layout-max-width);
   max-width: 100vw;
   margin: auto;
-  padding: 2rem;
+  padding: 4vmin;
   font-size: 1.1rem;
   background-color: #eee;
 `;
 
 const ContentStyle = styled.div`
   background-color: white;
-  width: ${layoutWidth};
+  width: var(--layout-max-width);
   max-width: 100vw;
   margin: auto;
-  padding: 4rem 2rem 6rem;
+  padding: 4vmin 4vmin 30vmin;
   > * {
-    max-width: ${contentMaxWidth};
+    max-width: var(--content-max-width);
+    margin: 0 auto;
   }
 `;
 

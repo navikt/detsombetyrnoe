@@ -3,7 +3,7 @@ import styled from "styled-components/macro";
 import { navFrontend } from "../../styles/navFarger";
 import Prism from "prismjs";
 import "prismjs/components/prism-typescript";
-import { HighLight } from "./Highlight";
+import { codeHighLightStyle } from "./CodeHighLightStyle";
 import { useMount } from "react-use";
 import { useRef } from "react";
 
@@ -14,10 +14,10 @@ const Style = styled.div`
   overflow: hidden;
   && {
     margin: 3rem auto;
-    max-width: 35rem;
-    transition: 0.3s;
+    max-width: calc(var(--content-max-width) * 1.3);
   }
   font-size: 0.9rem;
+  ${codeHighLightStyle};
 `;
 
 const LanguageStyle = styled.div`
@@ -50,7 +50,6 @@ function Code(props: Props) {
 
   return (
     <Style>
-      <HighLight />
       <LanguageStyle>{language}</LanguageStyle>
       <StyledPre>
         <code ref={ref} className={"language-" + language}>

@@ -2,12 +2,11 @@ import * as React from "react";
 import styled from "styled-components/macro";
 import { BlogpostPreviewI } from "../../pages/blogg";
 import BloggPostPreview from "./BloggPostPreview";
-import { BloggGlobalStyles } from "./BloggGlobalStyles";
 import Header from "./Header";
 
 const Style = styled.div`
   min-height: 100vh;
-  padding: 2rem;
+  padding: 4vmin;
 `;
 
 const MaxWidth = styled.div`
@@ -34,7 +33,6 @@ function BloggForside(props: Props) {
 
   return (
     <Style>
-      <BloggGlobalStyles />
       <MaxWidth>
         <Header fontSize="1.5rem" h1={true} />
         <BloggPostPreview {...førstePost} />
