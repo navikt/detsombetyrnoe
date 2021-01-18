@@ -17,7 +17,7 @@ function Metadata() {
       <link href="https://www.nav.no/dekoratoren/media/favicon.ico" rel="icon" type="image/x-icon" />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link
-        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,600;0,900;1,300;1,600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,600;0,700;0,900;1,300;1,600&display=swap"
         rel="stylesheet"
       />
       <title>Tør du å skape det som betyr noe?</title>

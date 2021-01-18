@@ -7,8 +7,13 @@ import { Typografi } from "../styles/TypografiNyttDesign";
 import CustomComponent, { CustomComponentProps } from "../components/CustomComponent";
 import { ArtikkelI } from "../components/artikkel/types";
 import ArtikkelPreview from "../components/artikkel/ArtikkelPreview";
+import { Header } from "../components/forside/Header";
 
 const landingssideQuery = groq`*[_id == "forside"][0] {
+  overskrift,
+  underoverskrift,
+  bakgrunnsfarge,
+  lysTekst,
   paneler[] {
     lysTekst,
     _key,
@@ -34,8 +39,12 @@ interface PanelProps {
   innhold?: Innhold;
 }
 
-interface Props {
+interface ForsideProps {
   data?: {
+    overskrift: string;
+    underoverskrift: string;
+    bakgrunnsfarge?: string;
+    lysTekst?: boolean;
     paneler?: (PanelProps | CustomComponentProps)[];
   };
 }
@@ -58,10 +67,17 @@ function getChildren(innhold?: Innhold) {
   }
 }
 
-export default function NyttDesign(props: Props) {
+export default function NyttDesign(props: ForsideProps) {
   return (
     <>
       <Typografi />
+      <Header
+        overskrift={props.data?.overskrift}
+        underoverskrift={props.data?.underoverskrift}
+        bakgrunnsfarge={props.data?.bakgrunnsfarge}
+        lysTekst={props.data?.lysTekst}
+      />
+
       {props.data?.paneler?.map((panel) =>
         panel._type === "customComponent" ? (
           <CustomComponent {...panel} key={panel.id} />
