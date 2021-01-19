@@ -3,6 +3,7 @@ import styled from "styled-components/macro";
 import { BlogpostPreviewI } from "../../pages/blogg";
 import BloggPostPreview from "./BloggPostPreview";
 import Header from "./Header";
+import Head from "next/head";
 
 const Style = styled.div`
   min-height: 100vh;
@@ -33,6 +34,9 @@ function BloggForside(props: Props) {
 
   return (
     <Style>
+      <Head>
+        <title>NAV IT Blogg.</title>
+      </Head>
       <MaxWidth>
         <Header fontSize="1.5rem" h1={true} />
         <BloggPostPreview {...førstePost} />

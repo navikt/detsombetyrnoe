@@ -31,13 +31,13 @@ const Content = styled.div`
 
 function BloggPostPreview(props: BlogpostPreviewI) {
   return (
-    <Link href={`/blogg/${props.slug.current}`} passHref={true}>
+    <Link href={`/blogg/${props.slug?.current}`} passHref={true}>
       <Style>
-        <CoverImage src={urlFor(props.mainImage).width(1000).height(500).url() || ""} alt={props.mainImage.altTekst} />
+        <CoverImage src={urlFor(props.mainImage).width(1000).height(500).url() || ""} alt={props.mainImage?.altTekst} />
         <Content>
           <h2>{props.tittel}</h2>
           <p>{format(new Date(props._createdAt), "PPP", { locale: nb })}</p>
-          <Forfattere forfattere={props.forfattere} />
+          <Forfattere forfattere={props?.forfattere} />
         </Content>
       </Style>
     </Link>

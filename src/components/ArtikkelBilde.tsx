@@ -1,7 +1,6 @@
 import * as React from "react";
 import styled, { css } from "styled-components/macro";
 import { urlFor } from "../lib/sanity";
-import { SanityImageI } from "../pages/blogg/[slug]";
 import { useState } from "react";
 
 const StyledFigure = styled.figure<{ zoom: boolean }>`
@@ -19,6 +18,8 @@ const StyledFigure = styled.figure<{ zoom: boolean }>`
 const Image = styled.img`
   width: 100%;
 `;
+
+export type SanityImageI = { altTekst?: string; caption?: string };
 
 interface Props {
   node: SanityImageI;

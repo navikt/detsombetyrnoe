@@ -7,6 +7,7 @@ import { urlFor } from "../../lib/sanity";
 import BlockContent from "../BlockContent";
 import { format } from "date-fns";
 import { nb } from "date-fns/locale";
+import Head from "next/head";
 
 const Style = styled.div`
   min-height: 100vh;
@@ -52,6 +53,9 @@ const StyledBlockContent = styled(BlockContent)`
 const Bloggside = (props: BlogpostData) => {
   return (
     <Style>
+      <Head>
+        <title>{props.tittel}</title>
+      </Head>
       <Content>
         <Header fontSize=".75rem" />
         <h1>{props.tittel}</h1>

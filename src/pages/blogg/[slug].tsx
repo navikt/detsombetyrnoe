@@ -1,32 +1,23 @@
-import { GetStaticPaths } from "next";
-import { getClient } from "../../lib/sanity";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { getClient, usePreviewSubscription } from "../../lib/sanity";
 import groq from "groq";
 import Bloggside from "../../components/blogg/BloggPost";
 import { ForfatterI } from "./index";
+import { SanityImageI } from "../../components/ArtikkelBilde";
+import { useRouter } from "next/router";
+import Error from "next/error";
+import PreviewBanner from "../../components/PreviewBanner";
 
-export interface StaticPathProps {
-  paths: { params: { slug: string } }[];
-  fallback: boolean;
-}
+const pathQuery = groq`*[_type == "blogpost"][].slug.current`;
 
-const pathQuery = groq`
-*[_type == "blogpost"] {
-  slug
-}
-`;
-
-export const getStaticPaths: GetStaticPaths = async (context): Promise<StaticPathProps> => {
+export const getStaticPaths: GetStaticPaths = async (context) => {
   const articleSlugs = await getClient(false).fetch(pathQuery);
 
   return {
-    paths: articleSlugs.map((post: any) => ({
-      params: { slug: post.slug.current },
-    })),
-    fallback: false,
+    paths: articleSlugs.map((slug: string) => ({ params: { slug } })),
+    fallback: true,
   };
 };
-
-export type SanityImageI = { altTekst: string; caption?: string };
 
 export interface BlogpostData {
   tittel: string;
@@ -34,34 +25,52 @@ export interface BlogpostData {
   mainImage: SanityImageI;
   body: any;
   forfattere: ForfatterI[];
+  slug: string;
 }
 
-interface StaticProps {
-  props: {
-    data: BlogpostData;
-  };
-  revalidate: number;
-}
-
-export async function getStaticProps(props: { params: { slug: string } }): Promise<StaticProps> {
-  const blogQuery = groq`
-    *[_type == "blogpost" && slug.current == "${props.params.slug}"][0] {
-      tittel,
-      _createdAt,
+const blogQuery = groq`
+  *[_type == "blogpost" && slug.current == $slug][0] {
+    tittel,
+    _createdAt,
+    mainImage,
+    body,
+    "slug": slug.current,
+    forfattere[]-> {
+      navn,
       mainImage,
-      body,
-      forfattere[]-> {
-        navn,
-        mainImage,
-        ...
-      }
+      ...
     }
-  `;
-  const data = await getClient(false).fetch(blogQuery);
+  }
+`;
+
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const data = await getClient(!!ctx.preview).fetch(blogQuery, { slug: ctx.params?.slug });
   return {
-    props: data,
+    props: { data, preview: !!ctx.preview },
     revalidate: 600,
   };
-}
+};
 
-export default Bloggside;
+const PreviewWrapper = (props: { data: BlogpostData; preveiw?: boolean }) => {
+  const router = useRouter();
+  if (!router.isFallback && !props.data?.slug) {
+    return <Error statusCode={404} />;
+  }
+
+  const enablePreview = !!props.preveiw || !!router.query.preview;
+
+  const { data } = usePreviewSubscription(blogQuery, {
+    params: { slug: props.data?.slug },
+    initialData: props.data,
+    enabled: enablePreview,
+  });
+
+  return (
+    <>
+      {enablePreview && <PreviewBanner />}
+      <Bloggside {...data} />
+    </>
+  );
+};
+
+export default PreviewWrapper;

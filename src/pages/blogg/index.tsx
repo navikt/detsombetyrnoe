@@ -1,6 +1,6 @@
 import * as React from "react";
 import { GetStaticProps } from "next";
-import { getClient } from "../../lib/sanity";
+import { getClient, usePreviewSubscription } from "../../lib/sanity";
 import groq from "groq";
 import BloggForside from "../../components/blogg/BloggForside";
 
@@ -26,19 +26,29 @@ export type ForfatterI = {
 };
 
 export type BlogpostPreviewI = {
-  tittel: string;
-  slug: { current: string };
+  tittel?: string;
+  slug?: { current?: string };
   _createdAt: string;
-  mainImage: { altTekst: string };
+  mainImage?: { altTekst?: string };
   _id: string;
-  forfattere: ForfatterI[];
+  forfattere?: ForfatterI[];
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const blogposts = await getClient(false).fetch(query);
+  const blogposts = await getClient(!!ctx.preview).fetch(query);
   return {
-    props: { blogposts },
+    props: { data: blogposts, preview: !!ctx.preview },
+    revalidate: 600,
   };
 };
 
-export default BloggForside;
+const PreviewWrapper = (props: { data: BlogpostPreviewI[]; preveiw?: boolean }) => {
+  const { data } = usePreviewSubscription(query, {
+    initialData: props.data,
+    enabled: !!props.preveiw,
+  });
+
+  return <BloggForside blogposts={data} />;
+};
+
+export default PreviewWrapper;

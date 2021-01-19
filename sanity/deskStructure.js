@@ -1,6 +1,8 @@
 import S from "@sanity/desk-tool/structure-builder";
 import { NøkkeltallIkon } from "./schemas/forside/nøkkeltall/nokkeltall";
 import { ForsideIkon } from "./schemas/forside/forside";
+import React from "react";
+import { BloggWebPreview } from "./utils/BloggWebPreview";
 
 export default () =>
   S.list()
@@ -14,3 +16,9 @@ export default () =>
       S.divider(),
       ...S.documentTypeListItems().filter((listItem) => !["forside", "nokkeltall"].includes(listItem.getId())),
     ]);
+
+export const getDefaultDocumentNode = ({ schemaType }) => {
+  if (schemaType === "blogpost") {
+    return S.document().views([S.view.form(), S.view.component(BloggWebPreview).title("Preview")]);
+  }
+};

@@ -17,10 +17,10 @@ const ForfatterImage = styled.img`
   height: calc(1.5rem + 4vmin);
 `;
 
-function Forfattere(props: { forfattere: ForfatterI[]; className?: string }) {
+function Forfattere(props: { forfattere?: ForfatterI[]; className?: string }) {
   return (
     <div className={props.className}>
-      {props.forfattere.map((forfatter) => (
+      {props.forfattere?.map((forfatter) => (
         <ForfatterStyle key={forfatter._id}>
           <ForfatterImage src={urlFor(forfatter.mainImage).height(100).width(100).url() || ""} alt="" />
           <p>{forfatter.navn}</p>
