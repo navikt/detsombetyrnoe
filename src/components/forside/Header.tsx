@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components/macro";
 import ArrowDown from "../../ikoner/arrowDown";
 import NavLogo from "../../ikoner/navlogo";
@@ -7,7 +7,6 @@ import Panel from "../Panel";
 const Style = styled.header`
   text-align: center;
   max-width: 45rem;
-
   h1 {
     font-weight: 700;
     font-size: 14vmin;
@@ -41,6 +40,13 @@ const StyledDetSomBetyrNoe = styled.div`
   font-size: 1rem;
 `;
 
+const ArrowButton = styled.button`
+  margin-top: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+`;
+
 interface Props {
   overskrift?: string;
   underoverskrift?: string;
@@ -48,19 +54,29 @@ interface Props {
   lysTekst?: boolean;
 }
 
-export const Header = (props: Props) => (
-  <Panel backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
-    <Style>
-      <StyledToppLinje>
-        <StyledDetSomBetyrNoe>Det som betyr noe</StyledDetSomBetyrNoe>
-        <a href="https://www.nav.no/" aria-label="Lenke til NAV">
-          <NavLogo />
-        </a>
-      </StyledToppLinje>
+export const Header = (props: Props) => {
+  const ref = useRef<HTMLDivElement>(null);
 
-      <h1>{props.overskrift}</h1>
-      <p>{props.underoverskrift}</p>
-      <ArrowDown />
-    </Style>
-  </Panel>
-);
+  const onClickArrow = () => {
+    const top = ref.current?.getBoundingClientRect().height;
+    return window.scrollTo({ top: top, behavior: "smooth" });
+  };
+
+  return (
+    <Panel forwardRef={ref} backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
+      <Style>
+        <StyledToppLinje>
+          <StyledDetSomBetyrNoe>Det som betyr noe</StyledDetSomBetyrNoe>
+          <a href="https://www.nav.no/" aria-label="Lenke til NAV">
+            <NavLogo />
+          </a>
+        </StyledToppLinje>
+        <h1>{props.overskrift}</h1>
+        <p>{props.underoverskrift}</p>
+        <ArrowButton onClick={onClickArrow} aria-hidden>
+          <ArrowDown />
+        </ArrowButton>
+      </Style>
+    </Panel>
+  );
+};

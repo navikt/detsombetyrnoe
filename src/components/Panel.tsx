@@ -1,6 +1,6 @@
 import * as React from "react";
+import { forwardRef, ReactNode, RefObject } from "react";
 import styled, { css } from "styled-components";
-import { ReactNode } from "react";
 import Spinner from "./Spinner";
 
 interface Props {
@@ -10,6 +10,7 @@ interface Props {
   spinner?: boolean;
   className?: string;
   id?: string;
+  forwardRef?: RefObject<HTMLDivElement>;
 }
 
 const lysTekst = css`
@@ -35,22 +36,22 @@ const Style = styled.div<{ backgroundColor: string; lysTekst: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   > * {
     max-width: 100%;
   }
 `;
 
-function Panel(props: Props) {
-  return (
-    <Style
-      backgroundColor={props.backgroundColor || "white"}
-      lysTekst={!!props.lysTekst}
-      id={props.id}
-      className={props.className}
-    >
-      {props.spinner ? <Spinner /> : props.children}
-    </Style>
-  );
-}
+const Panel = (props: Props) => (
+  <Style
+    backgroundColor={props.backgroundColor || "white"}
+    lysTekst={!!props.lysTekst}
+    id={props.id}
+    className={props.className}
+    ref={props.forwardRef}
+  >
+    {props.spinner ? <Spinner /> : props.children}
+  </Style>
+);
 
 export default Panel;
