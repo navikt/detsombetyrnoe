@@ -1,4 +1,4 @@
-import { ImNewspaper } from "react-icons/Im";
+import { ImNewspaper } from "react-icons/im";
 
 export default {
   name: "artikkel",

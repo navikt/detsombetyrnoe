@@ -8,6 +8,7 @@ import BlockContent from "../BlockContent";
 import { format } from "date-fns";
 import { nb } from "date-fns/locale";
 import Head from "next/head";
+import { formatterDato } from "../../utils/formatterDato";
 
 const Style = styled.div`
   min-height: 100vh;
@@ -60,8 +61,8 @@ const Bloggside = (props: BlogpostData) => {
         <Header fontSize=".75rem" />
         <h1>{props.tittel}</h1>
         <StyledForfattere forfattere={props.forfattere} />
-        <MainImage src={urlFor(props.mainImage).width(1080).height(540).url() || ""} alt={props.mainImage.altTekst} />
-        <PublishedDate>{format(new Date(props._createdAt), "PPP", { locale: nb })}</PublishedDate>
+        <MainImage src={urlFor(props.mainImage).width(1080).height(540).url() || ""} alt={props.mainImage?.altTekst} />
+        <PublishedDate>{formatterDato(props._createdAt)}</PublishedDate>
         <StyledBlockContent blocks={props.body} />
       </Content>
     </Style>

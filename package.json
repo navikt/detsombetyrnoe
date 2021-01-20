@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "echo 'Building Sanity to public/studio…' && cd sanity && sanity build ../public/studio -y && cd .. && next build",
     "start": "next start",
     "test": "jest --watch",
     "test-ci": "jest",
     "typeCheck": "tsc",
+    "postinstall": "lerna bootstrap",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm i"
   },
   "dependencies": {
@@ -26,13 +27,14 @@
     "prismjs": "^1.23.0",
     "react": "^17.0.1",
     "react-dom": "17.0.1",
-    "react-icons": "4.1.0",
     "react-use": "15.3.4",
     "striptags": "3.1.1",
     "styled-components": "5.2.1",
     "swr": "0.3.11"
   },
   "devDependencies": {
+    "lerna": "^3.22.1",
+    "@sanity/cli": "^2.1.4",
     "@testing-library/jest-dom": "5.11.8",
     "@testing-library/react": "11.2.2",
     "@testing-library/user-event": "12.6.0",

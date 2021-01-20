@@ -5,9 +5,7 @@ import { keyframes } from "styled-components/macro";
 import { delay } from "./animasjoner";
 import Sokk from "./ikoner/Sokk";
 import { useEffect, useState } from "react";
-import { SiTypescript } from "react-icons/all";
 import { useProgressContext } from "./progress/ProgressContext";
-import { useMount } from "react-use";
 
 const rotateIn = keyframes`
 from {

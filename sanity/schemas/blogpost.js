@@ -1,5 +1,5 @@
 import { FaToiletPaper } from "react-icons/fa";
-import { formatterDato } from "../utils/formatterDato";
+import { formatterDato } from "../../src/utils/formatterDato";
 
 export default {
   name: "blogpost",

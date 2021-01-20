@@ -20,7 +20,7 @@ export const BloggWebPreview = (ctx: any) => {
 
   const url =
     process.env.NODE_ENV === "production"
-      ? `"https://www.detsombetyrnoe.no/blogg/${slug}?preview=true`
+      ? `/blogg/${slug}?preview=true`
       : `http://localhost:3000/blogg/${slug}?preview=true`;
 
   return (

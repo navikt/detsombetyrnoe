@@ -1,7 +1,8 @@
 {
   "root": true,
   "project": {
-    "name": "detsombetyrnoe-cms"
+    "name": "detsombetyrnoe-cms",
+    "basePath": "/studio"
   },
   "api": {
     "projectId": "c9hptfq7",
