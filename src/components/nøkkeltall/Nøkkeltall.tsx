@@ -16,7 +16,7 @@ export interface NøkkeltallData {
 const StyledUl = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 15rem));
-  @media (min-width: 80rem) {
+  @media (min-width: 100em) {
     grid-template-columns: repeat(4, 15rem);
   }
   grid-gap: 4rem;
