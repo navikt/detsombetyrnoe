@@ -1,5 +1,6 @@
 import { useAmplitude } from "../contexts/amplitude-context";
 import styled from "styled-components";
+import Parallax from "./Parallax";
 
 const Style = styled.li`
   margin: 2rem 0;
