@@ -3,6 +3,7 @@ import styled from "styled-components/macro";
 import ArrowDown from "../../ikoner/arrowDown";
 import NavLogo from "../../ikoner/navlogo";
 import Panel from "../Panel";
+import GithubrepoLenke from "../GithubrepoLenke";
 
 const Style = styled.header`
   text-align: center;
@@ -28,7 +29,7 @@ const StyledToppLinje = styled.div`
   width: 100%;
   padding: 1rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 `;
 
 const StyledDetSomBetyrNoe = styled.div`
@@ -66,11 +67,14 @@ export const Header = (props: Props) => {
     <Panel forwardRef={ref} backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
       <Style>
         <StyledToppLinje>
+          {/*
           <StyledDetSomBetyrNoe>Det som betyr noe</StyledDetSomBetyrNoe>
+        */}
           <a href="https://www.nav.no/" aria-label="Lenke til NAV">
             <NavLogo />
           </a>
         </StyledToppLinje>
+        <GithubrepoLenke />
         <h1>{props.overskrift}</h1>
         <p>{props.underoverskrift}</p>
         <ArrowButton onClick={onClickArrow} aria-hidden>

@@ -2,20 +2,25 @@ import * as React from "react";
 import Githubstats from "./githubstats/Githubstats";
 import Stillinger from "./stillinger";
 import Panel from "./Panel";
-import { navFrontend } from "../styles/navFarger";
 
 export interface CustomComponentProps {
   _type: "customComponent";
   id: string;
+  bakgrunnsfarge: string;
+  lysTekst: boolean;
 }
 
 function CustomComponent(props: CustomComponentProps) {
   switch (props.id) {
     case "github":
-      return <Githubstats />;
+      return (
+        <Panel backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
+          <Githubstats />
+        </Panel>
+      );
     case "stillinger":
       return (
-        <Panel backgroundColor={"white"}>
+        <Panel backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
           <Stillinger />
         </Panel>
       );

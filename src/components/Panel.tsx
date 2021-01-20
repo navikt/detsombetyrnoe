@@ -29,7 +29,8 @@ const mørkTekst = css`
 `;
 
 const Style = styled.div<{ backgroundColor: string; lysTekst: boolean }>`
-  background-color: ${(props) => props.backgroundColor};
+  --background-color: ${(props) => props.backgroundColor};
+  background-color: var(--background-color);
   ${(props) => (props.lysTekst ? lysTekst : mørkTekst)};
   min-height: 110vh;
   padding: 20vmin 5vmin;

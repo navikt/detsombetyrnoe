@@ -47,6 +47,15 @@ export default {
               name: "id",
               description: "Denne må matche en id som utvikler legger inn i frontendkoden",
             },
+            {
+              name: "bakgrunnsfarge",
+              type: "string",
+              inputComponent: NavColorInput,
+            },
+            {
+              name: "lysTekst",
+              type: "boolean",
+            },
           ],
         },
       ],

@@ -31,7 +31,7 @@ const Style = styled.li`
     height: 3rem;
     width: 100%;
     display: block;
-    background: linear-gradient(transparent, white 60%);
+    background: linear-gradient(transparent, var(--background-color) 60%);
   }
 `;
 
