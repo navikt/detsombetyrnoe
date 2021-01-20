@@ -1,6 +1,5 @@
 import { useAmplitude } from "../contexts/amplitude-context";
 import styled from "styled-components";
-import Parallax from "./Parallax";
 
 const Style = styled.li`
   margin: 2rem 0;
@@ -23,6 +22,9 @@ const Style = styled.li`
     max-height: 10rem;
     overflow: hidden;
     padding-bottom: 1rem;
+  }
+  i {
+    color: #333;
   }
   position: relative;
   &::after {
