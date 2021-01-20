@@ -1,13 +1,18 @@
-import * as React from "react";
+import { GiUnicorn } from "react-icons/gi";
 import NavColorInput from "../../components/NavColorInput";
 import PanelPreview from "../../components/PanelPreview";
-import { MdWebAsset } from "react-icons/md";
+import * as React from "react";
 
 export default {
-  name: "panel",
+  name: "customComponent",
   type: "object",
-  icon: MdWebAsset,
+  icon: GiUnicorn,
   fields: [
+    {
+      type: "string",
+      name: "id",
+      description: "Denne må matche en id som utvikler legger inn i frontendkoden",
+    },
     {
       name: "bakgrunnsfarge",
       type: "string",
@@ -17,18 +22,13 @@ export default {
       name: "lysTekst",
       type: "boolean",
     },
-    {
-      name: "innhold",
-      type: "reference",
-      to: [{ type: "nokkeltall" }, { type: "artikkel" }],
-    },
   ],
   preview: {
     select: {
       bakgrunnsfarge: "bakgrunnsfarge",
-      type: "innhold._type",
+      type: "_type",
       lysTekst: "lysTekst",
-      tittel: "innhold.tittel",
+      tittel: "id",
     },
     prepare: (selection) => selection,
     component: (selection) => <PanelPreview {...selection} />,

@@ -1,5 +1,4 @@
 import { MdWeb } from "react-icons/md";
-import { GiUnicorn } from "react-icons/gi";
 import NavColorInput from "../../components/NavColorInput";
 
 export const ForsideIkon = MdWeb;
@@ -18,7 +17,7 @@ export default {
     {
       name: "underoverskrift",
       title: "Underoverskrift",
-      type: "string",
+      type: "text",
     },
     {
       name: "bakgrunnsfarge",
@@ -39,24 +38,7 @@ export default {
         },
         {
           name: "customComponent",
-          type: "object",
-          icon: GiUnicorn,
-          fields: [
-            {
-              type: "string",
-              name: "id",
-              description: "Denne må matche en id som utvikler legger inn i frontendkoden",
-            },
-            {
-              name: "bakgrunnsfarge",
-              type: "string",
-              inputComponent: NavColorInput,
-            },
-            {
-              name: "lysTekst",
-              type: "boolean",
-            },
-          ],
+          type: "customComponent",
         },
       ],
     },
