@@ -1,3 +1,4 @@
+import useSWR from "swr";
 import { useAmplitude } from "../contexts/amplitude-context";
 import Stilling from "./stilling";
 
@@ -32,7 +33,13 @@ const Gruppe = ({ stillingsType, stillinger }) => {
   );
 };
 
-const Stillinger = ({ stillinger }) => {
+const fetcher = (url) => fetch(url).then((r) => r.json());
+
+const Stillinger = () => {
+  const { data: stillinger, error } = useSWR("/api/stillinger", fetcher);
+
+  if (!stillinger) return null;
+
   return (
     <>
       <div className="row my-4">

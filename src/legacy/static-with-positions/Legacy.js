@@ -1,15 +1,10 @@
 import Head from "next/head";
-import useSWR from "swr";
 import Stillinger from "../../components/stillinger";
 import GithubrepoLenke from "../../components/GithubrepoLenke";
 import Julekort from "../../components/julekort/Julekort";
 import Githubstats from "../../components/githubstats/Githubstats";
 
-const fetcher = (url) => fetch(url).then((r) => r.json());
-
 function Legacy() {
-  const { data: stillinger, error } = useSWR("/api/stillinger", fetcher);
-
   return (
     <>
       <Head>
@@ -45,7 +40,7 @@ function Legacy() {
             </div>
           </div>
 
-          {stillinger && <Stillinger stillinger={stillinger} />}
+          <Stillinger />
 
           <div className="row justify-content-center mb-4 pb-4">
             <div className="col col-12 col-lg-6">
