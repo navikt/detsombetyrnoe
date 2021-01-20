@@ -77,7 +77,7 @@ export const Header = (props: Props) => {
         <GithubrepoLenke />
         <h1>{props.overskrift}</h1>
         <p>{props.underoverskrift}</p>
-        <ArrowButton onClick={onClickArrow} aria-hidden>
+        <ArrowButton tabIndex={-1} onClick={onClickArrow} aria-hidden>
           <ArrowDown />
         </ArrowButton>
       </Style>
