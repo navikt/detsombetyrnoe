@@ -5,7 +5,7 @@ import groq from "groq";
 import BloggForside from "../../components/blogg/BloggForside";
 
 const query = groq`
-*[_type == "blogpost"] | order(_createdAt desc) {
+*[_type == "blogpost" && published == true] | order(_createdAt desc) {
   tittel,
   slug,
   _createdAt,

@@ -39,7 +39,7 @@ function BloggForside(props: Props) {
       </Head>
       <MaxWidth>
         <Header fontSize="1.5rem" h1={true} />
-        <BloggPostPreview {...førstePost} />
+        {førstePost && <BloggPostPreview {...førstePost} />}
         <StyledOl>
           {resten.map((post) => (
             <li key={post._id}>
