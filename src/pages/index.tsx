@@ -8,6 +8,7 @@ import CustomComponent, { CustomComponentProps } from "../components/CustomCompo
 import { ArtikkelI } from "../components/artikkel/types";
 import ArtikkelPreview from "../components/artikkel/ArtikkelPreview";
 import { Header } from "../components/forside/Header";
+import SEO from "../components/SEO";
 
 const landingssideQuery = groq`*[_id == "forside"][0] {
   overskrift,
@@ -23,6 +24,14 @@ const landingssideQuery = groq`*[_id == "forside"][0] {
     _type
   }
 }`;
+
+const metadataQuery = groq`*[_id == "metadata"][0]`;
+
+export interface MetadataI {
+  description: string;
+  previewImage: any;
+  title: string;
+}
 
 interface Placeholder {
   _type: "placeholder";
@@ -47,6 +56,7 @@ interface ForsideProps {
     lysTekst?: boolean;
     paneler?: (PanelProps | CustomComponentProps)[];
   };
+  metaData?: MetadataI;
 }
 
 function getChildren(innhold?: Innhold) {
@@ -71,6 +81,7 @@ export default function Index(props: ForsideProps) {
   return (
     <>
       <Typografi />
+      <SEO metadata={props.metaData} />
       <Header
         overskrift={props.data?.overskrift}
         underoverskrift={props.data?.underoverskrift}
@@ -96,10 +107,12 @@ export default function Index(props: ForsideProps) {
 
 export async function getStaticProps({ preview = false }) {
   const data = await getClient(preview).fetch(landingssideQuery);
+  const metaData = await getClient(preview).fetch(metadataQuery);
   return {
     props: {
       preview,
       data,
+      metaData,
     },
     revalidate: 60,
   };

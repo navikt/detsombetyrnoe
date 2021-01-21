@@ -18,6 +18,7 @@ export default {
       name: "underoverskrift",
       title: "Underoverskrift",
       type: "text",
+      rows: 3,
     },
     {
       name: "bakgrunnsfarge",

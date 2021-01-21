@@ -6,8 +6,9 @@ import artikkel from "./artikkel";
 import bilde from "./bilde";
 import blogpost from "./blogpost";
 import forfatter from "./forfatter";
+import metadata from "./metadata";
 
 export default createSchema({
   name: "default",
-  types: schemaTypes.concat([blockContent, artikkel, bilde, blogpost, forfatter, ...forsideSchema]),
+  types: schemaTypes.concat([blockContent, artikkel, bilde, blogpost, forfatter, metadata, ...forsideSchema]),
 });
