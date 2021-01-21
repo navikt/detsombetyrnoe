@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Stillinger from "../../components/stillinger";
+import Stillinger from "../../components/Stillinger";
 import GithubrepoLenke from "../../components/GithubrepoLenke";
 import Julekort from "../../components/julekort/Julekort";
 import Githubstats from "../../components/githubstats/Githubstats";

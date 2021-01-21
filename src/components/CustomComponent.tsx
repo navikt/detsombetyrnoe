@@ -1,6 +1,6 @@
 import * as React from "react";
 import Githubstats from "./githubstats/Githubstats";
-import Stillinger from "./stillinger";
+import Stillinger from "./Stillinger";
 import Panel from "./Panel";
 
 export interface CustomComponentProps {

@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Style = styled.li`
   margin: 2rem 0;
   a {
-    padding: 1rem;
+    padding: 2vmin;
     display: block;
     text-decoration: none;
     transition: 0.3s;
@@ -15,6 +15,8 @@ const Style = styled.li`
   }
   h3 {
     line-height: 1;
+    font-size: calc(1rem + 6vmin);
+    word-wrap: break-word;
   }
   p {
     margin-top: 1rem;
