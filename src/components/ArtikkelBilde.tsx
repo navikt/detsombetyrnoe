@@ -5,8 +5,9 @@ import { useState } from "react";
 
 const StyledFigure = styled.figure<{ zoom: boolean }>`
   figcaption {
-    opacity: 0.9;
+    opacity: 0.8;
     font-size: 0.8em;
+    font-style: italic;
   }
   && {
     margin: 3rem auto;

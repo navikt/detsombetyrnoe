@@ -5,15 +5,12 @@ import Header from "./Header";
 import Forfattere from "./Forfattere";
 import { urlFor } from "../../lib/sanity";
 import BlockContent from "../BlockContent";
-import { format } from "date-fns";
-import { nb } from "date-fns/locale";
 import Head from "next/head";
 import { formatterDato } from "../../utils/formatterDato";
 
 const Style = styled.div`
   min-height: 100vh;
   padding: 4vmin 4vmin 30vmin;
-  font-size: 1.1rem;
   --content-max-width: 30rem;
 `;
 
