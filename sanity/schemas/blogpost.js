@@ -22,10 +22,17 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "published",
+      type: "boolean",
+      description: "Blogginnlegget ditt vil ikke vises på forsiden før du har huket av denne.",
+    },
+    {
       name: "forfattere",
       type: "array",
       of: [
         {
+          description:
+            'Du må legge deg til under forfatterpanelet og trykke "Publish" før du dukker opp i denne lista.',
           type: "reference",
           to: [
             {
