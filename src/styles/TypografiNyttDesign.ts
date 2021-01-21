@@ -22,7 +22,7 @@ export const Typografi = createGlobalStyle`
     font-size: 1.5rem;
   }
   a  {
-    color: #FF6AA0;
+    color: #d24b7b;
   }
 
   *:focus {

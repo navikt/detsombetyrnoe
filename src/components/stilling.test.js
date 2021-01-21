@@ -20,21 +20,7 @@ describe("Tester komponenten Stilling", () => {
     const { container } = render(<Stilling {...stillingDummy} logAmplitudeEvent={mockLogAmplitudeEvent} />);
     expect(container).not.toBeEmptyDOMElement();
     expect(screen.getByText(/18\. november 2021/i)).toBeInTheDocument();
-    expect(screen.queryAllByText(/kom til oss, vi har cookies/i).length).toBe(2);
+    expect(screen.queryAllByText(/kom til oss, vi har cookies/i).length).toBe(1);
     expect(screen.getByText(stillingDummy.description)).toBeInTheDocument();
-  });
-
-  test("Når vi velger les mer trigges logAmplitudeEvent", () => {
-    const mockWindowNavigate = jest.fn();
-    const mockLogAmplitudeEvent = jest.fn();
-    delete window.location;
-    render(<Stilling {...stillingDummy} logAmplitudeEvent={mockLogAmplitudeEvent} />);
-    const lenke = screen.queryAllByText(/kom til oss, vi har cookies/i)[1];
-    window.location = {
-      assign: mockWindowNavigate,
-    };
-    userEvent.click(lenke);
-    expect(mockLogAmplitudeEvent).toHaveBeenCalledTimes(1);
-    expect(mockWindowNavigate).toHaveBeenCalledTimes(1);
   });
 });

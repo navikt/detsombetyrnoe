@@ -8,7 +8,7 @@ const Style = styled.a`
   align-items: center;
   position: absolute;
   right: 1rem;
-  top: 1rem;
+  bottom: 1rem;
   color: white;
   transition: 0.2s;
   &:hover,

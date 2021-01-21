@@ -1,6 +1,6 @@
 import { nøkkeltall } from "./nøkkeltall";
 import panel from "./panel";
-import placeholder from "./placeholder";
 import forside from "./forside";
+import customComponent from "./customComponent";
 
-export const forsideSchema = [forside, panel, placeholder, ...nøkkeltall];
+export const forsideSchema = [forside, panel, customComponent, ...nøkkeltall];
