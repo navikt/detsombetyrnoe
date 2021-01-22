@@ -54,7 +54,7 @@ function Forfatter(props: ForfatterI) {
       <StyledH2>Blogginnlegg fra daniel:</StyledH2>
       <Innlegg>
         {props.blogposts.map((post) => (
-          <BloggPostPreview {...post} />
+          <BloggPostPreview post={post} />
         ))}
       </Innlegg>
     </Style>

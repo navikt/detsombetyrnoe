@@ -29,15 +29,24 @@ const Content = styled.div`
   }
 `;
 
-function BloggPostPreview(props: BlogpostPreviewI) {
+function BloggPostPreview(props: { post: BlogpostPreviewI; highResImage?: boolean }) {
   return (
-    <Link href={`/blogg/${props.slug?.current}`} passHref={true}>
-      <Style lang={props.language}>
-        <CoverImage src={urlFor(props.mainImage).width(1000).height(500).url() || ""} alt={props.mainImage?.altTekst} />
+    <Link href={`/blogg/${props.post.slug?.current}`} passHref={true}>
+      <Style lang={props.post.language}>
+        <CoverImage
+          src={
+            urlFor(props.post.mainImage)
+              .width(props.highResImage ? 1000 : 500)
+              .height(props.highResImage ? 500 : 250)
+              .format("jpg")
+              .url() || ""
+          }
+          alt={props.post.mainImage?.altTekst}
+        />
         <Content>
-          <h2>{props.tittel}</h2>
-          <p>{format(new Date(props._createdAt), "PPP", { locale: nb })}</p>
-          <Forfattere forfattere={props?.forfattere} />
+          <h2>{props.post.tittel}</h2>
+          <p>{format(new Date(props.post._createdAt), "PPP", { locale: nb })}</p>
+          <Forfattere forfattere={props.post?.forfattere} />
         </Content>
       </Style>
     </Link>
