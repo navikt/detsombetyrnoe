@@ -8,7 +8,7 @@ import { BlogpostPreviewI, groqBlogpostPreviewFields } from "../blogg";
 import React from "react";
 import Forfatter from "../../components/Forfatter";
 
-const pathQuery = groq`*[_type == "forfatter"][].slug.current`;
+const pathQuery = groq`*[_type == "forfatter" && defined(slug)][].slug.current`;
 
 export const getStaticPaths: GetStaticPaths = async (context) => {
   const forfatterSlugs = await getClient(false).fetch(pathQuery);

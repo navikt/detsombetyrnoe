@@ -5,7 +5,7 @@ import groq from "groq";
 import { isDevelopment } from "../../utils/environment";
 
 const query = groq`
-*[_type == "forfatter"] {
+*[_type == "forfatter" && defined(slug)] {
   ...
 }
 `;
