@@ -51,7 +51,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const data = await getClient(preview).fetch(blogQuery, { slug: ctx.params?.slug });
   return {
     props: { data, preview },
-    revalidate: 600,
+    revalidate: 60,
   };
 };
 

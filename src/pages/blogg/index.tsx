@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const blogposts = await getClient(preview).fetch(query);
   return {
     props: { data: blogposts, preview },
-    revalidate: 600,
+    revalidate: 60,
   };
 };
 
