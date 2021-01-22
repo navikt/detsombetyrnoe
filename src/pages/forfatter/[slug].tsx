@@ -4,6 +4,9 @@ import groq from "groq";
 import { useRouter } from "next/router";
 import Error from "next/error";
 import { isDevelopment } from "../../utils/environment";
+import { BlogpostPreviewI, groqBlogpostPreviewFields } from "../blogg";
+import React from "react";
+import Forfatter from "../../components/Forfatter";
 
 const pathQuery = groq`*[_type == "forfatter"][].slug.current`;
 
@@ -16,11 +19,23 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
 };
 
 const forfatterQuery = groq`
-  *[_type == "forfatter" && slug.current == $slug][0] {
-    ...,
-    "slug": slug.current
+*[_type == "forfatter" && slug.current == $slug][0] {
+  ...,
+  "slug": slug.current,
+  "blogposts": *[_type == "blogpost" && ^._id in forfattere[]._ref] {
+    ${groqBlogpostPreviewFields}
   }
+}
 `;
+
+export interface ForfatterI {
+  bio: string;
+  blogposts: BlogpostPreviewI[];
+  mainImage: any;
+  navn: string;
+  slug: string;
+  _id: string;
+}
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const preview = !!ctx.preview || isDevelopment();
@@ -31,7 +46,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   };
 };
 
-const PreviewWrapper = (props: { data: any; preview?: boolean }) => {
+const PreviewWrapper = (props: { data: ForfatterI; preview?: boolean }) => {
   const router = useRouter();
   if (!router.isFallback && !props.data?.slug) {
     return <Error statusCode={404} />;
@@ -45,7 +60,7 @@ const PreviewWrapper = (props: { data: any; preview?: boolean }) => {
     enabled: enablePreview,
   });
 
-  return <pre>{JSON.stringify(data, undefined, 2)}</pre>;
+  return <Forfatter {...data} />;
 };
 
 export default PreviewWrapper;

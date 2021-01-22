@@ -41,7 +41,7 @@ const blogQuery = groq`
     forfattere[]-> {
       navn,
       mainImage,
-      ...
+      "slug": slug.current
     }
   }
 `;

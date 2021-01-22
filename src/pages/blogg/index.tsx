@@ -5,25 +5,30 @@ import groq from "groq";
 import BloggForside from "../../components/blogg/BloggForside";
 import { isDevelopment } from "../../utils/environment";
 
+export const groqBlogpostPreviewFields = `
+tittel,
+slug,
+_createdAt,
+mainImage,
+_id,
+language,
+forfattere[]-> {
+  navn,
+  mainImage,
+  _id
+}
+`;
+
 const query = groq`
 *[_type == "blogpost" && published == true] | order(_createdAt desc) {
-  tittel,
-  slug,
-  _createdAt,
-  mainImage,
-  _id,
-  language,
-  forfattere[]-> {
-    navn,
-    mainImage,
-    _id
-  }
+  ${groqBlogpostPreviewFields}
 }
 `;
 
 export type ForfatterI = {
   navn: string;
   mainImage: any;
+  slug: string;
   _id: string;
 };
 
