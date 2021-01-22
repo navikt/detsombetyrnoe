@@ -53,7 +53,7 @@ function Forfatter(props: ForfatterI) {
       <Bio>{props.bio}</Bio>
       <StyledH2>Blogginnlegg fra daniel:</StyledH2>
       <Innlegg>
-        {props.blogposts.map((post) => (
+        {props.blogposts?.map((post) => (
           <BloggPostPreview post={post} />
         ))}
       </Innlegg>

@@ -30,7 +30,7 @@ const forfatterQuery = groq`
 
 export interface ForfatterI {
   bio: string;
-  blogposts: BlogpostPreviewI[];
+  blogposts?: BlogpostPreviewI[];
   mainImage: any;
   navn: string;
   slug: string;
