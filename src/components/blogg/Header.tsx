@@ -9,7 +9,7 @@ const Style = styled.a<{ fontSize: string }>`
   margin-bottom: 1rem;
   color: inherit !important;
   .blogg {
-    font-weight: normal;
+    font-weight: 300;
     display: block;
     margin-left: 1em;
     margin-top: -0.35em;
