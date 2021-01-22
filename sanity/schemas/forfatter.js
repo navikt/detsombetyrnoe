@@ -10,6 +10,16 @@ export default {
       type: "string",
     },
     {
+      name: "slug",
+      type: "slug",
+      description: "Url til forfatterside",
+      options: {
+        source: "navn",
+        maxLength: 40,
+      },
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: "mainImage",
       type: "image",
       options: {

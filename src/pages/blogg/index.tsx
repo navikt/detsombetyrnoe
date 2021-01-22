@@ -3,6 +3,7 @@ import { GetStaticProps } from "next";
 import { getClient, usePreviewSubscription } from "../../lib/sanity";
 import groq from "groq";
 import BloggForside from "../../components/blogg/BloggForside";
+import { isDevelopment } from "../../utils/environment";
 
 const query = groq`
 *[_type == "blogpost" && published == true] | order(_createdAt desc) {
@@ -11,6 +12,7 @@ const query = groq`
   _createdAt,
   mainImage,
   _id,
+  language,
   forfattere[]-> {
     navn,
     mainImage,
@@ -31,21 +33,23 @@ export type BlogpostPreviewI = {
   _createdAt: string;
   mainImage?: { altTekst?: string };
   _id: string;
+  language?: string;
   forfattere?: ForfatterI[];
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const blogposts = await getClient(!!ctx.preview).fetch(query);
+  const preview = !!ctx.preview || isDevelopment();
+  const blogposts = await getClient(preview).fetch(query);
   return {
-    props: { data: blogposts, preview: !!ctx.preview },
+    props: { data: blogposts, preview },
     revalidate: 600,
   };
 };
 
-const PreviewWrapper = (props: { data: BlogpostPreviewI[]; preveiw?: boolean }) => {
+const PreviewWrapper = (props: { data: BlogpostPreviewI[]; preview?: boolean }) => {
   const { data } = usePreviewSubscription(query, {
     initialData: props.data,
-    enabled: !!props.preveiw,
+    enabled: !!props.preview,
   });
 
   return <BloggForside blogposts={data} />;

@@ -32,7 +32,7 @@ const Content = styled.div`
 function BloggPostPreview(props: BlogpostPreviewI) {
   return (
     <Link href={`/blogg/${props.slug?.current}`} passHref={true}>
-      <Style>
+      <Style lang={props.language}>
         <CoverImage src={urlFor(props.mainImage).width(1000).height(500).url() || ""} alt={props.mainImage?.altTekst} />
         <Content>
           <h2>{props.tittel}</h2>

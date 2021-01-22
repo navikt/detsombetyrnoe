@@ -7,6 +7,7 @@ import { SanityImageI } from "../../components/ArtikkelBilde";
 import { useRouter } from "next/router";
 import Error from "next/error";
 import PreviewBanner from "../../components/PreviewBanner";
+import { isDevelopment } from "../../utils/environment";
 
 const pathQuery = groq`*[_type == "blogpost"][].slug.current`;
 
@@ -22,10 +23,11 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
 export interface BlogpostData {
   tittel: string;
   _createdAt: string;
-  mainImage: SanityImageI;
+  mainImage?: SanityImageI;
   body: any;
-  forfattere: ForfatterI[];
+  forfattere?: ForfatterI[];
   slug: string;
+  language: string;
 }
 
 const blogQuery = groq`
@@ -35,6 +37,7 @@ const blogQuery = groq`
     mainImage,
     body,
     "slug": slug.current,
+    language,
     forfattere[]-> {
       navn,
       mainImage,
@@ -44,20 +47,21 @@ const blogQuery = groq`
 `;
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const data = await getClient(!!ctx.preview).fetch(blogQuery, { slug: ctx.params?.slug });
+  const preview = !!ctx.preview || isDevelopment();
+  const data = await getClient(preview).fetch(blogQuery, { slug: ctx.params?.slug });
   return {
-    props: { data, preview: !!ctx.preview },
+    props: { data, preview },
     revalidate: 600,
   };
 };
 
-const PreviewWrapper = (props: { data: BlogpostData; preveiw?: boolean }) => {
+const PreviewWrapper = (props: { data: BlogpostData; preview?: boolean }) => {
   const router = useRouter();
   if (!router.isFallback && !props.data?.slug) {
     return <Error statusCode={404} />;
   }
 
-  const enablePreview = !!props.preveiw || !!router.query.preview;
+  const enablePreview = !!props.preview || !!router.query.preview;
 
   const { data } = usePreviewSubscription(blogQuery, {
     params: { slug: props.data?.slug },

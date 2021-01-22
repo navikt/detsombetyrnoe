@@ -27,6 +27,18 @@ export default {
       description: "Blogginnlegget ditt vil ikke vises på forsiden før du har huket av denne.",
     },
     {
+      name: "language",
+      title: "Språk",
+      type: "string",
+      options: {
+        list: [
+          { value: "no", title: "Norsk" },
+          { value: "en", title: "English" },
+        ],
+      },
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: "forfattere",
       type: "array",
       of: [
@@ -53,6 +65,9 @@ export default {
       validation: (Rule) => Rule.required(),
     },
   ],
+  initialValue: {
+    language: "Norsk",
+  },
   preview: {
     select: {
       title: "tittel",

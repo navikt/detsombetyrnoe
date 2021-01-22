@@ -50,7 +50,7 @@ const StyledBlockContent = styled(BlockContent)`
 
 const Bloggside = (props: BlogpostData) => {
   return (
-    <Style>
+    <Style lang={props.language}>
       <Head>
         <title>{props.tittel}</title>
       </Head>
