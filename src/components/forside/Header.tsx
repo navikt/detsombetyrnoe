@@ -13,7 +13,7 @@ from {
 `;
 
 const Style = styled.header`
-  animation: ${fadeIn} 1s 0.3s backwards;
+  animation: ${fadeIn} 2s 0.5s backwards;
   text-align: center;
   max-width: 45rem;
   h1 {

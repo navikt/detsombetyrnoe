@@ -23,9 +23,9 @@ const LogoWrapper = styled(motion.div)`
 `;
 
 function Logo() {
-  const position = useRef({ x: Math.random() * 80, y: Math.random() * 80 }).current;
+  const position = useRef({ x: Math.random() * 100, y: Math.random() * 80 }).current;
   const size = useRef(Math.random() * 5 + 2).current;
-  const delay = useRef(Math.random() * 1 + 1.5).current;
+  const delay = useRef(Math.random() * 0.75 + 0.75).current;
   const rotate = useRef(Math.random() * 30 - 15).current;
 
   return (
