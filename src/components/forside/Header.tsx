@@ -1,11 +1,19 @@
 import React, { useRef } from "react";
-import styled from "styled-components/macro";
+import styled, { keyframes } from "styled-components/macro";
 import ArrowDown from "../../ikoner/arrowDown";
 import NavLogo from "../../ikoner/navlogo";
 import Panel from "../Panel";
 import GithubrepoLenke from "../GithubrepoLenke";
+import NavLogoBonanza from "./NavLogoBonanza";
+
+const fadeIn = keyframes`
+from {
+  opacity: 0;
+}
+`;
 
 const Style = styled.header`
+  animation: ${fadeIn} 1s 1s backwards;
   text-align: center;
   max-width: 45rem;
   h1 {
@@ -14,7 +22,6 @@ const Style = styled.header`
     line-height: 95%;
     margin-bottom: 2rem;
   }
-
   p {
     font-size: calc(2vmin + 0.5rem);
     line-height: 138%;
@@ -30,6 +37,9 @@ const StyledToppLinje = styled.div`
   padding: 1rem;
   display: flex;
   justify-content: flex-end;
+  svg {
+    width: 4rem;
+  }
 `;
 
 const StyledDetSomBetyrNoe = styled.div`
@@ -65,6 +75,7 @@ export const Header = (props: Props) => {
 
   return (
     <Panel forwardRef={ref} backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
+      <NavLogoBonanza />
       <Style>
         <StyledToppLinje>
           {/*
