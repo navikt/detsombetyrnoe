@@ -24,6 +24,7 @@ export default {
     {
       name: "published",
       type: "boolean",
+      title: "Vis på forsiden",
       description: "Blogginnlegget ditt vil ikke vises på forsiden før du har huket av denne.",
     },
     {
@@ -62,7 +63,6 @@ export default {
     {
       name: "body",
       type: "blockContent",
-      validation: (Rule) => Rule.required(),
     },
   ],
   initialValue: {
