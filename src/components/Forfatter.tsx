@@ -51,7 +51,7 @@ function Forfatter(props: ForfatterI) {
         <h1>{props.navn}</h1>
       </Navnelinje>
       <Bio>{props.bio}</Bio>
-      <StyledH2>Blogginnlegg fra daniel:</StyledH2>
+      <StyledH2>Blogginnlegg fra {props.navn}:</StyledH2>
       <Innlegg>
         {props.blogposts?.map((post) => (
           <BloggPostPreview post={post} />

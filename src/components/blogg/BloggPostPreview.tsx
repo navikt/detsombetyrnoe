@@ -38,6 +38,7 @@ function BloggPostPreview(props: { post: BlogpostPreviewI; highResImage?: boolea
             urlFor(props.post.mainImage)
               .width(props.highResImage ? 1000 : 500)
               .height(props.highResImage ? 500 : 250)
+              .bg("fff")
               .format("jpg")
               .url() || ""
           }

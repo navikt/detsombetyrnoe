@@ -59,7 +59,7 @@ const Bloggside = (props: BlogpostData) => {
         <h1>{props.tittel}</h1>
         <StyledForfattere forfattere={props.forfattere} lenkeTilForfatterside={true} />
         <MainImage
-          src={urlFor(props.mainImage).width(1000).height(500).format("jpg").url() || ""}
+          src={urlFor(props.mainImage).width(1000).height(500).bg("fff").format("jpg").url() || ""}
           alt={props.mainImage?.altTekst}
         />
         <PublishedDate>{formatterDato(props._createdAt)}</PublishedDate>
