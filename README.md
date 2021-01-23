@@ -4,9 +4,9 @@ Nextjs-frontend og sanity-cms oppsett for karrieresidene på [detsombetyrnoe.no]
 
 ## Redigere innhold
 
-Innhold kan redigeres på [https://detsombetyrnoe.sanity.studio](https://detsombetyrnoe.sanity.studio)
+Innhold kan redigeres på [https://detsombetyrnoe.no/studio](https://detsombetyrnoe.no/studio)
 
-## Utvikling 
+## Utvikling
 
 ```
 npm i
