@@ -15,8 +15,7 @@ const Style = styled.li`
   }
   h3 {
     line-height: 1;
-    font-size: calc(1rem + 6vmin);
-    word-wrap: break-word;
+    font-size: clamp(2rem, 8vmin, 3.5rem);
   }
   p {
     margin-top: 1rem;
