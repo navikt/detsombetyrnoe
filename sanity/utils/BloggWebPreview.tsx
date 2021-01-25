@@ -18,7 +18,7 @@ export const BloggWebPreview = (ctx: any) => {
     return <div>Bloggposten må ha en slug (url) før den kan forhåndsvises</div>;
   }
 
-  const previewUrl = `/api/preview?slug=/blogg/${slug}`;
+  const previewUrl = `/blogg/${slug}?preview=true`;
   const url = process.env.NODE_ENV === "production" ? previewUrl : `http://localhost:3000${previewUrl}`;
 
   return (
