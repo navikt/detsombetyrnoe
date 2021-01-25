@@ -57,10 +57,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
 const PreviewWrapper = (props: { data: BlogpostData; preview?: boolean }) => {
   const router = useRouter();
-  if (!router.isFallback && !props.data?.slug) {
-    return <Error statusCode={404} />;
-  }
-
   const enablePreview = !!props.preview || !!router.query.preview;
 
   const { data } = usePreviewSubscription(blogQuery, {
@@ -68,6 +64,10 @@ const PreviewWrapper = (props: { data: BlogpostData; preview?: boolean }) => {
     initialData: props.data,
     enabled: enablePreview,
   });
+
+  if (!router.isFallback && !data?.slug) {
+    return <Error statusCode={404} />;
+  }
 
   return (
     <>
