@@ -20,7 +20,7 @@ forfattere[]-> {
 `;
 
 const query = groq`
-*[_type == "blogpost" && published == true] | order(_createdAt desc) {
+*[_type == "blogpost"] | order(_createdAt desc) {
   ${groqBlogpostPreviewFields}
 }
 `;

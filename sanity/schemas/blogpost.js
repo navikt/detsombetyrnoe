@@ -22,12 +22,6 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "published",
-      type: "boolean",
-      title: "Vis på forsiden",
-      description: "Blogginnlegget ditt vil ikke vises på forsiden før du har huket av denne.",
-    },
-    {
       name: "language",
       title: "Språk",
       type: "string",
