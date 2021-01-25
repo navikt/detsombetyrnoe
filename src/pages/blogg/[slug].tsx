@@ -66,10 +66,8 @@ const PreviewWrapper = (props: { data: BlogpostData; preview?: boolean; slug?: s
     enabled: enablePreview,
   });
 
-  console.log("preveiw wrapper", router, data, props);
-
   if (!router.isFallback && !data?.slug) {
-    return <div>Fant ikke 🤷‍♀️</div>;
+    return <Error statusCode={404} />;
   }
 
   return (
