@@ -48,25 +48,28 @@ const blogQuery = groq`
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const preview = !!ctx.preview || isDevelopment();
-  const data = await getClient(preview).fetch(blogQuery, { slug: ctx.params?.slug });
+  const slug = ctx.params?.slug;
+  const data = await getClient(preview).fetch(blogQuery, { slug });
   return {
-    props: { data, preview },
+    props: { data, preview, slug },
     revalidate: 60,
   };
 };
 
-const PreviewWrapper = (props: { data: BlogpostData; preview?: boolean }) => {
+const PreviewWrapper = (props: { data: BlogpostData; preview?: boolean; slug?: string }) => {
   const router = useRouter();
   const enablePreview = !!props.preview || !!router.query.preview;
 
   const { data } = usePreviewSubscription(blogQuery, {
-    params: { slug: props.data?.slug },
+    params: { slug: props?.slug },
     initialData: props.data,
     enabled: enablePreview,
   });
 
+  console.log("preveiw wrapper", router, data, props);
+
   if (!router.isFallback && !data?.slug) {
-    return <Error statusCode={404} />;
+    return <div>Fant ikke 🤷‍♀️</div>;
   }
 
   return (
