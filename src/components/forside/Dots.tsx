@@ -16,38 +16,39 @@ const Style = styled.div`
   pointer-events: none;
 `;
 
-const LogoWrapper = styled(motion.div)`
+const DotStyle = styled(motion.div)`
   position: absolute;
   width: 1rem;
+  height: 1rem;
+  background-color: white;
   opacity: 0.1;
+  border-radius: 50%;
 `;
 
-function Logo() {
+function Dot() {
   const position = useRef({ x: Math.random() * 100, y: Math.random() * 80 }).current;
   const size = useRef(Math.random() * 5 + 2).current;
   const delay = useRef(Math.random() * 0.75 + 0.75).current;
   const rotate = useRef(Math.random() * 30 - 15).current;
 
   return (
-    <LogoWrapper
+    <DotStyle
       transition={{ delay, type: "spring" }}
       initial={{ scale: 0 }}
       animate={{ scale: size, rotate }}
       style={{ top: position.y + "%", left: position.x + "%" }}
-    >
-      <NavLogo />
-    </LogoWrapper>
+    />
   );
 }
 
-function NavLogoBonanza() {
+function Dots() {
   return (
     <Style>
       {[...new Array(20)].map((_, i) => (
-        <Logo />
+        <Dot />
       ))}
     </Style>
   );
 }
 
-export default NavLogoBonanza;
+export default Dots;
