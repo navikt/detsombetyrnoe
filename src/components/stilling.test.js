@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Stilling from "./stilling";
+import { mockIntersectionObserver } from "../mocks/intersection-observer-mock";
 
 const stillingDummy = {
   frist: "18. november 2021",
@@ -10,6 +11,10 @@ const stillingDummy = {
 };
 
 describe("Tester komponenten Stilling", () => {
+  beforeEach(() => {
+    mockIntersectionObserver();
+  });
+
   test("Komponenten rendrer ikke uten url", () => {
     const { container } = render(<Stilling />);
     expect(container).toBeEmptyDOMElement();
