@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import handleViewport from "react-in-viewport";
 import { useAmplitude } from "../contexts/amplitude-context";
 import styled from "styled-components";
 
@@ -40,8 +42,13 @@ const Style = styled.li`
 `;
 
 const Stilling = (props: any) => {
+  const [harVistStilling, setHarVistStilling] = useState(false);
   const { logAmplitudeEvent } = useAmplitude();
   const { frist, url, title, description } = props;
+
+  if (props.inViewport && !harVistStilling) {
+    setHarVistStilling(true);
+  }
 
   const handleClick = (event: any) => {
     event.preventDefault();
@@ -52,11 +59,20 @@ const Stilling = (props: any) => {
     window.location.assign(url);
   };
 
+  useEffect(() => {
+    if (harVistStilling) {
+      logAmplitudeEvent("Viser stilling", {
+        title,
+        url,
+      });
+    }
+  }, [harVistStilling]);
+
   if (!url) return null;
 
   return (
     <Style>
-      <a href={url} onClick={handleClick} target="_blank">
+      <a href={url} ref={props.forwardedRef} onClick={handleClick} target="_blank">
         <i>Frist: {frist}</i>
         <h3>{title}</h3>
         <p>{description}</p>
@@ -65,4 +81,6 @@ const Stilling = (props: any) => {
   );
 };
 
-export default Stilling;
+const StillingMedViewportSjekk = handleViewport(Stilling);
+
+export default StillingMedViewportSjekk;
