@@ -7,6 +7,8 @@ import { urlFor } from "../../lib/sanity";
 import BlockContent from "../BlockContent";
 import Head from "next/head";
 import { formatterDato } from "../../utils/formatterDato";
+import { useAmplitude } from "../../contexts/amplitude-context";
+import { useMount } from "react-use";
 
 const Style = styled.div`
   min-height: 100vh;
@@ -49,6 +51,16 @@ const StyledBlockContent = styled(BlockContent)`
 `;
 
 const Bloggside = (props: BlogpostData) => {
+  const { logAmplitudeEvent } = useAmplitude();
+
+  useMount(() =>
+    logAmplitudeEvent("Bloggpost - pageview", {
+      tittel: props.tittel,
+      forfatter: props.forfattere?.map((it) => it.navn),
+      slug: props.slug,
+    })
+  );
+
   return (
     <Style lang={props.language}>
       <Head>
