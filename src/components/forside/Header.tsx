@@ -4,7 +4,6 @@ import ArrowDown from "../../ikoner/arrowDown";
 import NavLogo from "../../ikoner/navlogo";
 import Panel from "../Panel";
 import GithubrepoLenke from "../GithubrepoLenke";
-import Dots from "./Dots";
 
 const fadeIn = keyframes`
 from {
@@ -75,7 +74,6 @@ export const Header = (props: Props) => {
 
   return (
     <Panel forwardRef={ref} backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
-      <Dots />
       <Style>
         <StyledToppLinje>
           {/*
