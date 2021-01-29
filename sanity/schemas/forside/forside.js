@@ -8,6 +8,7 @@ export default {
   title: "Forside",
   type: "document",
   icon: ForsideIkon,
+  __experimental_actions: ["update", "publish"], // Har du laget et nytt datasett må du midlertidig fjerne denne for å kunne lage et nytt oppsett-dokument
   fields: [
     {
       name: "overskrift",
