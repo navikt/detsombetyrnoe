@@ -69,7 +69,7 @@ function Artikkel(props: Props) {
     return <Error statusCode={404} />;
   }
 
-  const coverImage = urlFor(artikkel.bilder[0]).width(800).url();
+  const coverImage = urlFor(artikkel.bilder?.[0]).width(800).url();
 
   return (
     <Style>
