@@ -2,12 +2,13 @@ import * as React from "react";
 import Githubstats from "./githubstats/Githubstats";
 import Stillinger from "./Stillinger";
 import Panel from "./Panel";
+import Bloggposter from "./forside/Bloggposter";
 
 export interface CustomComponentProps {
   _type: "customComponent";
   id: string;
-  bakgrunnsfarge: string;
-  lysTekst: boolean;
+  bakgrunnsfarge?: string;
+  lysTekst?: boolean;
 }
 
 function CustomComponent(props: CustomComponentProps) {
@@ -22,6 +23,12 @@ function CustomComponent(props: CustomComponentProps) {
       return (
         <Panel backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
           <Stillinger />
+        </Panel>
+      );
+    case "blogg":
+      return (
+        <Panel backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
+          <Bloggposter />
         </Panel>
       );
     default:

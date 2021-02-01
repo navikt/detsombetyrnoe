@@ -22,10 +22,10 @@ const Heading = styled.div`
   font-size: 2em;
 `;
 
-function Header(props: { fontSize: string; h1?: boolean }) {
+function Header(props: { fontSize: string; h1?: boolean; className?: string }) {
   return (
-    <Link href="/blogg">
-      <Style fontSize={props.fontSize}>
+    <Link href="/blogg" passHref>
+      <Style fontSize={props.fontSize} className={props.className}>
         <Heading as={props.h1 ? "h1" : "div"}>
           <span>NAV IT</span>
           <span className="blogg">Blogg.</span>

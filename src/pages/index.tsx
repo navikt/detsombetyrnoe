@@ -9,23 +9,38 @@ import { ArtikkelI } from "../components/artikkel/types";
 import ArtikkelPreview from "../components/artikkel/ArtikkelPreview";
 import { Header } from "../components/forside/Header";
 import SEO from "../components/SEO";
+import ForsideProvider from "../components/forside/ForsideProvider";
 
-const landingssideQuery = groq`*[_id == "forside"][0] {
-  overskrift,
-  underoverskrift,
-  bakgrunnsfarge,
-  lysTekst,
-  paneler[] {
-    lysTekst,
-    _key,
+const landingssideQuery = groq`{
+"forside": *[_id == "forside"][0] {
+    overskrift,
+    underoverskrift,
     bakgrunnsfarge,
-    innhold->,
-    id,
-    _type
+    lysTekst,
+    paneler[] {
+      lysTekst,
+      _key,
+      bakgrunnsfarge,
+      innhold->,
+      id,
+      _type
+    }
+  },
+"metaData": *[_id == "metadata"][0],
+"bloggposter": *[_type == "blogpost"] | order(_createdAt desc) [0..4] {
+    tittel,
+    "slug": slug.current,
+    _createdAt,
+    "forfattere": forfattere[]->navn
   }
 }`;
 
-const metadataQuery = groq`*[_id == "metadata"][0]`;
+interface ForisdeBloggpostI {
+  tittel: string;
+  slug: string;
+  _createdAt: string;
+  forfattere: string[];
+}
 
 export interface MetadataI {
   description: string;
@@ -48,8 +63,8 @@ interface PanelProps {
   innhold?: Innhold;
 }
 
-interface ForsideProps {
-  data?: {
+export interface ForsideProps {
+  forside?: {
     overskrift: string;
     underoverskrift: string;
     bakgrunnsfarge?: string;
@@ -57,6 +72,7 @@ interface ForsideProps {
     paneler?: (PanelProps | CustomComponentProps)[];
   };
   metaData?: MetadataI;
+  bloggposter: ForisdeBloggpostI[];
 }
 
 function getChildren(innhold?: Innhold) {
@@ -79,17 +95,17 @@ function getChildren(innhold?: Innhold) {
 
 export default function Index(props: ForsideProps) {
   return (
-    <>
+    <ForsideProvider forsideProps={props}>
       <Typografi />
       <SEO metadata={props.metaData} />
       <Header
-        overskrift={props.data?.overskrift}
-        underoverskrift={props.data?.underoverskrift}
-        bakgrunnsfarge={props.data?.bakgrunnsfarge}
-        lysTekst={props.data?.lysTekst}
+        overskrift={props.forside?.overskrift}
+        underoverskrift={props.forside?.underoverskrift}
+        bakgrunnsfarge={props.forside?.bakgrunnsfarge}
+        lysTekst={props.forside?.lysTekst}
       />
 
-      {props.data?.paneler?.map((panel) =>
+      {props.forside?.paneler?.map((panel) =>
         panel._type === "customComponent" ? (
           <CustomComponent {...panel} key={panel.id} />
         ) : (
@@ -101,18 +117,16 @@ export default function Index(props: ForsideProps) {
           />
         )
       )}
-    </>
+    </ForsideProvider>
   );
 }
 
 export async function getStaticProps({ preview = false }) {
   const data = await getClient(preview).fetch(landingssideQuery);
-  const metaData = await getClient(preview).fetch(metadataQuery);
   return {
     props: {
       preview,
-      data,
-      metaData,
+      ...data,
     },
     revalidate: 60,
   };
