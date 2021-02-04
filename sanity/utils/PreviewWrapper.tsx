@@ -6,7 +6,7 @@ const Style = styled.div`
     height: 100%;
     width: 100%;
   }
-  height: 100%;
+  height: calc(100% - 2rem);
   margin: 1rem;
   box-shadow: 0 0 1rem #888;
 `;

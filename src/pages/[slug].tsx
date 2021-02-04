@@ -1,52 +1,74 @@
 import groq from "groq";
-import { getClient } from "../lib/sanity";
+import { getClient, usePreviewSubscription } from "../lib/sanity";
 import { ArtikkelI } from "../components/artikkel/types";
 import Artikkel from "../components/artikkel/Artikkel";
+import { useRouter } from "next/router";
+import Error from "next/error";
+import PreviewBanner from "../components/PreviewBanner";
+import Bloggside from "../components/blogg/BloggPost";
+import { BlogpostData } from "./blogg/[slug]";
+import { GetStaticProps } from "next";
+import { isDevelopment } from "../utils/environment";
 
 export interface StaticPathProps {
   paths: { params: { slug: string } }[];
   fallback: boolean;
 }
 
-const allArtikkelPathsQuery = groq`*[_type == "artikkel"] {
-  slug { current }
-}`;
-
-interface SanityPath {
-  slug: {
-    current: string;
-  };
-}
+const allArtikkelPathsQuery = groq`*[_type == "artikkel"][].slug.current`;
 
 export const getStaticPaths = async (): Promise<StaticPathProps> => {
-  const data: SanityPath[] = await getClient(false).fetch(allArtikkelPathsQuery);
+  const data: string[] = await getClient(false).fetch(allArtikkelPathsQuery);
 
   return {
-    paths: data.map((path) => ({
-      params: { slug: path.slug.current },
+    paths: data.map((slug) => ({
+      params: { slug },
     })),
     fallback: true,
   };
 };
 
 interface StaticProps {
-  props: {
-    data: ArtikkelI;
-  };
-  revalidate: number;
+  data: ArtikkelI;
 }
 
-export async function getStaticProps(props: { params: { slug: string } }): Promise<StaticProps> {
-  const slug = props.params.slug;
-  const artikkelQuery = groq`*[_type == "artikkel" && slug.current == "${slug}"][0]`;
-  const data: ArtikkelI = await getClient(false).fetch(artikkelQuery);
+const artikkelQuery = groq`*[_type == "artikkel" && slug.current == $slug][0]`;
+
+export const getStaticProps: GetStaticProps<StaticProps> = async (ctx) => {
+  const preview = !!ctx.preview || isDevelopment();
+  const slug = ctx?.params?.slug;
+  const data: ArtikkelI = await getClient(preview).fetch(artikkelQuery, { slug });
 
   return {
     props: {
-      data: data,
+      data,
+      slug,
+      preview,
     },
     revalidate: 60,
   };
-}
+};
+
+const PreviewWrapper = (props: { data: ArtikkelI; preview?: boolean; slug?: string }) => {
+  const router = useRouter();
+  const enablePreview = !!props.preview || !!router.query.preview;
+
+  const { data } = usePreviewSubscription(artikkelQuery, {
+    params: { slug: props?.slug },
+    initialData: props.data,
+    enabled: enablePreview,
+  });
+
+  if (!router.isFallback && !data?.slug) {
+    return <Error statusCode={404} />;
+  }
+
+  return (
+    <>
+      {enablePreview && <PreviewBanner />}
+      <Artikkel data={data} />
+    </>
+  );
+};
 
 export default Artikkel;
