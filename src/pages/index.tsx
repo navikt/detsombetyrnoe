@@ -1,15 +1,15 @@
 import * as React from "react";
-import Panel from "../components/Panel";
-import { getClient } from "../lib/sanity";
+import { getClient, usePreviewSubscription } from "../lib/sanity";
 import { groq } from "next-sanity";
-import Nøkkeltall, { NøkkeltallData } from "../components/nøkkeltall/Nøkkeltall";
-import { Typografi } from "../styles/TypografiNyttDesign";
-import CustomComponent, { CustomComponentProps } from "../components/CustomComponent";
+import { NøkkeltallData } from "../components/nøkkeltall/Nøkkeltall";
+import { CustomComponentProps } from "../components/CustomComponent";
 import { ArtikkelI } from "../components/artikkel/types";
-import ArtikkelPreview from "../components/artikkel/ArtikkelPreview";
-import { Header } from "../components/forside/Header";
-import SEO from "../components/SEO";
-import ForsideProvider from "../components/forside/ForsideProvider";
+import { useRouter } from "next/router";
+import Error from "next/error";
+import PreviewBanner from "../components/PreviewBanner";
+import Bloggside from "../components/blogg/BloggPost";
+import { BlogpostData } from "./blogg/[slug]";
+import Forside from "../../sanity/components/forside/Forside";
 
 const landingssideQuery = groq`{
 "forside": *[_id == "forside"][0] {
@@ -55,7 +55,7 @@ interface Placeholder {
 
 type Innhold = NøkkeltallData | Placeholder | ArtikkelI;
 
-interface PanelProps {
+export interface PanelProps {
   _key: string;
   _type: "panel";
   bakgrunnsfarge?: string;
@@ -75,59 +75,32 @@ export interface ForsideProps {
   bloggposter: ForisdeBloggpostI[];
 }
 
-function getChildren(innhold?: Innhold) {
-  if (!innhold) {
-    return "Mangler innhold";
-  }
-
-  switch (innhold._type) {
-    case "nokkeltall":
-      return <Nøkkeltall {...innhold} />;
-    case "placeholder":
-      return innhold.tittel;
-    case "artikkel":
-      return <ArtikkelPreview {...innhold} />;
-    default:
-      // @ts-ignore
-      return `Fant ikke innhold for ${innhold._type} 🤷‍♀️`;
-  }
-}
-
-export default function Index(props: ForsideProps) {
-  return (
-    <ForsideProvider forsideProps={props}>
-      <Typografi />
-      <SEO metadata={props.metaData} />
-      <Header
-        overskrift={props.forside?.overskrift}
-        underoverskrift={props.forside?.underoverskrift}
-        bakgrunnsfarge={props.forside?.bakgrunnsfarge}
-        lysTekst={props.forside?.lysTekst}
-      />
-
-      {props.forside?.paneler?.map((panel) =>
-        panel._type === "customComponent" ? (
-          <CustomComponent {...panel} key={panel.id} />
-        ) : (
-          <Panel
-            key={panel._key}
-            backgroundColor={panel.bakgrunnsfarge}
-            lysTekst={panel.lysTekst}
-            children={getChildren(panel.innhold)}
-          />
-        )
-      )}
-    </ForsideProvider>
-  );
-}
-
 export async function getStaticProps({ preview = false }) {
   const data = await getClient(preview).fetch(landingssideQuery);
   return {
     props: {
       preview,
-      ...data,
+      data,
     },
     revalidate: 60,
   };
 }
+
+const PreviewWrapper = (props: { data: ForsideProps; preview?: boolean }) => {
+  const router = useRouter();
+  const enablePreview = !!props.preview || !!router.query.preview;
+
+  const { data } = usePreviewSubscription(landingssideQuery, {
+    initialData: props.data,
+    enabled: enablePreview,
+  });
+
+  return (
+    <>
+      {enablePreview && <PreviewBanner />}
+      <Forside {...data} />
+    </>
+  );
+};
+
+export default PreviewWrapper;
