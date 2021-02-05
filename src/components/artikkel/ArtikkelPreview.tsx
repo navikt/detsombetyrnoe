@@ -9,6 +9,7 @@ const Style = styled.div`
 
 const Tekst = styled.div`
   padding-right: 20%;
+  margin-bottom: 5vh;
   p {
     margin: 2rem 0;
   }

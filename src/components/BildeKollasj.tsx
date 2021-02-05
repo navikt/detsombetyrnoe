@@ -6,10 +6,9 @@ import { SanityImageObject } from "@sanity/image-url/lib/types/types";
 
 const TwoImageWrapper = styled.div`
   position: relative;
-  height: 40vw;
   img {
-    height: 30vw;
-    width: 40vw;
+    height: min(40vw, 30rem);
+    width: auto;
   }
 `;
 
@@ -30,16 +29,16 @@ interface Props {
   bilder: Bilde[];
 }
 
-const getUrl = (bilde: Bilde) => urlFor(bilde).width(500).url() || "";
+const getUrl = (bilde: Bilde) => urlFor(bilde).width(800).format("jpg").url() || "";
 
 function BildeKollasj(props: Props) {
   if (props.bilder.length === 2) {
     return (
       <TwoImageWrapper>
-        <Parallax speedY={-2} speedX={2} style={{ position: "absolute", bottom: 0, left: 0 }}>
+        <Parallax speedY={-2} speedX={2} style={{ paddingLeft: "10vmin" }}>
           <img src={getUrl(props.bilder[0])} />
         </Parallax>
-        <Parallax speedY={2} speedX={-2} style={{ position: "absolute", top: 0, right: 0 }}>
+        <Parallax speedY={2} speedX={-2} style={{ paddingRight: "10vmin", marginTop: "-5vmin" }}>
           <img src={getUrl(props.bilder[1])} />
         </Parallax>
       </TwoImageWrapper>
