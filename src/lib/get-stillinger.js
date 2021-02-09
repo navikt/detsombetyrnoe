@@ -71,7 +71,7 @@ module.exports = async () => {
     .filter(
       (stilling) =>
         /nav_webcruiter/i.test(stilling.reference) || /velferdsdirektoratet_webcruiter/i.test(stilling.reference)
-    )
+    ).filter(stilling => /IT/.test(stilling.reference))
     .map((stilling) => `${addUrl}/${stilling.uuid}`)
     .map((url) => axios.get(url));
 
