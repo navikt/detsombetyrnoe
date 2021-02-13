@@ -9,7 +9,6 @@ export const headerStyles = css`
   h5 {
     font-weight: bold;
     line-height: 1;
-    hyphens: auto;
   }
   h1 {
     font-size: clamp(2rem, 16vmin, 7rem);
