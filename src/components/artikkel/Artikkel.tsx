@@ -21,7 +21,7 @@ const Heading = styled.div`
   max-width: 100vw;
   margin: auto;
   min-height: 50vh;
-  background: #aaa no-repeat;
+  background: #aaa no-repeat center;
   background-size: cover;
   h1 {
     position: absolute;
