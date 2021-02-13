@@ -1,26 +1,37 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, css } from "styled-components";
 import { navFrontend } from "./navFarger";
 
-export const Typografi = createGlobalStyle`
-  h1, h2, h3, h4, h5 {
+export const headerStyles = css`
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
     font-weight: bold;
-    line-height: .8;
+    line-height: 1;
+    hyphens: auto;
   }
   h1 {
-    font-size: 7rem;
+    font-size: clamp(2rem, 16vmin, 7rem);
   }
   h2 {
-    font-size: 5rem;
+    font-size: clamp(1.5rem, 12vmin, 5rem);
   }
   h3 {
-    font-size: 3rem;
+    font-size: clamp(1.25rem, 8vmin, 2.5rem);
   }
   h4 {
-    font-size: 2rem;
+    font-size: clamp(1.1rem, 4vmin, 1.5rem);
   }
   h5 {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 2.5vmin, 1.25rem);
   }
+`;
+
+export const Typografi = createGlobalStyle`
+  
+  ${headerStyles};
+  
   a  {
     color: #d24b7b;
   }

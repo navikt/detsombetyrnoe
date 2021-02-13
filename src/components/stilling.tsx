@@ -15,10 +15,6 @@ const Style = styled.li`
       transform: scale(1.02);
     }
   }
-  h3 {
-    line-height: 1;
-    font-size: clamp(2rem, 8vmin, 3.5rem);
-  }
   p {
     margin-top: 1rem;
     color: #333;

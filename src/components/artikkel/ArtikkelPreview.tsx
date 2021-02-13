@@ -4,11 +4,10 @@ import { ArtikkelI } from "./types";
 import BildeKollasj from "../BildeKollasj";
 
 const Style = styled.div`
-  padding: 0 10% 0 15%;
+  max-width: min(40rem, 100%);
 `;
 
 const Tekst = styled.div`
-  padding-right: 20%;
   margin-bottom: 5vh;
   p {
     margin: 2rem 0;

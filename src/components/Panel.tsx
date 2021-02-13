@@ -38,6 +38,7 @@ const Style = styled.div<{ backgroundColor: string; lysTekst: boolean }>`
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow: hidden;
   > * {
     max-width: 100%;
   }

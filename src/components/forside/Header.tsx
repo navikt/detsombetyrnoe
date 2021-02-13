@@ -17,7 +17,6 @@ const Style = styled.header`
   max-width: 45rem;
   h1 {
     font-weight: 700;
-    font-size: 14vmin;
     line-height: 95%;
     margin-bottom: 2rem;
   }

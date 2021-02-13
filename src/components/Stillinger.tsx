@@ -10,7 +10,6 @@ const Style = styled.div`
     margin-top: 4rem;
   }
   h2 {
-    font-size: calc(1.5rem + 8vmin);
     padding: 2vmin;
   }
 `;

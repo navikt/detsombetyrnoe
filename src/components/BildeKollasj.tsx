@@ -9,6 +9,7 @@ const TwoImageWrapper = styled.div`
   img {
     height: min(40vw, 30rem);
     width: auto;
+    display: block;
   }
 `;
 
@@ -36,7 +37,7 @@ function BildeKollasj(props: Props) {
     return (
       <TwoImageWrapper>
         <Parallax speedY={-2} speedX={2} style={{ paddingLeft: "10vmin" }}>
-          <img src={getUrl(props.bilder[0])} />
+          <img src={getUrl(props.bilder[0])} style={{ marginLeft: "auto" }} />
         </Parallax>
         <Parallax speedY={2} speedX={-2} style={{ paddingRight: "10vmin", marginTop: "-5vmin" }}>
           <img src={getUrl(props.bilder[1])} />

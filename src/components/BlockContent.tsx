@@ -5,6 +5,7 @@ import styled from "styled-components";
 import ArtikkelBilde from "./ArtikkelBilde";
 import Code from "./Code/Code";
 import { navFrontend } from "../styles/navFarger";
+import { headerStyles } from "../styles/TypografiNyttDesign";
 
 const StyledSanityBlockContent = styled(SanityBlockContent)`
   font-weight: 400;
@@ -20,7 +21,8 @@ const StyledSanityBlockContent = styled(SanityBlockContent)`
   ol {
     padding-left: 1.5rem;
     margin-bottom: 1.5rem;
-    ul, ol {
+    ul,
+    ol {
       margin-bottom: 0;
     }
     li {
@@ -38,12 +40,7 @@ const StyledSanityBlockContent = styled(SanityBlockContent)`
   ol {
     list-style: decimal;
   }
-  h2 {
-    margin-top: 4rem;
-  }
-  h3 {
-    margin-top: 3rem;
-  }
+  ${headerStyles};
 `;
 
 const serializers = {
