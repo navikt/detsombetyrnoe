@@ -36,8 +36,8 @@ function BloggPostPreview(props: { post: BlogpostPreviewI; highResImage?: boolea
         <CoverImage
           src={
             urlFor(props.post.mainImage)
-              .width(props.highResImage ? 1000 : 500)
-              .height(props.highResImage ? 500 : 250)
+              .width(props.highResImage ? 1080 : 540)
+              .height(props.highResImage ? 800 : 400)
               .bg("fff")
               .format("jpg")
               .url() || ""

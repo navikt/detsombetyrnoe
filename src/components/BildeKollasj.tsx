@@ -29,7 +29,7 @@ interface Props {
   bilder: Bilde[];
 }
 
-const getUrl = (bilde: Bilde) => urlFor(bilde).width(800).format("jpg").url() || "";
+const getUrl = (bilde: Bilde) => urlFor(bilde).width(1080).format("jpg").quality(80).url() || "";
 
 function BildeKollasj(props: Props) {
   if (props.bilder.length === 2) {
