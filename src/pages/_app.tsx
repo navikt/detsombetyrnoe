@@ -1,10 +1,11 @@
+import "intersection-observer";
+import React from "react";
+import Head from "next/head";
 import { AmplitudeProvider } from "../contexts/amplitude-context";
 import { ResetCSS } from "../styles/reset.css";
 import { GlobalStyle } from "../styles/GlobalStyle";
 import SEO from "../components/SEO";
-import React from "react";
 import useScrollToHashOnPageLoad from "../utils/useScrollToHashOnPageLoad";
-import Head from "next/head";
 
 function App({ Component, pageProps }: any) {
   useScrollToHashOnPageLoad();
