@@ -1,6 +1,7 @@
 import "intersection-observer";
 import React from "react";
 import Head from "next/head";
+import * as Sentry from "@sentry/browser";
 import { AmplitudeProvider } from "../contexts/amplitude-context";
 import { ResetCSS } from "../styles/reset.css";
 import { GlobalStyle } from "../styles/GlobalStyle";
@@ -8,6 +9,7 @@ import SEO from "../components/SEO";
 import useScrollToHashOnPageLoad from "../utils/useScrollToHashOnPageLoad";
 
 function App({ Component, pageProps }: any) {
+  Sentry.init({ dsn: "https://6b33671ec1d8407081cd639c6eafcea6@sentry.gc.nav.no/67" });
   useScrollToHashOnPageLoad();
 
   return (
