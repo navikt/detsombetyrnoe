@@ -9,7 +9,10 @@ import SEO from "../components/SEO";
 import useScrollToHashOnPageLoad from "../utils/useScrollToHashOnPageLoad";
 
 function App({ Component, pageProps }: any) {
-  Sentry.init({ dsn: "https://6b33671ec1d8407081cd639c6eafcea6@sentry.gc.nav.no/67" });
+  Sentry.init({
+    dsn: "https://6b33671ec1d8407081cd639c6eafcea6@sentry.gc.nav.no/67",
+    autoSessionTracking: false,
+  });
   useScrollToHashOnPageLoad();
 
   return (
