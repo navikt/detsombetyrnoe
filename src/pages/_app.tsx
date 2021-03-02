@@ -7,6 +7,8 @@ import { ResetCSS } from "../styles/reset.css";
 import { GlobalStyle } from "../styles/GlobalStyle";
 import SEO from "../components/SEO";
 import useScrollToHashOnPageLoad from "../utils/useScrollToHashOnPageLoad";
+import { Typografi } from "../styles/TypografiNyttDesign";
+import ForsideProvider from "../components/forside/ForsideProvider";
 
 function App({ Component, pageProps }: any) {
   Sentry.init({
@@ -19,6 +21,7 @@ function App({ Component, pageProps }: any) {
     <>
       <ResetCSS />
       <GlobalStyle />
+      <Typografi />
       <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta property="og:site_name" content="NAV IT" />

@@ -4,61 +4,51 @@ import { ArtikkelI } from "./types";
 import Error from "next/error";
 import { urlFor } from "../../lib/sanity";
 import BlockContent from "../BlockContent";
+import Head from "next/head";
+import { cssVars } from "../../styles/cssVars";
+import { fontSize } from "../../styles/TypografiNyttDesign";
 
 interface Props {
   data: ArtikkelI;
 }
 
-const Style = styled.article`
-  --content-max-width: 30rem;
-  --layout-max-width: 50rem;
-`;
-
-const Heading = styled.div`
-  position: relative;
-  padding: 4vmin;
-  width: 50rem;
-  max-width: 100vw;
-  margin: auto;
-  min-height: 50vh;
-  background: #aaa no-repeat center;
-  background-size: cover;
-  h1 {
-    position: absolute;
-    bottom: 2rem;
-    color: white;
-    font-size: 3rem;
-  }
-  &::before {
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 40%;
-    width: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
-  }
-`;
-
-const IngressStyle = styled.p`
-  width: var(--layout-max-width);
-  max-width: 100vw;
-  margin: auto;
-  padding: 4vmin;
-  font-size: 1.1rem;
-  background-color: #eee;
-`;
-
-const ContentStyle = styled.div`
-  background-color: white;
-  width: var(--layout-max-width);
-  max-width: 100vw;
-  margin: auto;
+const Style = styled.main`
+  min-height: 100vh;
   padding: 4vmin 4vmin 30vmin;
+  ${cssVars.contentMaxWidth}: 30rem;
+  ${cssVars.layoutMaxWidth}: 50rem;
+  max-width: var(${cssVars.layoutMaxWidth});
+  margin: 0 auto;
   > * {
-    max-width: var(--content-max-width);
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+`;
+
+const MainImage = styled.img`
+  width: 100%;
+  margin-bottom: calc(3rem + 4vmin);
+`;
+
+const H1 = styled.h1`
+  line-height: 1;
+  margin-bottom: calc(1.5rem + 2vmin);
+  ${fontSize.h2}
+`;
+
+const Ingress = styled.p`
+  width: 100%;
+  max-width: var(${cssVars.contentMaxWidth});
+  font-size: 1.1rem;
+  margin-bottom: calc(2rem + 3vmin);
+`;
+
+const StyledBlockContent = styled(BlockContent)`
+  > * {
+    width: 100%;
+    max-width: var(${cssVars.contentMaxWidth});
+    margin-left: auto;
+    margin-right: auto;
   }
 `;
 
@@ -69,17 +59,17 @@ function Artikkel(props: Props) {
     return <Error statusCode={404} />;
   }
 
-  const coverImage = urlFor(artikkel.bilder?.[0]).size(1080, 810).quality(80).format("jpg").url();
+  const coverImage = artikkel.bilder?.[0];
 
   return (
     <Style>
-      <Heading style={{ backgroundImage: `url("${coverImage}")` }}>
-        <h1>{artikkel.tittel}</h1>
-      </Heading>
-      <IngressStyle>{artikkel.ingress}</IngressStyle>
-      <ContentStyle>
-        <BlockContent blocks={artikkel.innhold} />
-      </ContentStyle>
+      <Head>
+        <title>{artikkel.tittel}</title>
+      </Head>
+      <H1>{artikkel.tittel}</H1>
+      <Ingress>{artikkel.ingress}</Ingress>
+      {coverImage && <MainImage src={urlFor(coverImage).size(1080, 810).quality(80).format("jpg").url() || ""} />}
+      <StyledBlockContent blocks={artikkel.innhold} />
     </Style>
   );
 }

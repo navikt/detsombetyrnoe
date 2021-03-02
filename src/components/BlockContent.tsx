@@ -5,13 +5,23 @@ import styled from "styled-components";
 import ArtikkelBilde from "./ArtikkelBilde";
 import Code from "./Code/Code";
 import { navFrontend } from "../styles/navFarger";
-import { headerStyles } from "../styles/TypografiNyttDesign";
+import { fontSize, headerStyles } from "../styles/TypografiNyttDesign";
 
 const StyledSanityBlockContent = styled(SanityBlockContent)`
   font-weight: 400;
   p {
     line-height: 1.7;
-    margin: 2rem auto;
+    margin-bottom: 2rem;
+  }
+  h2 {
+    margin-top: calc(2vmin + 2rem);
+    margin-bottom: calc(0.35vmin + 0.35rem);
+    ${fontSize.h4};
+  }
+  h3 {
+    margin-top: calc(1.5vmin + 1.5rem);
+    margin-bottom: calc(0.25vmin + 0.25rem);
+    ${fontSize.h5};
   }
   a,
   a:visited {
@@ -40,7 +50,6 @@ const StyledSanityBlockContent = styled(SanityBlockContent)`
   ol {
     list-style: decimal;
   }
-  ${headerStyles};
 `;
 
 const serializers = {

@@ -1,6 +1,5 @@
 import * as React from "react";
 import ForsideProvider from "../../../src/components/forside/ForsideProvider";
-import { Typografi } from "../../../src/styles/TypografiNyttDesign";
 import SEO from "../../../src/components/SEO";
 import { Header } from "../../../src/components/forside/Header";
 import CustomComponent from "../../../src/components/CustomComponent";
@@ -30,7 +29,6 @@ function getChildren(innhold?: PanelProps["innhold"]) {
 function Forside(props: ForsideProps) {
   return (
     <ForsideProvider forsideProps={props}>
-      <Typografi />
       <SEO metadata={props.metaData} />
       <Header
         overskrift={props.forside?.overskrift}
