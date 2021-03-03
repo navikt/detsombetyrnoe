@@ -2,19 +2,19 @@ import { createGlobalStyle, css } from "styled-components";
 import { navFrontend } from "./navFarger";
 
 export const fontSize = {
-  h1: css`
+  s1: css`
     font-size: clamp(2rem, 16vmin, 7rem);
   `,
-  h2: css`
+  s2: css`
     font-size: clamp(1.5rem, 12vmin, 5rem);
   `,
-  h3: css`
+  s3: css`
     font-size: clamp(1.25rem, 8vmin, 2.5rem);
   `,
-  h4: css`
+  s4: css`
     font-size: clamp(1.1rem, 4vmin, 1.5rem);
   `,
-  h5: css`
+  s5: css`
     font-size: clamp(1rem, 2.5vmin, 1.25rem);
   `,
 };
@@ -26,22 +26,26 @@ export const headerStyles = css`
   h4,
   h5 {
     font-weight: bold;
-    line-height: 1.5;
   }
   h1 {
-    ${fontSize.h1};
+    ${fontSize.s1};
+    line-height: 1;
   }
   h2 {
-    ${fontSize.h2};
+    ${fontSize.s2};
+    line-height: 1.1;
   }
   h3 {
-    ${fontSize.h3};
+    ${fontSize.s3};
+    line-height: 1.2;
   }
   h4 {
-    ${fontSize.h4};
+    ${fontSize.s4};
+    line-height: 1.3;
   }
   h5 {
-    ${fontSize.h5};
+    ${fontSize.s5};
+    line-height: 1.4;
   }
 `;
 

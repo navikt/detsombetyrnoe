@@ -33,7 +33,7 @@ const MainImage = styled.img`
 const H1 = styled.h1`
   line-height: 1;
   margin-bottom: calc(1.5rem + 2vmin);
-  ${fontSize.h2}
+  ${fontSize.s2}
 `;
 
 const Ingress = styled.p`

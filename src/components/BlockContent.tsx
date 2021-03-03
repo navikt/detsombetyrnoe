@@ -15,13 +15,13 @@ const StyledSanityBlockContent = styled(SanityBlockContent)`
   }
   h2 {
     margin-top: calc(2vmin + 2rem);
-    margin-bottom: calc(0.35vmin + 0.35rem);
-    ${fontSize.h4};
+    margin-bottom: calc(0.2vmin + 0.2rem);
+    ${fontSize.s4};
   }
   h3 {
     margin-top: calc(1.5vmin + 1.5rem);
-    margin-bottom: calc(0.25vmin + 0.25rem);
-    ${fontSize.h5};
+    margin-bottom: calc(0.1vmin + 0.1rem);
+    ${fontSize.s5};
   }
   a,
   a:visited {
