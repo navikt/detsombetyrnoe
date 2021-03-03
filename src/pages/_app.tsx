@@ -5,15 +5,19 @@ import * as Sentry from "@sentry/browser";
 import { AmplitudeProvider } from "../contexts/amplitude-context";
 import { ResetCSS } from "../styles/reset.css";
 import { GlobalStyle } from "../styles/GlobalStyle";
-import SEO from "../components/SEO";
 import useScrollToHashOnPageLoad from "../utils/useScrollToHashOnPageLoad";
 import { Typografi } from "../styles/TypografiNyttDesign";
-import ForsideProvider from "../components/forside/ForsideProvider";
+import { useMount } from "react-use";
+import { isProduction } from "../utils/environment";
 
 function App({ Component, pageProps }: any) {
-  Sentry.init({
-    dsn: "https://6b33671ec1d8407081cd639c6eafcea6@sentry.gc.nav.no/67",
-    autoSessionTracking: false,
+  useMount(() => {
+    if (isProduction()) {
+      Sentry.init({
+        dsn: "https://6b33671ec1d8407081cd639c6eafcea6@sentry.gc.nav.no/67",
+        autoSessionTracking: false,
+      });
+    }
   });
   useScrollToHashOnPageLoad();
 
