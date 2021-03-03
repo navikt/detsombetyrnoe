@@ -7,6 +7,7 @@ import BlockContent from "../BlockContent";
 import Head from "next/head";
 import { cssVars } from "../../styles/cssVars";
 import { fontSize } from "../../styles/TypografiNyttDesign";
+import Topplinje from "./Topplinje";
 
 interface Props {
   data: ArtikkelI;
@@ -31,7 +32,7 @@ const MainImage = styled.img`
 `;
 
 const H1 = styled.h1`
-  line-height: 1;
+  margin-top: calc(2rem + 3vmin);
   margin-bottom: calc(1.5rem + 2vmin);
   ${fontSize.s2}
 `;
@@ -66,6 +67,7 @@ function Artikkel(props: Props) {
       <Head>
         <title>{artikkel.tittel}</title>
       </Head>
+      <Topplinje />
       <H1>{artikkel.tittel}</H1>
       <Ingress>{artikkel.ingress}</Ingress>
       {coverImage && <MainImage src={urlFor(coverImage).size(1080, 810).quality(80).format("jpg").url() || ""} />}

@@ -37,6 +37,7 @@ const StyledToppLinje = styled.div`
   justify-content: flex-end;
   svg {
     width: 4rem;
+    fill: white;
   }
 `;
 
