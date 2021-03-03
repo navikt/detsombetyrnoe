@@ -7,13 +7,14 @@ import BlockContent from "../BlockContent";
 import Head from "next/head";
 import { cssVars } from "../../styles/cssVars";
 import { fontSize } from "../../styles/TypografiNyttDesign";
-import Topplinje from "./Topplinje";
+import Header from "./Header";
+import Footer from "./Footer";
 
 interface Props {
   data: ArtikkelI;
 }
 
-const Style = styled.main`
+const Style = styled.div`
   min-height: 100vh;
   padding: 4vmin 4vmin 30vmin;
   ${cssVars.contentMaxWidth}: 30rem;
@@ -51,6 +52,7 @@ const StyledBlockContent = styled(BlockContent)`
     margin-left: auto;
     margin-right: auto;
   }
+  margin-bottom: calc(5rem + 5vmin);
 `;
 
 function Artikkel(props: Props) {
@@ -67,11 +69,14 @@ function Artikkel(props: Props) {
       <Head>
         <title>{artikkel.tittel}</title>
       </Head>
-      <Topplinje />
-      <H1>{artikkel.tittel}</H1>
-      <Ingress>{artikkel.ingress}</Ingress>
-      {coverImage && <MainImage src={urlFor(coverImage).size(1080, 810).quality(80).format("jpg").url() || ""} />}
-      <StyledBlockContent blocks={artikkel.innhold} />
+      <Header />
+      <main>
+        <H1>{artikkel.tittel}</H1>
+        <Ingress>{artikkel.ingress}</Ingress>
+        {coverImage && <MainImage src={urlFor(coverImage).size(1080, 810).quality(80).format("jpg").url() || ""} />}
+        <StyledBlockContent blocks={artikkel.innhold} />
+      </main>
+      <Footer />
     </Style>
   );
 }

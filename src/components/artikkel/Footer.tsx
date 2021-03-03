@@ -1,35 +1,24 @@
 import * as React from "react";
 import styled from "styled-components/macro";
-import NavLogo from "../../ikoner/navlogo";
 import Link from "next/link";
 import { navFrontend } from "../../styles/navFarger";
 
-const Style = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+const Style = styled.footer`
   a,
   a:visited {
     color: ${navFrontend.navBlaDarken20};
     font-weight: 400;
   }
-  svg {
-    width: 4rem;
-    fill: ${navFrontend.navRod};
-  }
 `;
 
-function Topplinje() {
+function Footer() {
   return (
     <Style>
       <Link href="/">
         <a>Tilbake til forsiden</a>
       </Link>
-      <a href="https://www.nav.no/" aria-label="Lenke til NAV">
-        <NavLogo />
-      </a>
     </Style>
   );
 }
 
-export default Topplinje;
+export default Footer;
