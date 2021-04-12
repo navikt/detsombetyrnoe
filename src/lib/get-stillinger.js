@@ -1,5 +1,6 @@
 const axios = require("axios");
 const striptags = require("striptags");
+const tilleggsstillinger = require("./tilleggsstillinger.json");
 
 const fetcher = (url) => {
   return new Promise((resolve) => {
@@ -71,9 +72,17 @@ module.exports = async () => {
     .filter(
       (stilling) =>
         /nav_webcruiter/i.test(stilling.reference) || /velferdsdirektoratet_webcruiter/i.test(stilling.reference)
-    ).filter(stilling => /IT/.test(stilling.reference))
+    )
+    .filter((stilling) => /IT/.test(stilling.reference))
     .map((stilling) => `${addUrl}/${stilling.uuid}`)
     .map((url) => axios.get(url));
+
+  // Legger til tilleggsstillinger
+  const ekstrastillinger = tilleggsstillinger
+    .map((stilling) => `${addUrl}/${stilling.uuid}`)
+    .map((url) => axios.get(url));
+
+  annonsesok.push(...ekstrastillinger);
 
   try {
     const annonser = await Promise.all(annonsesok);
