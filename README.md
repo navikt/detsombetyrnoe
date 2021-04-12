@@ -6,6 +6,11 @@ Nextjs-frontend og sanity-cms oppsett for karrieresidene på [detsombetyrnoe.no]
 
 Innhold kan redigeres på [https://detsombetyrnoe.no/studio](https://detsombetyrnoe.no/studio)
 
+### Manuelle stillinger
+
+Dersom automatikken ikke plukker enkelte stillinger kan du legge til disse i en egen liste.
+Gå til [tilleggsstillinger.json](/src/lib/tilleggsstillinger.json)
+
 ## Utvikling
 
 ```
