@@ -37,6 +37,10 @@ export default {
           name: "bilde",
           type: "bilde",
         },
+        {
+          name: "video",
+          type: "video",
+        },
       ],
     },
     {
@@ -44,4 +48,10 @@ export default {
       type: "blockContent",
     },
   ],
+  preview: {
+    select: {
+      title: "tittel",
+      media: "bilder.0",
+    },
+  },
 };

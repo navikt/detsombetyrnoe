@@ -5,10 +5,7 @@ import { NøkkeltallData } from "../components/nøkkeltall/Nøkkeltall";
 import { CustomComponentProps } from "../components/CustomComponent";
 import { ArtikkelI } from "../components/artikkel/types";
 import { useRouter } from "next/router";
-import Error from "next/error";
 import PreviewBanner from "../components/PreviewBanner";
-import Bloggside from "../components/blogg/BloggPost";
-import { BlogpostData } from "./blogg/[slug]";
 import Forside from "../../sanity/components/forside/Forside";
 
 const landingssideQuery = groq`{

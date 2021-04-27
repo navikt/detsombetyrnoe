@@ -1,6 +1,9 @@
+import { MdPhoto } from "react-icons/md";
+
 export default {
   name: "bilde",
   type: "image",
+  icon: MdPhoto,
   options: {
     hotspot: true,
   },

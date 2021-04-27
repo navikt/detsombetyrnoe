@@ -2,13 +2,13 @@ import * as React from "react";
 import styled from "styled-components/macro";
 import { ArtikkelI } from "./types";
 import Error from "next/error";
-import { urlFor } from "../../lib/sanity";
 import BlockContent from "../BlockContent";
 import Head from "next/head";
 import { cssVars } from "../../styles/cssVars";
 import { fontSize } from "../../styles/TypografiNyttDesign";
 import Header from "./Header";
 import Footer from "./Footer";
+import MainMedia from "./MainMedia";
 
 interface Props {
   data: ArtikkelI;
@@ -21,15 +21,11 @@ const Style = styled.div`
   ${cssVars.layoutMaxWidth}: 50rem;
   max-width: var(${cssVars.layoutMaxWidth});
   margin: 0 auto;
+
   > * {
     margin-left: auto;
     margin-right: auto;
   }
-`;
-
-const MainImage = styled.img`
-  width: 100%;
-  margin-bottom: calc(3rem + 4vmin);
 `;
 
 const H1 = styled.h1`
@@ -52,6 +48,7 @@ const StyledBlockContent = styled(BlockContent)`
     margin-left: auto;
     margin-right: auto;
   }
+
   margin-bottom: calc(5rem + 5vmin);
 `;
 
@@ -62,7 +59,7 @@ function Artikkel(props: Props) {
     return <Error statusCode={404} />;
   }
 
-  const coverImage = artikkel.bilder?.[0];
+  const coverMedia = artikkel.bilder?.[0];
 
   return (
     <Style>
@@ -73,7 +70,7 @@ function Artikkel(props: Props) {
       <main>
         <H1>{artikkel.tittel}</H1>
         <Ingress>{artikkel.ingress}</Ingress>
-        {coverImage && <MainImage src={urlFor(coverImage).size(1080, 810).quality(80).format("jpg").url() || ""} />}
+        <MainMedia {...coverMedia} />
         <StyledBlockContent blocks={artikkel.innhold} />
       </main>
       <Footer />

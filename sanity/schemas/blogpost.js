@@ -9,7 +9,7 @@ export default {
     {
       name: "tittel",
       type: "string",
-      validation: (Rule) => Rule.required().min(5).max(50),
+      validation: (Rule) => Rule.required().min(2).max(50),
     },
     {
       name: "slug",

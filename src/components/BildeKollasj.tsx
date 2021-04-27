@@ -3,6 +3,9 @@ import Parallax from "./Parallax";
 import { urlFor } from "../lib/sanity";
 import styled from "styled-components/macro";
 import { SanityImageObject } from "@sanity/image-url/lib/types/types";
+import { ArtikkelI } from "./artikkel/types";
+import Video from "./Video";
+import { HTMLAttributes } from "react";
 
 const TwoImageWrapper = styled.div`
   position: relative;
@@ -21,26 +24,21 @@ const NormalWrapper = styled.div`
   }
 `;
 
-export interface Bilde extends SanityImageObject {
-  altTekst: string;
-  _key: string;
-}
+type MediaI = ArtikkelI["bilder"][0];
 
 interface Props {
-  bilder: Bilde[];
+  bilder: MediaI[];
 }
-
-const getUrl = (bilde: Bilde) => urlFor(bilde).width(1080).format("jpg").quality(80).url() || "";
 
 function BildeKollasj(props: Props) {
   if (props.bilder.length === 2) {
     return (
       <TwoImageWrapper>
         <Parallax speedY={-2} speedX={2} style={{ paddingLeft: "10vmin" }}>
-          <img src={getUrl(props.bilder[0])} style={{ marginLeft: "auto" }} />
+          <Media media={props.bilder[0]} style={{ marginLeft: "auto" }} />
         </Parallax>
         <Parallax speedY={2} speedX={-2} style={{ paddingRight: "10vmin", marginTop: "-5vmin" }}>
-          <img src={getUrl(props.bilder[1])} />
+          <Media media={props.bilder[1]} />
         </Parallax>
       </TwoImageWrapper>
     );
@@ -49,10 +47,22 @@ function BildeKollasj(props: Props) {
   return (
     <NormalWrapper>
       {props.bilder.map((bilde) => (
-        <img src={getUrl(bilde)} key={bilde._key} />
+        <Media media={bilde} key={bilde._key} />
       ))}
     </NormalWrapper>
   );
+}
+
+function Media(props: { media: MediaI } & HTMLAttributes<HTMLElement>) {
+  const { media, ...rest } = props;
+  switch (media._type) {
+    case "bilde":
+      return <img {...rest} src={urlFor(media).width(1080).format("jpg").quality(80).url() || ""} />;
+    case "video":
+      return <Video title={media.title} url={media.url} />;
+    default:
+      return null;
+  }
 }
 
 export default BildeKollasj;

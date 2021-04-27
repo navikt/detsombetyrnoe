@@ -26,4 +26,9 @@ export const GlobalStyle = createGlobalStyle`
     outline: none;
     box-shadow: 0 0 0 .2rem ${navFrontend.fokusFarge};
   }
+  
+  img {
+    width: 100%;
+    display: block;
+  }
 `;

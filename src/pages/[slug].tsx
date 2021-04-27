@@ -5,8 +5,6 @@ import Artikkel from "../components/artikkel/Artikkel";
 import { useRouter } from "next/router";
 import Error from "next/error";
 import PreviewBanner from "../components/PreviewBanner";
-import Bloggside from "../components/blogg/BloggPost";
-import { BlogpostData } from "./blogg/[slug]";
 import { GetStaticProps } from "next";
 import { isDevelopment } from "../utils/environment";
 
@@ -71,4 +69,4 @@ const PreviewWrapper = (props: { data: ArtikkelI; preview?: boolean; slug?: stri
   );
 };
 
-export default Artikkel;
+export default PreviewWrapper;
