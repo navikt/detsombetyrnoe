@@ -1,6 +1,8 @@
+import { getClient } from "./sanity";
+import { groq } from "next-sanity";
+
 const axios = require("axios");
 const striptags = require("striptags");
-const tilleggsstillinger = require("./tilleggsstillinger.json");
 
 const fetcher = (url) => {
   return new Promise((resolve) => {
@@ -76,6 +78,8 @@ module.exports = async () => {
     .filter((stilling) => /IT/.test(stilling.reference))
     .map((stilling) => `${addUrl}/${stilling.uuid}`)
     .map((url) => axios.get(url));
+
+  const tilleggsstillinger = await getClient(false).fetch(groq`*[_type == "tilleggsStilling"]`);
 
   // Legger til tilleggsstillinger
   const ekstrastillinger = tilleggsstillinger

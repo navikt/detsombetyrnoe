@@ -8,8 +8,19 @@ import blogpost from "./blogpost";
 import forfatter from "./forfatter";
 import metadata from "./metadata";
 import video from "./video";
+import tilleggsStilling from "./tilleggsStilling";
 
 export default createSchema({
   name: "default",
-  types: schemaTypes.concat([blockContent, artikkel, bilde, blogpost, forfatter, metadata, video, ...forsideSchema]),
+  types: schemaTypes.concat([
+    blockContent,
+    artikkel,
+    bilde,
+    blogpost,
+    forfatter,
+    metadata,
+    video,
+    tilleggsStilling,
+    ...forsideSchema,
+  ]),
 });
