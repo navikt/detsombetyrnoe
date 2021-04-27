@@ -27,18 +27,22 @@ const NormalWrapper = styled.div`
 type MediaI = ArtikkelI["bilder"][0];
 
 interface Props {
-  bilder: MediaI[];
+  media?: MediaI[];
 }
 
 function BildeKollasj(props: Props) {
-  if (props.bilder.length === 2) {
+  if (!props.media) {
+    return null;
+  }
+
+  if (props.media.length === 2) {
     return (
       <TwoImageWrapper>
         <Parallax speedY={-2} speedX={2} style={{ paddingLeft: "10vmin" }}>
-          <Media media={props.bilder[0]} style={{ marginLeft: "auto" }} />
+          <Media media={props.media[0]} style={{ marginLeft: "auto" }} />
         </Parallax>
         <Parallax speedY={2} speedX={-2} style={{ paddingRight: "10vmin", marginTop: "-5vmin" }}>
-          <Media media={props.bilder[1]} />
+          <Media media={props.media[1]} />
         </Parallax>
       </TwoImageWrapper>
     );
@@ -46,7 +50,7 @@ function BildeKollasj(props: Props) {
 
   return (
     <NormalWrapper>
-      {props.bilder.map((bilde) => (
+      {props.media.map((bilde) => (
         <Media media={bilde} key={bilde._key} />
       ))}
     </NormalWrapper>

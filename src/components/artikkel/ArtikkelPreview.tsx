@@ -22,7 +22,7 @@ function ArtikkelPreview(props: ArtikkelI) {
         <p>{props.ingress}</p>
         <a href={props.slug.current}>{props.lesMerTekst}</a>
       </Tekst>
-      <BildeKollasj bilder={props.bilder} />
+      <BildeKollasj media={props.bilder} />
     </Style>
   );
 }

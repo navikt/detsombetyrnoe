@@ -19,7 +19,7 @@ export const GlobalStyle = createGlobalStyle`
 
   * {
     box-sizing: border-box;
-    line-height: 1.3;
+    line-height: 1.4;
   }
   
   *:focus {

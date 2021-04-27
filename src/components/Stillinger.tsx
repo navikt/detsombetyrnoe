@@ -17,9 +17,19 @@ const Style = styled.div`
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
 const Stillinger = () => {
-  const { data: stillinger, error } = useSWR("/api/stillinger", fetcher);
+  const { data: stillinger, error } = useSWR<any[]>("/api/stillinger", fetcher);
 
-  if (!stillinger) return null;
+  if (!stillinger?.length) {
+    return (
+      <Style>
+        <h2 id="ledige-stillinger">Er du nysgjerrig på å jobbe i NAV IT?</h2>
+        <p>
+          Vi har for tiden ingen ledige stillinger, men fortvil ikke! Vi er stadig på jakt etter nye kollegaer og da
+          blir stillingsannonsene lagt ut her.
+        </p>
+      </Style>
+    );
+  }
 
   return (
     <Style>
