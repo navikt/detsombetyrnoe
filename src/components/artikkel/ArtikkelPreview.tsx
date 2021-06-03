@@ -2,9 +2,13 @@ import * as React from "react";
 import styled from "styled-components/macro";
 import { ArtikkelI } from "./types";
 import BildeKollasj from "../BildeKollasj";
+import { cssVars } from "../../styles/cssVars";
 
 const Style = styled.div`
-  max-width: min(40rem, 100%);
+  --content-max-width: min(40rem, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Tekst = styled.div`
@@ -12,6 +16,7 @@ const Tekst = styled.div`
   p {
     margin: 2rem 0;
   }
+  max-width: var(--content-max-width);
 `;
 
 function ArtikkelPreview(props: ArtikkelI) {

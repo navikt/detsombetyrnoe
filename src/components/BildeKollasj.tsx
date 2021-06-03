@@ -22,6 +22,8 @@ const NormalWrapper = styled.div`
     margin: 1rem 0;
     width: 100%;
   }
+  width: calc(var(--content-max-width) * 1.15);
+  max-width: 95vw;
 `;
 
 type MediaI = ArtikkelI["bilder"][0];
