@@ -6,6 +6,7 @@ import ArtikkelBilde from "./ArtikkelBilde";
 import Code from "./Code/Code";
 import { navFrontend } from "../styles/navFarger";
 import { fontSize, headerStyles } from "../styles/TypografiNyttDesign";
+import FilopplastingLenke from "./FilopplastingLenke";
 
 const StyledSanityBlockContent = styled(SanityBlockContent)`
   font-weight: 400;
@@ -53,6 +54,9 @@ const StyledSanityBlockContent = styled(SanityBlockContent)`
 `;
 
 const serializers = {
+  marks: {
+    filopplasting: FilopplastingLenke,
+  },
   types: {
     bilde: ArtikkelBilde,
     code: Code,

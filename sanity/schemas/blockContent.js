@@ -1,3 +1,5 @@
+import { FaFile } from "react-icons/fa";
+
 export default {
   name: "blockContent",
   title: "Block content",
@@ -16,6 +18,16 @@ export default {
         decorators: [
           { title: "Strong", value: "strong" },
           { title: "Emphasis", value: "em" },
+        ],
+        annotations: [
+          {
+            title: "Filopplasting",
+            name: "filopplasting",
+            type: "file",
+            blockEditor: {
+              icon: FaFile,
+            },
+          },
         ],
       },
     },

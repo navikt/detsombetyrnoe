@@ -35,7 +35,16 @@ const blogQuery = groq`
     tittel,
     _createdAt,
     mainImage,
-    body,
+    body[]{
+      ...,
+      markDefs[]{
+        ...,
+        _type == 'filopplasting' => {
+        	"url": @.asset->url,
+          "filename": @.asset->originalFilename,
+      	}
+      }
+    },
     "slug": slug.current,
     language,
     forfattere[]-> {
