@@ -9,6 +9,7 @@ import forfatter from "./forfatter";
 import metadata from "./metadata";
 import video from "./video";
 import tilleggsStilling from "./tilleggsStilling";
+import filopplasting from "./filopplasting";
 
 export default createSchema({
   name: "default",
@@ -17,6 +18,7 @@ export default createSchema({
     artikkel,
     bilde,
     blogpost,
+    filopplasting,
     forfatter,
     metadata,
     video,
