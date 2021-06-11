@@ -30,7 +30,20 @@ interface StaticProps {
   data: ArtikkelI;
 }
 
-const artikkelQuery = groq`*[_type == "artikkel" && slug.current == $slug][0]`;
+const artikkelQuery = groq`
+*[_type == "artikkel" && slug.current == $slug][0]{
+  ...,
+  innhold[]{
+    ...,
+    markDefs[]{
+      ...,
+      _type == 'filopplasting' => {
+        "url": @.asset->url,
+        "filename": @.asset->originalFilename,
+      }
+    }
+  },
+}`;
 
 export const getStaticProps: GetStaticProps<StaticProps> = async (ctx) => {
   const preview = !!ctx.preview || isDevelopment();
