@@ -5,16 +5,11 @@ import Artikkel from "../components/artikkel/Artikkel";
 import { useRouter } from "next/router";
 import Error from "next/error";
 import PreviewBanner from "../components/PreviewBanner";
-import { GetStaticProps } from "next";
-
-export interface StaticPathProps {
-  paths: { params: { slug: string } }[];
-  fallback: boolean;
-}
+import { GetStaticPaths, GetStaticProps } from "next";
 
 const allArtikkelPathsQuery = groq`*[_type == "artikkel"][].slug.current`;
 
-export const getStaticPaths = async (): Promise<StaticPathProps> => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const data: string[] = await sanityClient.fetch(allArtikkelPathsQuery);
 
   return {
