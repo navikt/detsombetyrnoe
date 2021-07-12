@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import { getClient, usePreviewSubscription } from "../../lib/sanity";
+import { sanityClient, usePreviewSubscription } from "../../lib/sanity";
 import groq from "groq";
 import { useRouter } from "next/router";
 import Error from "next/error";
@@ -11,7 +11,7 @@ import Forfatter from "../../components/Forfatter";
 const pathQuery = groq`*[_type == "forfatter" && defined(slug)][].slug.current`;
 
 export const getStaticPaths: GetStaticPaths = async (context) => {
-  const forfatterSlugs = await getClient(false).fetch(pathQuery);
+  const forfatterSlugs = await sanityClient.fetch(pathQuery);
   return {
     paths: forfatterSlugs.filter(Boolean).map((slug: string) => ({ params: { slug } })),
     fallback: true,
@@ -38,21 +38,20 @@ export interface ForfatterI {
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const preview = !!ctx.preview || isDevelopment();
-  const data = await getClient(preview).fetch(forfatterQuery, { slug: ctx.params?.slug });
+  const data = await sanityClient.fetch(forfatterQuery, { slug: ctx.params?.slug });
   return {
-    props: { data, preview },
+    props: { data },
     revalidate: 600,
   };
 };
 
-const PreviewWrapper = (props: { data: ForfatterI; preview?: boolean }) => {
+const PreviewWrapper = (props: { data: ForfatterI }) => {
   const router = useRouter();
   if (!router.isFallback && !props.data?.slug) {
     return <Error statusCode={404} />;
   }
 
-  const enablePreview = !!props.preview || !!router.query.preview;
+  const enablePreview = isDevelopment() || !!router.query.preview;
 
   const { data } = usePreviewSubscription(forfatterQuery, {
     params: { slug: props.data?.slug },

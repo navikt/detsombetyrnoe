@@ -1,6 +1,6 @@
 import * as React from "react";
 import { GetStaticProps } from "next";
-import { getClient, usePreviewSubscription } from "../../lib/sanity";
+import { sanityClient, usePreviewSubscription } from "../../lib/sanity";
 import groq from "groq";
 import { isDevelopment } from "../../utils/environment";
 
@@ -11,18 +11,17 @@ const query = groq`
 `;
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const preview = !!ctx.preview || isDevelopment();
-  const forfattere = await getClient(preview).fetch(query);
+  const forfattere = await sanityClient.fetch(query);
   return {
-    props: { data: forfattere, preview },
+    props: { data: forfattere },
     revalidate: 600,
   };
 };
 
-const PreviewWrapper = (props: { data: any; preview?: boolean }) => {
+const PreviewWrapper = (props: { data: any }) => {
   const { data } = usePreviewSubscription(query, {
     initialData: props.data,
-    enabled: !!props.preview,
+    enabled: isDevelopment(),
   });
 
   return <pre>{JSON.stringify(data, undefined, 2)}</pre>;

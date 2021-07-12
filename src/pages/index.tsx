@@ -1,5 +1,5 @@
 import * as React from "react";
-import { getClient, usePreviewSubscription } from "../lib/sanity";
+import { sanityClient, usePreviewSubscription } from "../lib/sanity";
 import { groq } from "next-sanity";
 import { NøkkeltallData } from "../components/nøkkeltall/Nøkkeltall";
 import { CustomComponentProps } from "../components/CustomComponent";
@@ -72,20 +72,19 @@ export interface ForsideProps {
   bloggposter: ForisdeBloggpostI[];
 }
 
-export async function getStaticProps({ preview = false }) {
-  const data = await getClient(preview).fetch(landingssideQuery);
+export async function getStaticProps() {
+  const data = await sanityClient.fetch(landingssideQuery);
   return {
     props: {
-      preview,
       data,
     },
     revalidate: 60,
   };
 }
 
-const PreviewWrapper = (props: { data: ForsideProps; preview?: boolean }) => {
+const PreviewWrapper = (props: { data: ForsideProps }) => {
   const router = useRouter();
-  const enablePreview = !!props.preview || !!router.query.preview;
+  const enablePreview = !!router.query.preview;
 
   const { data } = usePreviewSubscription(landingssideQuery, {
     initialData: props.data,

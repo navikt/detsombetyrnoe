@@ -16,17 +16,4 @@ export const urlFor = (source: any) => createImageUrlBuilder(config).image(sourc
 
 export const usePreviewSubscription = createPreviewSubscriptionHook(config);
 
-export const PortableText = createPortableTextComponent({
-  ...config,
-  serializers: {},
-});
-
-const sanityClient = createClient(config);
-
-const previewClient = createClient({
-  ...config,
-  useCdn: false,
-  token: process.env.SANITY_API_TOKEN,
-});
-
-export const getClient = (usePreview: boolean) => (usePreview ? previewClient : sanityClient);
+export const sanityClient = createClient(config);
