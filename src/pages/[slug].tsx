@@ -20,10 +20,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-interface StaticProps {
-  data: ArtikkelI;
-}
-
 const artikkelQuery = groq`
 *[_type == "artikkel" && slug.current == $slug][0]{
   ...,
@@ -39,8 +35,13 @@ const artikkelQuery = groq`
   },
 }`;
 
-export const getStaticProps: GetStaticProps<StaticProps> = async (ctx) => {
-  const slug = ctx?.params?.slug;
+interface Props {
+  data: ArtikkelI;
+  slug: string;
+}
+
+export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
+  const slug = ctx?.params?.slug as string;
   const data: ArtikkelI = await sanityClient.fetch(artikkelQuery, { slug });
 
   return {
@@ -52,7 +53,7 @@ export const getStaticProps: GetStaticProps<StaticProps> = async (ctx) => {
   };
 };
 
-const PreviewWrapper = (props: { data: ArtikkelI; slug?: string }) => {
+const PreviewWrapper = (props: Props) => {
   const router = useRouter();
   const enablePreview = !!router.query.preview;
 
