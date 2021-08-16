@@ -27,7 +27,7 @@ const Style = styled.a`
 
 function GithubrepoLenke() {
   return (
-    <Style href="https://github.com/navikt/detsombetyrnoe-next">
+    <Style href="https://github.com/navikt/detsombetyrnoe">
       Kode
       <GithubIkon />
     </Style>
