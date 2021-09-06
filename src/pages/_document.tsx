@@ -1,7 +1,5 @@
-import Document from "next/document";
+import Document, { DocumentContext } from "next/document";
 import { ServerStyleSheet } from "styled-components";
-import { NextPageContext } from "next";
-import { RenderPage } from "next/dist/next-server/lib/utils";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: any) {
@@ -10,7 +8,7 @@ export default class MyDocument extends Document {
 }
 
 // https://github.com/vercel/next.js/blob/master/examples/with-styled-components/pages/_document.js
-async function renderServersideStyledComponentsStylesheet(ctx: NextPageContext & { renderPage: RenderPage }) {
+async function renderServersideStyledComponentsStylesheet(ctx: DocumentContext) {
   const sheet = new ServerStyleSheet();
   const originalRenderPage = ctx.renderPage;
 
