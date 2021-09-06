@@ -1,14 +1,9 @@
-import {
-  ClientConfig,
-  createClient,
-  createImageUrlBuilder,
-  createPortableTextComponent,
-  createPreviewSubscriptionHook,
-} from "next-sanity";
+import { ClientConfig, createClient, createImageUrlBuilder, createPreviewSubscriptionHook } from "next-sanity";
 
 const config: ClientConfig = {
   dataset: "production",
   projectId: "c9hptfq7",
+  apiVersion: "2021-09-06",
   useCdn: process.env.NODE_ENV === "production",
 };
 
