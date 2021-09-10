@@ -3,6 +3,7 @@ import Githubstats from "./githubstats/Githubstats";
 import Stillinger from "./Stillinger";
 import Panel from "./Panel";
 import Bloggposter from "./forside/Bloggposter";
+import { WebcruiterStillinger } from "./landingPage/WebcruiterStillinger";
 
 export interface CustomComponentProps {
   _type: "customComponent";
@@ -29,6 +30,12 @@ function CustomComponent(props: CustomComponentProps) {
       return (
         <Panel backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
           <Bloggposter />
+        </Panel>
+      );
+    case "heleNorgeStillinger":
+      return (
+        <Panel backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
+          <WebcruiterStillinger />
         </Panel>
       );
     default:

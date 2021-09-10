@@ -6,6 +6,7 @@ import { BloggWebPreview } from "./utils/BloggWebPreview";
 import { ImCog } from "react-icons/im";
 import { ForsideWebPreview } from "./utils/ForsideWebPreview";
 import { ArtikkelWebPreview } from "./utils/ArtikkelWebPreview";
+import { LandingPageWebPreview } from "./utils/LandingPageWebPreview";
 
 export default () =>
   S.list()
@@ -37,5 +38,7 @@ export const getDefaultDocumentNode = ({ schemaType }) => {
       return S.document().views([S.view.form(), S.view.component(BloggWebPreview).title("Preview")]);
     case "artikkel":
       return S.document().views([S.view.form(), S.view.component(ArtikkelWebPreview).title("Preview")]);
+    case "landingPage":
+      return S.document().views([S.view.form(), S.view.component(LandingPageWebPreview).title("Preview")]);
   }
 };

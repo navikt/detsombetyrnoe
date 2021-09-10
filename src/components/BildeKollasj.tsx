@@ -23,7 +23,7 @@ const NormalWrapper = styled.div`
     width: 100%;
   }
   width: calc(var(--content-max-width) * 1.15);
-  max-width: 95vw;
+  max-width: 100vw;
 `;
 
 type MediaI = ArtikkelI["bilder"][0];

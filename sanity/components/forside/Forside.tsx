@@ -8,7 +8,7 @@ import { ForsideProps, PanelProps } from "../../../src/pages";
 import Nøkkeltall from "../../../src/components/nøkkeltall/Nøkkeltall";
 import ArtikkelPreview from "../../../src/components/artikkel/ArtikkelPreview";
 
-function getChildren(innhold?: PanelProps["innhold"]) {
+export function getChildren(innhold?: PanelProps["innhold"]) {
   if (!innhold) {
     return "Mangler innhold";
   }
@@ -35,6 +35,7 @@ function Forside(props: ForsideProps) {
         underoverskrift={props.forside?.underoverskrift}
         bakgrunnsfarge={props.forside?.bakgrunnsfarge}
         lysTekst={props.forside?.lysTekst}
+        visGithubLenke={true}
       />
 
       {props.forside?.paneler?.map((panel) =>

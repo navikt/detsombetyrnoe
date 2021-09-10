@@ -10,6 +10,7 @@ import metadata from "./metadata";
 import video from "./video";
 import tilleggsStilling from "./tilleggsStilling";
 import filopplasting from "./filopplasting";
+import landingPage from "./landingPage";
 
 export default createSchema({
   name: "default",
@@ -23,6 +24,7 @@ export default createSchema({
     metadata,
     video,
     tilleggsStilling,
+    landingPage,
     ...forsideSchema,
   ]),
 });

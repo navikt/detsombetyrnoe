@@ -27,14 +27,14 @@ const Style = styled.header`
   }
 `;
 
-const StyledToppLinje = styled.div`
+const StyledToppLinje = styled.div<{ navLogoPosition: "flex-start" | "flex-end" }>`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   padding: 1rem;
   display: flex;
-  justify-content: flex-end;
+  justify-content: ${(props) => props.navLogoPosition};
   svg {
     width: 4rem;
     fill: white;
@@ -62,6 +62,8 @@ interface Props {
   underoverskrift?: string;
   bakgrunnsfarge?: string;
   lysTekst?: boolean;
+  visGithubLenke?: boolean;
+  navLogoPosition?: "flex-start" | "flex-end";
 }
 
 export const Header = (props: Props) => {
@@ -75,7 +77,7 @@ export const Header = (props: Props) => {
   return (
     <Panel forwardRef={ref} backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
       <Style>
-        <StyledToppLinje>
+        <StyledToppLinje navLogoPosition={props.navLogoPosition ?? "flex-end"}>
           {/*
           <StyledDetSomBetyrNoe>Det som betyr noe</StyledDetSomBetyrNoe>
         */}
@@ -83,7 +85,7 @@ export const Header = (props: Props) => {
             <NavLogo />
           </a>
         </StyledToppLinje>
-        <GithubrepoLenke />
+        {props.visGithubLenke && <GithubrepoLenke />}
         <h1>{props.overskrift}</h1>
         <p>{props.underoverskrift}</p>
         <ArrowButton tabIndex={-1} onClick={onClickArrow} aria-hidden>
