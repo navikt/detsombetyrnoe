@@ -1,4 +1,4 @@
-import { FaFile } from "react-icons/fa";
+import { FaFile, FaLink } from "react-icons/fa";
 
 export default {
   name: "blockContent",
@@ -20,6 +20,21 @@ export default {
           { title: "Emphasis", value: "em" },
         ],
         annotations: [
+          {
+            title: "Lenke",
+            name: "lenke",
+            type: "object",
+            blockEditor: {
+              icon: FaLink,
+            },
+            fields: [
+              {
+                title: "URL",
+                name: "href",
+                type: "url",
+              },
+            ],
+          },
           {
             title: "Filopplasting",
             name: "filopplasting",
