@@ -20,7 +20,7 @@
     "@sentry/browser": "6.3.0",
     "@u-wave/react-vimeo": "0.9.4",
     "amplitude-js": "8.6.0",
-    "axios": "0.21.1",
+    "axios": "0.21.4",
     "basicscroll": "3.0.4",
     "date-fns": "2.21.1",
     "framer-motion": "3.10.6",
