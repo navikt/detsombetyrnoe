@@ -25,7 +25,8 @@ export const initAmplitude = () => {
 
 export function logAmplitudeEvent(eventName: string, data?: any): Promise<any> {
   return new Promise(function (resolve: any) {
-    const eventData = data || {};
+    const kommerFra = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("kommerFra") : "";
+    const eventData = data ? { ...data, kommerFra } : { kommerFra };
     if (amplitude) {
       amplitude.getInstance().logEvent(eventName, eventData, resolve);
     }
