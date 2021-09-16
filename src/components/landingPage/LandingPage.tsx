@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { getChildren } from "../../../sanity/components/forside/Forside";
 import { PanelProps } from "../../pages";
-import ArtikkelPreview from "../artikkel/ArtikkelPreview";
 import CustomComponent, { CustomComponentProps } from "../CustomComponent";
 import { Header } from "../forside/Header";
 import Panel from "../Panel";
@@ -38,9 +37,10 @@ export const LandingPage = (props: {
       <Header
         overskrift={props.overskrift}
         underoverskrift={props.underoverskrift}
-        bakgrunnsfarge="#004367"
+        bakgrunnsfarge={props.bakgrunnsfarge ?? "#004367"}
         lysTekst={props.lysTekst}
         navLogoPosition="flex-start"
+        tilForsidenLenke
       />
       <Content>
         <Panel backgroundColor="#333333" lysTekst>

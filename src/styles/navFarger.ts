@@ -22,6 +22,8 @@ export const navFrontend = {
   grayModia: "#333333",
   grayInactive: "#78706a",
   pinkErrorBg: "#f3e3e3",
+  landingpageBla: "#004367",
+  landingpageHeaderBla: "#004367",
   navGronnLighten20: "#38a161",
   navGronnLighten40: "#6ab889",
   navGronnLighten60: "#9bd0b0",

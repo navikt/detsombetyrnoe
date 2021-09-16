@@ -4,6 +4,7 @@ import ArrowDown from "../../ikoner/arrowDown";
 import NavLogo from "../../ikoner/navlogo";
 import Panel from "../Panel";
 import GithubrepoLenke from "../GithubrepoLenke";
+import Link from "next/link";
 
 const fadeIn = keyframes`
 from {
@@ -41,6 +42,20 @@ const StyledToppLinje = styled.div<{ navLogoPosition: "flex-start" | "flex-end" 
   }
 `;
 
+const StyledBunnLinje = styled.div`
+  position: absolute;
+  bottom: 10vh;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: "flext-start";
+  svg {
+    width: 4rem;
+    fill: white;
+  }
+`;
+
 const StyledDetSomBetyrNoe = styled.div`
   font-weight: 900;
   text-transform: uppercase;
@@ -64,6 +79,7 @@ interface Props {
   lysTekst?: boolean;
   visGithubLenke?: boolean;
   navLogoPosition?: "flex-start" | "flex-end";
+  tilForsidenLenke?: boolean;
 }
 
 export const Header = (props: Props) => {
@@ -91,6 +107,13 @@ export const Header = (props: Props) => {
         <ArrowButton tabIndex={-1} onClick={onClickArrow} aria-hidden>
           <ArrowDown />
         </ArrowButton>
+        {props.tilForsidenLenke && (
+          <StyledBunnLinje>
+            <Link href="/">
+              <a>Til forsiden</a>
+            </Link>
+          </StyledBunnLinje>
+        )}
       </Style>
     </Panel>
   );
