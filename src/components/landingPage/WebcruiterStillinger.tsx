@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useAmplitude } from "../../contexts/amplitude-context";
 
 interface Props {
   tittel: string;
@@ -32,6 +33,18 @@ const StillingPanel = styled.div`
 `;
 
 export const WebcruiterStillinger = () => {
+  const { logAmplitudeEvent } = useAmplitude();
+
+  const handleClick = (event: any) => {
+    event.preventDefault();
+    const url = event.target.href;
+    const title = event.target.title;
+    logAmplitudeEvent("Går til kampanjestilling", {
+      title,
+    });
+    window.location.assign(url);
+  };
+
   return (
     <Style>
       <Tekst>
@@ -40,6 +53,9 @@ export const WebcruiterStillinger = () => {
       <StillingPanel>
         <h3>Full stack utvikler</h3>
         <p>Du liker å jobbe med helheten fra back til front.</p>
+        <a href="https://www.vg.no" title="fullstackutvikler" onClick={handleClick}>
+          Fullstack
+        </a>
       </StillingPanel>
       <StillingPanel>
         <h3>Backendutvikler</h3>
