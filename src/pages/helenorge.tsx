@@ -26,15 +26,16 @@ const landingssideQuery = groq`
     "metaData": *[_id == "metadata"][0],
 }`;
 
-interface LandingssideProps {
+export interface LandingssideProps {
   landingPage?: {
     overskrift: string;
     underoverskrift: string;
     bakgrunnsfarge?: string;
     lysTekst?: boolean;
     paneler?: (PanelProps | CustomComponentProps)[];
+    previewImage?: string;
   };
-  metaData?: MetadataI;
+  metaData: MetadataI;
 }
 
 export async function getStaticProps() {
@@ -59,7 +60,7 @@ const PreviewWrapper = (props: { data: LandingssideProps }) => {
   return (
     <>
       {enablePreview && <PreviewBanner />}
-      {data.landingPage && <LandingPage {...data.landingPage} />}
+      {data.landingPage && <LandingPage {...data} />}
     </>
   );
 };

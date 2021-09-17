@@ -2,9 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { getChildren } from "../../../sanity/components/forside/Forside";
 import { PanelProps } from "../../pages";
+import { LandingssideProps } from "../../pages/helenorge";
 import CustomComponent, { CustomComponentProps } from "../CustomComponent";
 import { Header } from "../forside/Header";
 import Panel from "../Panel";
+import SEO from "../SEO";
 
 const Content = styled.div`
   background-color: #262626;
@@ -25,32 +27,31 @@ const Tekst = styled.div`
   max-width: var(--content-max-width);
 `;
 
-export const LandingPage = (props: {
-  overskrift: string;
-  underoverskrift: string;
-  bakgrunnsfarge?: string;
-  lysTekst?: boolean;
-  paneler?: (PanelProps | CustomComponentProps)[];
-}) => {
+export const LandingPage = (props: LandingssideProps) => {
+  const { landingPage, metaData } = props;
+
+  const updatedMetadata = { ...metaData, previewImage: landingPage?.previewImage ?? metaData?.previewImage };
+
   return (
     <div>
+      <SEO metadata={updatedMetadata} />
       <Header
-        overskrift={props.overskrift}
-        underoverskrift={props.underoverskrift}
-        bakgrunnsfarge={props.bakgrunnsfarge ?? "#004367"}
-        lysTekst={props.lysTekst}
+        overskrift={landingPage?.overskrift}
+        underoverskrift={landingPage?.underoverskrift}
+        bakgrunnsfarge={landingPage?.bakgrunnsfarge ?? "#004367"}
+        lysTekst={landingPage?.lysTekst}
         navLogoPosition="flex-start"
         tilForsidenLenke
       />
       <Content>
-        <Panel backgroundColor="#333333" lysTekst>
+        <Panel backgroundColor="#004367" lysTekst>
           <Style>
             <Tekst>
               <h2>Vi skaper produktteam som skal ta NAV inn i fremtidens digitale velferdstilbud.</h2>
             </Tekst>
           </Style>
         </Panel>
-        {props.paneler?.map((panel) =>
+        {landingPage?.paneler?.map((panel) =>
           panel._type === "customComponent" ? (
             <CustomComponent {...panel} key={panel.id} />
           ) : (

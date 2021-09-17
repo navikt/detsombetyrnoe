@@ -30,6 +30,13 @@ export default {
       },
     },
     {
+      name: "previewImage",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+    },
+    {
       name: "bakgrunnsfarge",
       type: "string",
       inputComponent: NavColorInput,
