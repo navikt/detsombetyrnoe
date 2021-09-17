@@ -100,13 +100,10 @@ export const WebcruiterStillinger = () => {
             <p>Brenner du for utvikleropplevelsen og å gjøre livet for andre utviklere lettere og bedre? </p>
           </StillingPanel>
         </FlexContainer>
-        <Link href="/" passHref>
-          <StillingPanel href="#">
+        <Link href="/#ledige-stillinger" passHref>
+          <StillingPanel>
             <h3>Se alle stillinger i NAV IT</h3>
-            <p>
-              For å danne team trenger vi designere i ulike varianer, produkeiere og andre fagfelt. Se alle stillinger
-              som danner en godt produkt team.
-            </p>
+            <p>Vi er stadig på utkikk etter nye kollegaer, sjekk ut andre ledige stillinger her!</p>
           </StillingPanel>
         </Link>
       </FlexContainer>

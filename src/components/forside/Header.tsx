@@ -94,9 +94,6 @@ export const Header = (props: Props) => {
     <Panel forwardRef={ref} backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
       <Style>
         <StyledToppLinje navLogoPosition={props.navLogoPosition ?? "flex-end"}>
-          {/*
-          <StyledDetSomBetyrNoe>Det som betyr noe</StyledDetSomBetyrNoe>
-        */}
           <a href="https://www.nav.no/" aria-label="Lenke til NAV">
             <NavLogo />
           </a>
