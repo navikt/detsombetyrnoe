@@ -12,6 +12,7 @@ const landingssideQuery = groq`
     "landingPage": *[_type == "landingPage" && slug.current == "helenorge"][0] {
         overskrift,
         underoverskrift,
+        fetUnderskrift,
         bakgrunnsfarge,
         lysTekst,
         paneler[] {
@@ -30,6 +31,7 @@ export interface LandingssideProps {
   landingPage?: {
     overskrift: string;
     underoverskrift: string;
+    fetUnderskrift?: string;
     bakgrunnsfarge?: string;
     lysTekst?: boolean;
     paneler?: (PanelProps | CustomComponentProps)[];

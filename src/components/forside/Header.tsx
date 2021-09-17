@@ -75,6 +75,7 @@ const ArrowButton = styled.button`
 interface Props {
   overskrift?: string;
   underoverskrift?: string;
+  fetUnderskrift?: string;
   bakgrunnsfarge?: string;
   lysTekst?: boolean;
   visGithubLenke?: boolean;
@@ -101,6 +102,11 @@ export const Header = (props: Props) => {
         {props.visGithubLenke && <GithubrepoLenke />}
         <h1>{props.overskrift}</h1>
         <p>{props.underoverskrift}</p>
+        {props.fetUnderskrift && (
+          <p>
+            <strong>{props.fetUnderskrift}</strong>
+          </p>
+        )}
         <ArrowButton tabIndex={-1} onClick={onClickArrow} aria-hidden>
           <ArrowDown />
         </ArrowButton>

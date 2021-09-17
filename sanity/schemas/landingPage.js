@@ -20,6 +20,7 @@ export default {
       type: "text",
       rows: 3,
     },
+    { name: "fetUnderskrift", title: "Fet underoverskrift", type: "text", rows: 3 },
     {
       name: "slug",
       type: "slug",
