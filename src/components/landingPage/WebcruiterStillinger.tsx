@@ -63,8 +63,8 @@ export const WebcruiterStillinger = () => {
 
   const handleClick = (event: any) => {
     event.preventDefault();
-    const url = event.target.href;
-    const title = event.target.title;
+    const url = event.currentTarget.href;
+    const title = event.currentTarget.title;
     logAmplitudeEvent("Går til kampanjestilling", {
       title,
     });
