@@ -1,30 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { getChildren } from "../../../sanity/components/forside/Forside";
-import { PanelProps } from "../../pages";
 import { LandingssideProps } from "../../pages/helenorge";
-import CustomComponent, { CustomComponentProps } from "../CustomComponent";
+import CustomComponent from "../CustomComponent";
 import { Header } from "../forside/Header";
 import Panel from "../Panel";
 import SEO from "../SEO";
 
 const Content = styled.div`
   background-color: #262626;
-`;
-
-const Style = styled.div`
-  --content-max-width: min(40rem, 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const Tekst = styled.div`
-  margin-bottom: 5vh;
-  p {
-    margin: 2rem 0;
-  }
-  max-width: var(--content-max-width);
 `;
 
 export const LandingPage = (props: LandingssideProps) => {
@@ -44,13 +28,6 @@ export const LandingPage = (props: LandingssideProps) => {
         tilForsidenLenke
       />
       <Content>
-        <Panel backgroundColor="#004367" lysTekst>
-          <Style>
-            <Tekst>
-              <h2>Vi skaper produktteam som skal ta NAV inn i fremtidens digitale velferdstilbud.</h2>
-            </Tekst>
-          </Style>
-        </Panel>
         {landingPage?.paneler?.map((panel) =>
           panel._type === "customComponent" ? (
             <CustomComponent {...panel} key={panel.id} />

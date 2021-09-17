@@ -78,24 +78,40 @@ export const WebcruiterStillinger = () => {
       </Tekst>
       <FlexContainer direction="column">
         <FlexContainer direction="row">
-          <StillingPanel href="#" title="fullstackutvikler" onClick={handleClick}>
+          <StillingPanel
+            href="https://2793870776.webcruiter.no/Main2/Recruit/Public/4426277368?link_source_id=4351477319"
+            title="fullstackutvikler"
+            onClick={handleClick}
+          >
             <h3>Fullstack-utvikler</h3>
             <p>For deg som liker å jobbe med helheten back til front</p>
           </StillingPanel>
-          <StillingPanel href="#" title="backendutvikler" onClick={handleClick}>
+          <StillingPanel
+            href="https://2793870776.webcruiter.no/Main2/Recruit/Public/4426278086?link_source_id=4351477319"
+            title="backendutvikler"
+            onClick={handleClick}
+          >
             <h3>Backend-utvikler</h3>
             <p>For deg som vil fordype deg i domenelogikk og forenkle komplekse prosesser</p>
           </StillingPanel>
         </FlexContainer>
         <FlexContainer direction="row">
-          <StillingPanel href="#" title="frontendutvikler" onClick={handleClick}>
+          <StillingPanel
+            href="https://2793870776.webcruiter.no/Main2/Recruit/Public/4426276973?link_source_id=4351477319"
+            title="frontendutvikler"
+            onClick={handleClick}
+          >
             <h3>Frontend-utvikler</h3>
             <p>
               Med en fot i kodingens verden og en i den visuelle, lager du løsningene som forenkler folks digitale
               hverdag
             </p>
           </StillingPanel>
-          <StillingPanel href="#" title="platformutvikler" onClick={handleClick}>
+          <StillingPanel
+            href="https://2793870776.webcruiter.no/Main2/Recruit/Public/4430629737?link_source_id=4351477319"
+            title="platformutvikler"
+            onClick={handleClick}
+          >
             <h3>Platform-utvikler</h3>
             <p>Brenner du for utvikleropplevelsen og å gjøre livet for andre utviklere lettere og bedre? </p>
           </StillingPanel>
