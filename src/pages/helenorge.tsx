@@ -15,6 +15,7 @@ const landingssideQuery = groq`
         fetUnderskrift,
         bakgrunnsfarge,
         lysTekst,
+        previewImage,
         paneler[] {
           lysTekst,
           _key,
@@ -35,7 +36,7 @@ export interface LandingssideProps {
     bakgrunnsfarge?: string;
     lysTekst?: boolean;
     paneler?: (PanelProps | CustomComponentProps)[];
-    previewImage?: string;
+    previewImage?: any;
   };
   metaData: MetadataI;
 }
