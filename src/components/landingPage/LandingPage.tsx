@@ -14,7 +14,12 @@ const Content = styled.div`
 export const LandingPage = (props: LandingssideProps) => {
   const { landingPage, metaData } = props;
 
-  const updatedMetadata = { ...metaData, previewImage: landingPage?.previewImage ?? metaData?.previewImage };
+  const updatedMetadata = {
+    ...metaData,
+    previewImage: landingPage?.previewImage ?? metaData?.previewImage,
+    title: `${metaData.title} - ${landingPage?.overskrift}`,
+    description: landingPage?.underoverskrift ?? metaData.description,
+  };
 
   return (
     <div>
