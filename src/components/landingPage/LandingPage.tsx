@@ -23,7 +23,7 @@ export const LandingPage = (props: LandingssideProps) => {
 
   return (
     <div>
-      <SEO metadata={updatedMetadata} />
+      <SEO metadata={updatedMetadata} url="https://detsombetyrnoe.no/helenorge" />
       <Header
         overskrift={landingPage?.overskrift}
         underoverskrift={landingPage?.underoverskrift}
