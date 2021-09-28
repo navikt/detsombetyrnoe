@@ -13,7 +13,7 @@ interface Props {
   forwardRef?: RefObject<HTMLDivElement>;
 }
 
-const lysTekst = css`
+export const lysTekst = css`
   color: white;
   a {
     color: #eee;
@@ -24,7 +24,7 @@ const lysTekst = css`
   }
 `;
 
-const mørkTekst = css`
+export const mørkTekst = css`
   color: #333;
 `;
 

@@ -7,6 +7,7 @@ import { ArtikkelI } from "../components/artikkel/types";
 import { useRouter } from "next/router";
 import PreviewBanner from "../components/PreviewBanner";
 import Forside from "../../sanity/components/forside/Forside";
+import { metaDataGroq } from "../utils/groq";
 
 const landingssideQuery = groq`{
 "forside": *[_id == "forside"][0] {
@@ -23,7 +24,7 @@ const landingssideQuery = groq`{
       _type
     }
   },
-"metaData": *[_id == "metadata"][0],
+${metaDataGroq},
 "bloggposter": *[_type == "blogpost"] | order(_createdAt desc) [0..4] {
     tittel,
     "slug": slug.current,
@@ -43,6 +44,10 @@ export interface MetadataI {
   description: string;
   previewImage: any;
   title: string;
+  privacyArticle: {
+    tittel: string;
+    slug: string;
+  };
 }
 
 interface Placeholder {
@@ -68,7 +73,7 @@ export interface ForsideProps {
     lysTekst?: boolean;
     paneler?: (PanelProps | CustomComponentProps)[];
   };
-  metaData?: MetadataI;
+  metaData: MetadataI;
   bloggposter: ForisdeBloggpostI[];
 }
 

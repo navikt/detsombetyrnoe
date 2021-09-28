@@ -1,15 +1,15 @@
+import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 import { getChildren } from "../../../sanity/components/forside/Forside";
 import { LandingssideProps } from "../../pages/helenorge";
 import CustomComponent from "../CustomComponent";
+import { Footer } from "../Footer";
 import { Header } from "../forside/Header";
 import Panel from "../Panel";
 import SEO from "../SEO";
 
-const Content = styled.div`
-  background-color: #262626;
-`;
+const Content = styled.div``;
 
 export const LandingPage = (props: LandingssideProps) => {
   const { landingPage, metaData } = props;
@@ -46,6 +46,12 @@ export const LandingPage = (props: LandingssideProps) => {
             />
           )
         )}
+        <Footer
+          tittel={metaData.privacyArticle.tittel}
+          slug={metaData.privacyArticle.slug}
+          backgroundColor={landingPage?.bakgrunnsfarge}
+          lysTekst={landingPage?.lysTekst}
+        />
       </Content>
     </div>
   );

@@ -19,5 +19,10 @@ export default {
         hotspot: true,
       },
     },
+    {
+      name: "privacyArticle",
+      type: "reference",
+      to: [{ type: "artikkel" }],
+    },
   ],
 };

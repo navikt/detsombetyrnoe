@@ -6,6 +6,7 @@ import { CustomComponentProps } from "../components/CustomComponent";
 import { LandingPage } from "../components/landingPage/LandingPage";
 import PreviewBanner from "../components/PreviewBanner";
 import { sanityClient, usePreviewSubscription } from "../lib/sanity";
+import { metaDataGroq } from "../utils/groq";
 
 const landingssideQuery = groq`
 {
@@ -25,7 +26,7 @@ const landingssideQuery = groq`
           _type
         }
       },
-    "metaData": *[_id == "metadata"][0],
+    ${metaDataGroq},
 }`;
 
 export interface LandingssideProps {

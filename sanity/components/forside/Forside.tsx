@@ -7,6 +7,7 @@ import Panel from "../../../src/components/Panel";
 import { ForsideProps, PanelProps } from "../../../src/pages";
 import Nøkkeltall from "../../../src/components/nøkkeltall/Nøkkeltall";
 import ArtikkelPreview from "../../../src/components/artikkel/ArtikkelPreview";
+import { Footer } from "../../../src/components/Footer";
 
 export function getChildren(innhold?: PanelProps["innhold"]) {
   if (!innhold) {
@@ -50,6 +51,12 @@ function Forside(props: ForsideProps) {
           />
         )
       )}
+      <Footer
+        tittel={props.metaData.privacyArticle.tittel}
+        slug={props.metaData.privacyArticle.slug}
+        backgroundColor={props.forside?.bakgrunnsfarge}
+        lysTekst={props.forside?.lysTekst}
+      />
     </ForsideProvider>
   );
 }
