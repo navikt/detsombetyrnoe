@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "styled-components/macro";
+import styled from "styled-components";
 import { BlogpostPreviewI } from "../../pages/blogg";
 import BloggPostPreview from "./BloggPostPreview";
 import Header from "./Header";

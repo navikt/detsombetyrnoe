@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "styled-components/macro";
+import styled from "styled-components";
 import { ArtikkelI } from "./types";
 import BildeKollasj from "../BildeKollasj";
 import { cssVars } from "../../styles/cssVars";

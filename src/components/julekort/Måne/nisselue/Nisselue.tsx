@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-import styled, { css, keyframes } from "styled-components/macro";
+import styled, { css, keyframes } from "styled-components";
 import Sno from "./Sno";
 import NisselueIkon from "./NisselueIkon";
 import { useProgressContext } from "../../progress/ProgressContext";

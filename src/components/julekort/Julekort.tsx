@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-import styled, { css, keyframes } from "styled-components/macro";
+import styled, { css, keyframes } from "styled-components";
 import Bondegård from "./ikoner/Bondegård";
 import Fjell from "./ikoner/Fjell";
 import Sky from "./ikoner/Sky";

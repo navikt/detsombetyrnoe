@@ -1,4 +1,4 @@
-import styled from "styled-components/macro";
+import styled from "styled-components";
 import { ArtikkelI } from "./types";
 import { urlFor } from "../../lib/sanity";
 import * as React from "react";

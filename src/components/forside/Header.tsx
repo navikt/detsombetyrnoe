@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import styled, { keyframes } from "styled-components/macro";
+import styled, { keyframes } from "styled-components";
 import ArrowDown from "../../ikoner/arrowDown";
 import NavLogo from "../../ikoner/navlogo";
 import Panel from "../Panel";

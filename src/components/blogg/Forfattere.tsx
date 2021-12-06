@@ -1,7 +1,7 @@
 import * as React from "react";
 import { urlFor } from "../../lib/sanity";
 import { ForfatterI } from "../../pages/blogg";
-import styled from "styled-components/macro";
+import styled from "styled-components";
 import Link from "next/link";
 
 const ForfatterStyle = styled.div`

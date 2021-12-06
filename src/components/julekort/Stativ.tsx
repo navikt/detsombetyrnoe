@@ -1,7 +1,6 @@
 import * as React from "react";
-import styled, { css } from "styled-components/macro";
+import styled, { css, keyframes } from "styled-components";
 import { navFrontend } from "../../styles/navFarger";
-import { keyframes } from "styled-components/macro";
 import { delay } from "./animasjoner";
 import Sokk from "./ikoner/Sokk";
 import { useEffect, useState } from "react";

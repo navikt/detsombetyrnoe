@@ -20,4 +20,8 @@ module.exports = {
   images: {
     domains: ["cdn.sanity.io"],
   },
+  experimental: {
+    // Enables the styled-components SWC transform
+    styledComponents: true,
+  },
 };

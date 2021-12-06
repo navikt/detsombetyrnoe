@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "styled-components/macro";
+import styled from "styled-components";
 import NavLogo from "../../ikoner/navlogo";
 import Link from "next/link";
 import { navFrontend } from "../../styles/navFarger";

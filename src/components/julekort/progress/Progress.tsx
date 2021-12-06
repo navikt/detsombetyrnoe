@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled, { css } from "styled-components/macro";
+import styled, { css } from "styled-components";
 import HjerteIkon from "../ikoner/HjerteIkon";
 import { navFrontend } from "../../../styles/navFarger";
 import { useProgressContext } from "./ProgressContext";

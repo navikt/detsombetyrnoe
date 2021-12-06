@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "styled-components/macro";
+import styled from "styled-components";
 import { ForfatterI } from "../pages/forfatter/[slug]";
 import { urlFor } from "../lib/sanity";
 import BloggPostPreview from "./blogg/BloggPostPreview";

@@ -5,6 +5,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Stilling from "./stilling";
+import { AmplitudeProvider } from "../contexts/amplitude-context";
 import { mockIntersectionObserver } from "../mocks/intersection-observer-mock";
 
 const stillingDummy = {
@@ -20,13 +21,21 @@ describe("Tester komponenten Stilling", () => {
   });
 
   test("Komponenten rendrer ikke uten url", () => {
-    const { container } = render(<Stilling />);
+    const { container } = render(
+      <AmplitudeProvider>
+        <Stilling />
+      </AmplitudeProvider>
+    );
     expect(container).toBeEmptyDOMElement();
   });
 
   test("Komponenten rendrer som forventet", () => {
     const mockLogAmplitudeEvent = jest.fn();
-    const { container } = render(<Stilling {...stillingDummy} logAmplitudeEvent={mockLogAmplitudeEvent} />);
+    const { container } = render(
+      <AmplitudeProvider>
+        <Stilling {...stillingDummy} logAmplitudeEvent={mockLogAmplitudeEvent} />
+      </AmplitudeProvider>
+    );
     expect(container).not.toBeEmptyDOMElement();
     expect(screen.getByText(/18\. november 2021/i)).toBeInTheDocument();
     expect(screen.queryAllByText(/kom til oss, vi har cookies/i).length).toBe(1);

@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "styled-components/macro";
+import styled from "styled-components";
 import Header from "../blogg/Header";
 import { useForsideContext } from "./ForsideProvider";
 import { ForsideProps } from "../../pages";

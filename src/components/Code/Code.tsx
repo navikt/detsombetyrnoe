@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "styled-components/macro";
+import styled from "styled-components";
 import { navFrontend } from "../../styles/navFarger";
 import Prism from "prismjs";
 import "prismjs/components/prism-typescript";

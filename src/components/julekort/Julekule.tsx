@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled, { keyframes } from "styled-components/macro";
+import styled, { keyframes } from "styled-components";
 import { delay } from "./animasjoner";
 
 const size = "3em";

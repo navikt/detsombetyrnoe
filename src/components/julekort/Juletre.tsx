@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "styled-components/macro";
+import styled from "styled-components";
 import JuletreIkon from "./ikoner/JuletreIkon";
 import LitenStjerne from "./ikoner/LitenStjerne";
 import { animasjoner, delay } from "./animasjoner";

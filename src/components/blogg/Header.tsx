@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "styled-components/macro";
+import styled from "styled-components";
 import Link from "next/link";
 
 const Style = styled.a<{ fontSize: string }>`

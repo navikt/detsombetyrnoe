@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "styled-components/macro";
+import styled from "styled-components";
 import { BlogpostPreviewI } from "../../pages/blogg";
 import { urlFor } from "../../lib/sanity";
 import { format } from "date-fns";

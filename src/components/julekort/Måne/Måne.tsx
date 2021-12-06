@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled, { keyframes } from "styled-components/macro";
+import styled, { keyframes } from "styled-components";
 import MåneIkon from "../ikoner/MåneIkon";
 import Nisselue from "./nisselue/Nisselue";
 import { useState } from "react";

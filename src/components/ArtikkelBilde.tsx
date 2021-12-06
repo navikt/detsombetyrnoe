@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled, { css } from "styled-components/macro";
+import styled, { css } from "styled-components";
 import { urlFor } from "../lib/sanity";
 import { useState } from "react";
 
