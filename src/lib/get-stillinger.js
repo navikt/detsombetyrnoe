@@ -73,9 +73,11 @@ module.exports = async () => {
     .map((stilling) => stilling._source)
     .filter(
       (stilling) =>
-        /nav_webcruiter/i.test(stilling.reference) || /velferdsdirektoratet_webcruiter/i.test(stilling.reference)
+        /nav_webcruiter/i.test(stilling.reference) ||
+        /velferdsdirektoratet_webcruiter/i.test(stilling.reference) ||
+        /Fyrstikkalléen 1/i.test(stilling.locationList[0].address)
     )
-    .filter((stilling) => /IT/.test(stilling.reference))
+    .filter((stilling) => /NAV/i.test(stilling.businessName))
     .map((stilling) => `${addUrl}/${stilling.uuid}`)
     .map((url) => axios.get(url));
 
