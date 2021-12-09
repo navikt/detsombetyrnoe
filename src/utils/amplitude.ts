@@ -1,9 +1,10 @@
+import amplitude from "amplitude-js";
 import { AMPLITUDE_DEV_KEY, AMPLITUDE_PROD_KEY } from "../../config";
 import { isProduction } from "./environment";
-// Hindrer crash ved server-side kjøring (amplitude.js fungerer kun i browser)
-const amplitude = typeof window !== "undefined" ? require("amplitude-js") : () => null;
 const apiKey = isProduction() ? AMPLITUDE_PROD_KEY : AMPLITUDE_DEV_KEY;
 const SESSION_STORAGE_KEY = "dsbn-kommerfra";
+
+const erBrowser = () => typeof window !== "undefined";
 
 const config = {
   saveEvents: false,
@@ -16,7 +17,7 @@ const config = {
 };
 
 export const initAmplitude = () => {
-  if (amplitude) {
+  if (erBrowser()) {
     amplitude.getInstance().init(apiKey, undefined, config);
     logAmplitudeEvent("sidevisning", {
       sidetittel: document.title,
@@ -34,9 +35,8 @@ function getKommerFra() {
 }
 
 function hentKommerFra() {
-  const erBrowser = typeof window !== "undefined";
   const kommerFraDefault = "";
-  if (erBrowser) {
+  if (erBrowser()) {
     const kommerFraUrl = new URLSearchParams(window.location.search).get("kommerFra");
     if (kommerFraUrl) {
       setKommerFra(kommerFraUrl);
@@ -52,7 +52,7 @@ export function logAmplitudeEvent(eventName: string, data?: any): Promise<any> {
   return new Promise(function (resolve: any) {
     const kommerFra = hentKommerFra();
     const eventData = data ? { ...data, kommerFra } : { kommerFra };
-    if (amplitude) {
+    if (erBrowser()) {
       amplitude.getInstance().logEvent(eventName, eventData, resolve);
     }
   });
