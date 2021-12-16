@@ -75,7 +75,8 @@ module.exports = async () => {
       (stilling) =>
         /nav_webcruiter/i.test(stilling.reference) ||
         /velferdsdirektoratet_webcruiter/i.test(stilling.reference) ||
-        /Fyrstikkalléen 1/i.test(stilling.locationList[0].address)
+        /Fyrstikkalléen 1/i.test(stilling.locationList[0].address) ||
+        /Fyrstikkallèen 1/i.test(stilling.locationList[0].address)
     )
     .filter((stilling) => /NAV/i.test(stilling.businessName))
     .map((stilling) => `${addUrl}/${stilling.uuid}`)
