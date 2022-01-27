@@ -9,9 +9,9 @@ const csp = {
     "c9hptfq7.api.sanity.io",
     "vitals.vercel-insights.com",
   ],
-  "font-src": ["data:", "fonts.gstatic.com"],
-  "frame-src": ["player.vimeo.com"],
-  "img-src": ["data:", "cdn.sanity.io", "www.nav.no"],
+  "font-src": ["'self'", "data:", "fonts.gstatic.com"],
+  "frame-src": ["'self'", "player.vimeo.com"],
+  "img-src": ["'self'", "data:", "cdn.sanity.io", "www.nav.no"],
 };
 
 const stringifiedCSP = Object.entries(csp)
