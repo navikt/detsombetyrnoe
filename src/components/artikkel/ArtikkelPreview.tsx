@@ -16,6 +16,9 @@ const Tekst = styled.div`
   p {
     margin: 2rem 0;
   }
+  h3 {
+    margin-top: 1.75rem;
+  }
   max-width: var(--content-max-width);
 `;
 
@@ -24,6 +27,7 @@ function ArtikkelPreview(props: ArtikkelI) {
     <Style>
       <Tekst>
         <h2>{props.tittel}</h2>
+        {props.undertittel && <h3>{props.undertittel}</h3>}
         <p>{props.ingress}</p>
         <a href={props.slug.current}>{props.lesMerTekst}</a>
       </Tekst>

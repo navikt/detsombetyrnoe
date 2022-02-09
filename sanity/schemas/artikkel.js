@@ -11,6 +11,10 @@ export default {
       type: "string",
     },
     {
+      name: "undertittel",
+      type: "string",
+    },
+    {
       name: "slug",
       type: "slug",
       description: "Url til siden",

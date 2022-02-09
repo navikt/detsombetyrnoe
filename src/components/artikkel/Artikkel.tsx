@@ -34,6 +34,12 @@ const H1 = styled.h1`
   ${fontSize.s2}
 `;
 
+const H2 = styled.h2`
+  margin-top: calc(2rem + 3vmin);
+  margin-bottom: calc(1.5rem + 2vmin);
+  font-size: clamp(1.25rem, 8vmin, 3.15rem);
+`;
+
 const Ingress = styled.p`
   width: 100%;
   max-width: var(${cssVars.contentMaxWidth});
@@ -69,6 +75,7 @@ function Artikkel(props: Props) {
       <Header />
       <main>
         <H1>{artikkel.tittel}</H1>
+        {artikkel.undertittel && <H2>{artikkel.undertittel}</H2>}
         <Ingress>{artikkel.ingress}</Ingress>
         <MainMedia {...coverMedia} />
         <StyledBlockContent blocks={artikkel.innhold} />

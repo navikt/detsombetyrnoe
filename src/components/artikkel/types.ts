@@ -11,6 +11,7 @@ export interface ArtikkelI {
   };
   lesMerTekst: string;
   tittel: string;
+  undertittel?: string;
 }
 
 interface Bilde {
