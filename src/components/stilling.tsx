@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import handleViewport from "react-in-viewport";
 import { useAmplitude } from "../contexts/amplitude-context";
 import styled from "styled-components";
+import parse from "html-react-parser";
 
 const Style = styled.li`
   margin: 2rem 0;
@@ -70,8 +71,8 @@ const Stilling = (props: any) => {
     <Style>
       <a href={url} ref={props.forwardedRef} onClick={handleClick} target="_blank">
         <i>Frist: {frist}</i>
-        <h3>{title}</h3>
-        <p>{description}</p>
+        <h3>{title.replace(/\s+/g, " ").trim()}</h3>
+        <p>{parse(description.trim())}</p>
       </a>
     </Style>
   );
