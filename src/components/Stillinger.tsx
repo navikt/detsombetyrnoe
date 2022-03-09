@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const Style = styled.div`
   > * {
-    max-width: 40rem;
+    max-width: 32.5rem;
   }
   ul {
     margin-top: 4rem;

@@ -42,7 +42,7 @@ const H2 = styled.h2`
 
 const Ingress = styled.p`
   width: 100%;
-  max-width: var(${cssVars.contentMaxWidth});
+  //max-width: var(${cssVars.contentMaxWidth});
   font-size: 1.1rem;
   margin-bottom: calc(2rem + 3vmin);
 `;

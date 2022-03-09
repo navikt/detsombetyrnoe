@@ -11,7 +11,7 @@ interface Props {
 }
 
 const Style = styled.div`
-  --content-max-width: min(40rem, 100%);
+  --content-max-width: min(32.5rem, 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
