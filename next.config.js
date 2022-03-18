@@ -15,16 +15,13 @@ module.exports = {
     },
   ],
   productionBrowserSourceMaps: true,
+  swcMinify: true,
   i18n: {
     locales: ["no"],
     defaultLocale: "no",
   },
   images: {
     domains: ["cdn.sanity.io"],
-  },
-  experimental: {
-    // Enables the styled-components SWC transform
-    styledComponents: true,
   },
   async headers() {
     return [
