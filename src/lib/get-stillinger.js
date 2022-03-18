@@ -27,8 +27,10 @@ function createDescription(text) {
     .filter((line) => line !== "")
     .slice(1);
   let description = lines.shift();
+  console.log("lines", lines.length);
   while (!(description.endsWith(".") || description.endsWith("!") || description.endsWith("?"))) {
     description = `${description} ${lines.shift()}`;
+    if (lines.length === 0) return striptags(description);
   }
   return striptags(description);
 }
@@ -96,7 +98,8 @@ module.exports = async () => {
     const stillinger = annonser
       .filter((annonse) => annonse)
       .map((annonse) => ({ uuid: annonse.data._id, ...annonse.data._source }))
-      .map(repack);
+      .map((annonse) => repack(annonse));
+    console.log("stillinger", stillinger);
     return stillinger;
   } catch (error) {
     console.error(error);
