@@ -3,30 +3,9 @@ import handleViewport from "react-in-viewport";
 import { useAmplitude } from "../contexts/amplitude-context";
 import styled from "styled-components";
 import parse from "html-react-parser";
+import { CardItem } from "./CardItem";
 
-const Style = styled.li`
-  margin: 2rem 0;
-  a {
-    padding: 2vmin;
-    display: block;
-    text-decoration: none;
-    transition: 0.3s;
-    &:hover {
-      box-shadow: 0 0 0.5rem #888;
-      transform: scale(1.02);
-    }
-  }
-  p {
-    margin-top: 1rem;
-    color: #333;
-    max-height: 10rem;
-    overflow: hidden;
-    padding-bottom: 1rem;
-  }
-  i {
-    color: #333;
-  }
-  position: relative;
+const StyledCardItem = styled(CardItem)`
   &::after {
     position: absolute;
     bottom: 0;
@@ -36,6 +15,14 @@ const Style = styled.li`
     display: block;
     background: linear-gradient(transparent, var(--background-color) 60%);
   }
+`;
+
+const P = styled.p`
+  margin-top: 1rem;
+  color: #333;
+  max-height: 10rem;
+  overflow: hidden;
+  padding-bottom: 1rem;
 `;
 
 const Stilling = (props: any) => {
@@ -68,13 +55,15 @@ const Stilling = (props: any) => {
   if (!url) return null;
 
   return (
-    <Style>
-      <a href={url} ref={props.forwardedRef} onClick={handleClick} target="_blank">
-        <i>Frist: {frist}</i>
-        <h3>{title.replace(/\s+/g, " ").trim()}</h3>
-        <p>{parse(description.trim())}</p>
-      </a>
-    </Style>
+    <StyledCardItem>
+      <i>Frist: {frist}</i>
+      <h3>
+        <a href={url} ref={props.forwardedRef} onClick={handleClick} target="_blank">
+          {title.replace(/\s+/g, " ").trim()}
+        </a>
+      </h3>
+      <P>{parse(description.trim())}</P>
+    </StyledCardItem>
   );
 };
 
