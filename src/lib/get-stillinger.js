@@ -1,3 +1,4 @@
+import { LinkedErrors } from "@sentry/browser/dist/integrations";
 import { groq } from "next-sanity";
 import { sanityClient } from "./sanity";
 
@@ -26,11 +27,9 @@ function createDescription(text) {
     .split("\n")
     .filter((line) => line !== "")
     .slice(1);
-  let description = lines.shift();
-  console.log("lines", lines.length);
-  while (!(description.endsWith(".") || description.endsWith("!") || description.endsWith("?"))) {
-    description = `${description} ${lines.shift()}`;
-    if (lines.length === 0) return striptags(description);
+  let description = lines.shift().trim();
+  while (lines.length > 0 && !(description.endsWith(".") || description.endsWith("!") || description.endsWith("?"))) {
+    description = `${description} ${lines.shift().trim()}`;
   }
   return striptags(description);
 }
@@ -99,7 +98,6 @@ module.exports = async () => {
       .filter((annonse) => annonse)
       .map((annonse) => ({ uuid: annonse.data._id, ...annonse.data._source }))
       .map((annonse) => repack(annonse));
-    console.log("stillinger", stillinger);
     return stillinger;
   } catch (error) {
     console.error(error);
