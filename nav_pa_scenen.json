@@ -1,0 +1,17 @@
+[
+  {
+    "tittel": "Slik bygger vi den interne rekruteringssiden vår",
+    "url": "",
+    "event": "En kul plass å holde foredrag",
+    "foredragsholdere": [
+      {
+        "navn": "Foredragsholder nr 1",
+        "sosialeMedier": [{ "url": "https://twitter.com/" }, { "url": "https://github.com/navikt" }]
+      },
+      {
+        "navn": "Foredragsholder nr 2",
+        "sosialeMedier": [{ "url": "https://twitter.com/" }]
+      }
+    ]
+  }
+]

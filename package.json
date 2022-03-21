@@ -34,6 +34,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-in-viewport": "1.0.0-alpha.16",
+    "react-social-icons": "^5.11.0",
     "react-use": "17.2.3",
     "striptags": "3.2.0",
     "swr": "0.5.5"
