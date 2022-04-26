@@ -6,7 +6,23 @@ import { ArtikkelLayout, H2 } from "../components/artikkel/ArtkkelLayout";
 import { CardItem } from "../components/CardItem";
 import { SocialIcon } from "react-social-icons";
 import styled from "styled-components";
+import { groq } from "next-sanity";
+import { metaDataGroq } from "../utils/groq";
+import { sanityClient } from "../lib/sanity";
+import { MetadataI } from ".";
 
+export interface LandingssideProps {
+  landingPage?: {
+    overskrift: string;
+    underoverskrift: string;
+    fetUnderskrift?: string;
+    bakgrunnsfarge?: string;
+    lysTekst?: boolean;
+    paneler?: NavPaScenen[];
+    previewImage?: any;
+  };
+  metaData: MetadataI;
+}
 interface Props {
   data: NavPaScenen[];
 }
@@ -20,11 +36,7 @@ interface NavPaScenen {
 
 interface Foredragsholder {
   navn: string;
-  sosialeMedier: SosialeMedier[];
-}
-
-interface SosialeMedier {
-  url: string;
+  sosialeMedier: string[];
 }
 
 const Event = styled.p`
@@ -54,27 +66,59 @@ const StyledSocialIcon = styled(SocialIcon)`
   width: 2rem !important;
 `;
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const pa_scenen_json = await fs.readFile("nav_pa_scenen.json", "utf-8");
+const landingssideQuery = groq`
+{
+    "landingPage": *[_type == "landingPage" && slug.current == "pa-scenen"][0] {
+        overskrift,
+        underoverskrift,
+        fetUnderskrift,
+        bakgrunnsfarge,
+        lysTekst,
+        previewImage,
+        paneler[] {
+          _key,
+          id,
+          _type,
+          tittel,
+          event,
+          foredragsholdere[]-> {
+            navn,
+            mainImage,
+            "slug": slug.current,
+            "sosialeMedier": sosiale_medier[],
+          }
+        }
+      },
+    ${metaDataGroq},
+}`;
 
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const data = await sanityClient.fetch(landingssideQuery);
   return {
     props: {
-      data: JSON.parse(pa_scenen_json),
+      data,
     },
     revalidate: 60,
   };
 };
 
-const PreviewWrapper = (props: Props) => {
+const PreviewWrapper = (props: { data: LandingssideProps }) => {
   const router = useRouter();
   const enablePreview = !!router.query.preview;
+
+  const paneler = props.data.landingPage?.paneler;
+
+  console.log("paneler", paneler);
 
   return (
     <>
       {enablePreview && <PreviewBanner />}
-      <ArtikkelLayout tittel="Nav på scenen" ingress="En liten ingress her">
+      <ArtikkelLayout
+        tittel={props.data.landingPage?.overskrift ?? ""}
+        ingress={props.data.landingPage?.fetUnderskrift ?? ""}
+      >
         <ul>
-          {props.data.map((event: NavPaScenen) => (
+          {paneler?.map((event: NavPaScenen) => (
             <CardItem key={event.tittel}>
               <a href={event.url} rel="norefferer noopener nofollow">
                 <h2>{event.tittel}</h2>
@@ -83,10 +127,11 @@ const PreviewWrapper = (props: Props) => {
               <AuthorList>
                 {event.foredragsholdere.map((foredragsholder) => (
                   <AuthorItem key={foredragsholder.navn}>
+                    {console.log(foredragsholder)}
                     <p>{foredragsholder.navn}</p>
                     <SocialIconContainer>
-                      {foredragsholder.sosialeMedier.map((sosialtMedie) => (
-                        <StyledSocialIcon key={sosialtMedie.url} url={sosialtMedie.url} />
+                      {foredragsholder.sosialeMedier?.map((sosialtMedie) => (
+                        <StyledSocialIcon key={sosialtMedie} url={sosialtMedie} />
                       ))}
                     </SocialIconContainer>
                   </AuthorItem>

@@ -30,5 +30,11 @@ export default {
       name: "bio",
       type: "text",
     },
+    {
+      name: "sosiale_medier",
+      title: "Lenker til sosiale medier",
+      type: "array",
+      of: [{ type: "url" }],
+    },
   ],
 };

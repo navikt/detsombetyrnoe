@@ -55,6 +55,10 @@ export default {
           type: "panel",
         },
         {
+          name: "pa_scenen",
+          type: "pa_scenen",
+        },
+        {
           name: "customComponent",
           type: "customComponent",
         },

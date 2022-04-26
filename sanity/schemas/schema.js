@@ -11,6 +11,7 @@ import video from "./video";
 import tilleggsStilling from "./tilleggsStilling";
 import filopplasting from "./filopplasting";
 import landingPage from "./landingPage";
+import pa_scenen from "./pa_scenen";
 
 export default createSchema({
   name: "default",
@@ -25,6 +26,7 @@ export default createSchema({
     video,
     tilleggsStilling,
     landingPage,
+    pa_scenen,
     ...forsideSchema,
   ]),
 });
