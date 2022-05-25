@@ -13,6 +13,8 @@ Gå til [tilleggsstillinger.json](/src/lib/tilleggsstillinger.json)
 
 ## Utvikling
 
+Bruke Node.js v16
+
 ```
 npm i
 npm run dev
