@@ -22,6 +22,7 @@ const Style = styled.div`
 `;
 
 function GithubstatsView(props: GithubData) {
+  if (!props.organization?.publicRepositories.nodes) return null;
   return (
     <Style>
       <GithubHeader github={props} />
