@@ -60,6 +60,7 @@ module.exports = async () => {
       id: data.uuid,
       stillingsType: getStillingstype(data.title),
       title: data.title,
+      jobTitle: data?.properties?.jobTitle || data?.jobTitle || "",
       description: createDescription(data.properties.adtext),
       frist: formatDate(data.properties.applicationdue),
       url: `${applyUrl}/${data.uuid}`,
