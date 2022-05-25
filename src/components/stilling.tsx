@@ -57,7 +57,7 @@ const Stilling = (props: any) => {
   return (
     <StyledCardItem>
       <i>
-        {jobTitle ? `Type: ${jobTitle}, ` : ""}Frist: {frist}
+        {jobTitle ? `Stilling: ${jobTitle}, ` : ""}Frist: {frist}
       </i>
       <h3>
         <a href={url} ref={props.forwardedRef} onClick={handleClick} target="_blank">
