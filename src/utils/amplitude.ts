@@ -7,6 +7,7 @@ const SESSION_STORAGE_KEY = "dsbn-kommerfra";
 const erBrowser = () => typeof window !== "undefined";
 
 const config = {
+  apiEndpoint: "api.eu.amplitude.com",
   saveEvents: false,
   includeUtm: true,
   includeReferrer: true,
