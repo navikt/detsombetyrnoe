@@ -38,7 +38,6 @@ function Forside(props: ForsideProps) {
         lysTekst={props.forside?.lysTekst}
         visGithubLenke={true}
       />
-
       {props.forside?.paneler?.map((panel) =>
         panel._type === "customComponent" ? (
           <CustomComponent {...panel} key={panel.id} />

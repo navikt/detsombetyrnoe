@@ -8,6 +8,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import Artikkel from "./artikkel/Artikkel";
 import ArtikkelPreview from "./artikkel/ArtikkelPreview";
+import { PridePanel } from "./PridePanel";
 
 export interface CustomComponentProps {
   _type: "customComponent";
@@ -78,6 +79,8 @@ function CustomComponent(props: CustomComponentProps) {
           </Style>
         </Panel>
       );
+    case "pride":
+      return <PridePanel />;
     default:
       return <div>Fant ikke komponenten med id {props.id}</div>;
   }
