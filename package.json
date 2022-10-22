@@ -19,7 +19,7 @@
     "@sanity/block-content-to-react": "3.0.0",
     "@sentry/browser": "6.3.0",
     "@u-wave/react-vimeo": "0.9.4",
-    "amplitude-js": "8.13.1",
+    "amplitude-js": "^8.21.1",
     "axios": "0.27.2",
     "basicscroll": "3.0.4",
     "date-fns": "2.21.1",
