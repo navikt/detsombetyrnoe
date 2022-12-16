@@ -63,7 +63,9 @@ function Media(props: { media: MediaI } & HTMLAttributes<HTMLElement>) {
   const { media, ...rest } = props;
   switch (media._type) {
     case "bilde":
-      return <img {...rest} src={urlFor(media).width(1080).format("jpg").quality(80).url() || ""} />;
+      return (
+        <img {...rest} alt={media.altTekst} src={urlFor(media).width(1080).format("jpg").quality(80).url() || ""} />
+      );
     case "video":
       return <Video title={media.title} url={media.url} />;
     default:
