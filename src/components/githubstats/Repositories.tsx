@@ -75,7 +75,7 @@ const Timestamp = styled.p`
 
 const Description = styled.p.attrs((props) => ({ title: props.children }))`
   display: block;
-  white-space: nowrap;
+  white-space: wrap;
   text-overflow: ellipsis;
   overflow: hidden;
 `;
