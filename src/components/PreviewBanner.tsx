@@ -8,6 +8,7 @@ const Style = styled.div`
   padding: 0.5rem;
   width: 15rem;
   position: absolute;
+  z-index: 1;
   opacity: 0.5;
   text-align: center;
   transform: translate(-5rem, 1rem) rotate(-45deg);

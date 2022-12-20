@@ -6,10 +6,10 @@ export const fontSize = {
     font-size: clamp(2rem, 16vmin, 7rem);
   `,
   s2: css`
-    font-size: clamp(1.5rem, 12vmin, 3rem);
+    font-size: clamp(1.5rem, 12vmin, 2.5rem);
   `,
   s3: css`
-    font-size: clamp(1.25rem, 8vmin, 2.2rem);
+    font-size: clamp(1.25rem, 8vmin, 2rem);
   `,
   s4: css`
     font-size: clamp(1.1rem, 4vmin, 1.5rem);

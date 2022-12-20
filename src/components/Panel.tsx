@@ -39,9 +39,9 @@ const Style = styled.div<{ backgroundColor: string; lysTekst: boolean }>`
   justify-content: center;
   position: relative;
   overflow: hidden;
-  > * {
+  /*> * {
     max-width: 100%;
-  }
+  }*/
 `;
 
 const Panel = (props: Props) => (

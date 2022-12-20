@@ -22,6 +22,11 @@ export default {
       rows: 3,
     },
     {
+      name: "bakgrunnsvideo",
+      title: "Bakgrunnsvideo",
+      type: "file",
+    },
+    {
       name: "bakgrunnsfarge",
       type: "string",
       inputComponent: NavColorInput,

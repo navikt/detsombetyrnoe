@@ -8,6 +8,7 @@ import { ForsideProps, PanelProps } from "../../../src/pages";
 import Nøkkeltall from "../../../src/components/nøkkeltall/Nøkkeltall";
 import ArtikkelPreview from "../../../src/components/artikkel/ArtikkelPreview";
 import { Footer } from "../../../src/components/Footer";
+import { WebcruiterStillinger } from "../../../src/components/landingPage/WebcruiterStillinger";
 
 export function getChildren(innhold?: PanelProps["innhold"]) {
   if (!innhold) {
@@ -34,10 +35,14 @@ function Forside(props: ForsideProps) {
       <Header
         overskrift={props.forside?.overskrift}
         underoverskrift={props.forside?.underoverskrift}
+        bakgrunnsvideo={props.forside?.bakgrunnsvideo}
         bakgrunnsfarge={props.forside?.bakgrunnsfarge}
         lysTekst={props.forside?.lysTekst}
         visGithubLenke={true}
       />
+      <Panel>
+        <WebcruiterStillinger />
+      </Panel>
       {props.forside?.paneler?.map((panel) =>
         panel._type === "customComponent" ? (
           <CustomComponent {...panel} key={panel.id} />

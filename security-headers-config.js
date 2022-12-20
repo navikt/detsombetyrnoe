@@ -6,6 +6,7 @@ const csp = {
   "font-src": ["'self'", "data:", "fonts.gstatic.com"],
   "frame-src": ["'self'", "player.vimeo.com"],
   "img-src": ["'self'", "data:", "cdn.sanity.io", "www.nav.no"],
+  "media-src": ["'self'", "data:", "cdn.sanity.io"],
 };
 
 const stringifiedCSP = Object.entries(csp)

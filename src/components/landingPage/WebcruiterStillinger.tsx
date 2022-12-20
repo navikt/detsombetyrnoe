@@ -74,30 +74,17 @@ export const WebcruiterStillinger = () => {
   return (
     <Style>
       <Tekst>
-        <h2>Ledige stillinger</h2>
+        <h2>Å utvikle løsninger som oppleves enkle for alle, er alt annet enn enkelt</h2>
+        <p>
+          I NAV bygger vi verdens beste digitale arbeids- og velferdsløsninger. Det gjør oss til et av de fremste og
+          viktigste utviklingsmiljøene i Norge. Nå søker vi utviklere over hele landet. Å jobbe hos oss vil være
+          utfordrende og givende for deg som har hjerte for både mennesker og fag.
+        </p>
       </Tekst>
       <FlexContainer direction="column">
         <FlexContainer direction="row">
           <StillingPanel
-            href="https://2793870776.webcruiter.no/Main2/Recruit/Public/4426277368?link_source_id=4351477319"
-            title="fullstackutvikler"
-            onClick={handleClick}
-          >
-            <h3>Fullstack-utvikler</h3>
-            <p>For deg som liker å jobbe med helheten back til front</p>
-          </StillingPanel>
-          <StillingPanel
-            href="https://2793870776.webcruiter.no/Main2/Recruit/Public/4426278086?link_source_id=4351477319"
-            title="backendutvikler"
-            onClick={handleClick}
-          >
-            <h3>Backend-utvikler</h3>
-            <p>For deg som vil fordype deg i domenelogikk og forenkle komplekse prosesser</p>
-          </StillingPanel>
-        </FlexContainer>
-        <FlexContainer direction="row">
-          <StillingPanel
-            href="https://2793870776.webcruiter.no/Main2/Recruit/Public/4426276973?link_source_id=4351477319"
+            href="https://2106.webcruiter.no/Main2/Recruit/Public/4594221775?link_source_id=4351477319"
             title="frontendutvikler"
             onClick={handleClick}
           >
@@ -108,12 +95,12 @@ export const WebcruiterStillinger = () => {
             </p>
           </StillingPanel>
           <StillingPanel
-            href="https://2793870776.webcruiter.no/Main2/Recruit/Public/4430629737?link_source_id=4351477319"
-            title="platformutvikler"
+            href="https://2106.webcruiter.no/Main2/Recruit/Public/4594238005?link_source_id=4351477319"
+            title="backendutvikler"
             onClick={handleClick}
           >
-            <h3>Platform-utvikler</h3>
-            <p>Brenner du for utvikleropplevelsen og å gjøre livet for andre utviklere lettere og bedre? </p>
+            <h3>Backend-utvikler</h3>
+            <p>For deg som vil fordype deg i domenelogikk og forenkle komplekse prosesser</p>
           </StillingPanel>
         </FlexContainer>
         <Link href="/#ledige-stillinger" passHref>

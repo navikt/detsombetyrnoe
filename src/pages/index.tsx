@@ -14,6 +14,7 @@ const landingssideQuery = groq`{
     overskrift,
     underoverskrift,
     bakgrunnsfarge,
+    "bakgrunnsvideo": bakgrunnsvideo.asset->url,
     lysTekst,
     paneler[] {
       lysTekst,
@@ -69,6 +70,7 @@ export interface ForsideProps {
   forside?: {
     overskrift: string;
     underoverskrift: string;
+    bakgrunnsvideo?: any;
     bakgrunnsfarge?: string;
     lysTekst?: boolean;
     paneler?: (PanelProps | CustomComponentProps)[];
@@ -95,6 +97,9 @@ const PreviewWrapper = (props: { data: ForsideProps }) => {
     initialData: props.data,
     enabled: enablePreview,
   });
+
+  console.log("data", data);
+  console.log("enablePreview", enablePreview);
 
   return (
     <>

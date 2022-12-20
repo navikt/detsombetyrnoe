@@ -12,20 +12,46 @@ from {
 }
 `;
 
+const StyledPanel = styled(Panel)`
+  padding: 0;
+`;
+
+const Video = styled.video`
+  object-fit: fill;
+
+  height: 110vh;
+  position: absolute;
+  z-index: 0;
+`;
+
 const Style = styled.header`
   animation: ${fadeIn} 2s 0.5s backwards;
   text-align: center;
   max-width: 45rem;
+  padding: 20vmin 5vmin;
+  margin: 0 auto;
   h1 {
+    font-size: clamp(3rem, 16vmin, 4rem);
+
     font-weight: 700;
     line-height: 95%;
     margin-bottom: 2rem;
   }
   p {
-    font-size: calc(2vmin + 0.5rem);
+    font-size: calc(2vmin + 1.5rem);
     line-height: 138%;
     margin-bottom: 1rem;
   }
+`;
+
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.6);
 `;
 
 const StyledToppLinje = styled.div<{ navLogoPosition: "flex-start" | "flex-end" }>`
@@ -77,6 +103,7 @@ interface Props {
   underoverskrift?: string;
   fetUnderskrift?: string;
   bakgrunnsfarge?: string;
+  bakgrunnsvideo?: any;
   lysTekst?: boolean;
   visGithubLenke?: boolean;
   navLogoPosition?: "flex-start" | "flex-end";
@@ -92,32 +119,40 @@ export const Header = (props: Props) => {
   };
 
   return (
-    <Panel forwardRef={ref} backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
-      <Style>
-        <StyledToppLinje navLogoPosition={props.navLogoPosition ?? "flex-end"}>
-          <a href="https://www.nav.no/" aria-label="Lenke til NAV">
-            <NavLogo />
-          </a>
-        </StyledToppLinje>
-        {props.visGithubLenke && <GithubrepoLenke />}
-        <h1>{props.overskrift}</h1>
-        <p>{props.underoverskrift}</p>
-        {props.fetUnderskrift && (
-          <p>
-            <strong>{props.fetUnderskrift}</strong>
-          </p>
-        )}
-        <ArrowButton tabIndex={-1} onClick={onClickArrow} aria-hidden>
-          <ArrowDown />
-        </ArrowButton>
-        {props.tilForsidenLenke && (
-          <StyledBunnLinje>
-            <Link href="/">
-              <a>Til hovedsiden</a>
-            </Link>
-          </StyledBunnLinje>
-        )}
-      </Style>
-    </Panel>
+    <StyledPanel forwardRef={ref} backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
+      <Video autoPlay muted loop>
+        <source
+          src="https://cdn.sanity.io/files/c9hptfq7/production/fe9db01ee9c2c904d6d528e4a243c458d8fed5c6.mp4"
+          type="video/mp4"
+        />
+      </Video>
+      <Overlay>
+        <Style>
+          <StyledToppLinje navLogoPosition={props.navLogoPosition ?? "flex-end"}>
+            <a href="https://www.nav.no/" aria-label="Lenke til NAV">
+              <NavLogo />
+            </a>
+          </StyledToppLinje>
+          {props.visGithubLenke && <GithubrepoLenke />}
+          <h1>{props.overskrift}</h1>
+          <p>{props.underoverskrift}</p>
+          {props.fetUnderskrift && (
+            <p>
+              <strong>{props.fetUnderskrift}</strong>
+            </p>
+          )}
+          <ArrowButton tabIndex={-1} onClick={onClickArrow} aria-hidden>
+            <ArrowDown />
+          </ArrowButton>
+          {props.tilForsidenLenke && (
+            <StyledBunnLinje>
+              <Link href="/">
+                <a>Til hovedsiden</a>
+              </Link>
+            </StyledBunnLinje>
+          )}
+        </Style>
+      </Overlay>
+    </StyledPanel>
   );
 };

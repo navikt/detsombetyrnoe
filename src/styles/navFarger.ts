@@ -104,6 +104,7 @@ export const navFrontend = {
   redErrorDarken40: "#88392b",
   redErrorDarken60: "#70392d",
   redErrorDarken80: "#573830",
+  surface: "#003553",
   screenSm: "768px",
   screenSmMin: "768px",
   screenTablet: "768px",
