@@ -74,11 +74,11 @@ export const WebcruiterStillinger = () => {
   return (
     <Style>
       <Tekst>
-        <h2>Å utvikle løsninger som oppleves enkle for alle, er alt annet enn enkelt</h2>
+        <h2>Å utvikle løsninger alle synes er enkle, er alt annet enn enkelt</h2>
         <p>
-          I NAV bygger vi verdens beste digitale arbeids- og velferdsløsninger. Det gjør oss til et av de fremste og
-          viktigste utviklingsmiljøene i Norge. Nå søker vi utviklere over hele landet. Å jobbe hos oss vil være
-          utfordrende og givende for deg som har hjerte for både mennesker og fag.
+          I NAV er vi nesten 200 team som sammen bygger verdens beste digitale arbeids- og velferdsløsninger. Med rundt
+          200 utviklere er vi et av de fremste og viktigste utviklermiljøene i Norge. Nå søker vi utviklere over hele
+          landet! Å jobbe hos oss vil være utfordrende og givende for deg som har hjerte for både mennesker og fag
         </p>
       </Tekst>
       <FlexContainer direction="column">
