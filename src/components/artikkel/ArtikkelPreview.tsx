@@ -2,7 +2,6 @@ import * as React from "react";
 import styled from "styled-components";
 import { ArtikkelI } from "./types";
 import BildeKollasj from "../BildeKollasj";
-import { cssVars } from "../../styles/cssVars";
 
 const Style = styled.div`
   --content-max-width: min(32.5rem, 100%);
