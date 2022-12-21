@@ -15,6 +15,7 @@ const landingssideQuery = groq`{
     underoverskrift,
     bakgrunnsfarge,
     "bakgrunnsvideo": bakgrunnsvideo.asset->url,
+    "bakgrunnsvideoWebm": bakgrunnsvideoWebm.asset->url,
     lysTekst,
     paneler[] {
       lysTekst,
@@ -70,7 +71,8 @@ export interface ForsideProps {
   forside?: {
     overskrift: string;
     underoverskrift: string;
-    bakgrunnsvideo?: any;
+    bakgrunnsvideo?: string;
+    bakgrunnsvideoWebm?: string;
     bakgrunnsfarge?: string;
     lysTekst?: boolean;
     paneler?: (PanelProps | CustomComponentProps)[];

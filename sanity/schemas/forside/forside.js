@@ -27,6 +27,11 @@ export default {
       type: "file",
     },
     {
+      name: "bakgrunnsvideoWebm",
+      title: "Bakgrunnsvideo webm",
+      type: "file",
+    },
+    {
       name: "bakgrunnsfarge",
       type: "string",
       inputComponent: NavColorInput,

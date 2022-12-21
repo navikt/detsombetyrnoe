@@ -125,6 +125,10 @@ export const Header = (props: Props) => {
           src="https://cdn.sanity.io/files/c9hptfq7/production/fe9db01ee9c2c904d6d528e4a243c458d8fed5c6.mp4"
           type="video/mp4"
         />
+        <source
+          src="https://cdn.sanity.io/files/c9hptfq7/production/ca1d96f725e9883356a31f11707eb77cd2db3e2d.webm"
+          type="video/webm"
+        />
       </Video>
       <Overlay>
         <Style>
