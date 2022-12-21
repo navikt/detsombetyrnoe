@@ -98,9 +98,6 @@ const PreviewWrapper = (props: { data: ForsideProps }) => {
     enabled: enablePreview,
   });
 
-  console.log("data", data);
-  console.log("enablePreview", enablePreview);
-
   return (
     <>
       {enablePreview && <PreviewBanner />}
