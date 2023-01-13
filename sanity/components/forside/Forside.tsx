@@ -60,12 +60,12 @@ function Forside(props: ForsideProps) {
       <div>
         <PanelWrapper>
           <VideoWrapper>
-            <Video title="NAV IT - WCAG" url="https://player.vimeo.com/video/783200916?title=0&byline=0" />
+            <Video title="NAV IT - WCAG" url="https://player.vimeo.com/video/788987433?title=0&byline=0" />
             <Video
               title="NAV IT - Continuous Delivery"
-              url="https://player.vimeo.com/video/783201977?title=0&byline=0"
+              url="https://player.vimeo.com/video/788988916?title=0&byline=0"
             />
-            <Video title="NAV IT - Parprogrammering" url="https://player.vimeo.com/video/783202969?title=0&byline=0" />
+            <Video title="NAV IT - Parprogrammering" url="https://player.vimeo.com/video/788988073?title=0&byline=0" />
           </VideoWrapper>
         </PanelWrapper>
       </div>
