@@ -8,6 +8,9 @@ const StyledFooter = styled.footer<{ backgroundColor: string; lysTekst: boolean 
   background-color: var(--background-color);
   ${(props) => (props.lysTekst ? lysTekst : mørkTekst)};
   padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
 `;
 
 export const Footer = (props: { tittel: string; slug: string; backgroundColor?: string; lysTekst?: boolean }) => {
@@ -16,6 +19,10 @@ export const Footer = (props: { tittel: string; slug: string; backgroundColor?: 
       <Link href={props.slug}>
         <a>{props.tittel}</a>
       </Link>
+      <span aria-hidden={true}>|</span>
+      <a href="https://uustatus.no/nb/erklaringer/publisert/4e19bda2-a2b9-4a4f-864a-cf7fcbf5ea06">
+        Tilgjengelighetserklæring
+      </a>
     </StyledFooter>
   );
 };
