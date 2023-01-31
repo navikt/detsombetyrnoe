@@ -10,6 +10,10 @@ const Style = styled.div`
   align-items: center;
 `;
 
+const LesMerLink = styled.a`
+  font-weight: bold;
+`;
+
 const Tekst = styled.div`
   margin-bottom: 5vh;
   p {
@@ -28,7 +32,7 @@ function ArtikkelPreview(props: ArtikkelI) {
         <h2>{props.tittel}</h2>
         {props.undertittel && <h3>{props.undertittel}</h3>}
         <p>{props.ingress}</p>
-        <a href={props.slug.current}>{props.lesMerTekst}</a>
+        <LesMerLink href={props.slug.current}>{props.lesMerTekst}</LesMerLink>
       </Tekst>
       <BildeKollasj media={props.bilder} />
     </Style>

@@ -26,7 +26,7 @@ const VideoContainer = styled.figure`
 function Video(props: Props) {
   return (
     <VideoContainer>
-      <StyledIframe src={props.url} allowFullScreen frameBorder="0"></StyledIframe>
+      <StyledIframe title={props.title} src={props.url} allowFullScreen frameBorder="0"></StyledIframe>
       <VisuallyHidden>
         <figcaption>{props.title}</figcaption>
       </VisuallyHidden>

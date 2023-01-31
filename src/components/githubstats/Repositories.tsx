@@ -70,7 +70,7 @@ const Header = styled.h3`
 `;
 
 const Timestamp = styled.p`
-  opacity: 0.7;
+  opacity: 0.9;
 `;
 
 const Description = styled.p.attrs((props) => ({ title: props.children }))`
