@@ -54,17 +54,14 @@ function Forside(props: ForsideProps) {
         lysTekst={props.forside?.lysTekst}
         visGithubLenke={true}
       />
-      {/*<Panel>
+      <Panel>
         <WebcruiterStillinger />
-  </Panel>*/}
+      </Panel>
       <div>
         <PanelWrapper>
           <VideoWrapper>
-            <Video title="NAV IT - WCAG" url="https://player.vimeo.com/video/788987433?title=0&byline=0" />
-            <Video
-              title="NAV IT - Continuous Delivery"
-              url="https://player.vimeo.com/video/788988916?title=0&byline=0"
-            />
+            <Video title="NAV IT - Data mesh" url="https://player.vimeo.com/video/798184847?title=0&byline=0" />
+            <Video title="NAV IT - Dataprodukt" url="https://player.vimeo.com/video/798183047?title=0&byline=0" />
             <Video title="NAV IT - Parprogrammering" url="https://player.vimeo.com/video/788988073?title=0&byline=0" />
           </VideoWrapper>
         </PanelWrapper>

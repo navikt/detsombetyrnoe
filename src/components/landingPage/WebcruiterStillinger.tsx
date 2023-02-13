@@ -74,33 +74,36 @@ export const WebcruiterStillinger = () => {
   return (
     <Style>
       <Tekst>
-        <h2>Å utvikle løsninger alle synes er enkle, er alt annet enn enkelt</h2>
+        <h2>Vil du være med å løse NAVs samfunnsoppdrag med din kompetanse innen data?</h2>
         <p>
-          I NAV er vi nesten 200 team som sammen bygger verdens beste digitale arbeids- og velferdsløsninger. Med rundt
-          200 utviklere er vi et av de fremste og viktigste utviklermiljøene i Norge. Nå søker vi utviklere over hele
-          landet! Å jobbe hos oss vil være utfordrende og givende for deg som har hjerte for både mennesker og fag
+          Vår visjon er å gi mennesker muligheter. Hvert år leverer vi tjenester til millioner av mennesker, og
+          forvalter helt unike data som vi vil benytte på en ansvarlig måte. Vi vil skape et datadrevet NAV der vi tar
+          beslutninger basert på fakta, hvor vi lærer fra data og lager bedre tjenester til våre brukere.
         </p>
       </Tekst>
       <FlexContainer direction="column">
         <FlexContainer direction="row">
           <StillingPanel
-            href="https://2106.webcruiter.no/Main2/Recruit/Public/4604209794?link_source_id=4351477319"
-            title="frontendutvikler"
+            href="https://2106.webcruiter.no/Main2/Recruit/Public/4615471221?link_source_id=4351477319"
+            title="data scientist"
             onClick={handleClick}
           >
-            <h3>Frontend-utvikler</h3>
+            <h3>Data scientist</h3>
             <p>
-              Med en fot i kodingens verden og en i den visuelle, lager du løsningene som forenkler folks digitale
-              hverdag
+              For deg som vil jobbe med innsikt og bedre beslutningsstøtte for brukere og ansatte i form av data,
+              analyser, prediksjoner og visuelle fremstillinger
             </p>
           </StillingPanel>
           <StillingPanel
-            href="https://2106.webcruiter.no/Main2/Recruit/Public/4604292154?link_source_id=4351477319"
-            title="backendutvikler"
+            href="https://2106.webcruiter.no/Main2/Recruit/Public/4616066599?link_source_id=4351477319"
+            title="data engineer"
             onClick={handleClick}
           >
-            <h3>Backend-utvikler</h3>
-            <p>For deg som vil fordype deg i domenelogikk og forenkle komplekse prosesser</p>
+            <h3>Data engineer</h3>
+            <p>
+              For deg som vil jobbe med design, utvikling og forvaltning av store og komplekse dataprodukter for
+              datavarehus, statistikk og styringsinformasjon
+            </p>
           </StillingPanel>
         </FlexContainer>
         <Link href="/#ledige-stillinger" passHref>
