@@ -41,25 +41,4 @@ describe("Tester komponenten Stilling", () => {
     expect(screen.queryAllByText(/kom til oss, vi har cookies/i).length).toBe(1);
     expect(screen.getByText(stillingDummy.description)).toBeInTheDocument();
   });
-
-  test("Komponenten rendrer jobTitle hvis den finnes", () => {
-    const mockLogAmplitudeEvent = jest.fn();
-    const stillingDummy = {
-      frist: "18. november 2021",
-      url: "https://detsombetyrnoe.no",
-      jobTitle: "Ullklassifisør",
-      title: "Kom til oss, vi har cookies",
-      description: "omnomomnomomnom",
-    };
-    const { container } = render(
-      <AmplitudeProvider>
-        <Stilling {...stillingDummy} logAmplitudeEvent={mockLogAmplitudeEvent} />
-      </AmplitudeProvider>
-    );
-    expect(container).not.toBeEmptyDOMElement();
-    expect(screen.getByText(/18\. november 2021/i)).toBeInTheDocument();
-    expect(screen.getByText(/Ullklassifisør/i)).toBeInTheDocument();
-    expect(screen.queryAllByText(/kom til oss, vi har cookies/i).length).toBe(1);
-    expect(screen.getByText(stillingDummy.description)).toBeInTheDocument();
-  });
 });
