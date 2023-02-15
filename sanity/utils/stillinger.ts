@@ -14,13 +14,13 @@ const searchUrl = "https://arbeidsplassen.nav.no/stillinger/api/search?q=nav&occ
 const addUrl = "https://arbeidsplassen.nav.no/stillinger/api/stilling";
 const applyUrl = "https://arbeidsplassen.nav.no/stillinger/stilling";
 
-const createDescription = (text) => {
+const createDescription = (text: any) => {
   text = text.replace(/<p>/g, "\n");
   text = text.replace(/<\/p>/g, "\n");
   text = text.replace(/<br \/>/g, "\n");
   const lines = text
     .split("\n")
-    .filter((line) => line !== "")
+    .filter((line: any) => line !== "")
     .slice(1);
   let description = lines.shift().trim();
   while (lines.length > 0 && !(description.endsWith(".") || description.endsWith("!") || description.endsWith("?"))) {
@@ -31,27 +31,27 @@ const createDescription = (text) => {
 
 const fetcher = (url: string) => {
   const result = fetch(url)
-    .then((result) => result.json())
-    .catch((error) => {
+    .then((result: any) => result.json())
+    .catch((error: any) => {
       console.error(error);
       throw error;
     });
   return result;
 };
 
-const filterResultsAndMapToUrl = (results) => {
+const filterResultsAndMapToUrl = (results: any) => {
   if (!results) return [];
   return results
-    .map((stilling) => stilling._source)
+    .map((stilling: any) => stilling._source)
     .filter(
-      (stilling) =>
+      (stilling: any) =>
         /nav_webcruiter/i.test(stilling.reference) ||
         /velferdsdirektoratet_webcruiter/i.test(stilling.reference) ||
         /Fyrstikkalléen 1/i.test(stilling.locationList[0].address) ||
         /Fyrstikkallèen 1/i.test(stilling.locationList[0].address)
     )
-    .filter((stilling) => /NAV/i.test(stilling.businessName))
-    .map((stilling) => `${addUrl}/${stilling.uuid}`);
+    .filter((stilling: any) => /NAV/i.test(stilling.businessName))
+    .map((stilling: any) => `${addUrl}/${stilling.uuid}`);
 };
 
 /*const formatDate = (date: string) => {
@@ -74,7 +74,7 @@ export const getStillinger = async () => {
   const stillingerResponse = await fetcher(searchUrl);
   const stillingsUrler = filterResultsAndMapToUrl(stillingerResponse.hits.hits);
 
-  const promises = stillingsUrler.map((url: string) => fetch(url).then((result) => result.json()));
+  const promises = stillingsUrler.map((url: string) => fetch(url).then((result: any) => result.json()));
 
   const annonser = await Promise.all(promises);
 
@@ -89,7 +89,7 @@ export const getStillinger = async () => {
   await Promise.all(stillinger.map((stilling) => client.createIfNotExists(stilling)));
 };
 
-export const transformStilling = (externalStilling) => {
+export const transformStilling = (externalStilling: any) => {
   return {
     _id: `imported-stilling-${externalStilling.uuid}`,
     _type: "stilling",
