@@ -108,8 +108,6 @@ const PreviewWrapper = (props: { data: LandingssideProps }) => {
 
   const paneler = props.data.landingPage?.paneler;
 
-  console.log("paneler", paneler);
-
   return (
     <>
       {enablePreview && <PreviewBanner />}
@@ -127,7 +125,6 @@ const PreviewWrapper = (props: { data: LandingssideProps }) => {
               <AuthorList>
                 {event.foredragsholdere.map((foredragsholder) => (
                   <AuthorItem key={foredragsholder.navn}>
-                    {console.log(foredragsholder)}
                     <p>{foredragsholder.navn}</p>
                     <SocialIconContainer>
                       {foredragsholder.sosialeMedier?.map((sosialtMedie) => (

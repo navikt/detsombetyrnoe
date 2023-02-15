@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import Stilling from "./stilling";
 import styled from "styled-components";
+import { StillingI } from "../pages";
 
 const Style = styled.div`
   > * {
@@ -14,11 +15,7 @@ const Style = styled.div`
   }
 `;
 
-const fetcher = (url: string) => fetch(url).then((r) => r.json());
-
-const Stillinger = () => {
-  const { data: stillinger, error } = useSWR<any[]>("/api/stillinger", fetcher);
-
+const Stillinger = ({ stillinger }: { stillinger: StillingI[] }) => {
   if (!stillinger?.length) {
     return (
       <Style>
@@ -35,8 +32,8 @@ const Stillinger = () => {
     <Style>
       <h2 id="ledige-stillinger">Ledige stillinger</h2>
       <ul>
-        {stillinger.map((stilling: any) => (
-          <Stilling key={stilling.id} {...stilling} />
+        {stillinger.map((stilling) => (
+          <Stilling key={stilling.title} {...stilling} />
         ))}
       </ul>
     </Style>

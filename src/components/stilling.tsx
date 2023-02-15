@@ -28,7 +28,7 @@ const P = styled.p`
 const Stilling = (props: any) => {
   const [harVistStilling, setHarVistStilling] = useState(false);
   const { logAmplitudeEvent } = useAmplitude();
-  const { frist, url, title, description, jobTitle } = props;
+  const { frist, url, title, description } = props;
 
   if (props.inViewport && !harVistStilling) {
     setHarVistStilling(true);
@@ -56,9 +56,7 @@ const Stilling = (props: any) => {
 
   return (
     <StyledCardItem>
-      <i>
-        {jobTitle ? `Stilling: ${jobTitle}, ` : ""}Frist: {frist}
-      </i>
+      <i>Frist: {frist}</i>
       <h3>
         <a href={url} ref={props.forwardedRef} onClick={handleClick} target="_blank">
           {title.replace(/\s+/g, " ").trim()}

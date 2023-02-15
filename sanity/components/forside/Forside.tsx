@@ -68,7 +68,7 @@ function Forside(props: ForsideProps) {
       </div>
       {props.forside?.paneler?.map((panel) =>
         panel._type === "customComponent" ? (
-          <CustomComponent {...panel} key={panel.id} />
+          <CustomComponent {...panel} stillinger={props.stillinger ?? []} key={panel.id} />
         ) : (
           <Panel
             key={panel._key}

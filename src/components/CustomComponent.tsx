@@ -9,12 +9,14 @@ import styled from "styled-components";
 import Artikkel from "./artikkel/Artikkel";
 import ArtikkelPreview from "./artikkel/ArtikkelPreview";
 import { PridePanel } from "./PridePanel";
+import { StillingI } from "../pages";
 
 export interface CustomComponentProps {
   _type: "customComponent";
   id: string;
   bakgrunnsfarge?: string;
   lysTekst?: boolean;
+  stillinger: StillingI[];
 }
 
 const Style = styled.div`
@@ -43,7 +45,7 @@ function CustomComponent(props: CustomComponentProps) {
     case "stillinger":
       return (
         <Panel backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
-          <Stillinger />
+          <Stillinger stillinger={props.stillinger} />
         </Panel>
       );
     case "blogg":

@@ -12,6 +12,7 @@ import tilleggsStilling from "./tilleggsStilling";
 import filopplasting from "./filopplasting";
 import landingPage from "./landingPage";
 import pa_scenen from "./pa_scenen";
+import stilling from "./stilling";
 
 export default createSchema({
   name: "default",
@@ -27,6 +28,7 @@ export default createSchema({
     tilleggsStilling,
     landingPage,
     pa_scenen,
+    stilling,
     ...forsideSchema,
   ]),
 });

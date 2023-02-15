@@ -32,7 +32,13 @@ ${metaDataGroq},
     "slug": slug.current,
     _createdAt,
     "forfattere": forfattere[]->navn
-  }
+  },
+"stillinger": *[_type == "stilling" && frist > now()] {
+    title,
+    description,
+    url,
+    frist
+ }
 }`;
 
 interface ForisdeBloggpostI {
@@ -57,6 +63,13 @@ interface Placeholder {
   tittel: string;
 }
 
+export interface StillingI {
+  title: string;
+  description: string;
+  url: string;
+  frist: string;
+}
+
 type Innhold = NøkkeltallData | Placeholder | ArtikkelI;
 
 export interface PanelProps {
@@ -79,6 +92,7 @@ export interface ForsideProps {
   };
   metaData: MetadataI;
   bloggposter: ForisdeBloggpostI[];
+  stillinger: StillingI[];
 }
 
 export async function getStaticProps() {
