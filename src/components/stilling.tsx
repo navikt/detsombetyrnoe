@@ -4,6 +4,8 @@ import { useAmplitude } from "../contexts/amplitude-context";
 import styled from "styled-components";
 import parse from "html-react-parser";
 import { CardItem } from "./CardItem";
+import { format } from "date-fns";
+import { nb } from "date-fns/locale";
 
 const StyledCardItem = styled(CardItem)`
   &::after {
@@ -56,7 +58,7 @@ const Stilling = (props: any) => {
 
   return (
     <StyledCardItem>
-      <i>Frist: {frist}</i>
+      <i>Frist: {format(new Date(frist), "dd. MMMM yyyy", { locale: nb })}</i>
       <h3>
         <a href={url} ref={props.forwardedRef} onClick={handleClick} target="_blank">
           {title.replace(/\s+/g, " ").trim()}

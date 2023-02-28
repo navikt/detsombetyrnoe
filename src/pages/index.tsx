@@ -33,7 +33,7 @@ ${metaDataGroq},
     _createdAt,
     "forfattere": forfattere[]->navn
   },
-"stillinger": *[_type == "stilling" && frist > now()] {
+"stillinger": *[_type == "stilling" && frist >= string::split(now(), "T")[0]] | order(frist asc) {
     title,
     description,
     url,
