@@ -94,17 +94,6 @@ export const WebcruiterStillinger = () => {
               analyser, prediksjoner og visuelle fremstillinger
             </p>
           </StillingPanel>
-          <StillingPanel
-            href="https://2106.webcruiter.no/Main2/Recruit/Public/4616066599?link_source_id=4351477319"
-            title="data engineer"
-            onClick={handleClick}
-          >
-            <h3>Data engineer</h3>
-            <p>
-              For deg som vil jobbe med design, utvikling og forvaltning av store og komplekse dataprodukter for
-              datavarehus, statistikk og styringsinformasjon
-            </p>
-          </StillingPanel>
         </FlexContainer>
         <Link href="/#ledige-stillinger" passHref>
           <StillingPanel>
