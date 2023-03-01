@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import handleViewport from "react-in-viewport";
+import { useEffect, useRef, useState } from "react";
 import { useAmplitude } from "../contexts/amplitude-context";
 import styled from "styled-components";
 import parse from "html-react-parser";
 import { CardItem } from "./CardItem";
 import { format } from "date-fns";
 import { nb } from "date-fns/locale";
+import { useInViewport } from "react-in-viewport";
 
 const StyledCardItem = styled(CardItem)`
   &::after {
@@ -32,7 +32,12 @@ const Stilling = (props: any) => {
   const { logAmplitudeEvent } = useAmplitude();
   const { frist, url, title, description } = props;
 
-  if (props.inViewport && !harVistStilling) {
+  const myRef = useRef(null);
+  const { inViewport } = useInViewport(myRef);
+
+  console.log("inViewport", inViewport);
+
+  if (inViewport && !harVistStilling) {
     setHarVistStilling(true);
   }
 
@@ -54,10 +59,10 @@ const Stilling = (props: any) => {
     }
   }, [harVistStilling]);
 
-  if (!url) return null;
+  if (!url) return <></>;
 
   return (
-    <StyledCardItem>
+    <StyledCardItem ref={myRef}>
       <i>Frist: {format(new Date(frist), "dd. MMMM yyyy", { locale: nb })}</i>
       <h3>
         <a href={url} ref={props.forwardedRef} onClick={handleClick} target="_blank">
@@ -69,6 +74,4 @@ const Stilling = (props: any) => {
   );
 };
 
-const StillingMedViewportSjekk = handleViewport(Stilling);
-
-export default StillingMedViewportSjekk;
+export default Stilling;

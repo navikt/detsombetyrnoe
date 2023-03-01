@@ -7,6 +7,7 @@ import { navFrontend } from "../styles/navFarger";
 
 interface Props {
   boundaryName?: string;
+  children: React.ReactNode;
 }
 
 interface State {
