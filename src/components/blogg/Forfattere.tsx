@@ -31,7 +31,7 @@ const StyledA = styled.a`
 
 function Forfatter(props: { forfatter: ForfatterI; lenke?: boolean }) {
   const content = (
-    <ForfatterStyle key={props.forfatter._id}>
+    <ForfatterStyle>
       <ForfatterImage src={urlFor(props.forfatter.mainImage).height(100).width(100).url() || ""} alt="" />
       <p>{props.forfatter.navn}</p>
     </ForfatterStyle>
@@ -52,7 +52,7 @@ function Forfattere(props: { forfattere?: ForfatterI[]; className?: string; lenk
   return (
     <div className={props.className}>
       {props.forfattere?.map((forfatter) => (
-        <Forfatter forfatter={forfatter} lenke={props.lenkeTilForfatterside} />
+        <Forfatter key={forfatter.navn} forfatter={forfatter} lenke={props.lenkeTilForfatterside} />
       ))}
     </div>
   );

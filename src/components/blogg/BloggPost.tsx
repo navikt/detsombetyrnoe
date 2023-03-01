@@ -70,10 +70,12 @@ const Bloggside = (props: BlogpostData) => {
         <Header fontSize=".75rem" />
         <h1>{props.tittel}</h1>
         <StyledForfattere forfattere={props.forfattere} lenkeTilForfatterside={true} />
-        <MainImage
-          src={urlFor(props.mainImage).width(1080).height(540).bg("fff").format("jpg").url() || ""}
-          alt={props.mainImage?.altTekst}
-        />
+        {props.mainImage && (
+          <MainImage
+            src={urlFor(props.mainImage).width(1080).height(540).bg("fff").format("jpg").url() || ""}
+            alt={props.mainImage?.altTekst}
+          />
+        )}
         <PublishedDate>{formatterDato(props._createdAt)}</PublishedDate>
         <StyledBlockContent blocks={props.body} />
       </Content>

@@ -47,7 +47,7 @@ function Forfatter(props: ForfatterI) {
   return (
     <Style>
       <Navnelinje>
-        <Portrett src={urlFor(props.mainImage).width(200).height(200).url() || ""} alt="" />
+        {props.mainImage && <Portrett src={urlFor(props.mainImage).width(200).height(200).url() || ""} alt="" />}
         <h1>{props.navn}</h1>
       </Navnelinje>
       <Bio>{props.bio}</Bio>

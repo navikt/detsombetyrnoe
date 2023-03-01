@@ -27,6 +27,23 @@ const A = styled.a`
   }
 `;
 
+const UL = styled.ul`
+  list-style: disc;
+  ul {
+    list-style: circle;
+  }
+`;
+
+const OL = styled.ol`
+  list-style: decimal;
+`;
+
+const LI = styled.li`
+  margin: 0.3rem 0;
+  padding-left: 0.3rem;
+  line-height: 1.7;
+`;
+
 const components: PortableTextComponents = {
   block: {
     h2: H2,
@@ -41,6 +58,14 @@ const components: PortableTextComponents = {
     bilde: ArtikkelBilde,
     code: Code,
   },
+  list: {
+    bullet: UL,
+    number: OL,
+  },
+  listItem: {
+    /* @ts-ignore-line */
+    bullet: LI,
+  },
 };
 
 const StyledDiv = styled.div`
@@ -54,19 +79,7 @@ const StyledDiv = styled.div`
       margin-bottom: 0;
     }
     li {
-      margin: 0.3rem 0;
-      padding-left: 0.3rem;
-      line-height: 1.7;
     }
-  }
-  ul {
-    list-style: disc;
-    ul {
-      list-style: circle;
-    }
-  }
-  ol {
-    list-style: decimal;
   }
   p {
     line-height: 1.7;
