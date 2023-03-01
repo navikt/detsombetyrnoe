@@ -1,4 +1,5 @@
-import { ClientConfig, createClient, createImageUrlBuilder, createPreviewSubscriptionHook } from "next-sanity";
+import { ClientConfig, createClient, createPreviewSubscriptionHook } from "next-sanity";
+import createImageUrlBuilder from "@sanity/image-url";
 
 const config: ClientConfig = {
   dataset: "production",

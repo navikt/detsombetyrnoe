@@ -1,6 +1,5 @@
 import * as React from "react";
-// @ts-ignore
-import SanityBlockContent from "@sanity/block-content-to-react";
+import { PortableText, PortableTextComponents } from "@portabletext/react";
 import styled from "styled-components";
 import ArtikkelBilde from "./ArtikkelBilde";
 import Code from "./Code/Code";
@@ -9,26 +8,43 @@ import { fontSize, headerStyles } from "../styles/TypografiNyttDesign";
 import FilopplastingLenke from "./FilopplastingLenke";
 import Lenke from "./Lenke";
 
-const StyledSanityBlockContent = styled(SanityBlockContent)`
-  font-weight: 400;
-  p {
-    line-height: 1.7;
-    margin-bottom: 2rem;
-  }
-  h2 {
-    margin-top: calc(2vmin + 2rem);
-    margin-bottom: calc(0.2vmin + 0.2rem);
-    ${fontSize.s4};
-  }
-  h3 {
-    margin-top: calc(1.5vmin + 1.5rem);
-    margin-bottom: calc(0.1vmin + 0.1rem);
-    ${fontSize.s5};
-  }
-  a,
-  a:visited {
+const H2 = styled.h2`
+  margin-top: calc(2vmin + 2rem);
+  margin-bottom: calc(0.2vmin + 0.2rem);
+  ${fontSize.s4};
+`;
+
+const H3 = styled.h3`
+  margin-top: calc(1.5vmin + 1.5rem);
+  margin-bottom: calc(0.1vmin + 0.1rem);
+  ${fontSize.s5};
+`;
+
+const A = styled.a`
+  color: ${navFrontend.navBla};
+  :visited {
     color: ${navFrontend.navBla};
   }
+`;
+
+const components: PortableTextComponents = {
+  block: {
+    h2: H2,
+    h3: H3,
+    a: A,
+  },
+  marks: {
+    filopplasting: FilopplastingLenke,
+    lenke: Lenke,
+  },
+  types: {
+    bilde: ArtikkelBilde,
+    code: Code,
+  },
+};
+
+const StyledDiv = styled.div`
+  font-weight: 400;
   ul,
   ol {
     padding-left: 1.5rem;
@@ -52,21 +68,18 @@ const StyledSanityBlockContent = styled(SanityBlockContent)`
   ol {
     list-style: decimal;
   }
+  p {
+    line-height: 1.7;
+    margin-bottom: 2rem !important;
+  }
 `;
 
-const serializers = {
-  marks: {
-    filopplasting: FilopplastingLenke,
-    lenke: Lenke,
-  },
-  types: {
-    bilde: ArtikkelBilde,
-    code: Code,
-  },
-};
-
 function BlockContent(props: { blocks: any; className?: string }) {
-  return <StyledSanityBlockContent className={props.className} blocks={props.blocks} serializers={serializers} />;
+  return (
+    <StyledDiv className={props.className}>
+      <PortableText value={props.blocks} components={components} />
+    </StyledDiv>
+  );
 }
 
 export default BlockContent;

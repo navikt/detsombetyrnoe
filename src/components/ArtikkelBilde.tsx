@@ -23,15 +23,15 @@ const Image = styled.img`
 export type SanityImageI = { altTekst?: string; caption?: string };
 
 interface Props {
-  node: SanityImageI;
+  value: SanityImageI;
 }
 
 function ArtikkelBilde(props: Props) {
   const [zoom, setZoom] = useState(false);
   return (
     <StyledFigure onClick={() => setZoom(!zoom)} zoom={zoom}>
-      <Image src={urlFor(props.node).width(800).format("jpg").bg("fff").url() || ""} alt={props.node.altTekst} />
-      <figcaption>{props.node.caption}</figcaption>
+      <Image src={urlFor(props.value).width(800).format("jpg").bg("fff").url() || ""} alt={props.value.altTekst} />
+      <figcaption>{props.value.caption}</figcaption>
     </StyledFigure>
   );
 }

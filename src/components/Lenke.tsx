@@ -1,10 +1,10 @@
 interface Props {
-  mark: { href: string };
-  children: React.ReactChild;
+  value?: { href: string };
+  children: React.ReactNode;
 }
 
 function Lenke(props: Props) {
-  return <a href={props.mark.href}>{props.children}</a>;
+  return <a href={props.value?.href}>{props.children}</a>;
 }
 
 export default Lenke;

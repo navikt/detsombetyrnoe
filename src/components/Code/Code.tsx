@@ -32,7 +32,7 @@ const StyledPre = styled.pre`
 `;
 
 interface Props {
-  node: {
+  value: {
     code: string;
     highlightedLines: number[];
     language: string;
@@ -46,14 +46,14 @@ function Code(props: Props) {
 
   useMount(() => Prism.highlightElement(ref.current as Element));
 
-  const language = props.node.language;
+  const language = props.value.language;
 
   return (
     <Style>
       <LanguageStyle>{language}</LanguageStyle>
       <StyledPre>
         <code ref={ref} className={"language-" + language}>
-          {props.node.code}
+          {props.value.code}
         </code>
       </StyledPre>
     </Style>
