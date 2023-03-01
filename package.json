@@ -12,7 +12,8 @@
     "test-ci": "jest",
     "typeCheck": "tsc",
     "postinstall": "lerna bootstrap",
-    "refresh": "rm -rf node_modules && rm package-lock.json && npm i"
+    "refresh": "rm -rf node_modules && rm package-lock.json && npm i",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@apollo/client": "^3.7.9",
@@ -52,10 +53,10 @@
     "@types/react": "17.0.20",
     "@types/styled-components": "^5.1.26",
     "concurrently": "^7.6.0",
-    "husky": "4.3.8",
+    "husky": "^8.0.0",
     "jest": "27.4.3",
     "lerna": "4.0.0",
-    "lint-staged": "10.5.4",
+    "lint-staged": "^13.1.2",
     "prettier": "^2.8.4",
     "react-test-renderer": "17.0.2",
     "styled-components": "^5.3.6",
@@ -63,12 +64,6 @@
   },
   "prettier": {
     "printWidth": 120
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "npm run typeCheck && npm run test-ci"
-    }
   },
   "lint-staged": {
     "*.{js,jsx,json,md,ts,tsx}": "prettier --write"
