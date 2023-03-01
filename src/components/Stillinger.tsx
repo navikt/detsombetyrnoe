@@ -1,4 +1,3 @@
-import useSWR from "swr";
 import Stilling from "./stilling";
 import styled from "styled-components";
 import { StillingI } from "../pages";
