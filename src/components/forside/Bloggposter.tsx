@@ -58,7 +58,7 @@ const StyledLink = styled.a`
 function Post(props: { bloggpost: ForsideProps["bloggposter"][0] }) {
   return (
     <StyledLi>
-      <Link href={`/blogg/${props.bloggpost.slug}`} passHref>
+      <Link href={`/blogg/${props.bloggpost.slug}`} passHref legacyBehavior>
         <StyledLink>
           <h3>{props.bloggpost.tittel}</h3>
           <p>

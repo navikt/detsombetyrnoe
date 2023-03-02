@@ -35,8 +35,6 @@ const Stilling = (props: any) => {
   const myRef = useRef(null);
   const { inViewport } = useInViewport(myRef);
 
-  console.log("inViewport", inViewport);
-
   if (inViewport && !harVistStilling) {
     setHarVistStilling(true);
   }

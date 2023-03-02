@@ -150,9 +150,7 @@ export const Header = (props: Props) => {
           </ArrowButton>
           {props.tilForsidenLenke && (
             <StyledBunnLinje>
-              <Link href="/">
-                <a>Til hovedsiden</a>
-              </Link>
+              <Link href="/">Til hovedsiden</Link>
             </StyledBunnLinje>
           )}
         </Style>

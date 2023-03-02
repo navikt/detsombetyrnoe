@@ -24,7 +24,7 @@ const Heading = styled.div`
 
 function Header(props: { fontSize: string; h1?: boolean; className?: string }) {
   return (
-    <Link href="/blogg" passHref>
+    <Link href="/blogg" passHref legacyBehavior>
       <Style fontSize={props.fontSize} className={props.className}>
         <Heading as={props.h1 ? "h1" : "div"}>
           <span>NAV IT</span>

@@ -31,7 +31,7 @@ const Content = styled.div`
 
 function BloggPostPreview(props: { post: BlogpostPreviewI; highResImage?: boolean }) {
   return (
-    <Link href={`/blogg/${props.post.slug?.current}`} passHref={true}>
+    <Link href={`/blogg/${props.post.slug?.current}`} passHref={true} legacyBehavior>
       <Style lang={props.post.language}>
         <CoverImage
           src={

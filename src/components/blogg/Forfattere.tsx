@@ -39,7 +39,7 @@ function Forfatter(props: { forfatter: ForfatterI; lenke?: boolean }) {
 
   if (props.lenke) {
     return (
-      <Link href={`/forfatter/${props.forfatter.slug}`}>
+      <Link href={`/forfatter/${props.forfatter.slug}`} legacyBehavior>
         <StyledA>{content}</StyledA>
       </Link>
     );

@@ -14,9 +14,7 @@ const Style = styled.footer`
 function Footer() {
   return (
     <Style>
-      <Link href="/">
-        <a>Tilbake til forsiden</a>
-      </Link>
+      <Link href="/">Tilbake til forsiden</Link>
     </Style>
   );
 }

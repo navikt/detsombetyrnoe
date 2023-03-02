@@ -22,9 +22,7 @@ const Style = styled.header`
 function Header() {
   return (
     <Style>
-      <Link href="/">
-        <a>Tilbake til forsiden</a>
-      </Link>
+      <Link href="/">Tilbake til forsiden</Link>
       <a href="https://www.nav.no/" aria-label="Lenke til NAV">
         <NavLogo />
       </a>
