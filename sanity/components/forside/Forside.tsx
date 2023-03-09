@@ -11,6 +11,7 @@ import { Footer } from "../../../src/components/Footer";
 import { WebcruiterStillinger } from "../../../src/components/landingPage/WebcruiterStillinger";
 import Video from "../../../src/components/Video";
 import styled from "styled-components";
+import { Map as HeleNorgeMap } from "../../../src/components/Map/Map";
 
 export function getChildren(innhold?: PanelProps["innhold"]) {
   if (!innhold) {
@@ -66,6 +67,10 @@ function Forside(props: ForsideProps) {
           </VideoWrapper>
         </PanelWrapper>
       </div>
+      <PanelWrapper>
+        <h2>Vi har utviklere i hele Norge</h2>
+        <HeleNorgeMap />
+      </PanelWrapper>
       {props.forside?.paneler?.map((panel) =>
         panel._type === "customComponent" ? (
           <CustomComponent {...panel} stillinger={props.stillinger ?? []} key={panel.id} />
