@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import maplibregl, { LngLat, LngLatLike, NavigationControl, Popup } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import styled from "styled-components";
+import { UtviklerHeleNorge } from "../../pages";
 
 const MapWrap = styled.div`
   position: relative;
@@ -26,7 +27,7 @@ const StyledMap = styled.div`
 
 //const markers: LngLatLike[] = [[5.73, 58.97], [5.32, 60.39], [8.01, 58.15]]
 
-export const Map = ({ markers }: { markers: [{ sted: string; geopoint: { lat: number; lng: number } }] }) => {
+export const Map = ({ markers }: { markers?: UtviklerHeleNorge[] }) => {
   const mapContainer = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -41,7 +42,7 @@ export const Map = ({ markers }: { markers: [{ sted: string; geopoint: { lat: nu
     map.scrollZoom.disable();
     map.addControl(new NavigationControl({ showCompass: true, showZoom: true }), "top-right");
     //map.addControl(new maplibregl.NavigationControl({}), "top-right");
-    markers.map((marker) => {
+    markers?.map((marker) => {
       const popup = new Popup().setText(marker.sted);
       new maplibregl.Marker({ color: "#FF0000" })
         .setLngLat([marker.geopoint.lat, marker.geopoint.lng])

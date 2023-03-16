@@ -74,7 +74,7 @@ function Forside(props: ForsideProps) {
           <CustomComponent
             {...panel}
             stillinger={props.stillinger ?? []}
-            utviklereHeleNorge={props.forside?.utviklereHeleNorge ?? []}
+            utviklereHeleNorge={props.forside?.utviklereHeleNorge}
             key={panel.id}
           />
         ) : (

@@ -9,7 +9,7 @@ import styled from "styled-components";
 import Artikkel from "./artikkel/Artikkel";
 import ArtikkelPreview from "./artikkel/ArtikkelPreview";
 import { PridePanel } from "./PridePanel";
-import { StillingI } from "../pages";
+import { StillingI, UtviklerHeleNorge } from "../pages";
 import { Map } from "../components/Map/Map";
 
 export interface CustomComponentProps {
@@ -18,7 +18,7 @@ export interface CustomComponentProps {
   bakgrunnsfarge?: string;
   lysTekst?: boolean;
   stillinger: StillingI[];
-  utviklereHeleNorge: [{ sted: string; geopoint: { lat: number; lng: number } }];
+  utviklereHeleNorge?: UtviklerHeleNorge[];
 }
 
 const Style = styled.div`
