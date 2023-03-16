@@ -56,7 +56,8 @@ function CustomComponent(props: CustomComponentProps) {
           <Bloggposter />
         </Panel>
       );
-    case "heleNorgeKart":
+      {
+        /*case "heleNorgeKart":
       return (
         <Panel backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
           <div>
@@ -64,7 +65,8 @@ function CustomComponent(props: CustomComponentProps) {
             <Map markers={props.utviklereHeleNorge} />
           </div>
         </Panel>
-      );
+      );*/
+      }
     case "heleNorgeStillinger":
       return (
         <Panel backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
@@ -95,7 +97,7 @@ function CustomComponent(props: CustomComponentProps) {
     case "pride":
       return <PridePanel />;
     default:
-      return <div>Fant ikke komponenten med id {props.id}</div>;
+      return <div></div>;
   }
 }
 
