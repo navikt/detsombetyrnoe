@@ -26,7 +26,7 @@ module.exports = {
   compiler: {
     styledComponents: true,
   },
-  /*async headers() {
+  async headers() {
     return [
       {
         // Apply these headers to all routes in your application.
@@ -34,5 +34,5 @@ module.exports = {
         headers: securityHeaders,
       },
     ];
-  },*/
+  },
 };

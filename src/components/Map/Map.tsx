@@ -33,7 +33,7 @@ export const Map = ({ markers }: { markers?: UtviklerHeleNorge[] }) => {
   useEffect(() => {
     const map = new maplibregl.Map({
       container: mapContainer.current as HTMLElement,
-      style: "http://localhost:3000/mapstyle.json", // https://openmaptiles.github.io/positron-gl-style/style-cdn.json
+      style: "/mapstyle.json", // https://openmaptiles.github.io/positron-gl-style/style-cdn.json
       //center: [17, 66],
       //zoom: 4,
       bounds: new maplibregl.LngLatBounds([4, 57], [32, 72]),
