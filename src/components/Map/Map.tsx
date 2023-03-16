@@ -44,10 +44,12 @@ export const Map = ({ markers }: { markers?: UtviklerHeleNorge[] }) => {
     //map.addControl(new maplibregl.NavigationControl({}), "top-right");
     markers?.map((marker) => {
       const popup = new Popup().setText(marker.sted);
-      new maplibregl.Marker({ color: "#FF0000" })
+      const markerElement = new maplibregl.Marker({ color: "#FF0000" })
         .setLngLat([marker.geopoint.lat, marker.geopoint.lng])
         .setPopup(popup)
         .addTo(map);
+      markerElement._element.ariaLabel = marker.sted;
+      markerElement._element.tabIndex = 0;
     });
 
     return () => {
