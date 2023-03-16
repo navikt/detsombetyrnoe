@@ -44,6 +44,7 @@ const VideoWrapper = styled.div`
 `;
 
 function Forside(props: ForsideProps) {
+  console.log("props", props);
   return (
     <ForsideProvider forsideProps={props}>
       <SEO metadata={props.metaData} />
@@ -67,13 +68,15 @@ function Forside(props: ForsideProps) {
           </VideoWrapper>
         </PanelWrapper>
       </div>
-      <PanelWrapper>
-        <h2>Vi har utviklere i hele Norge</h2>
-        <HeleNorgeMap />
-      </PanelWrapper>
+
       {props.forside?.paneler?.map((panel) =>
         panel._type === "customComponent" ? (
-          <CustomComponent {...panel} stillinger={props.stillinger ?? []} key={panel.id} />
+          <CustomComponent
+            {...panel}
+            stillinger={props.stillinger ?? []}
+            utviklereHeleNorge={props.forside?.utviklereHeleNorge ?? []}
+            key={panel.id}
+          />
         ) : (
           <Panel
             key={panel._key}

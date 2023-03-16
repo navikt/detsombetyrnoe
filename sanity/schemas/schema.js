@@ -13,6 +13,7 @@ import filopplasting from "./filopplasting";
 import landingPage from "./landingPage";
 import pa_scenen from "./pa_scenen";
 import stilling from "./stilling";
+import heleNorgeUtvikler from "./heleNorgeUtvikler";
 
 export default createSchema({
   name: "default",
@@ -29,6 +30,7 @@ export default createSchema({
     landingPage,
     pa_scenen,
     stilling,
+    heleNorgeUtvikler,
     ...forsideSchema,
   ]),
 });

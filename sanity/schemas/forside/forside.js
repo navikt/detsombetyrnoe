@@ -1,5 +1,6 @@
 import { MdWeb } from "react-icons/md";
 import NavColorInput from "../../components/NavColorInput";
+import heleNorgeUtvikler from "../heleNorgeUtvikler";
 
 export const ForsideIkon = MdWeb;
 
@@ -53,6 +54,13 @@ export default {
           type: "customComponent",
         },
       ],
+    },
+    {
+      name: "utviklereHeleNorge",
+      title: "Utviklere over hele Norge",
+
+      type: "array",
+      of: [heleNorgeUtvikler],
     },
   ],
   preview: {
