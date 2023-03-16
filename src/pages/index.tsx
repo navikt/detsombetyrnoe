@@ -24,6 +24,13 @@ const landingssideQuery = groq`{
       innhold->,
       id,
       _type
+    },
+    utviklereHeleNorge[] {
+      sted,
+      geopoint {
+        lat,
+        lng
+      }
     }
   },
 ${metaDataGroq},
@@ -80,6 +87,11 @@ export interface PanelProps {
   innhold?: Innhold;
 }
 
+export interface UtviklerHeleNorge {
+  sted: string;
+  geopoint: { lat: number; lng: number };
+}
+
 export interface ForsideProps {
   forside?: {
     overskrift: string;
@@ -89,6 +101,7 @@ export interface ForsideProps {
     bakgrunnsfarge?: string;
     lysTekst?: boolean;
     paneler?: (PanelProps | CustomComponentProps)[];
+    utviklereHeleNorge: UtviklerHeleNorge[];
   };
   metaData: MetadataI;
   bloggposter: ForisdeBloggpostI[];

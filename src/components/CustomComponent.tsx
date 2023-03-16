@@ -9,7 +9,8 @@ import styled from "styled-components";
 import Artikkel from "./artikkel/Artikkel";
 import ArtikkelPreview from "./artikkel/ArtikkelPreview";
 import { PridePanel } from "./PridePanel";
-import { StillingI } from "../pages";
+import { StillingI, UtviklerHeleNorge } from "../pages";
+import { Map } from "../components/Map/Map";
 
 export interface CustomComponentProps {
   _type: "customComponent";
@@ -17,6 +18,7 @@ export interface CustomComponentProps {
   bakgrunnsfarge?: string;
   lysTekst?: boolean;
   stillinger: StillingI[];
+  utviklereHeleNorge?: UtviklerHeleNorge[];
 }
 
 const Style = styled.div`
@@ -54,6 +56,17 @@ function CustomComponent(props: CustomComponentProps) {
           <Bloggposter />
         </Panel>
       );
+      {
+        /*case "heleNorgeKart":
+      return (
+        <Panel backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
+          <div>
+            <h2 style={{ marginBottom: "0.75rem" }}>Vi har utviklere spredt rundt i landet</h2>
+            <Map markers={props.utviklereHeleNorge} />
+          </div>
+        </Panel>
+      );*/
+      }
     case "heleNorgeStillinger":
       return (
         <Panel backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
@@ -84,7 +97,7 @@ function CustomComponent(props: CustomComponentProps) {
     case "pride":
       return <PridePanel />;
     default:
-      return <div>Fant ikke komponenten med id {props.id}</div>;
+      return <div></div>;
   }
 }
 
