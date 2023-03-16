@@ -44,7 +44,6 @@ const VideoWrapper = styled.div`
 `;
 
 function Forside(props: ForsideProps) {
-  console.log("props", props);
   return (
     <ForsideProvider forsideProps={props}>
       <SEO metadata={props.metaData} />
