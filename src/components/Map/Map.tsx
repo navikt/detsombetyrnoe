@@ -42,7 +42,18 @@ export const Map = ({ markers }: { markers?: UtviklerHeleNorge[] }) => {
     map.scrollZoom.disable();
     map.addControl(new NavigationControl({ showCompass: true, showZoom: true }), "top-right");
     //map.addControl(new maplibregl.NavigationControl({}), "top-right");
-    markers?.map((marker) => {
+    const sortedMarkers = markers?.sort((a, b) => {
+      const aCoordinates = `${a.geopoint.lng}-${a.geopoint.lat}`;
+      const bCoordinates = `${b.geopoint.lng}-${b.geopoint.lat}`;
+      if (aCoordinates < bCoordinates) {
+        return 1;
+      }
+      if (aCoordinates > bCoordinates) {
+        return -1;
+      }
+      return 0;
+    });
+    sortedMarkers?.map((marker) => {
       const popup = new Popup().setText(marker.sted);
       const markerElement = new maplibregl.Marker({ color: "#FF0000" })
         .setLngLat([marker.geopoint.lat, marker.geopoint.lng])
