@@ -61,6 +61,14 @@ function Forside(props: ForsideProps) {
       <div>
         <PanelWrapper>
           <VideoWrapper>
+            <h2 style={{ marginBlockStart: "2rem", marginBlockEnd: "1.5rem" }}>
+              Heisann! Velkommen til IT-avdelingen i NAV!
+            </h2>
+            <p>
+              Det å utvikle løsninger alle synes er enkle, er alt annet enn enkelt. I NAV er vi nesten 200 team som
+              sammen bygger verdens beste digitale arbeids- og velferdsløsninger. Her kan du bli bedre kjent med oss og
+              hva vi driver med, samt finne våre ledige stillinger.
+            </p>
             <Video title="NAV IT - Data mesh" url="https://player.vimeo.com/video/798184847?title=0&byline=0" />
             <Video title="NAV IT - Dataprodukt" url="https://player.vimeo.com/video/798183047?title=0&byline=0" />
             <Video title="NAV IT - Parprogrammering" url="https://player.vimeo.com/video/788988073?title=0&byline=0" />
