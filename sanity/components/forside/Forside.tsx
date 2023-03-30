@@ -61,9 +61,7 @@ function Forside(props: ForsideProps) {
       <div>
         <PanelWrapper>
           <VideoWrapper>
-            <h2 style={{ marginBlockStart: "2rem", marginBlockEnd: "1.5rem" }}>
-              Heisann! Velkommen til IT-avdelingen i NAV!
-            </h2>
+            <h2 style={{ marginBlockStart: "2rem", marginBlockEnd: "1.5rem" }}>Velkommen til IT-avdelingen i NAV!</h2>
             <p>
               Det å utvikle løsninger alle synes er enkle, er alt annet enn enkelt. I NAV er vi nesten 200 team som
               sammen bygger verdens beste digitale arbeids- og velferdsløsninger. Her kan du bli bedre kjent med oss og
