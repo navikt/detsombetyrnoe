@@ -67,11 +67,8 @@ function Forside(props: ForsideProps) {
               sammen bygger verdens beste digitale arbeids- og velferdsløsninger. Her kan du bli bedre kjent med oss og
               hva vi driver med, samt finne våre ledige stillinger.
             </p>
+            <Video title="NAV IT - DDOS Angrep" url="https://player.vimeo.com/video/831392694?title=0&byline=0" />
             <Video title="NAV IT - Data mesh" url="https://player.vimeo.com/video/798184847?title=0&byline=0" />
-            <Video
-              title="NAV IT - Continuous delivery"
-              url="https://player.vimeo.com/video/788988916?title=0&byline=0"
-            />
             <Video title="NAV IT - Parprogrammering" url="https://player.vimeo.com/video/788988073?title=0&byline=0" />
           </VideoWrapper>
         </PanelWrapper>
