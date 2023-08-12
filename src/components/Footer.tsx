@@ -19,7 +19,7 @@ export const Footer = (props: { tittel: string; slug: string; backgroundColor?: 
       <Link href={props.slug}>{props.tittel}</Link>
       <span aria-hidden={true}>|</span>
       <a href="https://uustatus.no/nb/erklaringer/publisert/4e19bda2-a2b9-4a4f-864a-cf7fcbf5ea06">
-        Tilgjengelighetserklæring
+        Tilgjengelighets&shy;erklæring
       </a>
     </StyledFooter>
   );
