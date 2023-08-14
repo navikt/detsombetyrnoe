@@ -74,25 +74,22 @@ export const WebcruiterStillinger = () => {
   return (
     <Style>
       <Tekst>
-        <h2>Vil du være med å løse NAVs samfunnsoppdrag med din kompetanse innen data?</h2>
+        <h2>Å utvikle løsninger alle synes er enkle, er alt annet enn enkelt</h2>
         <p>
-          Vår visjon er å gi mennesker muligheter. Hvert år leverer vi tjenester til millioner av mennesker, og
-          forvalter helt unike data som vi vil benytte på en ansvarlig måte. Vi vil skape et datadrevet NAV der vi tar
-          beslutninger basert på fakta, hvor vi lærer fra data og lager bedre tjenester til våre brukere.
+          I NAV er vi over 200 team som sammen bygger verdens beste digitale arbeids- og velferdsløsninger. Med over 200
+          utviklere er vi et av de fremste og viktigste utviklermiljøene i Norge. Å jobbe hos oss vil være utfordrende
+          og givende for deg som har hjerte for både mennesker og fag
         </p>
       </Tekst>
       <FlexContainer direction="column">
         <FlexContainer direction="row">
           <StillingPanel
-            href="https://2106.webcruiter.no/Main2/Recruit/Public/4615471221?link_source_id=4351477319"
-            title="data scientist"
+            href="https://2106.webcruiter.no/Main2/Recruit/Public/4680155242?link_source_id=4351476949"
+            title="Utvikler"
             onClick={handleClick}
           >
-            <h3>Data scientist</h3>
-            <p>
-              For deg som vil jobbe med innsikt og bedre beslutningsstøtte for brukere og ansatte i form av data,
-              analyser, prediksjoner og visuelle fremstillinger
-            </p>
+            <h3>Utvikler</h3>
+            <p>Vi søker utviklere. Både backend- og fullstackutvikler</p>
           </StillingPanel>
         </FlexContainer>
         <Link href="/#ledige-stillinger" passHref legacyBehavior>
