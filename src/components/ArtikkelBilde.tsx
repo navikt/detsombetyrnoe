@@ -11,7 +11,7 @@ const StyledFigure = styled.figure<{ zoom: boolean }>`
   }
   && {
     margin: 3rem auto;
-    max-width: ${(props) => (props.zoom ? "100%" : css`calc(var(--content-max-width) * 1.3)`)};
+    max-width: ${(props) => (props.zoom ? "100%" : css`calc(var(--content-max-width) * 0.7)`)};
     transition: 0.3s;
   }
 `;
