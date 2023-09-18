@@ -55,9 +55,9 @@ function Forside(props: ForsideProps) {
         lysTekst={props.forside?.lysTekst}
         visGithubLenke={true}
       />
-      <Panel>
+      {/*<Panel>
         <WebcruiterStillinger />
-      </Panel>
+  </Panel>*/}
       <div>
         <PanelWrapper>
           <VideoWrapper>
