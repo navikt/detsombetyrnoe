@@ -23,7 +23,7 @@ export const LandingPage = (props: LandingssideProps) => {
 
   return (
     <div>
-      <SEO metadata={updatedMetadata} url="https://detsombetyrnoe.no/helenorge" />
+      <SEO metadata={updatedMetadata} url="https://detsombetyrnoe.no/sikkerhet" />
       <Header
         overskrift={landingPage?.overskrift}
         underoverskrift={landingPage?.underoverskrift}
@@ -46,12 +46,12 @@ export const LandingPage = (props: LandingssideProps) => {
             />
           )
         )}
-        <Footer
+        {/*<Footer
           tittel={metaData.privacyArticle.tittel}
           slug={metaData.privacyArticle.slug}
           backgroundColor={landingPage?.bakgrunnsfarge}
           lysTekst={landingPage?.lysTekst}
-        />
+          />*/}
       </Content>
     </div>
   );

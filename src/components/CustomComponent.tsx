@@ -11,6 +11,7 @@ import ArtikkelPreview from "./artikkel/ArtikkelPreview";
 import { PridePanel } from "./PridePanel";
 import { StillingI, UtviklerHeleNorge } from "../pages";
 import { Map } from "../components/Map/Map";
+import { SikkerhetStillinger } from "./landingPage/SikkerhetStillinger";
 
 export interface CustomComponentProps {
   _type: "customComponent";
@@ -67,6 +68,12 @@ function CustomComponent(props: CustomComponentProps) {
         </Panel>
       );*/
       }
+    case "sikkerhetStillinger":
+      return (
+        <Panel backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
+          <SikkerhetStillinger />
+        </Panel>
+      );
     case "heleNorgeStillinger":
       return (
         <Panel backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
