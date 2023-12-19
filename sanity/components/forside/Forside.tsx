@@ -31,14 +31,14 @@ export function getChildren(innhold?: PanelProps["innhold"]) {
   }
 }
 
-const PanelWrapper = styled.div`
+export const PanelWrapper = styled.div`
   --content-max-width: min(32.5rem, 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-const VideoWrapper = styled.div`
+export const VideoWrapper = styled.div`
   width: calc(var(--content-max-width) * 1.15);
   max-width: 100vw;
 `;

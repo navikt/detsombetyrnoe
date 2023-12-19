@@ -1,13 +1,14 @@
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
-import { getChildren } from "../../../sanity/components/forside/Forside";
+import { PanelWrapper, VideoWrapper, getChildren } from "../../../sanity/components/forside/Forside";
 import { LandingssideProps } from "../../pages/helenorge";
 import CustomComponent from "../CustomComponent";
 import { Footer } from "../Footer";
 import { Header } from "../forside/Header";
 import Panel from "../Panel";
 import SEO from "../SEO";
+import Video from "../Video";
 
 const Content = styled.div``;
 
@@ -34,6 +35,14 @@ export const LandingPage = (props: LandingssideProps) => {
         tilForsidenLenke
       />
       <Content>
+        <div>
+          <PanelWrapper>
+            <VideoWrapper>
+              <h2 style={{ marginBlockStart: "2rem", marginBlockEnd: "1.5rem" }}>Velkommen til IT-avdelingen i NAV!</h2>
+              <Video title="NAV IT - DDOS Angrep" url="https://player.vimeo.com/video/831392694?title=0&byline=0" />
+            </VideoWrapper>
+          </PanelWrapper>
+        </div>
         {landingPage?.paneler?.map((panel) =>
           panel._type === "customComponent" ? (
             <CustomComponent {...panel} key={panel.id} />
