@@ -78,18 +78,26 @@ export const WebcruiterStillinger = () => {
         <p>
           I NAV er vi over 200 team som sammen bygger verdens beste digitale arbeids- og velferdsløsninger. Med over 200
           utviklere er vi et av de fremste og viktigste utviklermiljøene i Norge. Å jobbe hos oss vil være utfordrende
-          og givende for deg som har hjerte for både mennesker og fag
+          og givende for deg som har hjerte for både mennesker og fag.
         </p>
       </Tekst>
       <FlexContainer direction="column">
         <FlexContainer direction="row">
           <StillingPanel
-            href="https://2106.webcruiter.no/Main2/Recruit/Public/4680155242?link_source_id=4351476949"
+            href="https://2106.webcruiter.no/Main2/Recruit/Public/4739664563?link_source_id=4351476949"
             title="Utvikler"
             onClick={handleClick}
           >
-            <h3>Utvikler</h3>
-            <p>Vi søker utviklere. Både backend- og fullstackutvikler</p>
+            <h3>Backend-utvikler</h3>
+            <p>Vil du utvikle produkter for interne støttefunksjoner?</p>
+          </StillingPanel>
+          <StillingPanel
+            href="https://2106.webcruiter.no/Main2/Recruit/Public/4737202452?link_source_id=4351476949"
+            title="Utvikler"
+            onClick={handleClick}
+          >
+            <h3>Backend-utvikler</h3>
+            <p>Vil du være en del av et tverrfaglig autonomt produktteam?</p>
           </StillingPanel>
         </FlexContainer>
         <Link href="/#ledige-stillinger" passHref legacyBehavior>
