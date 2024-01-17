@@ -84,20 +84,14 @@ export const WebcruiterStillinger = () => {
       <FlexContainer direction="column">
         <FlexContainer direction="row">
           <StillingPanel
-            href="https://2106.webcruiter.no/Main2/Recruit/Public/4739664563?link_source_id=4351476949"
+            href="https://2106.webcruiter.no/Main2/Recruit/Public/4745628426?link_source_id=4351476949"
             title="Utvikler"
             onClick={handleClick}
           >
-            <h3>Backend-utvikler</h3>
-            <p>Vil du utvikle produkter for interne støttefunksjoner?</p>
-          </StillingPanel>
-          <StillingPanel
-            href="https://2106.webcruiter.no/Main2/Recruit/Public/4737202452?link_source_id=4351476949"
-            title="Utvikler"
-            onClick={handleClick}
-          >
-            <h3>Backend-utvikler</h3>
-            <p>Vil du være en del av et tverrfaglig autonomt produktteam?</p>
+            <h3>Utvikler</h3>
+            <p>
+              Vil du være en del av et tverrfaglig autonomt team som bygger verdens beste digitale velferdstjenester?
+            </p>
           </StillingPanel>
         </FlexContainer>
         <Link href="/#ledige-stillinger" passHref legacyBehavior>
