@@ -24,6 +24,11 @@ const Video = styled.video`
   z-index: 0;
 `;
 
+const Img = styled.img`
+  object-fit: cover;
+  height: 110vh;
+`;
+
 const Style = styled.header`
   animation: ${fadeIn} 2s 0.5s backwards;
   text-align: center;
@@ -108,6 +113,7 @@ interface Props {
   visGithubLenke?: boolean;
   navLogoPosition?: "flex-start" | "flex-end";
   tilForsidenLenke?: boolean;
+  bildeSrc?: string;
 }
 
 export const Header = (props: Props) => {
@@ -120,16 +126,20 @@ export const Header = (props: Props) => {
 
   return (
     <StyledPanel forwardRef={ref} backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
-      <Video autoPlay muted loop>
-        <source
-          src="https://cdn.sanity.io/files/c9hptfq7/production/fe9db01ee9c2c904d6d528e4a243c458d8fed5c6.mp4"
-          type="video/mp4"
-        />
-        <source
-          src="https://cdn.sanity.io/files/c9hptfq7/production/ca1d96f725e9883356a31f11707eb77cd2db3e2d.webm"
-          type="video/webm"
-        />
-      </Video>
+      {props.bildeSrc ? (
+        <Img src={props.bildeSrc} />
+      ) : (
+        <Video autoPlay muted loop>
+          <source
+            src="https://cdn.sanity.io/files/c9hptfq7/production/fe9db01ee9c2c904d6d528e4a243c458d8fed5c6.mp4"
+            type="video/mp4"
+          />
+          <source
+            src="https://cdn.sanity.io/files/c9hptfq7/production/ca1d96f725e9883356a31f11707eb77cd2db3e2d.webm"
+            type="video/webm"
+          />
+        </Video>
+      )}
       <Overlay>
         <Style>
           <StyledToppLinje navLogoPosition={props.navLogoPosition ?? "flex-end"}>

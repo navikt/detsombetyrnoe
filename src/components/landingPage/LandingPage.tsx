@@ -9,6 +9,7 @@ import { Header } from "../forside/Header";
 import Panel from "../Panel";
 import SEO from "../SEO";
 import Video from "../Video";
+import Tekstblokk from "../Tekstblokk";
 
 const Content = styled.div``;
 
@@ -24,7 +25,7 @@ export const LandingPage = (props: LandingssideProps) => {
 
   return (
     <div>
-      <SEO metadata={updatedMetadata} url="https://detsombetyrnoe.no/sikkerhet" />
+      <SEO metadata={updatedMetadata} url="https://detsombetyrnoe.no/jobb-med-sikkerhet" />
       <Header
         overskrift={landingPage?.overskrift}
         underoverskrift={landingPage?.underoverskrift}
@@ -33,28 +34,34 @@ export const LandingPage = (props: LandingssideProps) => {
         lysTekst={landingPage?.lysTekst}
         navLogoPosition="flex-start"
         tilForsidenLenke
+        bildeSrc="/sikkerhet_header.jpg"
       />
       <Content>
-        <div>
+        {/*<div>
           <PanelWrapper>
             <VideoWrapper>
               <h2 style={{ marginBlockStart: "2rem", marginBlockEnd: "1.5rem" }}>Velkommen til IT-avdelingen i NAV!</h2>
               <Video title="NAV IT - DDOS Angrep" url="https://player.vimeo.com/video/831392694?title=0&byline=0" />
             </VideoWrapper>
           </PanelWrapper>
-        </div>
-        {landingPage?.paneler?.map((panel) =>
-          panel._type === "customComponent" ? (
-            <CustomComponent {...panel} key={panel.id} />
-          ) : (
-            <Panel
-              key={panel._key}
-              backgroundColor={panel.bakgrunnsfarge}
-              lysTekst={panel.lysTekst}
-              children={getChildren(panel.innhold)}
-            />
-          )
-        )}
+  </div>*/}
+        {landingPage?.paneler?.map((panel) => {
+          if (panel._type === "customComponent") {
+            return <CustomComponent {...panel} key={panel.id} />;
+          }
+          if (panel._type === "tekstblokk") {
+            console.log("tekstblokk", panel);
+            return (
+              <Tekstblokk
+                key={panel._key}
+                backgroundColor={panel.bakgrunnsfarge}
+                lysTekst={panel.lysTekst}
+                overskrift={panel.overskrift}
+                tekst={panel.tekst}
+              />
+            );
+          }
+        })}
         {/*<Footer
           tittel={metaData.privacyArticle.tittel}
           slug={metaData.privacyArticle.slug}

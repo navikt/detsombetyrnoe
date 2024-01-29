@@ -87,6 +87,15 @@ export interface PanelProps {
   innhold?: Innhold;
 }
 
+export interface TekstblokkProps {
+  _key: string;
+  _type: "tekstblokk";
+  overskrift: string;
+  bakgrunnsfarge?: string;
+  lysTekst?: boolean;
+  tekst?: any;
+}
+
 export interface UtviklerHeleNorge {
   sted: string;
   geopoint: { lat: number; lng: number };

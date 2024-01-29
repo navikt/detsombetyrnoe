@@ -1,7 +1,7 @@
 import { groq } from "next-sanity";
 import { useRouter } from "next/router";
 import React from "react";
-import { ForsideProps, MetadataI, PanelProps } from ".";
+import { ForsideProps, MetadataI, PanelProps, TekstblokkProps } from ".";
 import { CustomComponentProps } from "../components/CustomComponent";
 import { LandingPage } from "../components/landingPage/LandingPage";
 import PreviewBanner from "../components/PreviewBanner";
@@ -36,7 +36,7 @@ export interface LandingssideProps {
     fetUnderskrift?: string;
     bakgrunnsfarge?: string;
     lysTekst?: boolean;
-    paneler?: (PanelProps | CustomComponentProps)[];
+    paneler?: (PanelProps | CustomComponentProps | TekstblokkProps)[];
     previewImage?: any;
   };
   metaData: MetadataI;

@@ -50,6 +50,7 @@ export default {
       name: "paneler",
       type: "array",
       of: [
+        { name: "tekstblokk", type: "tekstblokk" },
         {
           name: "panel",
           type: "panel",
