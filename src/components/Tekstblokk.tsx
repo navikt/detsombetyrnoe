@@ -3,12 +3,15 @@ import { forwardRef, RefObject } from "react";
 import styled, { css } from "styled-components";
 import BlockContent from "./BlockContent";
 import { cssVars } from "../styles/cssVars";
+import { ArtikkelI } from "./artikkel/types";
+import Link from "next/link";
 
 interface Props {
   backgroundColor?: string;
   lysTekst?: boolean;
   overskrift: string;
   tekst: any;
+  artikkel?: ArtikkelI;
   className?: string;
   id?: string;
   forwardRef?: RefObject<HTMLDivElement>;
@@ -56,6 +59,15 @@ const Style = styled.div<{ backgroundColor: string; lysTekst: boolean }>`
   }*/
 `;
 
+const Content = styled.div`
+  max-width: 50rem;
+  margin: 0 auto;
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+`;
+
 const Tekstblokk = (props: Props) => (
   <Style
     backgroundColor={props.backgroundColor || "white"}
@@ -64,10 +76,11 @@ const Tekstblokk = (props: Props) => (
     className={props.className}
     ref={props.forwardRef}
   >
-    <div>
+    <Content>
       <h2>{props.overskrift}</h2>
       <StyledBlockContent blocks={props.tekst} />
-    </div>
+      {props.artikkel && <Link href={`/${props.artikkel.slug.current}`}>{props.artikkel.lesMerTekst}</Link>}
+    </Content>
   </Style>
 );
 

@@ -94,6 +94,7 @@ export interface TekstblokkProps {
   bakgrunnsfarge?: string;
   lysTekst?: boolean;
   tekst?: any;
+  artikkel?: ArtikkelI;
 }
 
 export interface UtviklerHeleNorge {

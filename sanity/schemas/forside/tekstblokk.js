@@ -24,6 +24,11 @@ export default {
       name: "lysTekst",
       type: "boolean",
     },
+    {
+      name: "artikkel",
+      type: "reference",
+      to: [{ type: "artikkel" }],
+    },
   ],
   preview: {
     select: {

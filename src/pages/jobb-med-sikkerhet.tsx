@@ -21,6 +21,7 @@ const landingssideQuery = groq`
           innhold->,
           tekst,
           overskrift,
+          artikkel->,
           id,
           _type
         }

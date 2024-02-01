@@ -1,14 +1,10 @@
-import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
-import { PanelWrapper, VideoWrapper, getChildren } from "../../../sanity/components/forside/Forside";
 import { LandingssideProps } from "../../pages/helenorge";
 import CustomComponent from "../CustomComponent";
 import { Footer } from "../Footer";
 import { Header } from "../forside/Header";
-import Panel from "../Panel";
 import SEO from "../SEO";
-import Video from "../Video";
 import Tekstblokk from "../Tekstblokk";
 
 const Content = styled.div``;
@@ -58,6 +54,7 @@ export const LandingPage = (props: LandingssideProps) => {
                 lysTekst={panel.lysTekst}
                 overskrift={panel.overskrift}
                 tekst={panel.tekst}
+                artikkel={panel.artikkel}
               />
             );
           }
