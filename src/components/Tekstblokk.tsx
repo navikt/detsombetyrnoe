@@ -35,7 +35,7 @@ export const mørkTekst = css`
 const StyledBlockContent = styled(BlockContent)`
   > * {
     width: 100%;
-    max-width: var(${cssVars.contentMaxWidth});
+    max-width: 650px;
     margin-left: auto;
     margin-right: auto;
   }
