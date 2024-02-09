@@ -81,7 +81,7 @@ export const WebcruiterStillinger = () => {
           og givende for deg som har hjerte for både mennesker og fag.
         </p>
       </Tekst>
-      <FlexContainer direction="column">
+      {/*<FlexContainer direction="column">
         <FlexContainer direction="row">
           <StillingPanel
             href="https://2106.webcruiter.no/Main2/Recruit/Public/4745628426?link_source_id=4351476949"
@@ -100,7 +100,7 @@ export const WebcruiterStillinger = () => {
             <p>Vi er stadig på utkikk etter nye kollegaer, sjekk ut andre ledige stillinger her!</p>
           </StillingPanel>
         </Link>
-      </FlexContainer>
+  </FlexContainer>*/}
     </Style>
   );
 };
