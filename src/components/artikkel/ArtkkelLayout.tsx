@@ -42,8 +42,15 @@ interface Props {
   tittel: string;
   undertittel?: string;
   ingress: string;
+  slug: string;
   children: React.ReactNode;
 }
+
+const sikkerhetSlugs = ["hvorfor-jobbe-med-sikkerhet-i-nav", "sikkerhetshandtering-i-nav"];
+
+const isSikkerhetsArtikkel = (slug: string) => {
+  return sikkerhetSlugs.includes(slug);
+};
 
 export const ArtikkelLayout = (props: Props) => {
   const { tittel, undertittel, ingress, children } = props;
@@ -52,14 +59,14 @@ export const ArtikkelLayout = (props: Props) => {
       <Head>
         <title>{tittel}</title>
       </Head>
-      <Header />
+      <Header isSikkerhet={isSikkerhetsArtikkel(props.slug)} />
       <main>
         <H1>{tittel}</H1>
         {undertittel && <H2>{undertittel}</H2>}
         <Ingress>{ingress}</Ingress>
         {children}
       </main>
-      <Footer />
+      <Footer isSikkerhet={isSikkerhetsArtikkel(props.slug)} />
     </Style>
   );
 };

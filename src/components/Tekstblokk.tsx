@@ -43,7 +43,7 @@ const StyledBlockContent = styled(BlockContent)`
   margin-bottom: calc(5rem + 5vmin);
 
   figure {
-    width: 80%;
+    width: 40%;
   }
 `;
 

@@ -11,10 +11,10 @@ const Style = styled.footer`
   }
 `;
 
-function Footer() {
+function Footer({ isSikkerhet }: { isSikkerhet?: boolean }) {
   return (
     <Style>
-      <Link href="/">Tilbake til forsiden</Link>
+      <Link href={isSikkerhet ? "/jobb-med-sikkerhet" : "/"}>Tilbake til forsiden</Link>
     </Style>
   );
 }

@@ -32,7 +32,12 @@ function Artikkel(props: Props) {
   const coverMedia = artikkel.bilder?.[0];
 
   return (
-    <ArtikkelLayout tittel={artikkel.tittel} undertittel={artikkel.undertittel} ingress={artikkel.ingress}>
+    <ArtikkelLayout
+      tittel={artikkel.tittel}
+      undertittel={artikkel.undertittel}
+      ingress={artikkel.ingress}
+      slug={artikkel.slug.current}
+    >
       <MainMedia {...coverMedia} />
       <StyledBlockContent blocks={artikkel.innhold} />
     </ArtikkelLayout>

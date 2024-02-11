@@ -19,10 +19,10 @@ const Style = styled.header`
   }
 `;
 
-function Header() {
+function Header({ isSikkerhet }: { isSikkerhet?: boolean }) {
   return (
     <Style>
-      <Link href="/">Tilbake til forsiden</Link>
+      <Link href={isSikkerhet ? "/jobb-med-sikkerhet" : "/"}>Tilbake til forsiden</Link>
       <a href="https://www.nav.no/" aria-label="Lenke til NAV">
         <NavLogo />
       </a>

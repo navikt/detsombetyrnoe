@@ -30,7 +30,7 @@ function ArtikkelBilde(props: Props) {
   const [zoom, setZoom] = useState(false);
   return (
     <StyledFigure onClick={() => setZoom(!zoom)} zoom={zoom}>
-      <Image src={urlFor(props.value).width(800).format("jpg").bg("fff").url() || ""} alt={props.value.altTekst} />
+      <Image src={urlFor(props.value).width(800).url() || ""} alt={props.value.altTekst} />
       <figcaption>{props.value.caption}</figcaption>
     </StyledFigure>
   );

@@ -59,12 +59,12 @@ export const LandingPage = (props: LandingssideProps) => {
             );
           }
         })}
-        {/*<Footer
+        <Footer
           tittel={metaData.privacyArticle.tittel}
           slug={metaData.privacyArticle.slug}
           backgroundColor={landingPage?.bakgrunnsfarge}
-          lysTekst={landingPage?.lysTekst}
-          />*/}
+          lysTekst={false}
+        />
       </Content>
     </div>
   );
