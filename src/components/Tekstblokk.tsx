@@ -41,6 +41,10 @@ const StyledBlockContent = styled(BlockContent)`
   }
 
   margin-bottom: calc(5rem + 5vmin);
+
+  figure {
+    width: 80%;
+  }
 `;
 
 const Style = styled.div<{ backgroundColor: string; lysTekst: boolean }>`
@@ -54,9 +58,6 @@ const Style = styled.div<{ backgroundColor: string; lysTekst: boolean }>`
   justify-content: center;
   position: relative;
   overflow: hidden;
-  /*> * {
-    max-width: 100%;
-  }*/
 `;
 
 const Content = styled.div`

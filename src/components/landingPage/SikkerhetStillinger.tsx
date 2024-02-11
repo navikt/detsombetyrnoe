@@ -74,21 +74,26 @@ export const SikkerhetStillinger = () => {
   return (
     <Style>
       <Tekst>
-        <h2>Vi har mange spennende stillinger innenfor sikkerhet</h2>
+        <h2>Vi har mål som legger lista høyt. Vil du være med å bidra til at vi når dem?</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod, quam eget varius ultricies, nisl nunc
+          De rette kandidatene vil få muligheten til å jobbe med banebrytende teknologi og bidra i en organisasjon som
+          har en direkte innvirkning på samfunnet.
         </p>
       </Tekst>
       <FlexContainer direction="column">
         <FlexContainer direction="row">
-          <StillingPanel href="#" title="" onClick={handleClick}>
-            <h3>Lorem ipsum</h3>
-            <p>Dolor sit amet</p>
+          <StillingPanel
+            href="https://2106.webcruiter.no/Main2/Recruit/Public/4761580113?link_source_id=4351476949"
+            title=""
+            onClick={handleClick}
+          >
+            <h3>Seniorrådgiver sikkerhetsrisiko</h3>
+            <p>Vil du jobbe med sikkerhet på strategisk og taktisk nivå?</p>
           </StillingPanel>
         </FlexContainer>
         <Link href="/#ledige-stillinger" passHref legacyBehavior>
           <StillingPanel>
-            <h3>Se alle stillinger i NAV IT</h3>
+            <h3>Se flere ledige stillinger i NAV</h3>
             <p>Vi er stadig på utkikk etter nye kollegaer, sjekk ut andre ledige stillinger her!</p>
           </StillingPanel>
         </Link>

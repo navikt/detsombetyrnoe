@@ -12,6 +12,9 @@ import { PridePanel } from "./PridePanel";
 import { StillingI, UtviklerHeleNorge } from "../pages";
 import { Map } from "../components/Map/Map";
 import { SikkerhetStillinger } from "./landingPage/SikkerhetStillinger";
+import { PanelWrapper, VideoWrapper } from "../../sanity/components/forside/Forside";
+import Video from "./Video";
+import Nøkkeltall from "./nøkkeltall/Nøkkeltall";
 
 export interface CustomComponentProps {
   _type: "customComponent";
@@ -35,6 +38,14 @@ const Tekst = styled.div`
     margin: 2rem 0;
   }
   max-width: var(--content-max-width);
+`;
+
+const PanelMedVideo = styled(Panel)`
+  display: block !important;
+`;
+
+const SikkerhetNokkeltall = styled(Nøkkeltall)`
+  --content-max-width: min(40rem, 100%);
 `;
 
 function CustomComponent(props: CustomComponentProps) {
@@ -99,6 +110,47 @@ function CustomComponent(props: CustomComponentProps) {
               <h2>Vi søker nå minst 10 senior utviklere</h2>
             </Tekst>
           </Style>
+        </Panel>
+      );
+    case "ddos":
+      return (
+        <PanelMedVideo>
+          <PanelWrapper>
+            <VideoWrapper>
+              <Video title="NAV IT - DDOS" url="https://player.vimeo.com/video/831392694?title=0&byline=0" />
+            </VideoWrapper>
+          </PanelWrapper>
+        </PanelMedVideo>
+      );
+    case "sikkerhet_nokkeltall":
+      return (
+        <Panel>
+          <div style={{ maxWidth: "50rem" }}>
+            <SikkerhetNokkeltall
+              _type="nokkeltall"
+              nokkeltall={[
+                {
+                  antall: "1/3",
+                  description: "av statsbudsjettet forvaltes av NAV",
+                  _key: "statsbudsjett",
+                  _type: "nokkeltallTekst",
+                },
+                {
+                  antall: "65",
+                  title: "Security champions",
+                  description: "En security champion er en pådriver og motivator i sikkerhetsarbeidet i teamet",
+                  _key: "sec_champion",
+                  _type: "nokkeltallTekst",
+                },
+                {
+                  antall: "2,8",
+                  description: "millioner brukere leverer NAV tjenester til årlig",
+                  _key: "brukere",
+                  _type: "nokkeltallTekst",
+                },
+              ]}
+            />
+          </div>
         </Panel>
       );
     case "pride":
