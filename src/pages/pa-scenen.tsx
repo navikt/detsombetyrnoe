@@ -114,6 +114,7 @@ const PreviewWrapper = (props: { data: LandingssideProps }) => {
       <ArtikkelLayout
         tittel={props.data.landingPage?.overskrift ?? ""}
         ingress={props.data.landingPage?.fetUnderskrift ?? ""}
+        slug="pa-scenen"
       >
         <ul>
           {paneler?.map((event: NavPaScenen) => (
