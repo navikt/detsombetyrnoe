@@ -76,8 +76,8 @@ export const SikkerhetStillinger = () => {
       <Tekst>
         <h2>Vi har mål som legger lista høyt. Vil du være med å bidra til at vi når dem?</h2>
         <p>
-          De rette kandidatene vil få muligheten til å jobbe med banebrytende teknologi og bidra i en organisasjon som
-          har en direkte innvirkning på samfunnet.
+          Vi søker nå flere nye kollegaer innen sikkerhet. I NAV er vi over 200 team som sammen bygger verdens beste
+          digitale arbeids- og velferdsløsninger!
         </p>
       </Tekst>
       <FlexContainer direction="column">
