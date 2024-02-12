@@ -90,6 +90,14 @@ export const SikkerhetStillinger = () => {
             <h3>Seniorrådgiver sikkerhetsrisiko</h3>
             <p>Vil du jobbe med sikkerhet på strategisk og taktisk nivå?</p>
           </StillingPanel>
+          <StillingPanel
+            href="https://2106.webcruiter.no/Main2/Recruit/Public/4766111596?link_source_id=4351476949"
+            title=""
+            onClick={handleClick}
+          >
+            <h3>Rådgiver informasjonssikkerhet</h3>
+            <p>Vil du jobbe med strategisk styring av informasjonssikkerhet?</p>
+          </StillingPanel>
         </FlexContainer>
         <Link href="/#ledige-stillinger" passHref legacyBehavior>
           <StillingPanel>
