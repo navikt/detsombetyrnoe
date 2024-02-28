@@ -83,6 +83,14 @@ export const SikkerhetStillinger = () => {
       <FlexContainer direction="column">
         <FlexContainer direction="row">
           <StillingPanel
+            href="https://2106.webcruiter.no/Main2/Recruit/Public/4766105757?link_source_id=4351476949"
+            title=""
+            onClick={handleClick}
+          >
+            <h3>Seniorrådgiver informasjonssikkerhet</h3>
+            <p>Vil du jobbe med strategisk styring av informasjonssikkerhet?</p>
+          </StillingPanel>
+          <StillingPanel
             href="https://2106.webcruiter.no/Main2/Recruit/Public/4761580113?link_source_id=4351476949"
             title=""
             onClick={handleClick}
