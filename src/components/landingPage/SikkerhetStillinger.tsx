@@ -83,20 +83,23 @@ export const SikkerhetStillinger = () => {
       <FlexContainer direction="column">
         <FlexContainer direction="row">
           <StillingPanel
-            href="https://2106.webcruiter.no/Main2/Recruit/Public/4766105757?link_source_id=4351476949"
+            href="https://arbeidsplassen.nav.no/stillinger/stilling/4c186342-66f7-4797-923d-883c8ddc6752"
             title=""
             onClick={handleClick}
           >
-            <h3>Seniorrådgiver informasjonssikkerhet</h3>
-            <p>Vil du jobbe med strategisk styring av informasjonssikkerhet?</p>
+            <h3>Fagleder informasjonssikkerhet</h3>
+            <p>
+              Ønsker du å lede prosesser som setter rammer for informasjonssikkerhet i en offentlig virksomhet med
+              sterke fagmiljøer?
+            </p>
           </StillingPanel>
           <StillingPanel
-            href="https://2106.webcruiter.no/Main2/Recruit/Public/4761580113?link_source_id=4351476949"
+            href="https://arbeidsplassen.nav.no/stillinger/stilling/a86fba60-d988-46e5-88ee-43d4a47dd1ec"
             title=""
             onClick={handleClick}
           >
-            <h3>Seniorrådgiver sikkerhetsrisiko</h3>
-            <p>Vil du jobbe med sikkerhet på strategisk og taktisk nivå?</p>
+            <h3>Seniorrådgver sikkerhetsrisiko</h3>
+            <p>Vi søker seniorrådgiver sikkerhetsrisiko</p>
           </StillingPanel>
         </FlexContainer>
         <Link href="/#ledige-stillinger" passHref legacyBehavior>
