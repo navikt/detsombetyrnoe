@@ -11,7 +11,6 @@ import { Footer } from "../../../src/components/Footer";
 import { WebcruiterStillinger } from "../../../src/components/landingPage/WebcruiterStillinger";
 import Video from "../../../src/components/Video";
 import styled from "styled-components";
-import { Map as HeleNorgeMap } from "../../../src/components/Map/Map";
 
 export function getChildren(innhold?: PanelProps["innhold"]) {
   if (!innhold) {
@@ -50,7 +49,8 @@ function Forside(props: ForsideProps) {
       <Header
         overskrift={props.forside?.overskrift}
         underoverskrift={props.forside?.underoverskrift}
-        bakgrunnsvideo={props.forside?.bakgrunnsvideo}
+        //bakgrunnsvideo={props.forside?.bakgrunnsvideo}
+        bildeSrc="/NAV_postgres_still_banner.jpg"
         bakgrunnsfarge={props.forside?.bakgrunnsfarge}
         lysTekst={props.forside?.lysTekst}
         visGithubLenke={true}
@@ -62,17 +62,7 @@ function Forside(props: ForsideProps) {
         <PanelWrapper>
           <VideoWrapper>
             <h2 style={{ marginBlockStart: "2rem", marginBlockEnd: "1.5rem" }}>Velkommen til IT-avdelingen i NAV!</h2>
-            {/*<p>
-              Det å utvikle løsninger alle synes er enkle, er alt annet enn enkelt. I NAV er vi nesten 200 team som
-              sammen bygger verdens beste digitale arbeids- og velferdsløsninger. Her kan du bli bedre kjent med oss og
-              hva vi driver med, samt finne våre ledige stillinger.
-  </p>*/}
-            <Video
-              title="NAV IT - Continuous delivery"
-              url="https://player.vimeo.com/video/788988916?title=0&byline=0"
-            />
-            <Video title="NAV IT - Data mesh" url="https://player.vimeo.com/video/798184847?title=0&byline=0" />
-            <Video title="NAV IT - Parprogrammering" url="https://player.vimeo.com/video/788988073?title=0&byline=0" />
+            <Video title="NAV IT - Postgres i sky" url="https://player.vimeo.com/video/939482220?title=0&byline=0" />
           </VideoWrapper>
         </PanelWrapper>
       </div>
