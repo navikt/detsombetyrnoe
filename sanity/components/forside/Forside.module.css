@@ -1,0 +1,11 @@
+.panelWrapper {
+  --content-max-width: min(32.5rem, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.videoWrapper {
+  width: calc(var(--content-max-width) * 1.15);
+  max-width: 100vw;
+}

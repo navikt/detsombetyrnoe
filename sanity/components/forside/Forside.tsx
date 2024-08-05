@@ -10,7 +10,7 @@ import ArtikkelPreview from "../../../src/components/artikkel/ArtikkelPreview";
 import { Footer } from "../../../src/components/Footer";
 import { WebcruiterStillinger } from "../../../src/components/landingPage/WebcruiterStillinger";
 import Video from "../../../src/components/Video";
-import styled from "styled-components";
+import style from "./Forside.module.css";
 
 export function getChildren(innhold?: PanelProps["innhold"]) {
   if (!innhold) {
@@ -30,18 +30,6 @@ export function getChildren(innhold?: PanelProps["innhold"]) {
   }
 }
 
-export const PanelWrapper = styled.div`
-  --content-max-width: min(32.5rem, 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-export const VideoWrapper = styled.div`
-  width: calc(var(--content-max-width) * 1.15);
-  max-width: 100vw;
-`;
-
 function Forside(props: ForsideProps) {
   return (
     <ForsideProvider forsideProps={props}>
@@ -59,12 +47,12 @@ function Forside(props: ForsideProps) {
         <WebcruiterStillinger />
       </Panel>
       <div>
-        <PanelWrapper>
-          <VideoWrapper>
+        <div className={style.panelWrapper}>
+          <div className={style.videoWrapper}>
             <h2 style={{ marginBlockStart: "2rem", marginBlockEnd: "1.5rem" }}>Velkommen til IT-avdelingen i NAV!</h2>
             <Video title="NAV IT - Postgres i sky" url="https://player.vimeo.com/video/939482220?title=0&byline=0" />
-          </VideoWrapper>
-        </PanelWrapper>
+          </div>
+        </div>
       </div>
 
       {props.forside?.paneler?.map((panel) =>
