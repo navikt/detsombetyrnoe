@@ -9,28 +9,59 @@ on:
       - '**.md'
 
 jobs:
-  buildDev:
-    uses: navikt/aap-workflows/.github/workflows/frontend-next-build.yml@main
-    permissions:
-      contents: read
-      id-token: write
-      packages: write
-    secrets: inherit
-    with:
-      cluster: dev-gcp
-      appname: 'detsombetyrnoe'
-      playwright: false
-      cdn: false
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    env:
+      NPM_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
+      SKIP_YARN_COREPACK_CHECK: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://npm.pkg.github.com
+          cache: yarn
+      - name: Enable Corepack
+        run: corepack enable
+      - name: Cache client node_modules
+        id: cache-node-modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            ${{ github.workspace }}/.next/cache
+            node_modules
+          # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
+      - name: install dependencies Yarn
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: yarn install --immutable
+      - name: Copy env-file # TODO: Se om vi kan finne en bedre løsning her på sikt
+        run: cp .nais/dev-gcp.env .env
+      - name: typesjekking
+        run: yarn tsc
+      - name: run tests
+        run: yarn test
+      - name: run build
+        run: yarn run build
 
-  deployDev:
-    needs: buildDev
-    uses: navikt/aap-workflows/.github/workflows/deploy.yml@main
-    permissions:
-      contents: read
-      id-token: write
-    secrets: inherit
-    with:
-      cluster: dev-gcp
-      manifest: .nais/nais.yaml
-      imageSuffix: -dev-gcp
-      vars: .nais/dev.yaml
+#      - name: Upload static files to NAV CDN
+#        uses: nais/deploy/actions/cdn-upload/v2@master
+#        if: ${{ inputs.cdn == true }}
+#        with:
+#          team: aap
+#          source: ./.next/static
+#          destination: /${{ inputs.appname }}/_next
+#          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
+#          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
+
+      - uses: nais/docker-build-push@v0
+        with:
+          team: detsombetyrnoe
+          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
+          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
+          image_suffix: dev-gcp
+          tag: ${{ github.sha }}
