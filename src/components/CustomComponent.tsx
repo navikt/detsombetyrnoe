@@ -1,16 +1,12 @@
 import * as React from "react";
-import Githubstats from "./githubstats/Githubstats";
 import Stillinger from "./Stillinger";
 import Panel from "./Panel";
 import Bloggposter from "./forside/Bloggposter";
 import { WebcruiterStillinger } from "./landingPage/WebcruiterStillinger";
-import Link from "next/link";
 import styled from "styled-components";
-import Artikkel from "./artikkel/Artikkel";
 import ArtikkelPreview from "./artikkel/ArtikkelPreview";
 import { PridePanel } from "./PridePanel";
 import { StillingI, UtviklerHeleNorge } from "../pages";
-import { Map } from "../components/Map/Map";
 import { SikkerhetStillinger } from "./landingPage/SikkerhetStillinger";
 import { PanelWrapper, VideoWrapper } from "../../sanity/components/forside/Forside";
 import Video from "./Video";
@@ -50,12 +46,6 @@ const SikkerhetNokkeltall = styled(Nøkkeltall)`
 
 function CustomComponent(props: CustomComponentProps) {
   switch (props.id) {
-    case "github":
-      return (
-        <Panel backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
-          <Githubstats />
-        </Panel>
-      );
     case "stillinger":
       return (
         <Panel backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>

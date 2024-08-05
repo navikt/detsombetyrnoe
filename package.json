@@ -16,7 +16,6 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@apollo/client": "^3.7.9",
     "@portabletext/react": "^2.0.2",
     "@sanity/block-content-to-react": "3.0.0",
     "@sanity/image-url": "^1.0.2",
@@ -25,7 +24,6 @@
     "amplitude-js": "^8.21.5",
     "basicscroll": "3.0.4",
     "date-fns": "^2.29.3",
-    "graphql": "^16.6.0",
     "html-react-parser": "1.4.12",
     "identity-obj-proxy": "3.0.0",
     "intersection-observer": "0.12.0",
