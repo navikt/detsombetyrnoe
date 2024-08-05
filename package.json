@@ -3,14 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"next\" \"cd sanity && sanity start\"",
-    "next-dev": "next",
-    "build": "echo 'Building Sanity to public/studio…' && cd sanity && sanity build ../public/studio -y && cd .. && next build",
-    "bump": "npx npm-check-updates --target minor -u && npm i",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
     "test": "jest",
     "typeCheck": "tsc",
-    "refresh": "rm -rf node_modules && rm package-lock.json && npm i",
     "prepare": "husky install"
   },
   "dependencies": {
