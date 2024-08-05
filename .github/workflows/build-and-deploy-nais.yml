@@ -12,6 +12,10 @@ jobs:
   build:
     name: build
     runs-on: ubuntu-latest
+    permissions:
+        contents: read
+        id-token: write
+        packages: write
     env:
       NPM_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
       SKIP_YARN_COREPACK_CHECK: true
@@ -65,3 +69,10 @@ jobs:
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
           image_suffix: dev-gcp
           tag: ${{ github.sha }}
+      - uses: nais/deploy/actions/deploy@v2
+        env:
+          PRINT_PAYLOAD: true
+          CLUSTER: dev-gcp
+          RESOURCE: .nais/nais.yaml
+          VARS: .nais/dev.yaml
+          VAR: image=${{ steps.login.outputs.registry }}/${{ github.event.repository.name }}-dev-gcp:${{ github.sha }}
