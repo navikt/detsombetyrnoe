@@ -16,5 +16,5 @@
     "incremental": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "jest.setup.js"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "sanity/node_modules"]
 }
