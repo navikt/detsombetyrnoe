@@ -63,16 +63,23 @@ jobs:
 #          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
 
       - uses: nais/docker-build-push@v0
+        id: docker-build-push
         with:
           team: detsombetyrnoe
           identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
           image_suffix: dev-gcp
           tag: ${{ github.sha }}
+      - uses: nais/login@v0
+        id: login
+        with:
+          team: detsombetyrnoe
+          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
+          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
       - uses: nais/deploy/actions/deploy@v2
         env:
           PRINT_PAYLOAD: true
           CLUSTER: dev-gcp
           RESOURCE: .nais/nais.yaml
           VARS: .nais/dev.yaml
-          VAR: image=${{ steps.login.outputs.registry }}/${{ github.event.repository.name }}-dev-gcp:${{ github.sha }}
+          VAR: image=${{ steps.docker-build-push.outputs.image }}
