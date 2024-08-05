@@ -1,0 +1,36 @@
+name: Bygg og deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+
+jobs:
+  buildDev:
+    uses: navikt/aap-workflows/.github/workflows/frontend-next-build.yml@main
+    permissions:
+      contents: read
+      id-token: write
+      packages: write
+    secrets: inherit
+    with:
+      cluster: dev-gcp
+      appname: 'detsombetyrnoe'
+      playwright: false
+      cdn: false
+
+  deployDev:
+    needs: buildDev
+    uses: navikt/aap-workflows/.github/workflows/deploy.yml@main
+    permissions:
+      contents: read
+      id-token: write
+    secrets: inherit
+    with:
+      cluster: dev-gcp
+      manifest: .nais/nais.yaml
+      imageSuffix: -dev-gcp
+      vars: .nais/dev.yaml

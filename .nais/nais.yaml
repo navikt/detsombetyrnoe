@@ -1,0 +1,50 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "50M"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "90"
+  name: "detsombetyrnoe"
+  namespace: "detsombetyrnoe"
+  labels:
+    "team": "detsombetyrnoe"
+spec:
+  image: {{image}}
+  port: 3000
+  liveness:
+    path: "/api/internal/isAlive"
+    initialDelay: 20
+    timeout: 60
+  readiness:
+    path: "/api/internal/isReady"
+    initialDelay: 20
+    timeout: 60
+  replicas:
+    min: 2
+    max: 4
+  resources:
+    requests:
+      cpu: 200m
+      memory: 512Mi
+    limits:
+      memory: 512Mi
+  observability:
+    tracing:
+      enabled: true
+  ingresses:
+  {{#each ingresses as |url|}}
+    - {{url}}
+  {{/each}}
+  env:
+  {{#each env}}
+    - name: {{this.name }}
+      value: {{this.value}}
+  {{/each}}
+  accessPolicy:
+    outbound:
+      external:
+        - host: api.sanity.io
+        - host: c9hptfq7.api.sanity.io
+        - host: apicdn.sanity.io
+        - host: c9hptfq7.apicdn.sanity.io
+        - host: cdn.sanity.io

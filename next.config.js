@@ -14,6 +14,7 @@ module.exports = {
       permanent: false,
     },
   ],
+  output: "standalone",
   productionBrowserSourceMaps: true,
   swcMinify: true,
   i18n: {
