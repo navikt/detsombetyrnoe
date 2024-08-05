@@ -8,8 +8,7 @@
     "build": "echo 'Building Sanity to public/studio…' && cd sanity && sanity build ../public/studio -y && cd .. && next build",
     "bump": "npx npm-check-updates --target minor -u && npm i",
     "start": "next start",
-    "test": "jest --watch",
-    "test-ci": "jest",
+    "test": "jest",
     "typeCheck": "tsc",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm i",
     "prepare": "husky install"
@@ -67,5 +66,6 @@
   },
   "engines": {
     "node": ">=16.5.0"
-  }
+  },
+  "packageManager": "yarn@4.4.0"
 }
