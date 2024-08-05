@@ -8,7 +8,7 @@ import ArtikkelPreview from "./artikkel/ArtikkelPreview";
 import { PridePanel } from "./PridePanel";
 import { StillingI, UtviklerHeleNorge } from "../pages";
 import { SikkerhetStillinger } from "./landingPage/SikkerhetStillinger";
-import { PanelWrapper, VideoWrapper } from "../../sanity/components/forside/Forside";
+import style from "../../sanity/components/forside/Forside.module.css";
 import Video from "./Video";
 import Nøkkeltall from "./nøkkeltall/Nøkkeltall";
 
@@ -105,11 +105,11 @@ function CustomComponent(props: CustomComponentProps) {
     case "ddos":
       return (
         <PanelMedVideo>
-          <PanelWrapper>
-            <VideoWrapper>
+          <div className={style.panelWrapper}>
+            <div className={style.videoWrapper}>
               <Video title="NAV IT - DDOS" url="https://player.vimeo.com/video/831392694?title=0&byline=0" />
-            </VideoWrapper>
-          </PanelWrapper>
+            </div>
+          </div>
         </PanelMedVideo>
       );
     case "sikkerhet_nokkeltall":
