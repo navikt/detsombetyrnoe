@@ -8,6 +8,7 @@ RUN adduser --system --uid 1069 nextjs
 WORKDIR /app
 COPY --chown=nextjs:nodejs .next/standalone ./
 COPY --chown=nextjs:nodejs .next/static ./.next/static
+COPY --chown=nextjs:nodejs public ./public
 
 USER nextjs
 
