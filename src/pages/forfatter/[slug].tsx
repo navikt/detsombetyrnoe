@@ -1,9 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import { sanityClient, usePreviewSubscription } from "../../lib/sanity";
+import { sanityClient } from "../../lib/sanity";
 import groq from "groq";
 import { useRouter } from "next/router";
 import Error from "next/error";
-import { isDevelopment } from "../../utils/environment";
 import { BlogpostPreviewI, groqBlogpostPreviewFields } from "../blogg";
 import React from "react";
 import Forfatter from "../../components/Forfatter";
@@ -51,15 +50,7 @@ const PreviewWrapper = (props: { data: ForfatterI }) => {
     return <Error statusCode={404} />;
   }
 
-  const enablePreview = isDevelopment() || !!router.query.preview;
-
-  const { data } = usePreviewSubscription(forfatterQuery, {
-    params: { slug: props.data?.slug },
-    initialData: props.data,
-    enabled: enablePreview,
-  });
-
-  return <Forfatter {...data} />;
+  return <Forfatter {...props.data} />;
 };
 
 export default PreviewWrapper;

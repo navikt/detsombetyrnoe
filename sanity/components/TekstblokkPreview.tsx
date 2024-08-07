@@ -1,14 +1,13 @@
 import * as React from "react";
 import styled from "styled-components";
 import withErrorBoundary from "../../src/components/withErrorBoundary";
-import { FunctionComponent } from "react";
 
 interface Props {
   value: {
     bakgrunnsfarge: string;
     overskrift: string;
   };
-  icon: FunctionComponent;
+  icon?: React.ReactElement;
 }
 
 const Style = styled.div`

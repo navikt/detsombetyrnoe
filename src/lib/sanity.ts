@@ -1,15 +1,12 @@
-import { ClientConfig, createClient, createPreviewSubscriptionHook } from "next-sanity";
+import { createClient } from "next-sanity";
 import createImageUrlBuilder from "@sanity/image-url";
 
-const config: ClientConfig = {
+export const sanityClient = createClient({
   dataset: "production",
   projectId: "c9hptfq7",
   apiVersion: "2021-09-06",
   useCdn: process.env.NODE_ENV === "production",
-};
+});
 
-export const urlFor = (source: any) => createImageUrlBuilder(config).image(source);
-
-export const usePreviewSubscription = createPreviewSubscriptionHook(config);
-
-export const sanityClient = createClient(config);
+export const urlFor = (source: any) =>
+  createImageUrlBuilder({ projectId: "c9hptfq7", dataset: "production" }).image(source);

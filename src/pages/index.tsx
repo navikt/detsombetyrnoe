@@ -1,5 +1,5 @@
 import * as React from "react";
-import { sanityClient, usePreviewSubscription } from "../lib/sanity";
+import { sanityClient } from "../lib/sanity";
 import { groq } from "next-sanity";
 import { NøkkeltallData } from "../components/nøkkeltall/Nøkkeltall";
 import { CustomComponentProps } from "../components/CustomComponent";
@@ -132,15 +132,10 @@ const PreviewWrapper = (props: { data: ForsideProps }) => {
   const router = useRouter();
   const enablePreview = !!router.query.preview;
 
-  const { data } = usePreviewSubscription(landingssideQuery, {
-    initialData: props.data,
-    enabled: enablePreview,
-  });
-
   return (
     <>
       {enablePreview && <PreviewBanner />}
-      <Forside {...data} />
+      <Forside {...props.data} />
     </>
   );
 };

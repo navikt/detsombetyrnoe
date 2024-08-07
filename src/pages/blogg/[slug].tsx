@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import { sanityClient, usePreviewSubscription } from "../../lib/sanity";
+import { sanityClient } from "../../lib/sanity";
 import groq from "groq";
 import Bloggside from "../../components/blogg/BloggPost";
 import { ForfatterI } from "./index";
@@ -68,20 +68,14 @@ const PreviewWrapper = (props: { data: BlogpostData; slug?: string }) => {
   const router = useRouter();
   const enablePreview = isDevelopment() || !!router.query.preview;
 
-  const { data } = usePreviewSubscription(blogQuery, {
-    params: { slug: props?.slug },
-    initialData: props.data,
-    enabled: enablePreview,
-  });
-
-  if (!router.isFallback && !data?.slug) {
+  if (!router.isFallback && !props.data?.slug) {
     return <Error statusCode={404} />;
   }
 
   return (
     <>
       {enablePreview && <PreviewBanner />}
-      <Bloggside {...data} />
+      <Bloggside {...props.data} />
     </>
   );
 };

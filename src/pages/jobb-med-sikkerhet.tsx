@@ -1,11 +1,11 @@
 import { groq } from "next-sanity";
 import { useRouter } from "next/router";
 import React from "react";
-import { ForsideProps, MetadataI, PanelProps, TekstblokkProps } from ".";
+import { MetadataI, PanelProps, TekstblokkProps } from ".";
 import { CustomComponentProps } from "../components/CustomComponent";
 import { LandingPage } from "../components/landingPage/LandingPage";
 import PreviewBanner from "../components/PreviewBanner";
-import { sanityClient, usePreviewSubscription } from "../lib/sanity";
+import { sanityClient } from "../lib/sanity";
 
 const landingssideQuery = groq`
 {
@@ -61,15 +61,10 @@ const PreviewWrapper = (props: { data: LandingssideProps }) => {
   const router = useRouter();
   const enablePreview = !!router.query.preview;
 
-  const { data } = usePreviewSubscription(landingssideQuery, {
-    initialData: props.data,
-    enabled: enablePreview,
-  });
-
   return (
     <>
       {enablePreview && <PreviewBanner />}
-      {data.landingPage && <LandingPage {...data} />}
+      {props.data.landingPage && <LandingPage {...props.data} />}
     </>
   );
 };

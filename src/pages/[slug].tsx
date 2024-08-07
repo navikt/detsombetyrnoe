@@ -1,5 +1,5 @@
 import groq from "groq";
-import { sanityClient, usePreviewSubscription } from "../lib/sanity";
+import { sanityClient } from "../lib/sanity";
 import { ArtikkelI } from "../components/artikkel/types";
 import Artikkel from "../components/artikkel/Artikkel";
 import { useRouter } from "next/router";
@@ -57,20 +57,14 @@ const PreviewWrapper = (props: Props) => {
   const router = useRouter();
   const enablePreview = !!router.query.preview;
 
-  const { data } = usePreviewSubscription(artikkelQuery, {
-    params: { slug: props?.slug },
-    initialData: props.data,
-    enabled: enablePreview,
-  });
-
-  if (!router.isFallback && !data?.slug) {
+  if (!router.isFallback && !props.data?.slug) {
     return <Error statusCode={404} />;
   }
 
   return (
     <>
       {enablePreview && <PreviewBanner />}
-      <Artikkel data={data} />
+      <Artikkel data={props.data} />
     </>
   );
 };

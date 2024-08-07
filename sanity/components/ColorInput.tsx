@@ -1,8 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
 import styled from "styled-components";
-// @ts-ignore
-import PatchEvent, { set, unset } from "part:@sanity/form-builder/patch-event";
 
 export type ColorInputColor = { color: string; name: string };
 
@@ -37,15 +35,12 @@ const Button = styled.button<{ farge: string }>`
   }
 `;
 
-const createPatchFrom = (value?: string) => PatchEvent.from(!value ? unset() : set(value));
-
 const getLabel = (farge?: ColorInputColor) => (farge ? `${farge.name} (${farge.color})` : "ingen farge valgt");
 
 function ColorInput(props: Props) {
   const [open, setOpen] = useState(false);
 
   const handleNyFarge = (farge: ColorInputColor) => {
-    props.onChange(createPatchFrom(farge.color));
     setOpen(false);
   };
 

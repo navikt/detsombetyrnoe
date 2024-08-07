@@ -1,6 +1,6 @@
 import * as React from "react";
 import { GetStaticProps } from "next";
-import { sanityClient, usePreviewSubscription } from "../../lib/sanity";
+import { sanityClient } from "../../lib/sanity";
 import groq from "groq";
 import BloggForside from "../../components/blogg/BloggForside";
 import { isDevelopment } from "../../utils/environment";
@@ -51,12 +51,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 };
 
 const PreviewWrapper = (props: { data: BlogpostPreviewI[] }) => {
-  const { data } = usePreviewSubscription(query, {
-    initialData: props.data,
-    enabled: isDevelopment(),
-  });
-
-  return <BloggForside blogposts={data} />;
+  return <BloggForside blogposts={props.data} />;
 };
 
 export default PreviewWrapper;

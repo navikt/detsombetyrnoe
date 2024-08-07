@@ -10,7 +10,7 @@ interface Props {
     lysTekst: boolean;
     tittel: string;
   };
-  icon: FunctionComponent;
+  icon?: FunctionComponent;
 }
 
 const Style = styled.div`
@@ -34,7 +34,7 @@ function PanelPreview(props: Props) {
   const tittel = props.value.tittel;
   return (
     <Style style={{ backgroundColor: props.value.bakgrunnsfarge, color: props.value.lysTekst ? "#FFF" : "#333" }}>
-      <props.icon />{" "}
+      {props.icon && <props.icon />}{" "}
       <span>
         {props.value.type}
         {tittel && `: ${tittel}`}
