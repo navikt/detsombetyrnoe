@@ -25,9 +25,7 @@ export const BlockContent = defineType({
             title: "Lenke",
             name: "lenke",
             type: "object",
-            blockEditor: {
-              icon: FaLink,
-            },
+            icon: FaLink,
             fields: [
               {
                 title: "URL",
@@ -40,9 +38,7 @@ export const BlockContent = defineType({
             title: "Filopplasting",
             name: "filopplasting",
             type: "file",
-            blockEditor: {
-              icon: FaFile,
-            },
+            icon: FaFile,
           },
         ],
       },
