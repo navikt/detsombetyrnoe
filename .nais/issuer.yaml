@@ -1,0 +1,21 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: detsombetyrnoe-no
+  namespace: nais-system
+spec:
+  acme:
+    email: frode.sundby@nav.no
+    preferredChain: ISRG Root X1
+    privateKeySecretRef:
+      name: cloud-nais-io-account-key
+    server: https://acme-v02.api.letsencrypt.org/directory
+    solvers:
+    - selector:
+        dnsNames:
+          - detsombetyrnoe.no
+      dns01:
+        cnameStrategy: Follow
+        cloudDNS:
+          hostedZoneName: intern-nav-no
+          project: nais-prod-020f
