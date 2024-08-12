@@ -9,3 +9,10 @@
   width: calc(var(--content-max-width) * 1.15);
   max-width: 100vw;
 }
+
+@media (max-width: 768px) {
+  .videoWrapper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

@@ -1,6 +1,5 @@
 import * as React from "react";
 import { NøkkeltallListe, NøkkeltallTekst } from "./types";
-import Panel from "../Panel";
 import Tall from "./Tall";
 import styled from "styled-components";
 import { useRef } from "react";
@@ -20,6 +19,12 @@ const StyledUl = styled.ul`
     grid-template-columns: repeat(4, 15rem);
   }
   grid-gap: 4rem;
+
+  @media (max-width: 768px) {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
 `;
 
 export default function Nøkkeltall(props: NøkkeltallData) {
