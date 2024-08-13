@@ -8,6 +8,11 @@ const Style = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 1rem;
+
+  @media (min-width: 600px) {
+    padding: 0;
+  }
 `;
 
 const LesMerLink = styled.a`
@@ -23,6 +28,9 @@ const Tekst = styled.div`
     margin-top: 1.75rem;
   }
   max-width: var(--content-max-width);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 `;
 
 function ArtikkelPreview(props: ArtikkelI) {
