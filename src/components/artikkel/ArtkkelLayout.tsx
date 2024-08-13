@@ -23,6 +23,16 @@ const H1 = styled.h1`
   margin-top: calc(2rem + 3vmin);
   margin-bottom: calc(1.5rem + 2vmin);
   ${fontSize.s2}
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media (max-width: 768px) {
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
 `;
 
 export const H2 = styled.h2`
