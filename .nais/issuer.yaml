@@ -12,7 +12,7 @@ spec:
     server: https://acme-v02.api.letsencrypt.org/directory
     solvers:
     - selector:
-        dnsNames:
+        dnsZones:
           - detsombetyrnoe.no
       dns01:
         cnameStrategy: Follow

@@ -6,6 +6,7 @@ metadata:
 spec:
   dnsNames:
   - detsombetyrnoe.no
+  - '*.detsombetyrnoe.no'
   issuerRef:
     name: detsombetyrnoe-no
   secretName: wc-detsombetyrnoe-no-tls
