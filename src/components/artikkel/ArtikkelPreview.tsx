@@ -29,8 +29,10 @@ const Tekst = styled.div`
   }
   max-width: var(--content-max-width);
   overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;
+
+  @media (max-width: 600px) {
+    hyphens: auto;
+  }
 `;
 
 function ArtikkelPreview(props: ArtikkelI) {
