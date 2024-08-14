@@ -6,36 +6,21 @@ Nextjs-frontend og sanity-cms oppsett for karrieresidene på [detsombetyrnoe.no]
 
 Innhold kan redigeres på [https://detsombetyrnoe.no/studio](https://detsombetyrnoe.no/studio)
 
-### Manuelle stillinger
-
-Dersom automatikken ikke plukker enkelte stillinger kan du legge til disse i en egen liste.
-Gå til [tilleggsstillinger.json](/src/lib/tilleggsstillinger.json)
-
 ## Utvikling
 
-Bruke Node.js v16
+Bruke Node.js v20 og yarn berry
+
+Dersom yarn berry ikke er satt opp fra tidligere:
 
 ```
-npm i
-npm run dev
+corepack enable
+yarn set version berry
 ```
 
-## API'er
-
-Github-api'et er avhengig av et access token.
-Dette kan du fikse for lokal utvikling ved å opprett filen `.env.local` i root-folderet med innholdet:
-
 ```
-# SECRET - DO NOT COMMIT TO GIT
-
-# Trengs for at api/github endepunktet skal funke
-API_GITHUB_TOKEN="MITT_HEMMELIGE_TOKEN"
+yarn
+yarn dev
 ```
-
-#### Github-token til lokal utvikling
-
-`github.com -> Settings -> Developer settings -> Personal access tokens`
-Du trenger tilgang til `public_repo, read:org` og skru på SSO for tokenet.
 
 ## Gamle sider
 

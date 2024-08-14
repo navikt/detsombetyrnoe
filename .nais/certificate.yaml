@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: wc-detsombetyrnoe-no
+  namespace: nais-system
+spec:
+  dnsNames:
+  - detsombetyrnoe.no
+  - '*.detsombetyrnoe.no'
+  issuerRef:
+    name: detsombetyrnoe-no
+  secretName: wc-detsombetyrnoe-no-tls
