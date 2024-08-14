@@ -16,15 +16,25 @@ export interface NøkkeltallData {
 const StyledUl = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 15rem));
+  grid-gap: 4rem;
+
   @media (min-width: 100em) {
     grid-template-columns: repeat(4, 15rem);
   }
-  grid-gap: 4rem;
+
+  @media (max-width: 100em) and (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+  }
 
   @media (max-width: 768px) {
-    overflow-wrap: break-word;
-    word-wrap: break-word;
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+  }
+
+  @media (max-width: 400px) {
     word-break: break-word;
+    hyphens: auto;
   }
 `;
 
