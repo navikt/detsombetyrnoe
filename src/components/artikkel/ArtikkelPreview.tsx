@@ -9,10 +9,6 @@ const Style = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 0 1rem;
-
-  @media (min-width: 600px) {
-    padding: 0;
-  }
 `;
 
 const LesMerLink = styled.a`
