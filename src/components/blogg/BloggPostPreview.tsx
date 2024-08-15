@@ -1,11 +1,11 @@
 import * as React from "react";
 import styled from "styled-components";
-import { BlogpostPreviewI } from "../../pages/blogg";
 import { urlFor } from "../../lib/sanity";
 import { format } from "date-fns";
 import { nb } from "date-fns/locale";
 import Link from "next/link";
 import Forfattere from "./Forfattere";
+import { BlogpostPreview } from "src/lib/services/sanity/model/blogg/bloggQuery";
 
 const Style = styled.a`
   color: inherit !important;
@@ -29,7 +29,7 @@ const Content = styled.div`
   }
 `;
 
-function BloggPostPreview(props: { post: BlogpostPreviewI; highResImage?: boolean }) {
+function BloggPostPreview(props: { post: BlogpostPreview; highResImage?: boolean }) {
   return (
     <Link href={`/blogg/${props.post.slug?.current}`} passHref={true} legacyBehavior>
       <Style lang={props.post.language}>

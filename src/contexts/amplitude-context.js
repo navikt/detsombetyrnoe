@@ -1,3 +1,4 @@
+"use client";
 import { createContext, useContext, useEffect } from "react";
 import { initAmplitude, logAmplitudeEvent } from "../utils/amplitude";
 import { isTest } from "../utils/environment";

@@ -62,7 +62,7 @@
     "printWidth": 120
   },
   "lint-staged": {
-    "*.{js,jsx,json,md,ts,tsx}": "prettier --write"
+    "*.{js,jsx,json,md,ts,tsx,css,module.css}": "prettier --write"
   },
   "engines": {
     "node": ">=16.5.0"

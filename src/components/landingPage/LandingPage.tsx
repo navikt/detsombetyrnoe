@@ -1,11 +1,12 @@
+"use client";
 import React from "react";
 import styled from "styled-components";
-import { LandingssideProps } from "../../pages/helenorge";
 import CustomComponent from "../CustomComponent";
 import { Footer } from "../Footer";
 import { Header } from "../forside/Header";
 import SEO from "../SEO";
 import Tekstblokk from "../Tekstblokk";
+import { LandingssideProps } from "src/app/(site)/jobb-med-sikkerhet/page";
 
 const Content = styled.div``;
 
@@ -25,7 +26,6 @@ export const LandingPage = (props: LandingssideProps) => {
       <Header
         overskrift={landingPage?.overskrift}
         underoverskrift={landingPage?.underoverskrift}
-        fetUnderskrift={landingPage?.fetUnderskrift}
         bakgrunnsfarge={landingPage?.bakgrunnsfarge ?? "#004367"}
         lysTekst={landingPage?.lysTekst}
         navLogoPosition="flex-start"

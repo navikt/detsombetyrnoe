@@ -1,6 +1,6 @@
 import * as React from "react";
 import { urlFor } from "../../lib/sanity";
-import { ForfatterI } from "../../pages/blogg";
+import { Forfatter as ForfatterInterface } from "src/lib/services/sanity/model/forfatter/forfatterQuery";
 import styled from "styled-components";
 import Link from "next/link";
 
@@ -29,7 +29,7 @@ const StyledA = styled.a`
   }
 `;
 
-function Forfatter(props: { forfatter: ForfatterI; lenke?: boolean }) {
+function Forfatter(props: { forfatter: ForfatterInterface; lenke?: boolean }) {
   const content = (
     <ForfatterStyle>
       <ForfatterImage src={urlFor(props.forfatter.mainImage).height(100).width(100).url() || ""} alt="" />
@@ -48,7 +48,7 @@ function Forfatter(props: { forfatter: ForfatterI; lenke?: boolean }) {
   return content;
 }
 
-function Forfattere(props: { forfattere?: ForfatterI[]; className?: string; lenkeTilForfatterside?: boolean }) {
+function Forfattere(props: { forfattere?: ForfatterInterface[]; className?: string; lenkeTilForfatterside?: boolean }) {
   return (
     <div className={props.className}>
       {props.forfattere?.map((forfatter) => (

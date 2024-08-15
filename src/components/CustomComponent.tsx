@@ -6,11 +6,11 @@ import { WebcruiterStillinger } from "./landingPage/WebcruiterStillinger";
 import styled from "styled-components";
 import ArtikkelPreview from "./artikkel/ArtikkelPreview";
 import { PridePanel } from "./PridePanel";
-import { StillingI, UtviklerHeleNorge } from "../pages";
 import { SikkerhetStillinger } from "./landingPage/SikkerhetStillinger";
 import style from "../../sanity/components/forside/Forside.module.css";
 import Video from "./Video";
 import Nøkkeltall from "./nøkkeltall/Nøkkeltall";
+import { StillingI, UtviklerHeleNorge } from "src/app/(site)/page";
 
 export interface CustomComponentProps {
   _type: "customComponent";

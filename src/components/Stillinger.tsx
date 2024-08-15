@@ -1,6 +1,6 @@
+import { StillingI } from "src/app/(site)/page";
 import Stilling from "./stilling";
 import styled from "styled-components";
-import { StillingI } from "../pages";
 
 const Style = styled.div`
   > * {

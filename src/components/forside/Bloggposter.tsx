@@ -2,9 +2,9 @@ import * as React from "react";
 import styled from "styled-components";
 import Header from "../blogg/Header";
 import { useForsideContext } from "./ForsideProvider";
-import { ForsideProps } from "../../pages";
 import Link from "next/link";
 import { formatterDato } from "../../utils/formatterDato";
+import { ForsideProps } from "src/app/(site)/page";
 
 const Style = styled.div`
   max-width: 40rem;
