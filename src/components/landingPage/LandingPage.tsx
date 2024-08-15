@@ -2,7 +2,6 @@
 import React from "react";
 import styled from "styled-components";
 import CustomComponent from "../CustomComponent";
-import { Footer } from "../Footer";
 import { Header } from "../forside/Header";
 import SEO from "../SEO";
 import Tekstblokk from "../Tekstblokk";
@@ -58,12 +57,6 @@ export const LandingPage = (props: LandingssideProps) => {
             );
           }
         })}
-        <Footer
-          tittel={metaData.privacyArticle.tittel}
-          slug={metaData.privacyArticle.slug}
-          backgroundColor={landingPage?.bakgrunnsfarge}
-          lysTekst={false}
-        />
       </Content>
     </div>
   );

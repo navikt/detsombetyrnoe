@@ -1,13 +1,11 @@
 "use client";
 import * as React from "react";
 import ForsideProvider from "../../../src/components/forside/ForsideProvider";
-import SEO from "../../../src/components/SEO";
 import { Header } from "../../../src/components/forside/Header";
 import CustomComponent from "../../../src/components/CustomComponent";
 import Panel from "../../../src/components/Panel";
 import Nøkkeltall from "../../../src/components/nøkkeltall/Nøkkeltall";
 import ArtikkelPreview from "../../../src/components/artikkel/ArtikkelPreview";
-import { Footer } from "../../../src/components/Footer";
 import { WebcruiterStillinger } from "../../../src/components/landingPage/WebcruiterStillinger";
 import Video from "../../../src/components/Video";
 import style from "./Forside.module.css";
@@ -43,6 +41,7 @@ export const Forside = (props: ForsideProps) => {
         lysTekst={props.forside?.lysTekst}
         visGithubLenke={true}
       />
+      <div id="content" />
       <Panel>
         <WebcruiterStillinger />
       </Panel>
@@ -72,12 +71,6 @@ export const Forside = (props: ForsideProps) => {
           />
         )
       )}
-      <Footer
-        tittel={props.metaData.privacyArticle.tittel}
-        slug={props.metaData.privacyArticle.slug}
-        backgroundColor={props.forside?.bakgrunnsfarge}
-        lysTekst={props.forside?.lysTekst}
-      />
     </ForsideProvider>
   );
 };

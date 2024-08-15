@@ -1,4 +1,4 @@
-//import "server-only";
+import "server-only";
 
 import { experimental_taintUniqueValue } from "react";
 
@@ -8,4 +8,4 @@ if (!sanityReadToken) {
   console.log("Missing SANITY_API_READ_TOKEN");
 }
 
-//experimental_taintUniqueValue("Do not pass the sanity API read token to the client.", process, sanityReadToken);
+//experimental_taintUniqueValue("Do not pass the sanity API read token to the client.", process, sanityReadToken!!);

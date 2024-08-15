@@ -52,7 +52,6 @@ const landingssideQuery = groq`
           }
         }
       },
-    ${metaDataGroq},
 }`;
 
 const Page = async () => {

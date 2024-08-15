@@ -3,6 +3,10 @@ import "/src/app/(site)/globals.css";
 import { draftMode } from "next/headers";
 import { VisualEditing } from "next-sanity";
 import { Metadata, Viewport } from "next";
+import { Footer } from "src/components/footer/Footer";
+import { sanityFetch } from "src/lib/services/sanity/fetch";
+import { MetadataI } from "src/app/(site)/page";
+import { metaDataGroq } from "src/utils/groq";
 
 export const viewport: Viewport = {
   initialScale: 1.0,
@@ -17,7 +21,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const metadata = await sanityFetch<MetadataI>({ query: metaDataGroq });
+  const forside = await sanityFetch<{ bakgrunnsfarge: string; lysTekst: boolean }>({
+    query: `*[_id == "forside"][0] {bakgrunnsfarge,lysTekst}`,
+  });
   return (
     <html lang="nb">
       <head>
@@ -36,7 +44,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </a>
           </div>
         )}
-        <AmplitudeProvider>{children}</AmplitudeProvider>
+        <AmplitudeProvider>
+          {children}
+          <Footer
+            tittel={metadata.privacyArticle.tittel}
+            slug={metadata.privacyArticle.slug}
+            backgroundColor={forside?.bakgrunnsfarge}
+            lysTekst={forside?.lysTekst}
+          />
+        </AmplitudeProvider>
         {draftMode().isEnabled && <VisualEditing />}
       </body>
     </html>
