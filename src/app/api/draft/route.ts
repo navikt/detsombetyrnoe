@@ -10,9 +10,9 @@ const clientWithToken = client.withConfig({ token: sanityReadToken });
 export async function GET(request: Request) {
   const { isValid, redirectTo = "/" } = await validatePreviewUrl(clientWithToken, request.url);
 
-  /*if (!isValid) {
+  if (!isValid) {
     return new Response("Invalid secret", { status: 401 });
-  }*/
+  }
 
   draftMode().enable();
 

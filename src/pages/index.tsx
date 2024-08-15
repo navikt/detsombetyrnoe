@@ -118,7 +118,10 @@ export interface ForsideProps {
 }
 
 export async function getStaticProps(context: { draftMode: any }) {
-  const data = await sanityFetch({ query: landingssideQuery, stega: false, perspective: "published" });
+  const data = await sanityFetch({
+    query: landingssideQuery,
+    perspective: context.draftMode ? "previewDrafts" : "published",
+  });
   return {
     props: {
       data,
