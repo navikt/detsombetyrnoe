@@ -31,6 +31,8 @@ spec:
   observability:
     tracing:
       enabled: true
+  envFrom:
+    - secret: detsombetyrnoe-env-local
   ingresses:
   {{#each ingresses as |url|}}
     - {{url}}

@@ -1,13 +1,12 @@
 import * as React from "react";
-import { sanityClient } from "../lib/sanity";
-import { groq } from "next-sanity";
+import { groq, VisualEditing } from "next-sanity";
 import { NøkkeltallData } from "../components/nøkkeltall/Nøkkeltall";
 import { CustomComponentProps } from "../components/CustomComponent";
 import { ArtikkelI } from "../components/artikkel/types";
-import { useRouter } from "next/router";
 import PreviewBanner from "../components/PreviewBanner";
 import Forside from "../../sanity/components/forside/Forside";
 import { metaDataGroq } from "../utils/groq";
+import { sanityFetch } from "src/lib/services/sanity/fetch";
 
 const landingssideQuery = groq`{
 "forside": *[_id == "forside"][0] {
@@ -118,23 +117,34 @@ export interface ForsideProps {
   stillinger: StillingI[];
 }
 
-export async function getStaticProps() {
-  const data = await sanityClient.fetch(landingssideQuery);
+export async function getStaticProps(context: { draftMode: any }) {
+  const data = await sanityFetch({
+    query: landingssideQuery,
+    perspective: context.draftMode ? "previewDrafts" : "published",
+  });
   return {
     props: {
       data,
+      isDraft: context.draftMode ?? false,
     },
     revalidate: 60,
   };
 }
 
-const PreviewWrapper = (props: { data: ForsideProps }) => {
-  const router = useRouter();
-  const enablePreview = !!router.query.preview;
-
+const PreviewWrapper = (props: { data: ForsideProps; isDraft: boolean }) => {
   return (
     <>
-      {enablePreview && <PreviewBanner />}
+      {props.isDraft && (
+        <>
+          <div>
+            <a className="p-4 bg-blue-300 block" href="/api/disable-draft">
+              Disable preview mode
+            </a>
+          </div>
+          <PreviewBanner />
+          <VisualEditing />
+        </>
+      )}
       <Forside {...props.data} />
     </>
   );
