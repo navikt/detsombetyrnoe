@@ -46,7 +46,6 @@ export const LandingPage = (props: LandingssideProps) => {
             return <CustomComponent {...panel} key={panel.id} />;
           }
           if (panel._type === "tekstblokk") {
-            console.log("tekstblokk", panel);
             return (
               <Tekstblokk
                 key={panel._key}
