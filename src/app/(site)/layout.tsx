@@ -5,8 +5,7 @@ import { VisualEditing } from "next-sanity";
 import { Metadata, Viewport } from "next";
 import { Footer } from "src/components/footer/Footer";
 import { sanityFetch } from "src/lib/services/sanity/fetch";
-import { MetadataI } from "src/app/(site)/page";
-import { metaDataGroq } from "src/utils/groq";
+import { getMetaData } from "src/lib/services/sanity/model/metadata/metadataQuery";
 
 export const viewport: Viewport = {
   initialScale: 1.0,
@@ -22,7 +21,7 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const metadata = await sanityFetch<MetadataI>({ query: metaDataGroq });
+  const metadata = await getMetaData();
   const forside = await sanityFetch<{ bakgrunnsfarge: string; lysTekst: boolean }>({
     query: `*[_id == "forside"][0] {bakgrunnsfarge,lysTekst}`,
   });

@@ -2,7 +2,6 @@ import * as React from "react";
 import styled, { keyframes } from "styled-components";
 import { isNøkkeltallTekst, NøkkeltallListe, NøkkeltallTekst } from "./types";
 import { navFrontend } from "../../styles/navFarger";
-import useInViewport from "../../utils/useInViewport";
 import { useRef } from "react";
 
 const Style = styled.li`

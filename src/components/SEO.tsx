@@ -1,9 +1,9 @@
 import * as React from "react";
 import Head from "next/head";
 import { urlFor } from "../lib/sanity";
-import { MetadataI } from "src/app/(site)/page";
+import { Metadata } from "src/lib/services/sanity/model/metadata/metadataQuery";
 
-function SEO(props: { metadata?: MetadataI; url?: string }) {
+function SEO(props: { metadata?: Metadata; url?: string }) {
   return (
     <Head>
       <meta property="og:title" content={props?.metadata?.title} />

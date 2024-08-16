@@ -1,8 +1,7 @@
 import { groq } from "next-sanity";
 import { PaScenenPreview } from "src/components/PaScenenPreview";
 import { sanityFetch } from "src/lib/services/sanity/fetch";
-import { MetadataI } from "src/app/(site)/page";
-import { metaDataGroq } from "src/utils/groq";
+import { Metadata } from "src/lib/services/sanity/model/metadata/metadataQuery";
 
 export interface LandingssideProps {
   landingPage?: {
@@ -14,7 +13,7 @@ export interface LandingssideProps {
     paneler?: NavPaScenen[];
     previewImage?: any;
   };
-  metaData: MetadataI;
+  metaData: Metadata;
 }
 
 export interface NavPaScenen {

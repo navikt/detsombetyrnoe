@@ -15,7 +15,6 @@
     "@sanity/block-content-to-react": "3.0.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.54.0",
-    "@sentry/browser": "^7.39.0",
     "@u-wave/react-vimeo": "^0.9.10",
     "amplitude-js": "^8.21.9",
     "basicscroll": "3.0.4",

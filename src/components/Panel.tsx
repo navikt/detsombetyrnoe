@@ -1,5 +1,5 @@
 import * as React from "react";
-import { forwardRef, ReactNode, RefObject } from "react";
+import { ReactNode, RefObject } from "react";
 import styled, { css } from "styled-components";
 import Spinner from "./Spinner";
 

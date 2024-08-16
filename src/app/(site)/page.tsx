@@ -4,8 +4,8 @@ import { ArtikkelI } from "src/components/artikkel/types";
 import { CustomComponentProps } from "src/components/CustomComponent";
 import { NøkkeltallData } from "src/components/nøkkeltall/Nøkkeltall";
 import { sanityFetch } from "src/lib/services/sanity/fetch";
-import { metaDataGroq } from "src/utils/groq";
 import { urlFor } from "src/lib/sanity";
+import { getMetaData, Metadata, metaDataGroq } from "src/lib/services/sanity/model/metadata/metadataQuery";
 
 const landingssideQuery = groq`{
     "forside": *[_id == "forside"][0] {
@@ -51,16 +51,6 @@ interface ForisdeBloggpostI {
   slug: string;
   _createdAt: string;
   forfattere: string[];
-}
-
-export interface MetadataI {
-  description: string;
-  previewImage: any;
-  title: string;
-  privacyArticle: {
-    tittel: string;
-    slug: string;
-  };
 }
 
 interface Placeholder {
@@ -111,13 +101,13 @@ export interface ForsideProps {
     paneler?: (PanelProps | CustomComponentProps)[];
     utviklereHeleNorge: UtviklerHeleNorge[];
   };
-  metaData: MetadataI;
+  metaData: Metadata;
   bloggposter: ForisdeBloggpostI[];
   stillinger: StillingI[];
 }
 
 export const generateMetadata = async () => {
-  const metadata = await sanityFetch<MetadataI>({ query: metaDataGroq });
+  const metadata = await getMetaData();
   return {
     title: metadata.title,
     openGraph: {
