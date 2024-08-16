@@ -1,6 +1,6 @@
 import * as React from "react";
 import { createContext, ReactNode, useContext } from "react";
-import { ForsideProps } from "../../../src/pages";
+import { ForsideProps } from "src/app/(site)/page";
 
 const context = createContext<Partial<ForsideProps>>({});
 

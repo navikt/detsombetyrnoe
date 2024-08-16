@@ -1,11 +1,10 @@
 import { groq } from "next-sanity";
-import { useRouter } from "next/router";
-import React from "react";
-import { MetadataI, PanelProps, TekstblokkProps } from ".";
-import { CustomComponentProps } from "../components/CustomComponent";
-import { LandingPage } from "../components/landingPage/LandingPage";
-import PreviewBanner from "../components/PreviewBanner";
-import { sanityClient } from "../lib/sanity";
+import { notFound } from "next/navigation";
+import { CustomComponentProps } from "src/components/CustomComponent";
+import { LandingPage } from "src/components/landingPage/LandingPage";
+import { client } from "src/lib/services/sanity/client";
+import { sanityFetch } from "src/lib/services/sanity/fetch";
+import { MetadataI, PanelProps, TekstblokkProps } from "src/app/(site)/page";
 
 const landingssideQuery = groq`
 {
@@ -47,26 +46,14 @@ export interface LandingssideProps {
   metaData: MetadataI;
 }
 
-export async function getStaticProps() {
-  const data = await sanityClient.fetch(landingssideQuery);
-  return {
-    props: {
-      data,
-    },
-    revalidate: 60,
-  };
-}
+const Page = async () => {
+  const page = await sanityFetch<LandingssideProps>({ query: landingssideQuery });
 
-const PreviewWrapper = (props: { data: LandingssideProps }) => {
-  const router = useRouter();
-  const enablePreview = !!router.query.preview;
+  if (!page) {
+    return notFound();
+  }
 
-  return (
-    <>
-      {enablePreview && <PreviewBanner />}
-      {props.data.landingPage && <LandingPage {...props.data} />}
-    </>
-  );
+  return <LandingPage {...page} />;
 };
 
-export default PreviewWrapper;
+export default Page;

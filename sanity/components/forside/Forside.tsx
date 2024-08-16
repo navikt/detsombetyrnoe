@@ -1,16 +1,15 @@
+"use client";
 import * as React from "react";
 import ForsideProvider from "../../../src/components/forside/ForsideProvider";
-import SEO from "../../../src/components/SEO";
 import { Header } from "../../../src/components/forside/Header";
 import CustomComponent from "../../../src/components/CustomComponent";
 import Panel from "../../../src/components/Panel";
-import { ForsideProps, PanelProps } from "../../../src/pages";
 import Nøkkeltall from "../../../src/components/nøkkeltall/Nøkkeltall";
 import ArtikkelPreview from "../../../src/components/artikkel/ArtikkelPreview";
-import { Footer } from "../../../src/components/Footer";
 import { WebcruiterStillinger } from "../../../src/components/landingPage/WebcruiterStillinger";
 import Video from "../../../src/components/Video";
 import style from "./Forside.module.css";
+import { ForsideProps, PanelProps } from "../../../src/app/(site)/page";
 
 export function getChildren(innhold?: PanelProps["innhold"]) {
   if (!innhold) {
@@ -30,10 +29,9 @@ export function getChildren(innhold?: PanelProps["innhold"]) {
   }
 }
 
-function Forside(props: ForsideProps) {
+export const Forside = (props: ForsideProps) => {
   return (
     <ForsideProvider forsideProps={props}>
-      <SEO metadata={props.metaData} />
       <Header
         overskrift={props.forside?.overskrift}
         underoverskrift={props.forside?.underoverskrift}
@@ -43,6 +41,7 @@ function Forside(props: ForsideProps) {
         lysTekst={props.forside?.lysTekst}
         visGithubLenke={true}
       />
+      <div id="content" />
       <Panel>
         <WebcruiterStillinger />
       </Panel>
@@ -72,14 +71,6 @@ function Forside(props: ForsideProps) {
           />
         )
       )}
-      <Footer
-        tittel={props.metaData.privacyArticle.tittel}
-        slug={props.metaData.privacyArticle.slug}
-        backgroundColor={props.forside?.bakgrunnsfarge}
-        lysTekst={props.forside?.lysTekst}
-      />
     </ForsideProvider>
   );
-}
-
-export default Forside;
+};

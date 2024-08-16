@@ -1,8 +1,9 @@
+"use client";
 import { useEffect, useRef } from "react";
 import maplibregl, { LngLat, LngLatLike, NavigationControl, Popup } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import styled from "styled-components";
-import { UtviklerHeleNorge } from "../../pages";
+import { UtviklerHeleNorge } from "src/app/(site)/page";
 
 const MapWrap = styled.div`
   position: relative;

@@ -1,9 +1,10 @@
+"use client";
 import * as React from "react";
 import styled from "styled-components";
-import { BlogpostPreviewI } from "../../pages/blogg";
 import BloggPostPreview from "./BloggPostPreview";
 import Header from "./Header";
 import Head from "next/head";
+import { BlogpostPreview } from "src/lib/services/sanity/model/blogg/bloggQuery";
 
 const Style = styled.div`
   min-height: 100vh;
@@ -25,7 +26,7 @@ const StyledOl = styled.ol`
 `;
 
 interface Props {
-  blogposts: BlogpostPreviewI[];
+  blogposts: BlogpostPreview[];
 }
 
 function BloggForside(props: Props) {

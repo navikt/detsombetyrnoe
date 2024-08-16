@@ -1,6 +1,7 @@
+"use client";
 import * as React from "react";
 import styled from "styled-components";
-import { ForfatterI } from "../pages/forfatter/[slug]";
+import { Forfatter as ForfatterInterface } from "src/lib/services/sanity/model/forfatter/forfatterQuery";
 import { urlFor } from "../lib/sanity";
 import BloggPostPreview from "./blogg/BloggPostPreview";
 
@@ -43,7 +44,7 @@ const StyledH2 = styled.h2`
   margin: 4rem 0 2rem;
 `;
 
-function Forfatter(props: ForfatterI) {
+function Forfatter(props: ForfatterInterface) {
   return (
     <Style>
       <Navnelinje>

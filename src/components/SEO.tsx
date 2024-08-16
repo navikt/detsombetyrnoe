@@ -1,7 +1,7 @@
 import * as React from "react";
 import Head from "next/head";
-import { MetadataI } from "../pages";
 import { urlFor } from "../lib/sanity";
+import { MetadataI } from "src/app/(site)/page";
 
 function SEO(props: { metadata?: MetadataI; url?: string }) {
   return (

@@ -1,0 +1,19 @@
+.footer {
+  background-color: #32414f;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.lysTekst {
+  color: white;
+}
+
+.lysTekst a {
+  color: #eee;
+}
+.lysTekst a:hover,
+.lysTekst a:active {
+  color: white;
+}

@@ -1,5 +1,5 @@
+"use client";
 import React from "react";
-import { BlogpostData } from "../../pages/blogg/[slug]";
 import styled from "styled-components";
 import Header from "./Header";
 import Forfattere from "./Forfattere";
@@ -9,6 +9,7 @@ import Head from "next/head";
 import { formatterDato } from "../../utils/formatterDato";
 import { useAmplitude } from "../../contexts/amplitude-context";
 import { useMount } from "react-use";
+import { BlogpostData } from "src/lib/services/sanity/model/blogg/bloggQuery";
 
 const Style = styled.div`
   min-height: 100vh;
