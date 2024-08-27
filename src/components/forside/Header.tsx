@@ -9,7 +9,6 @@ interface Props {
   overskrift?: string;
   underoverskrift?: string;
   fetUnderskrift?: string;
-  bakgrunnsfarge?: string;
   bakgrunnsvideo?: any;
   lysTekst?: boolean;
   visGithubLenke?: boolean;

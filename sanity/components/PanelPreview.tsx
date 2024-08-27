@@ -5,9 +5,9 @@ import { FunctionComponent } from "react";
 
 interface Props {
   value: {
-    bakgrunnsfarge: string;
     type: string;
     lysTekst: boolean;
+    lysBakgrunn: boolean;
     tittel: string;
   };
   icon?: FunctionComponent;
@@ -33,7 +33,12 @@ function PanelPreview(props: Props) {
 
   const tittel = props.value.tittel;
   return (
-    <Style style={{ backgroundColor: props.value.bakgrunnsfarge, color: props.value.lysTekst ? "#FFF" : "#333" }}>
+    <Style
+      style={{
+        backgroundColor: props.value.lysBakgrunn ? "#e9e7e7" : "#32414f",
+        color: props.value.lysTekst ? "#FFF" : "#333",
+      }}
+    >
       {props.icon && <props.icon />}{" "}
       <span>
         {props.value.type}

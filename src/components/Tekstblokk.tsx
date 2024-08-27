@@ -7,7 +7,7 @@ import { ArtikkelI } from "./artikkel/types";
 import Link from "next/link";
 
 interface Props {
-  backgroundColor?: string;
+  lysBakgrunn?: boolean;
   lysTekst?: boolean;
   overskrift: string;
   tekst: any;
@@ -71,7 +71,7 @@ const Content = styled.div`
 
 const Tekstblokk = (props: Props) => (
   <Style
-    backgroundColor={props.backgroundColor || "white"}
+    backgroundColor={props.lysBakgrunn ? "#e9e7e7" : "#32414f" || "white"}
     lysTekst={!!props.lysTekst}
     id={props.id}
     className={props.className}

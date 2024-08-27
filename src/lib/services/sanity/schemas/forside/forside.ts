@@ -1,7 +1,5 @@
 import { MdWeb } from "react-icons/md";
 import heleNorgeUtvikler from "../heleNorgeUtvikler";
-import NavColorInput from "../../../../../../sanity/components/NavColorInput";
-import { component } from "sanity/structure";
 import { defineType } from "sanity";
 
 export const ForsideIkon = MdWeb;
@@ -32,13 +30,6 @@ export const Forside = defineType({
       name: "bakgrunnsvideoWebm",
       title: "Bakgrunnsvideo webm",
       type: "file",
-    },
-    {
-      name: "bakgrunnsfarge",
-      type: "string",
-      components: {
-        input: NavColorInput,
-      },
     },
     {
       name: "lysTekst",

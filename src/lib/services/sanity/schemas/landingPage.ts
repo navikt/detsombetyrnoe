@@ -1,6 +1,4 @@
 import { MdWeb } from "react-icons/md";
-import NavColorInput from "../../../../../sanity/components/NavColorInput";
-import { component } from "sanity/structure";
 
 export const ForsideIkon = MdWeb;
 
@@ -36,13 +34,6 @@ export default {
       type: "image",
       options: {
         hotspot: true,
-      },
-    },
-    {
-      name: "bakgrunnsfarge",
-      type: "string",
-      components: {
-        input: NavColorInput,
       },
     },
     {

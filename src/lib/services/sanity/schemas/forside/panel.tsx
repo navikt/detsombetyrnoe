@@ -1,22 +1,18 @@
 import * as React from "react";
 
 import { MdWebAsset } from "react-icons/md";
-import { defineType } from "sanity";
-import NavColorInput from "../../../../../../sanity/components/NavColorInput";
-import PanelPreview from "../../../../../../sanity/components/PanelPreview";
+import { defineField, defineType } from "sanity";
 
 export const Panel = defineType({
   name: "panel",
   type: "object",
   icon: MdWebAsset,
   fields: [
-    {
-      name: "bakgrunnsfarge",
-      type: "string",
-      components: {
-        input: NavColorInput,
-      },
-    },
+    defineField({
+      name: "lysBakgrunn",
+      type: "boolean",
+      title: "Lys bakgrunn",
+    }),
     {
       name: "lysTekst",
       type: "boolean",
@@ -29,15 +25,16 @@ export const Panel = defineType({
   ],
   preview: {
     select: {
-      bakgrunnsfarge: "bakgrunnsfarge",
       type: "innhold._type",
       lysTekst: "lysTekst",
+      lysBakgrunn: "lysBakgrunn",
       tittel: "innhold.tittel",
     },
     prepare: (selection) => {
+      console.log(selection);
       return {
-        title: selection.bakgrunnsfarge,
-        media: <PanelPreview value={{ ...selection }} />,
+        title: selection.tittel,
+        subtitle: selection.type,
       };
     },
   },

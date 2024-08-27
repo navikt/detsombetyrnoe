@@ -25,7 +25,6 @@ export const LandingPage = (props: LandingssideProps) => {
       <Header
         overskrift={landingPage?.overskrift}
         underoverskrift={landingPage?.underoverskrift}
-        bakgrunnsfarge={landingPage?.bakgrunnsfarge ?? "#004367"}
         lysTekst={landingPage?.lysTekst}
         navLogoPosition="flex-start"
         tilForsidenLenke
@@ -48,7 +47,7 @@ export const LandingPage = (props: LandingssideProps) => {
             return (
               <Tekstblokk
                 key={panel._key}
-                backgroundColor={panel.bakgrunnsfarge}
+                lysBakgrunn={panel.lysBakgrunn}
                 lysTekst={panel.lysTekst}
                 overskrift={panel.overskrift}
                 tekst={panel.tekst}

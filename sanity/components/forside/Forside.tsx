@@ -37,12 +37,11 @@ export const Forside = (props: ForsideProps) => {
         underoverskrift={props.forside?.underoverskrift}
         //bakgrunnsvideo={props.forside?.bakgrunnsvideo}
         bildeSrc="/NAV_postgres_still_banner.jpg"
-        bakgrunnsfarge={props.forside?.bakgrunnsfarge}
         lysTekst={props.forside?.lysTekst}
         visGithubLenke={true}
       />
       <div id="content" />
-      <Panel>
+      <Panel lysBakgrunn>
         <WebcruiterStillinger />
       </Panel>
       <div>
@@ -65,7 +64,7 @@ export const Forside = (props: ForsideProps) => {
         ) : (
           <Panel
             key={panel._key}
-            backgroundColor={panel.bakgrunnsfarge}
+            lysBakgrunn={panel.lysBakgrunn}
             lysTekst={panel.lysTekst}
             children={getChildren(panel.innhold)}
           />

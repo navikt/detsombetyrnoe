@@ -15,7 +15,7 @@ import { StillingI, UtviklerHeleNorge } from "src/app/(site)/page";
 export interface CustomComponentProps {
   _type: "customComponent";
   id: string;
-  bakgrunnsfarge?: string;
+  lysBakgrunn?: boolean;
   lysTekst?: boolean;
   stillinger: StillingI[];
   utviklereHeleNorge?: UtviklerHeleNorge[];
@@ -48,13 +48,13 @@ function CustomComponent(props: CustomComponentProps) {
   switch (props.id) {
     case "stillinger":
       return (
-        <Panel backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
+        <Panel lysBakgrunn={props.lysBakgrunn} lysTekst={props.lysTekst}>
           <Stillinger stillinger={props.stillinger} />
         </Panel>
       );
     case "blogg":
       return (
-        <Panel backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
+        <Panel lysBakgrunn={props.lysBakgrunn} lysTekst={props.lysTekst}>
           <Bloggposter />
         </Panel>
       );
@@ -71,19 +71,19 @@ function CustomComponent(props: CustomComponentProps) {
       }
     case "sikkerhetStillinger":
       return (
-        <Panel backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
+        <Panel lysBakgrunn={props.lysBakgrunn} lysTekst={props.lysTekst}>
           <SikkerhetStillinger />
         </Panel>
       );
     case "heleNorgeStillinger":
       return (
-        <Panel backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
+        <Panel lysBakgrunn={props.lysBakgrunn} lysTekst={props.lysTekst}>
           <WebcruiterStillinger />
         </Panel>
       );
     case "heleNorgeForside":
       return (
-        <Panel backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
+        <Panel lysBakgrunn={props.lysBakgrunn} lysTekst={props.lysTekst}>
           {/* @ts-ignore */}
           <ArtikkelPreview
             tittel="Nå søker vi utviklere over hele Norge"
@@ -94,7 +94,7 @@ function CustomComponent(props: CustomComponentProps) {
       );
     case "heleNorgeLandingPageOverskrift":
       return (
-        <Panel backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
+        <Panel lysBakgrunn={props.lysBakgrunn} lysTekst={props.lysTekst}>
           <Style>
             <Tekst>
               <h2>Vi søker nå minst 10 senior utviklere</h2>
@@ -114,7 +114,7 @@ function CustomComponent(props: CustomComponentProps) {
       );
     case "sikkerhet_nokkeltall":
       return (
-        <Panel>
+        <Panel lysBakgrunn={props.lysBakgrunn}>
           <div style={{ maxWidth: "50rem" }}>
             <SikkerhetNokkeltall
               _type="nokkeltall"

@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 import Spinner from "./Spinner";
 
 interface Props {
-  backgroundColor?: string;
+  lysBakgrunn?: boolean;
   lysTekst?: boolean;
   children: ReactNode;
   spinner?: boolean;
@@ -46,7 +46,7 @@ const Style = styled.div<{ backgroundColor: string; lysTekst: boolean }>`
 
 const Panel = (props: Props) => (
   <Style
-    backgroundColor={props.backgroundColor || "white"}
+    backgroundColor={props.lysBakgrunn ? "#e9e7e7" : "#32414f" || "white"}
     lysTekst={!!props.lysTekst}
     id={props.id}
     className={props.className}

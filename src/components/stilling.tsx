@@ -64,7 +64,7 @@ const Stilling = (props: any) => {
       <i>Frist: {format(new Date(frist), "dd. MMMM yyyy", { locale: nb })}</i>
       <h3>
         <a href={url} ref={props.forwardedRef} onClick={handleClick} target="_blank">
-          {title.replace(/\s+/g, " ").trim()}
+          {title}
         </a>
       </h3>
       <P>{parse(description.trim())}</P>

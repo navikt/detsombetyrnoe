@@ -1,8 +1,6 @@
 import React from "react";
 import { GiUnicorn } from "react-icons/gi";
-import { defineType } from "sanity";
-import NavColorInput from "../../../../../../sanity/components/NavColorInput";
-import PanelPreview from "../../../../../../sanity/components/PanelPreview";
+import { defineField, defineType } from "sanity";
 
 export const CustomComponent = defineType({
   name: "customComponent",
@@ -14,13 +12,10 @@ export const CustomComponent = defineType({
       name: "id",
       description: "Denne må matche en id som utvikler legger inn i frontendkoden",
     },
-    {
-      name: "bakgrunnsfarge",
-      type: "string",
-      components: {
-        input: NavColorInput,
-      },
-    },
+    defineField({
+      name: "lysBakgrunn",
+      type: "boolean",
+    }),
     {
       name: "lysTekst",
       type: "boolean",
@@ -28,15 +23,15 @@ export const CustomComponent = defineType({
   ],
   preview: {
     select: {
-      bakgrunnsfarge: "bakgrunnsfarge",
       type: "_type",
       lysTekst: "lysTekst",
+      lysBakgrunn: "lysBakgrunn",
       tittel: "id",
     },
     prepare: (selection) => {
       return {
-        title: selection.bakgrunnsfarge,
-        media: <PanelPreview value={{ ...selection }} />,
+        title: selection.tittel,
+        subtitle: "Custom komponent",
       };
     },
   },

@@ -11,12 +11,11 @@ const landingssideQuery = groq`
     "landingPage": *[_type == "landingPage" && slug.current == "jobb-med-sikkerhet"][0] {
         overskrift,
         underoverskrift,
-        bakgrunnsfarge,
         lysTekst,
         paneler[] {
           lysTekst,
+          lysBakgrunn,
           _key,
-          bakgrunnsfarge,
           innhold->,
           tekst,
           overskrift,
@@ -38,7 +37,6 @@ export interface LandingssideProps {
   landingPage?: {
     overskrift: string;
     underoverskrift: string;
-    bakgrunnsfarge?: string;
     lysTekst?: boolean;
     paneler?: (PanelProps | CustomComponentProps | TekstblokkProps)[];
     previewImage?: string;

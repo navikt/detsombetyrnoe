@@ -11,14 +11,13 @@ const landingssideQuery = groq`{
     "forside": *[_id == "forside"][0] {
         overskrift,
         underoverskrift,
-        bakgrunnsfarge,
         "bakgrunnsvideo": bakgrunnsvideo.asset->url,
         "bakgrunnsvideoWebm": bakgrunnsvideoWebm.asset->url,
         lysTekst,
         paneler[] {
           lysTekst,
+          lysBakgrunn,
           _key,
-          bakgrunnsfarge,
           innhold->,
           id,
           _type
@@ -70,8 +69,8 @@ type Innhold = NøkkeltallData | Placeholder | ArtikkelI;
 export interface PanelProps {
   _key: string;
   _type: "panel";
-  bakgrunnsfarge?: string;
   lysTekst?: boolean;
+  lysBakgrunn?: boolean;
   innhold?: Innhold;
 }
 
@@ -79,7 +78,7 @@ export interface TekstblokkProps {
   _key: string;
   _type: "tekstblokk";
   overskrift: string;
-  bakgrunnsfarge?: string;
+  lysBakgrunn?: boolean;
   lysTekst?: boolean;
   tekst?: any;
   artikkel?: ArtikkelI;
@@ -96,7 +95,6 @@ export interface ForsideProps {
     underoverskrift: string;
     bakgrunnsvideo?: string;
     bakgrunnsvideoWebm?: string;
-    bakgrunnsfarge?: string;
     lysTekst?: boolean;
     paneler?: (PanelProps | CustomComponentProps)[];
     utviklereHeleNorge: UtviklerHeleNorge[];
