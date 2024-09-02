@@ -20,6 +20,9 @@ const landingssideQuery = groq`{
           _key,
           innhold->,
           id,
+          title,
+          url,
+          heading,
           _type
         },
         utviklereHeleNorge[] {
@@ -84,6 +87,14 @@ export interface TekstblokkProps {
   artikkel?: ArtikkelI;
 }
 
+export interface VideoProps {
+  _key: string;
+  _type: "video";
+  url: string;
+  title: string;
+  heading?: string;
+}
+
 export interface UtviklerHeleNorge {
   sted: string;
   geopoint: { lat: number; lng: number };
@@ -96,7 +107,7 @@ export interface ForsideProps {
     bakgrunnsvideo?: string;
     bakgrunnsvideoWebm?: string;
     lysTekst?: boolean;
-    paneler?: (PanelProps | CustomComponentProps)[];
+    paneler?: (PanelProps | CustomComponentProps | VideoProps)[];
     utviklereHeleNorge: UtviklerHeleNorge[];
   };
   metaData: Metadata;

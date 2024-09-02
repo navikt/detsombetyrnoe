@@ -14,6 +14,12 @@ export default {
       type: "string",
     },
     {
+      name: "heading",
+      title: "Overskrift",
+      description: "Valgri: Vises som overskrivt på panelet",
+      type: "string",
+    },
+    {
       name: "url",
       title: "URL til videoen",
       description: "Feks https://video.qbrick.com/play2/embed/player?accountId=763...",

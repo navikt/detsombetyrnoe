@@ -47,6 +47,10 @@ export const Forside = defineType({
           name: "customComponent",
           type: "customComponent",
         },
+        {
+          name: "video",
+          type: "video",
+        },
       ],
     },
     {

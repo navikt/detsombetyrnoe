@@ -44,32 +44,43 @@ export const Forside = (props: ForsideProps) => {
       <Panel lysBakgrunn>
         <WebcruiterStillinger />
       </Panel>
-      <div>
-        <div className={style.panelWrapper}>
-          <div className={style.videoWrapper}>
-            <h2 style={{ marginBlockStart: "2rem", marginBlockEnd: "1.5rem" }}>Velkommen til IT-avdelingen i NAV!</h2>
-            <Video title="NAV IT - Postgres i sky" url="https://player.vimeo.com/video/939482220?title=0&byline=0" />
-          </div>
-        </div>
-      </div>
 
-      {props.forside?.paneler?.map((panel) =>
-        panel._type === "customComponent" ? (
-          <CustomComponent
-            {...panel}
-            stillinger={props.stillinger ?? []}
-            utviklereHeleNorge={props.forside?.utviklereHeleNorge}
-            key={panel.id}
-          />
-        ) : (
-          <Panel
-            key={panel._key}
-            lysBakgrunn={panel.lysBakgrunn}
-            lysTekst={panel.lysTekst}
-            children={getChildren(panel.innhold)}
-          />
-        )
-      )}
+      {props.forside?.paneler?.map((panel) => {
+        if (panel._type === "video") {
+          return (
+            <div>
+              <div className={style.panelWrapper}>
+                <div className={style.videoWrapper}>
+                  {panel.heading && (
+                    <h2 style={{ marginBlockStart: "2rem", marginBlockEnd: "1.5rem" }}>{panel.heading}</h2>
+                  )}
+                  <Video title={panel.title} url={panel.url} />
+                </div>
+              </div>
+            </div>
+          );
+        }
+        if (panel._type === "customComponent") {
+          return (
+            <CustomComponent
+              {...panel}
+              stillinger={props.stillinger ?? []}
+              utviklereHeleNorge={props.forside?.utviklereHeleNorge}
+              key={panel.id}
+            />
+          );
+        }
+        if (panel._type === "panel") {
+          return (
+            <Panel
+              key={panel._key}
+              lysBakgrunn={panel.lysBakgrunn}
+              lysTekst={panel.lysTekst}
+              children={getChildren(panel.innhold)}
+            />
+          );
+        }
+      })}
     </ForsideProvider>
   );
 };
