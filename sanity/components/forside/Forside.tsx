@@ -10,6 +10,7 @@ import { WebcruiterStillinger } from "../../../src/components/landingPage/Webcru
 import Video from "../../../src/components/Video";
 import style from "./Forside.module.css";
 import { ForsideProps, PanelProps } from "../../../src/app/(site)/page";
+import { useScrollToHashOnPageLoad } from "../../../src/utils/useScrollToHashOnPageLoad";
 
 export function getChildren(innhold?: PanelProps["innhold"]) {
   if (!innhold) {
@@ -30,6 +31,8 @@ export function getChildren(innhold?: PanelProps["innhold"]) {
 }
 
 export const Forside = (props: ForsideProps) => {
+  useScrollToHashOnPageLoad();
+
   return (
     <ForsideProvider forsideProps={props}>
       <Header
