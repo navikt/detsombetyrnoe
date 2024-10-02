@@ -112,6 +112,16 @@ function CustomComponent(props: CustomComponentProps) {
           </div>
         </PanelMedVideo>
       );
+    case "nav_sikkerhet_video":
+      return (
+        <PanelMedVideo>
+          <div className={style.panelWrapper}>
+            <div className={style.videoWrapper}>
+              <Video title="NAV IT - Sikkerhet" url="https://player.vimeo.com/video/1015154302?title=0&byline=0" />
+            </div>
+          </div>
+        </PanelMedVideo>
+      );
     case "sikkerhet_nokkeltall":
       return (
         <Panel lysBakgrunn={props.lysBakgrunn}>

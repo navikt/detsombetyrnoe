@@ -83,20 +83,34 @@ export const SikkerhetStillinger = () => {
       <FlexContainer direction="column">
         <FlexContainer direction="row">
           <StillingPanel
-            href="https://arbeidsplassen.nav.no/stillinger/stilling/781e0f95-2dca-4fcc-91f9-4b1ee93b20fc"
-            title="Seniorrådgiver sikkerhetsstyring"
+            href="https://arbeidsplassen.nav.no/stillinger/stilling/9a58178e-203f-43c4-b4df-f74e9d4e3a47"
+            title="Sikkerhetsrådgiver"
             onClick={handleClick}
           >
-            <h3>Seniorrådgiver sikkerhetsstyring</h3>
-            <p>Vil du arbeide med styringssystemer for sikkerhet i NAV?</p>
+            <h3>Sikkerhetsrådgiver</h3>
+            <p>
+              Er du nysgjerrig på hvordan en av Norges største offentlige virksomheter sikrer sine samfunnskritiske
+              funksjoner og verdier?
+            </p>
           </StillingPanel>
           <StillingPanel
-            href="https://arbeidsplassen.nav.no/stillinger/stilling/3fe52aff-5fe6-43b2-8b2d-f9d79dbdb309"
-            title="Seniorrådgiver sikkerhetsrisiko"
+            href="https://arbeidsplassen.nav.no/stillinger/stilling/88ce00f8-bc33-4b53-9099-982b56c48224"
+            title="Seniorrådgiver Sikkerhetsstyring"
             onClick={handleClick}
           >
-            <h3>Seniorrådgiver sikkerhetsrisiko</h3>
-            <p>Vil du være med og sikre kritiske samfunnsfunksjoner?</p>
+            <h3>Seniorrådgiver Sikkerhetsstyring</h3>
+            <p>
+              Brenner du for sikkerhetsfaget? Og motiveres av muligheten til å bli med på utviklingen av en av Norges
+              største offentlige virksomheter?
+            </p>
+          </StillingPanel>
+          <StillingPanel
+            href="https://arbeidsplassen.nav.no/stillinger/stilling/2a5452c4-de9c-49c9-a055-8dade8fa67e1"
+            title="Fagleder informasjonssikkerhet"
+            onClick={handleClick}
+          >
+            <h3>Fagleder informasjonssikkerhet</h3>
+            <p>Ønsker du å lede prosesser som setter rammer for informasjonssikkerhet i en offentlig virksomhet?</p>
           </StillingPanel>
         </FlexContainer>
         <Link href="/#ledige-stillinger" passHref legacyBehavior>
