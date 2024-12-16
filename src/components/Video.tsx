@@ -11,16 +11,17 @@ interface Props {
 const StyledIframe = styled.iframe`
   width: 100%;
   height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #bbb;
+  //position: absolute;
+  //top: 0;
+  //left: 0;
+  /*background-color: #bbb;*/
 `;
 
 const VideoContainer = styled.figure`
   margin: 2rem 0;
-  padding-bottom: 57.25%;
-  position: relative;
+  height: 100%;
+  padding-bottom: 20%;
+  //position: relative;
 `;
 
 function Video(props: Props) {
