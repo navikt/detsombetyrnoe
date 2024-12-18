@@ -81,6 +81,32 @@ export const WebcruiterStillinger = () => {
           både mennesker og fag.
         </p>
       </Tekst>
+      <FlexContainer direction="column">
+        <FlexContainer direction="row">
+          <StillingPanel
+            href="https://2106.webcruiter.no/Main2/Recruit/Public/4891284732?link_source_id=0"
+            title="Frontendutvikler"
+            onClick={handleClick}
+          >
+            <h3>Frontendutvikler</h3>
+            <p>Frontend-utvikler og opptatt av samfunnsansvar?</p>
+          </StillingPanel>
+          <StillingPanel
+            href="https://2106.webcruiter.no/Main2/Recruit/Public/4891291873?link_source_id=0"
+            title="Utvikler"
+            onClick={handleClick}
+          >
+            <h3>Utvikler</h3>
+            <p>Vil du være backend-utvikler i Nav?</p>
+          </StillingPanel>
+        </FlexContainer>
+        <Link href="/#ledige-stillinger" passHref legacyBehavior>
+          <StillingPanel>
+            <h3>Se flere ledige stillinger i NAV</h3>
+            <p>Vi er stadig på utkikk etter nye kollegaer, sjekk ut andre ledige stillinger her!</p>
+          </StillingPanel>
+        </Link>
+      </FlexContainer>
     </Style>
   );
 };
