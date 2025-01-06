@@ -84,7 +84,7 @@ export const WebcruiterStillinger = () => {
       <FlexContainer direction="column">
         <FlexContainer direction="row">
           <StillingPanel
-            href="https://2106.webcruiter.no/Main2/Recruit/Public/4891284732?link_source_id=0"
+            href="https://2106.webcruiter.no/Main2/Recruit/Public/4891284732?link_source_id=4351476949"
             title="Frontendutvikler"
             onClick={handleClick}
           >
@@ -92,7 +92,7 @@ export const WebcruiterStillinger = () => {
             <p>Frontend-utvikler og opptatt av samfunnsansvar?</p>
           </StillingPanel>
           <StillingPanel
-            href="https://2106.webcruiter.no/Main2/Recruit/Public/4891291873?link_source_id=0"
+            href="https://2106.webcruiter.no/Main2/Recruit/Public/4891291873?link_source_id=4351476949"
             title="Utvikler"
             onClick={handleClick}
           >
