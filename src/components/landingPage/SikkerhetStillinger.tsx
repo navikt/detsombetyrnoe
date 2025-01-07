@@ -83,34 +83,12 @@ export const SikkerhetStillinger = () => {
       <FlexContainer direction="column">
         <FlexContainer direction="row">
           <StillingPanel
-            href="https://arbeidsplassen.nav.no/stillinger/stilling/9a58178e-203f-43c4-b4df-f74e9d4e3a47"
-            title="Sikkerhetsrådgiver"
+            href="https://2106.webcruiter.no/Main2/Recruit/Public/4898819439?link_source_id=0"
+            title="Klientadministrator"
             onClick={handleClick}
           >
-            <h3>Sikkerhetsrådgiver</h3>
-            <p>
-              Er du nysgjerrig på hvordan en av Norges største offentlige virksomheter sikrer sine samfunnskritiske
-              funksjoner og verdier?
-            </p>
-          </StillingPanel>
-          <StillingPanel
-            href="https://arbeidsplassen.nav.no/stillinger/stilling/88ce00f8-bc33-4b53-9099-982b56c48224"
-            title="Seniorrådgiver Sikkerhetsstyring"
-            onClick={handleClick}
-          >
-            <h3>Seniorrådgiver Sikkerhetsstyring</h3>
-            <p>
-              Brenner du for sikkerhetsfaget? Og motiveres av muligheten til å bli med på utviklingen av en av Norges
-              største offentlige virksomheter?
-            </p>
-          </StillingPanel>
-          <StillingPanel
-            href="https://arbeidsplassen.nav.no/stillinger/stilling/2a5452c4-de9c-49c9-a055-8dade8fa67e1"
-            title="Fagleder informasjonssikkerhet"
-            onClick={handleClick}
-          >
-            <h3>Fagleder informasjonssikkerhet</h3>
-            <p>Ønsker du å lede prosesser som setter rammer for informasjonssikkerhet i en offentlig virksomhet?</p>
+            <h3>Klientadministrator</h3>
+            <p>Klar for å ta ansvar for sikkerhet og compliance i et moderne teknologisk miljø?</p>
           </StillingPanel>
         </FlexContainer>
         <Link href="/#ledige-stillinger" passHref legacyBehavior>
