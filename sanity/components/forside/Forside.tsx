@@ -44,9 +44,6 @@ export const Forside = (props: ForsideProps) => {
         visGithubLenke={true}
       />
       <div id="content" />
-      <Panel lysBakgrunn>
-        <WebcruiterStillinger />
-      </Panel>
 
       {props.forside?.paneler?.map((panel) => {
         if (panel._type === "video") {
