@@ -83,6 +83,17 @@ export const SikkerhetStillinger = () => {
       <FlexContainer direction="column">
         <FlexContainer direction="row">
           <StillingPanel
+            href="https://arbeidsplassen.nav.no/stillinger/stilling/dcc32fb3-670c-493d-942a-2a01339dfb25"
+            title="Sommerjobb"
+            onClick={handleClick}
+          >
+            <h3>Sommerjobb</h3>
+            <p>
+              Vil du ha en sommerjobb i 2025 hvor du kan gjøre en forskjell for våre brukere og samtidig jobbe med
+              sikkerhet og personvern i anskaffelser i Nav?
+            </p>
+          </StillingPanel>
+          <StillingPanel
             href="https://2106.webcruiter.no/Main2/Recruit/Public/4898819439?link_source_id=0"
             title="Klientadministrator"
             onClick={handleClick}
