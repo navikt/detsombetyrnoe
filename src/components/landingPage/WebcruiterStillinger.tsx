@@ -82,7 +82,7 @@ export const WebcruiterStillinger = () => {
         </p>
       </Tekst>
       <FlexContainer direction="column">
-        <FlexContainer direction="row">
+        {/*<FlexContainer direction="row">
           <StillingPanel
             href="https://2106.webcruiter.no/Main2/Recruit/Public/4891284732?link_source_id=4351476949"
             title="Frontendutvikler"
@@ -99,7 +99,7 @@ export const WebcruiterStillinger = () => {
             <h3>Utvikler</h3>
             <p>Vil du være backend-utvikler i Nav?</p>
           </StillingPanel>
-        </FlexContainer>
+        </FlexContainer>*/}
         <Link href="/#ledige-stillinger" passHref legacyBehavior>
           <StillingPanel>
             <h3>Se flere ledige stillinger i NAV</h3>

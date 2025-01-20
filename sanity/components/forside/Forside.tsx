@@ -44,7 +44,9 @@ export const Forside = (props: ForsideProps) => {
         visGithubLenke={true}
       />
       <div id="content" />
-
+      <Panel lysBakgrunn={true} lysTekst={false}>
+        <WebcruiterStillinger />
+      </Panel>
       {props.forside?.paneler?.map((panel) => {
         if (panel._type === "video") {
           return (
@@ -60,6 +62,7 @@ export const Forside = (props: ForsideProps) => {
             </div>
           );
         }
+
         if (panel._type === "customComponent") {
           return (
             <CustomComponent
