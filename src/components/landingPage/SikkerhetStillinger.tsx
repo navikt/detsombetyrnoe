@@ -93,14 +93,6 @@ export const SikkerhetStillinger = () => {
               sikkerhet og personvern i anskaffelser i Nav?
             </p>
           </StillingPanel>
-          <StillingPanel
-            href="https://2106.webcruiter.no/Main2/Recruit/Public/4898819439?link_source_id=0"
-            title="Klientadministrator"
-            onClick={handleClick}
-          >
-            <h3>Klientadministrator</h3>
-            <p>Klar for å ta ansvar for sikkerhet og compliance i et moderne teknologisk miljø?</p>
-          </StillingPanel>
         </FlexContainer>
         <Link href="/#ledige-stillinger" passHref legacyBehavior>
           <StillingPanel>
