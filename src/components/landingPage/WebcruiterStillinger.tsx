@@ -82,24 +82,26 @@ export const WebcruiterStillinger = () => {
         </p>
       </Tekst>
       <FlexContainer direction="column">
-        {/*<FlexContainer direction="row">
+        <FlexContainer direction="row">
           <StillingPanel
-            href="https://2106.webcruiter.no/Main2/Recruit/Public/4891284732?link_source_id=4351476949"
-            title="Frontendutvikler"
+            href="https://2106.webcruiter.no/Main2/Recruit/Public/4902894317?link_source_id=4351476949"
+            title="Backend/fullstack-utvikler"
             onClick={handleClick}
           >
-            <h3>Frontendutvikler</h3>
-            <p>Frontend-utvikler og opptatt av samfunnsansvar?</p>
+            <h3>Backend/fullstack-utvikler</h3>
+            <p>Vil du være en del av et autonomt produktteam som bygger verdens beste digitale velferdstjenester?</p>
           </StillingPanel>
           <StillingPanel
-            href="https://2106.webcruiter.no/Main2/Recruit/Public/4891291873?link_source_id=4351476949"
-            title="Utvikler"
+            href="https://2106.webcruiter.no/Main2/Recruit/Public/4910040606?link_source_id=4351476949"
+            title="Utvikler (sikkerhet)"
             onClick={handleClick}
           >
-            <h3>Utvikler</h3>
-            <p>Vil du være backend-utvikler i Nav?</p>
+            <h3>Utvikler (sikkerhet)</h3>
+            <p>
+              Vil du hjelpe teamene med å levere samfunnskritisk kode på en sikker måte, uten å hindre fart og flyt?
+            </p>
           </StillingPanel>
-        </FlexContainer>*/}
+        </FlexContainer>
         <Link href="/#ledige-stillinger" passHref legacyBehavior>
           <StillingPanel>
             <h3>Se flere ledige stillinger i NAV</h3>
