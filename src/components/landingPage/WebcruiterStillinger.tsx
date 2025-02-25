@@ -104,7 +104,7 @@ export const WebcruiterStillinger = () => {
         </FlexContainer>*/}
         <Link href="/#ledige-stillinger" passHref legacyBehavior>
           <StillingPanel>
-            <h3>Se fvåre ledige stillinger i NAV</h3>
+            <h3>Se våre ledige stillinger i NAV</h3>
             <p>Vi er stadig på utkikk etter nye kollegaer, sjekk ut andre ledige stillinger her!</p>
           </StillingPanel>
         </Link>
