@@ -74,34 +74,45 @@ export const WebcruiterStillinger = () => {
   return (
     <Style>
       <Tekst>
-        <h2>Liker du også å unngå nedetid?</h2>
+        <h2>Er du teknologileder med hjerte for velferdsstaten?</h2>
         <p>
-          I NAV er vi over 200 team som sammen løser innviklinger, og bygger verdens beste digitale arbeids- og
-          velferdsløsninger. Å jobbe hos oss vil selvsagt by på innviklinger og være givende for deg som har hjerte for
-          både mennesker og fag.
+          I Nav har vi som mål å være en ledestjerne for digitalisering i offentlig sektor, og vi har nettopp
+          gjennomført en større omorganisering av direktoratet og teknologiavdelingen i Nav. Nå etablerer
+          teknologidirektøren en ny ledergruppe som skal drive den strategiske utviklingen av avdelingen og
+          teknologiområdet i Nav.
         </p>
       </Tekst>
       <FlexContainer direction="column">
-        {/*<FlexContainer direction="row">
+        <FlexContainer direction="row">
           <StillingPanel
-            href="https://2106.webcruiter.no/Main2/Recruit/Public/4902894317?link_source_id=4351476949"
-            title="Backend/fullstack-utvikler"
+            href="https://arbeidsplassen.nav.no/stillinger/stilling/55f20b33-d61a-4c8c-ba80-f9ee3b6a51e7"
+            title="Avdelingsdirektør data og informasjonsforvaltning"
             onClick={handleClick}
           >
-            <h3>Backend/fullstack-utvikler</h3>
-            <p>Vil du være en del av et autonomt produktteam som bygger verdens beste digitale velferdstjenester?</p>
+            <h3>Avdelingsdirektør data og informasjonsforvaltning</h3>
+            <p>Vil du lede Navs arbeid med data, informasjon og kunstig intelligens?</p>
           </StillingPanel>
+        </FlexContainer>
+        <FlexContainer direction="row">
           <StillingPanel
-            href="https://2106.webcruiter.no/Main2/Recruit/Public/4910040606?link_source_id=4351476949"
-            title="Utvikler (sikkerhet)"
+            href="https://arbeidsplassen.nav.no/stillinger/stilling/c92b8ea8-da7c-4920-8c18-b1016372ecf7"
+            title="Avdelingsdirektør plattform og infrastruktur"
             onClick={handleClick}
           >
-            <h3>Utvikler (sikkerhet)</h3>
-            <p>
-              Vil du hjelpe teamene med å levere samfunnskritisk kode på en sikker måte, uten å hindre fart og flyt?
-            </p>
+            <h3>Avdelingsdirektør plattform og infrastruktur</h3>
+            <p>Vil du ta ansvar for plattformene og infrastrukturen velferdsstaten kjører på?</p>
           </StillingPanel>
-        </FlexContainer>*/}
+        </FlexContainer>
+        <FlexContainer direction="row">
+          <StillingPanel
+            href="https://arbeidsplassen.nav.no/stillinger/stilling/e38934a9-95ba-4e13-b5f3-c3ec0d2ef18e"
+            title="Avdelingsdirektør utvikling"
+            onClick={handleClick}
+          >
+            <h3>Avdelingsdirektør utvikling</h3>
+            <p>Vil du lede teknologene som bygger den norske velferdsstaten?</p>
+          </StillingPanel>
+        </FlexContainer>
         <Link href="/#ledige-stillinger" passHref legacyBehavior>
           <StillingPanel>
             <h3>Se våre ledige stillinger</h3>
