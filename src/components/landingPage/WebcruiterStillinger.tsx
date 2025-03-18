@@ -73,7 +73,7 @@ export const WebcruiterStillinger = () => {
 
   return (
     <Style>
-      <Tekst>
+      {/*<Tekst>
         <h2>Er du teknologileder med hjerte for velferdsstaten?</h2>
         <p>
           I Nav har vi som mål å være en ledestjerne for digitalisering i offentlig sektor, og vi har nettopp
@@ -81,9 +81,9 @@ export const WebcruiterStillinger = () => {
           teknologidirektøren en ny ledergruppe som skal drive den strategiske utviklingen av avdelingen og
           teknologiområdet i Nav.
         </p>
-      </Tekst>
+      </Tekst>*/}
       <FlexContainer direction="column">
-        <FlexContainer direction="row">
+        {/*<FlexContainer direction="row">
           <StillingPanel
             href="https://arbeidsplassen.nav.no/stillinger/stilling/55f20b33-d61a-4c8c-ba80-f9ee3b6a51e7"
             title="Avdelingsdirektør data og informasjonsforvaltning"
@@ -112,11 +112,11 @@ export const WebcruiterStillinger = () => {
             <h3>Avdelingsdirektør utvikling</h3>
             <p>Vil du lede teknologene som bygger den norske velferdsstaten?</p>
           </StillingPanel>
-        </FlexContainer>
+        </FlexContainer>*/}
         <Link href="/#ledige-stillinger" passHref legacyBehavior>
           <StillingPanel>
             <h3>Se våre ledige stillinger</h3>
-            <p>Vi er stadig på utkikk etter nye kollegaer, sjekk ut andre ledige stillinger her!</p>
+            <p>Vi er stadig på utkikk etter nye kollegaer, sjekk ut ledige stillinger her!</p>
           </StillingPanel>
         </Link>
       </FlexContainer>
