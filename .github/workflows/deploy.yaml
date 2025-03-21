@@ -1,21 +1,20 @@
-name: Bygg og deploy
+name: Bygg og deploy prod
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
     paths-ignore:
-      - '**.md'
+      - "**.md"
 
 jobs:
   build:
     name: build
     runs-on: ubuntu-latest
     permissions:
-        contents: read
-        id-token: write
-        packages: write
+      contents: read
+      id-token: write
+      packages: write
     env:
       NPM_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
       SKIP_YARN_COREPACK_CHECK: true
@@ -43,24 +42,10 @@ jobs:
       - name: install dependencies Yarn
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: yarn install --immutable
-      - name: Copy env-file # TODO: Se om vi kan finne en bedre løsning her på sikt
-        run: cp .nais/dev-gcp.env .env
-      - name: typesjekking
-        run: yarn tsc
-      - name: run tests
-        run: yarn test
-      - name: run build
-        run: yarn run build
 
-#      - name: Upload static files to NAV CDN
-#        uses: nais/deploy/actions/cdn-upload/v2@master
-#        if: ${{ inputs.cdn == true }}
-#        with:
-#          team: aap
-#          source: ./.next/static
-#          destination: /${{ inputs.appname }}/_next
-#          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
-#          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
+      - run: yarn typeCheck
+      - run: yarn test
+      - run: yarn run build
 
       - uses: nais/docker-build-push@v0
         id: docker-build-push
@@ -68,18 +53,19 @@ jobs:
           team: detsombetyrnoe
           identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
-          image_suffix: dev-gcp
-          tag: ${{ github.sha }}
-      - uses: nais/login@v0
-        id: login
-        with:
-          team: detsombetyrnoe
-          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
-          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
+
       - uses: nais/deploy/actions/deploy@v2
         env:
           PRINT_PAYLOAD: true
           CLUSTER: dev-gcp
           RESOURCE: .nais/nais.yaml
           VARS: .nais/dev.yaml
+          VAR: image=${{ steps.docker-build-push.outputs.image }}
+
+      - uses: nais/deploy/actions/deploy@v2
+        env:
+          PRINT_PAYLOAD: true
+          CLUSTER: prod-gcp
+          RESOURCE: .nais/nais.yaml
+          VARS: .nais/prod.yaml
           VAR: image=${{ steps.docker-build-push.outputs.image }}
