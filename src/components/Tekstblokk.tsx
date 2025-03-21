@@ -71,7 +71,7 @@ const Content = styled.div`
 
 const Tekstblokk = (props: Props) => (
   <Style
-    backgroundColor={props.lysBakgrunn ? "#e9e7e7" : "#32414f" || "white"}
+    backgroundColor={props.lysBakgrunn ? "#e9e7e7" : "#32414f"}
     lysTekst={!!props.lysTekst}
     id={props.id}
     className={props.className}

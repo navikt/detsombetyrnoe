@@ -46,7 +46,7 @@ const Style = styled.div<{ backgroundColor: string; lysTekst: boolean }>`
 
 const Panel = (props: Props) => (
   <Style
-    backgroundColor={props.lysBakgrunn ? "#e9e7e7" : "#32414f" || "white"}
+    backgroundColor={props.lysBakgrunn ? "#e9e7e7" : "#32414f"}
     lysTekst={!!props.lysTekst}
     id={props.id}
     className={props.className}
