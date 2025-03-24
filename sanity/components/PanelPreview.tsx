@@ -10,7 +10,7 @@ interface Props {
     lysBakgrunn: boolean;
     tittel: string;
   };
-  icon?: FunctionComponent;
+  icon?: ReactNode | Array<ReactNode>;
 }
 
 const Style = styled.div`
