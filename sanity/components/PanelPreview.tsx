@@ -1,7 +1,7 @@
-import * as React from "react";
+import React from "react";
 import styled from "styled-components";
 import withErrorBoundary from "../../src/components/withErrorBoundary";
-import { FunctionComponent } from "react";
+import { IconType } from "react-icons";
 
 interface Props {
   value: {
@@ -10,7 +10,7 @@ interface Props {
     lysBakgrunn: boolean;
     tittel: string;
   };
-  icon?: ReactNode | Array<ReactNode>;
+  icon?: IconType;
 }
 
 const Style = styled.div`

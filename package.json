@@ -65,6 +65,5 @@
   },
   "engines": {
     "node": ">=20.17.24"
-  },
-  "packageManager": "yarn@4.7.0"
+  }
 }
