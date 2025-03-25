@@ -5022,13 +5022,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prismjs@npm:1.26.5":
-  version: 1.26.5
-  resolution: "@types/prismjs@npm:1.26.5"
-  checksum: 10c0/5619cb449e0d8df098c8759d6f47bf8fdd510abf5dbdfa999e55c6a2545efbd1e209cc85a33d8d9f4ff2898089a1a6d9a70737c9baffaae635c46852c40d384a
-  languageName: node
-  linkType: hard
-
 "@types/progress-stream@npm:^2.0.5":
   version: 2.0.5
   resolution: "@types/progress-stream@npm:2.0.5"
@@ -7226,7 +7219,6 @@ __metadata:
     "@types/basicscroll": "npm:3.0.4"
     "@types/node": "npm:20.17.24"
     "@types/node-fetch": "npm:^2.6.12"
-    "@types/prismjs": "npm:1.26.5"
     "@types/react": "npm:^18.3.19"
     "@types/styled-components": "npm:^5.1.34"
     "@u-wave/react-vimeo": "npm:^0.9.12"
@@ -7244,7 +7236,6 @@ __metadata:
     next: "npm:^14.2.25"
     next-sanity: "npm:^9.9.5"
     prettier: "npm:^2.8.8"
-    prismjs: "npm:^1.30.0"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     react-icons: "npm:^5.5.0"
@@ -12936,13 +12927,6 @@ __metadata:
   dependencies:
     parse-ms: "npm:^2.1.0"
   checksum: 10c0/069aec9d939e7903846b3db53b020bed92e3dc5909e0fef09ec8ab104a0b7f9a846605a1633c60af900d288582fb333f6f30469e59d6487a2330301fad35a89c
-  languageName: node
-  linkType: hard
-
-"prismjs@npm:^1.30.0":
-  version: 1.30.0
-  resolution: "prismjs@npm:1.30.0"
-  checksum: 10c0/f56205bfd58ef71ccfcbcb691fd0eb84adc96c6ff21b0b69fc6fdcf02be42d6ef972ba4aed60466310de3d67733f6a746f89f2fb79c00bf217406d465b3e8f23
   languageName: node
   linkType: hard
 
