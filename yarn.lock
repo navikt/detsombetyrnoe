@@ -2936,7 +2936,7 @@
   dependencies:
     "@sanity/client" "^6.28.3"
 
-"@sanity/ui@^2.15.7":
+"@sanity/ui@^2.15.7", "@sanity/ui@^2.15.8":
   version "2.15.8"
   resolved "https://registry.yarnpkg.com/@sanity/ui/-/ui-2.15.8.tgz#e836b97e3afb44041b29cdc3fbfa83a224fe1096"
   integrity sha512-AfJ975V+k+D2LYVx5ZMiU1x60Hi+BLyfNk16UzoBr0wwv5YtB4qN5BaR/U6QMsUgszBBhcmPjSA9Vv3+9PhsKg==
@@ -2981,10 +2981,10 @@
     "@types/uuid" "^8.0.0"
     uuid "^8.0.0"
 
-"@sanity/vision@^3.80.1":
-  version "3.80.1"
-  resolved "https://registry.yarnpkg.com/@sanity/vision/-/vision-3.80.1.tgz#68eef5a5bdcbd0a0510afbe2c7b54818d06b28a6"
-  integrity sha512-Gk/LyguixWBvBy7eWPOUb70L2ga41H3ADyVuZHZjWA45Ur5uok5n4/SttPloGHM9g9tmR9ggCrxNek3L6+hrug==
+"@sanity/vision@^3.81.0":
+  version "3.81.0"
+  resolved "https://registry.yarnpkg.com/@sanity/vision/-/vision-3.81.0.tgz#bf79ec88b0c19e9bf0e0f4d9ad7c90c3ec9a2c09"
+  integrity sha512-aJw4new/zEJnkQQgV3t+wiZ8gSQSSaf4TsDdjUHG3RB7VX3jdfORgSrz9la1vKx4i8rT8qykLHQi9nDEQlOhlQ==
   dependencies:
     "@codemirror/autocomplete" "^6.1.0"
     "@codemirror/commands" "^6.0.1"
@@ -2999,15 +2999,16 @@
     "@rexxars/react-split-pane" "^1.0.0"
     "@sanity/color" "^3.0.0"
     "@sanity/icons" "^3.7.0"
-    "@sanity/ui" "^2.15.7"
-    "@uiw/react-codemirror" "^4.11.4"
+    "@sanity/ui" "^2.15.8"
+    "@uiw/react-codemirror" "^4.23.8"
     is-hotkey-esm "^1.0.0"
     json-2-csv "^5.5.1"
     json5 "^2.2.3"
     lodash "^4.17.21"
     quick-lru "^5.1.1"
-    react-compiler-runtime "19.0.0-beta-3229e95-20250315"
+    react-compiler-runtime "19.0.0-beta-aeaed83-20250323"
     react-fast-compare "^3.2.2"
+    use-effect-event "^1.0.2"
 
 "@sanity/visual-editing-csm@^2.0.10":
   version "2.0.10"
@@ -3601,7 +3602,7 @@
     "@codemirror/state" "^6.0.0"
     "@codemirror/view" "^6.0.0"
 
-"@uiw/react-codemirror@^4.11.4":
+"@uiw/react-codemirror@^4.23.8":
   version "4.23.10"
   resolved "https://registry.yarnpkg.com/@uiw/react-codemirror/-/react-codemirror-4.23.10.tgz#2e34aec4f65f901ed8e9b8a22e28f2177addce69"
   integrity sha512-AbN4eVHOL4ckRuIXpZxkzEqL/1ChVA+BSdEnAKjIB68pLQvKsVoYbiFP8zkXkYc4+Fcgq5KbAjvYqdo4ewemKw==
