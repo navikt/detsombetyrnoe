@@ -14,7 +14,7 @@
     "@portabletext/react": "^2.0.3",
     "@sanity/block-content-to-react": "3.0.0",
     "@sanity/image-url": "^1.1.0",
-    "@sanity/vision": "^3.80.1",
+    "@sanity/vision": "^3.82.0",
     "@u-wave/react-vimeo": "^0.9.12",
     "amplitude-js": "^8.21.9",
     "basicscroll": "3.0.4",
