@@ -2936,18 +2936,18 @@
   dependencies:
     "@sanity/client" "^6.28.3"
 
-"@sanity/ui@^2.15.7":
-  version "2.15.8"
-  resolved "https://registry.yarnpkg.com/@sanity/ui/-/ui-2.15.8.tgz#e836b97e3afb44041b29cdc3fbfa83a224fe1096"
-  integrity sha512-AfJ975V+k+D2LYVx5ZMiU1x60Hi+BLyfNk16UzoBr0wwv5YtB4qN5BaR/U6QMsUgszBBhcmPjSA9Vv3+9PhsKg==
+"@sanity/ui@^2.15.14", "@sanity/ui@^2.15.7":
+  version "2.15.14"
+  resolved "https://registry.yarnpkg.com/@sanity/ui/-/ui-2.15.14.tgz#fa05407cc7a84b0beafc88aeda634b1ac0cf9800"
+  integrity sha512-n1Hn97A1W/ku6+hDhojlA601w03XjBBbeEH+e5n6nXBnLj81GjE5DsoJcZ+ZDQI47iGmGsvG1M8eAb6E2VPuuQ==
   dependencies:
     "@floating-ui/react-dom" "^2.1.2"
     "@juggle/resize-observer" "^3.4.0"
     "@sanity/color" "^3.0.6"
     "@sanity/icons" "^3.7.0"
     csstype "^3.1.3"
-    framer-motion "^12.5.0"
-    react-compiler-runtime "19.0.0-beta-aeaed83-20250323"
+    framer-motion "^12.9.2"
+    react-compiler-runtime "19.0.0-beta-e993439-20250405"
     react-refractor "^2.2.0"
     use-effect-event "^1.0.2"
 
@@ -2981,10 +2981,10 @@
     "@types/uuid" "^8.0.0"
     uuid "^8.0.0"
 
-"@sanity/vision@^3.80.1":
-  version "3.80.1"
-  resolved "https://registry.yarnpkg.com/@sanity/vision/-/vision-3.80.1.tgz#68eef5a5bdcbd0a0510afbe2c7b54818d06b28a6"
-  integrity sha512-Gk/LyguixWBvBy7eWPOUb70L2ga41H3ADyVuZHZjWA45Ur5uok5n4/SttPloGHM9g9tmR9ggCrxNek3L6+hrug==
+"@sanity/vision@^3.87.1":
+  version "3.87.1"
+  resolved "https://registry.yarnpkg.com/@sanity/vision/-/vision-3.87.1.tgz#c461570d613238418fd96e93fad3634a8a6a16ff"
+  integrity sha512-d3VexRxmcumVWt6o8uzM0mn6bBRlH3pdcxx0Uvi2+lzEjB4hdge2uvdLmEiyqGSiVtPB+NKiA4UDuySfuNK/3g==
   dependencies:
     "@codemirror/autocomplete" "^6.1.0"
     "@codemirror/commands" "^6.0.1"
@@ -2999,15 +2999,16 @@
     "@rexxars/react-split-pane" "^1.0.0"
     "@sanity/color" "^3.0.0"
     "@sanity/icons" "^3.7.0"
-    "@sanity/ui" "^2.15.7"
-    "@uiw/react-codemirror" "^4.11.4"
+    "@sanity/ui" "^2.15.14"
+    "@uiw/react-codemirror" "^4.23.8"
     is-hotkey-esm "^1.0.0"
     json-2-csv "^5.5.1"
     json5 "^2.2.3"
     lodash "^4.17.21"
     quick-lru "^5.1.1"
-    react-compiler-runtime "19.0.0-beta-3229e95-20250315"
+    react-compiler-runtime "19.0.0-beta-e993439-20250405"
     react-fast-compare "^3.2.2"
+    use-effect-event "^1.0.2"
 
 "@sanity/visual-editing-csm@^2.0.10":
   version "2.0.10"
@@ -3588,10 +3589,10 @@
     "@vimeo/player" "^2.16.4"
     prop-types "^15.7.2"
 
-"@uiw/codemirror-extensions-basic-setup@4.23.10":
-  version "4.23.10"
-  resolved "https://registry.yarnpkg.com/@uiw/codemirror-extensions-basic-setup/-/codemirror-extensions-basic-setup-4.23.10.tgz#e5d901e860a039ac61d955af26a12866e9dc356c"
-  integrity sha512-zpbmSeNs3OU/f/Eyd6brFnjsBUYwv2mFjWxlAsIRSwTlW+skIT60rQHFBSfsj/5UVSxSLWVeUYczN7AyXvgTGQ==
+"@uiw/codemirror-extensions-basic-setup@4.23.12":
+  version "4.23.12"
+  resolved "https://registry.yarnpkg.com/@uiw/codemirror-extensions-basic-setup/-/codemirror-extensions-basic-setup-4.23.12.tgz#fb2e6a4d70c7d83f6bc54b5219ee9e84f8fa9eae"
+  integrity sha512-l9vuiXOTFDBetYrRLDmz3jDxQHDsrVAZ2Y6dVfmrqi2AsulsDu+y7csW0JsvaMqo79rYkaIZg8yeqmDgMb7VyQ==
   dependencies:
     "@codemirror/autocomplete" "^6.0.0"
     "@codemirror/commands" "^6.0.0"
@@ -3601,16 +3602,16 @@
     "@codemirror/state" "^6.0.0"
     "@codemirror/view" "^6.0.0"
 
-"@uiw/react-codemirror@^4.11.4":
-  version "4.23.10"
-  resolved "https://registry.yarnpkg.com/@uiw/react-codemirror/-/react-codemirror-4.23.10.tgz#2e34aec4f65f901ed8e9b8a22e28f2177addce69"
-  integrity sha512-AbN4eVHOL4ckRuIXpZxkzEqL/1ChVA+BSdEnAKjIB68pLQvKsVoYbiFP8zkXkYc4+Fcgq5KbAjvYqdo4ewemKw==
+"@uiw/react-codemirror@^4.23.8":
+  version "4.23.12"
+  resolved "https://registry.yarnpkg.com/@uiw/react-codemirror/-/react-codemirror-4.23.12.tgz#facb1458291937998818c1e11a123976df606a79"
+  integrity sha512-yseqWdzoAAGAW7i/NiU8YrfSLVOEBjQvSx1KpDTFVV/nn0AlAZoDVTIPEBgdXrPlVUQoCrwgpEaj3uZCklk9QA==
   dependencies:
     "@babel/runtime" "^7.18.6"
     "@codemirror/commands" "^6.1.0"
     "@codemirror/state" "^6.1.1"
     "@codemirror/theme-one-dark" "^6.0.0"
-    "@uiw/codemirror-extensions-basic-setup" "4.23.10"
+    "@uiw/codemirror-extensions-basic-setup" "4.23.12"
     codemirror "^6.0.0"
 
 "@vercel/stega@0.1.2":
@@ -5758,6 +5759,15 @@ framer-motion@^12.5.0:
   dependencies:
     motion-dom "^12.5.0"
     motion-utils "^12.5.0"
+    tslib "^2.4.0"
+
+framer-motion@^12.9.2:
+  version "12.9.4"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-12.9.4.tgz#c3091d77d6e84d1105549c40e4d7890b60f1ffb6"
+  integrity sha512-yaeGDmGQ3eCQEwZ95/pRQMaSh/Q4E2CK6JYOclG/PdjyQad0MULJ+JFVV8911Fl5a6tF6o0wgW8Dpl5Qx4Adjg==
+  dependencies:
+    motion-dom "^12.9.4"
+    motion-utils "^12.9.4"
     tslib "^2.4.0"
 
 from2@^2.1.0:
@@ -8164,10 +8174,22 @@ motion-dom@^12.5.0:
   dependencies:
     motion-utils "^12.5.0"
 
+motion-dom@^12.9.4:
+  version "12.9.4"
+  resolved "https://registry.yarnpkg.com/motion-dom/-/motion-dom-12.9.4.tgz#9de06ab408effc73877309cf27813442501ec0ef"
+  integrity sha512-25TWkQPj5I18m+qVjXGtCsxboY11DaRC5HMjd29tHKExazW4Zf4XtAagBdLpyKsVuAxEQ6cx5/E4AB21PFpLnQ==
+  dependencies:
+    motion-utils "^12.9.4"
+
 motion-utils@^12.5.0:
   version "12.5.0"
   resolved "https://registry.yarnpkg.com/motion-utils/-/motion-utils-12.5.0.tgz#0e42a6b8030327166ca0d0ea0d5b86d64c21e51d"
   integrity sha512-+hFFzvimn0sBMP9iPxBa9OtRX35ZQ3py0UHnb8U29VD+d8lQ8zH3dTygJWqK7av2v6yhg7scj9iZuvTS0f4+SA==
+
+motion-utils@^12.9.4:
+  version "12.9.4"
+  resolved "https://registry.yarnpkg.com/motion-utils/-/motion-utils-12.9.4.tgz#9d5a45a19971e20059911526d7af2217c5158fa2"
+  integrity sha512-BW3I65zeM76CMsfh3kHid9ansEJk9Qvl+K5cu4DVHKGsI52n76OJ4z2CUJUV+Mn3uEP9k1JJA3tClG0ggSrRcg==
 
 ms@2.0.0:
   version "2.0.0"
@@ -9291,6 +9313,11 @@ react-compiler-runtime@19.0.0-beta-aeaed83-20250323:
   version "19.0.0-beta-aeaed83-20250323"
   resolved "https://registry.yarnpkg.com/react-compiler-runtime/-/react-compiler-runtime-19.0.0-beta-aeaed83-20250323.tgz#9bec535b62f65dce2b472829406a0308e1939c6a"
   integrity sha512-77hSVURRTQ86LuCWvCqroEhs8wEAhsFEpipP16RdZrC+P6xWsrZKSqvntNJD++5wJw+ZIxyqU9w6Oz7t7KYINw==
+
+react-compiler-runtime@19.0.0-beta-e993439-20250405:
+  version "19.0.0-beta-e993439-20250405"
+  resolved "https://registry.yarnpkg.com/react-compiler-runtime/-/react-compiler-runtime-19.0.0-beta-e993439-20250405.tgz#bf41937642ef0c32fc1571e2e26a5637a6682199"
+  integrity sha512-uTvtVgJR21Xy7XAthYbC3R9V00V/U7xP3BWrwpSvcmHgtar8+TweghRIankQJLps/g7HIYxy+dnXCGBy0cKv5w==
 
 react-dom@^18.3.1:
   version "18.3.1"
