@@ -31,6 +31,9 @@ spec:
   observability:
     tracing:
       enabled: true
+  prometheus:
+    enabled: true
+    path: "/api/internal/metrics"
   envFrom:
     - secret: detsombetyrnoe-env-local
   ingresses:
