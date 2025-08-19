@@ -6,6 +6,7 @@ import { NøkkeltallData } from "src/components/nøkkeltall/Nøkkeltall";
 import { sanityFetch } from "src/lib/services/sanity/fetch";
 import { urlFor } from "src/lib/sanity";
 import { getMetaData, Metadata, metaDataGroq } from "src/lib/services/sanity/model/metadata/metadataQuery";
+import metrics from "src/lib/metrics";
 
 const landingssideQuery = groq`{
     "forside": *[_id == "forside"][0] {
@@ -135,10 +136,13 @@ export const generateMetadata = async () => {
   };
 };
 
-const Page = async () => {
+const Page = async ({ searchParams }: { searchParams: Record<string, string> }) => {
   const data = await sanityFetch<ForsideProps>({
     query: landingssideQuery,
   });
+
+  const kommerFra = searchParams.kommerFra || "direkte";
+  metrics.pageVisitsCounter.inc({ path: "/", kommerFra });
 
   return <Forside {...data} />;
 };
