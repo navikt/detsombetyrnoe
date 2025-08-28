@@ -8,19 +8,29 @@ Innhold kan redigeres på [https://detsombetyrnoe.no/studio](https://detsombetyr
 
 ## Utvikling
 
-Bruke Node.js v20 og yarn berry
+Bruke Node.js v20 og Yarn v4
 
-Dersom yarn berry ikke er satt opp fra tidligere:
+Yarn v4 lastes automatisk ned når du installerer dependencies med `yarn`, men du må enable corepack.
 
-```
+
+Corepack må bare enables èn gang per installerte node versjon.
+
+```bash
 corepack enable
-yarn set version berry
 ```
 
-```
+Installerer dependencies og kjør utviklingsserveren.
+
+```bash
 yarn
+```
+
+
+```bash
 yarn dev
 ```
+
+Starter utviklingsserveren.
 
 ## Gamle sider
 
