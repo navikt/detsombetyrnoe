@@ -7,7 +7,7 @@ export async function clickStillingClient(title: string) {
 }
 
 async function postMetrics(data: Record<string, string>, type: string) {
-  fetch("/api/logger/metrics", {
+  fetch("/api/analytics", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
