@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
 import { useAmplitude } from "../../contexts/amplitude-context";
+//import metrics from "src/lib/metrics";
 
 interface Props {
   tittel: string;
@@ -68,6 +69,7 @@ export const WebcruiterStillinger = () => {
     logAmplitudeEvent("Går til kampanjestilling", {
       title,
     });
+    //metrics.clickStillingCounter.inc({ title, page: "webcruiter" });
     window.location.assign(url);
   };
 

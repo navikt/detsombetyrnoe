@@ -54,13 +54,13 @@ const StyledBlockContent = styled(BlockContent)`
 const Bloggside = (props: BlogpostData) => {
   const { logAmplitudeEvent } = useAmplitude();
 
-  useMount(() =>
+  useMount(() => {
     logAmplitudeEvent("Bloggpost - pageview", {
       tittel: props.tittel,
       forfatter: props.forfattere?.map((it) => it.navn),
       slug: props.slug,
-    })
-  );
+    });
+  });
 
   return (
     <Style lang={props.language}>

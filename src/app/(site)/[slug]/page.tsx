@@ -2,6 +2,7 @@ import { groq } from "next-sanity";
 import { notFound } from "next/navigation";
 import Artikkel from "src/components/artikkel/Artikkel";
 import { ArtikkelI } from "src/components/artikkel/types";
+import metrics from "src/lib/metrics";
 import { sanityFetch } from "src/lib/services/sanity/fetch";
 
 interface Props {
@@ -31,6 +32,8 @@ const Page = async ({ params }: Props) => {
   if (!data) {
     return notFound();
   }
+
+  metrics.pageVisitsCounter.inc({ path: "/[slug]" });
 
   return <Artikkel data={data} />;
 };

@@ -1,4 +1,4 @@
-import { collectDefaultMetrics, Counter, Histogram } from "prom-client";
+import { collectDefaultMetrics, Counter } from "prom-client";
 
 import { nextleton } from "nextleton";
 
@@ -10,9 +10,21 @@ export class AppMetrics {
   }
 
   public pageVisitsCounter = new Counter({
-    name: "page_visits_total",
+    name: "dsbn_page_visits_total",
     help: "Total number of page visits",
     labelNames: ["path", "kommerFra"],
+  });
+
+  public showStillingCounter = new Counter({
+    name: "dsbn_show_stilling",
+    help: "Number of views for a specific job listing",
+    labelNames: ["title", "page"],
+  });
+
+  public clickStillingCounter = new Counter({
+    name: "dsbn_click_stilling",
+    help: "Number of clicks on a specific job listing",
+    labelNames: ["title", "page"],
   });
 }
 

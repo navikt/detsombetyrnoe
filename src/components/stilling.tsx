@@ -6,6 +6,8 @@ import { CardItem } from "./CardItem";
 import { format } from "date-fns";
 import { nb } from "date-fns/locale";
 import { useInViewport } from "react-in-viewport";
+import metrics from "src/lib/metrics";
+import { clickStillingClient, showStillingClient } from "src/lib/clientMetrics";
 
 const StyledCardItem = styled(CardItem)`
   &::after {
@@ -39,22 +41,28 @@ const Stilling = (props: any) => {
     setHarVistStilling(true);
   }
 
-  const handleClick = (event: any) => {
+  const handleClick = async (event: any) => {
     event.preventDefault();
     logAmplitudeEvent("Går til stilling", {
       title,
       url,
     });
+    await clickStillingClient(title);
+
     window.location.assign(url);
   };
 
   useEffect(() => {
-    if (harVistStilling) {
-      logAmplitudeEvent("Viser stilling", {
-        title,
-        url,
-      });
-    }
+    const logAndShowStilling = async () => {
+      if (harVistStilling) {
+        logAmplitudeEvent("Viser stilling", {
+          title,
+          url,
+        });
+        await showStillingClient(title);
+      }
+    };
+    logAndShowStilling();
   }, [harVistStilling]);
 
   if (!url) return <></>;
