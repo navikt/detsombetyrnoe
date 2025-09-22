@@ -1,11 +1,11 @@
-import { AmplitudeProvider } from "src/contexts/amplitude-context";
-import "/src/app/(site)/globals.css";
-import { draftMode } from "next/headers";
-import { VisualEditing } from "next-sanity";
 import { Metadata, Viewport } from "next";
+import { VisualEditing } from "next-sanity";
+import { draftMode } from "next/headers";
 import { Footer } from "src/components/footer/Footer";
+import { AmplitudeProvider } from "src/contexts/amplitude-context";
 import { sanityFetch } from "src/lib/services/sanity/fetch";
 import { getMetaData } from "src/lib/services/sanity/model/metadata/metadataQuery";
+import "/src/app/(site)/globals.css";
 
 export const viewport: Viewport = {
   initialScale: 1.0,
@@ -28,7 +28,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="nb">
       <head>
-        <link href="https://www.nav.no/dekoratoren/media/favicon.ico" rel="icon" type="image/x-icon" />
+        <link href="/faviconInnvikleren.ico" rel="icon" type="image/x-icon" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           rel="stylesheet"
