@@ -45,7 +45,7 @@
     "@testing-library/user-event": "^14.6.1",
     "@types/amplitude-js": "^8.16.5",
     "@types/basicscroll": "3.0.4",
-    "@types/node": "20.17.24",
+    "@types/node": "20.19.17",
     "@types/node-fetch": "^2.6.12",
     "@types/prismjs": "1.26.5",
     "@types/react": "^18.3.19",
