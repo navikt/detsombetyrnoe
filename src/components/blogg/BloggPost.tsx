@@ -7,7 +7,7 @@ import { urlFor } from "../../lib/sanity";
 import BlockContent from "../BlockContent";
 import Head from "next/head";
 import { formatterDato } from "../../utils/formatterDato";
-import { useAmplitude } from "../../contexts/amplitude-context";
+import { useTracking } from "../../contexts/tracking-context";
 import { useMount } from "react-use";
 import { BlogpostData } from "src/lib/services/sanity/model/blogg/bloggQuery";
 
@@ -52,10 +52,10 @@ const StyledBlockContent = styled(BlockContent)`
 `;
 
 const Bloggside = (props: BlogpostData) => {
-  const { logAmplitudeEvent } = useAmplitude();
+  const { logEvent } = useTracking();
 
   useMount(() => {
-    logAmplitudeEvent("Bloggpost - pageview", {
+    logEvent("Bloggpost - pageview", {
       tittel: props.tittel,
       forfatter: props.forfattere?.map((it) => it.navn),
       slug: props.slug,

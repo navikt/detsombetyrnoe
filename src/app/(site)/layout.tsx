@@ -2,10 +2,13 @@ import { Metadata, Viewport } from "next";
 import { VisualEditing } from "next-sanity";
 import { draftMode } from "next/headers";
 import { Footer } from "src/components/footer/Footer";
-import { AmplitudeProvider } from "src/contexts/amplitude-context";
+import { TrackingProvider } from "src/contexts/tracking-context";
 import { sanityFetch } from "src/lib/services/sanity/fetch";
 import { getMetaData } from "src/lib/services/sanity/model/metadata/metadataQuery";
 import "/src/app/(site)/globals.css";
+import Script from "next/script";
+
+export const dynamic = "force-dynamic";
 
 export const viewport: Viewport = {
   initialScale: 1.0,
@@ -34,6 +37,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,600&display=swap"
         />
+        <Script
+          defer
+          strategy="afterInteractive"
+          src="https://cdn.nav.no/team-researchops/sporing/sporing.js"
+          data-host-url="https://umami.nav.no"
+          data-website-id="93a6bd08-bd82-438d-bca5-cea0832e6778"
+        ></Script>
       </head>
       <body>
         {draftMode().isEnabled && (
@@ -43,7 +53,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             </a>
           </div>
         )}
-        <AmplitudeProvider>
+        <TrackingProvider>
           {children}
           <Footer
             tittel={metadata.privacyArticle.tittel}
@@ -51,7 +61,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             backgroundColor={forside?.bakgrunnsfarge}
             lysTekst={forside?.lysTekst}
           />
-        </AmplitudeProvider>
+        </TrackingProvider>
         {draftMode().isEnabled && <VisualEditing />}
       </body>
     </html>

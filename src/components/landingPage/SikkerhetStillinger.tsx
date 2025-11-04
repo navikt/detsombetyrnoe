@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
-import { useAmplitude } from "../../contexts/amplitude-context";
+import { useTracking } from "../../contexts/tracking-context";
 //import metrics from "src/lib/metrics";
 
 interface Props {
@@ -60,13 +60,13 @@ const FlexContainer = styled.div<{ direction: "column" | "row" }>`
 `;
 
 export const SikkerhetStillinger = () => {
-  const { logAmplitudeEvent } = useAmplitude();
+  const { logEvent } = useTracking();
 
   const handleClick = (event: any) => {
     event.preventDefault();
     const url = event.currentTarget.href;
     const title = event.currentTarget.title;
-    logAmplitudeEvent("Går til kampanjestilling", {
+    logEvent("Går til kampanjestilling", {
       title,
     });
     //metrics.clickStillingCounter.inc({ title, page: "sikkerhet" });

@@ -1,15 +1,21 @@
 const csp = {
   "default-src": ["'self'"],
-  "script-src": ["'self'", "'unsafe-inline'", "'unsafe-eval'", "*.vimeocdn.com"],
+  "script-src": [
+    "'self'",
+    "'unsafe-inline'",
+    "'unsafe-eval'",
+    "*.vimeocdn.com",
+    "https://cdn.nav.no/team-researchops/sporing/sporing.js",
+  ],
   "style-src": ["'self'", "blob:", "'unsafe-inline'", "fonts.googleapis.com", "*.vimeocdn.com"],
   "connect-src": [
     "'self'",
-    "*.amplitude.com",
     "cdn.sanity.io",
     "*.api.sanity.io",
     "vitals.vercel-insights.com",
     "api.maptiler.com",
     "openmaptiles.github.io",
+    "https://umami.nav.no/api/send",
   ],
   "font-src": ["'self'", "data:", "fonts.gstatic.com"],
   "frame-src": ["'self'", "player.vimeo.com"],

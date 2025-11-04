@@ -1,12 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { useAmplitude } from "../contexts/amplitude-context";
+import { useTracking } from "../contexts/tracking-context";
 import styled from "styled-components";
 import parse from "html-react-parser";
 import { CardItem } from "./CardItem";
 import { format } from "date-fns";
 import { nb } from "date-fns/locale";
 import { useInViewport } from "react-in-viewport";
-import { clickStillingClient, showStillingClient } from "src/lib/clientMetrics";
 
 const StyledCardItem = styled(CardItem)`
   &::after {
@@ -30,7 +29,7 @@ const P = styled.p`
 
 const Stilling = (props: any) => {
   const [harVistStilling, setHarVistStilling] = useState(false);
-  const { logAmplitudeEvent } = useAmplitude();
+  const { logEvent } = useTracking();
   const { frist, url, title, description } = props;
 
   const myRef = useRef(null);
@@ -42,11 +41,10 @@ const Stilling = (props: any) => {
 
   const handleClick = async (event: any) => {
     event.preventDefault();
-    logAmplitudeEvent("Går til stilling", {
+    logEvent("Går til stilling", {
       title,
       url,
     });
-    await clickStillingClient(title);
 
     window.location.assign(url);
   };
@@ -54,11 +52,10 @@ const Stilling = (props: any) => {
   useEffect(() => {
     const logAndShowStilling = async () => {
       if (harVistStilling) {
-        logAmplitudeEvent("Viser stilling", {
+        logEvent("Viser stilling", {
           title,
           url,
         });
-        await showStillingClient(title);
       }
     };
     logAndShowStilling();
