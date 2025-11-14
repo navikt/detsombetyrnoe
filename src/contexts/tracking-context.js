@@ -2,13 +2,17 @@
 import { createContext, useContext, useEffect } from "react";
 import { initTracking, logEvent } from "../utils/tracking";
 import { isTest } from "../utils/environment";
+import { useCookieConsent } from "src/components/cookieConsent/CookieConsentContext";
 
 const TrackingContext = createContext();
 
 function TrackingProvider({ children }) {
+  const consentContext = useCookieConsent();
   useEffect(() => {
-    initTracking();
-  }, []);
+    if (consentContext.consentState.state === "accepted") {
+      initTracking();
+    }
+  }, [consentContext.consentState]);
 
   return <TrackingContext.Provider value={{ logEvent: logEvent }}>{children}</TrackingContext.Provider>;
 }

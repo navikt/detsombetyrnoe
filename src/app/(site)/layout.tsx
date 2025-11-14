@@ -7,6 +7,9 @@ import { sanityFetch } from "src/lib/services/sanity/fetch";
 import { getMetaData } from "src/lib/services/sanity/model/metadata/metadataQuery";
 import "/src/app/(site)/globals.css";
 import Script from "next/script";
+import { CookieConsentProvider } from "src/components/cookieConsent/CookieConsentContext";
+import { CookieConsentBanner } from "src/components/cookieConsent/CookieConsentBanner";
+import { Umami } from "src/components/Umami";
 
 export const dynamic = "force-dynamic";
 
@@ -37,13 +40,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,600&display=swap"
         />
-        <Script
-          defer
-          strategy="afterInteractive"
-          src="https://cdn.nav.no/team-researchops/sporing/sporing.js"
-          data-host-url="https://umami.nav.no"
-          data-website-id="93a6bd08-bd82-438d-bca5-cea0832e6778"
-        ></Script>
       </head>
       <body>
         {draftMode().isEnabled && (
@@ -53,15 +49,19 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             </a>
           </div>
         )}
-        <TrackingProvider>
-          {children}
-          <Footer
-            tittel={metadata.privacyArticle.tittel}
-            slug={metadata.privacyArticle.slug}
-            backgroundColor={forside?.bakgrunnsfarge}
-            lysTekst={forside?.lysTekst}
-          />
-        </TrackingProvider>
+        <CookieConsentProvider>
+          <Umami />
+          <TrackingProvider>
+            <CookieConsentBanner />
+            {children}
+            <Footer
+              tittel={metadata.privacyArticle.tittel}
+              slug={metadata.privacyArticle.slug}
+              backgroundColor={forside?.bakgrunnsfarge}
+              lysTekst={forside?.lysTekst}
+            />
+          </TrackingProvider>
+        </CookieConsentProvider>
         {draftMode().isEnabled && <VisualEditing />}
       </body>
     </html>
