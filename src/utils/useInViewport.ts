@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function useInViewport<T extends HTMLElement>(ref: React.RefObject<T>, offset: number = 0) {
+function useInViewport<T extends HTMLElement>(ref: React.RefObject<T | null>, offset: number = 0) {
   const [inViewPort, setInViewport] = useState(false);
 
   useEffect(() => {

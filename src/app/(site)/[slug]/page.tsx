@@ -6,9 +6,9 @@ import metrics from "src/lib/metrics";
 import { sanityFetch } from "src/lib/services/sanity/fetch";
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 const artikkelQuery = groq`
@@ -27,7 +27,7 @@ const artikkelQuery = groq`
 }`;
 
 const Page = async ({ params }: Props) => {
-  const data = await sanityFetch<ArtikkelI>({ query: artikkelQuery, params: { slug: params.slug } });
+  const data = await sanityFetch<ArtikkelI>({ query: artikkelQuery, params: { slug: (await params).slug } });
 
   if (!data) {
     return notFound();

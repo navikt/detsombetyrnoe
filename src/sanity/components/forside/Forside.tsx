@@ -1,16 +1,16 @@
 "use client";
 import * as React from "react";
-import ForsideProvider from "../../../src/components/forside/ForsideProvider";
-import { Header } from "../../../src/components/forside/Header";
-import CustomComponent from "../../../src/components/CustomComponent";
-import Panel from "../../../src/components/Panel";
-import Nøkkeltall from "../../../src/components/nøkkeltall/Nøkkeltall";
-import ArtikkelPreview from "../../../src/components/artikkel/ArtikkelPreview";
-import { WebcruiterStillinger } from "../../../src/components/landingPage/WebcruiterStillinger";
-import Video from "../../../src/components/Video";
+import ForsideProvider from "../../../components/forside/ForsideProvider";
+import { Header } from "../../../components/forside/Header";
+import CustomComponent from "../../../components/CustomComponent";
+import Panel from "../../../components/Panel";
+import Nøkkeltall from "../../../components/nøkkeltall/Nøkkeltall";
+import ArtikkelPreview from "../../../components/artikkel/ArtikkelPreview";
+import { WebcruiterStillinger } from "../../../components/landingPage/WebcruiterStillinger";
+import Video from "../../../components/Video";
 import style from "./Forside.module.css";
-import { ForsideProps, PanelProps } from "../../../src/app/(site)/page";
-import { useScrollToHashOnPageLoad } from "../../../src/utils/useScrollToHashOnPageLoad";
+import { ForsideProps, PanelProps } from "../../../app/(site)/page";
+import { useScrollToHashOnPageLoad } from "../../../utils/useScrollToHashOnPageLoad";
 
 export function getChildren(innhold?: PanelProps["innhold"]) {
   if (!innhold) {
@@ -50,7 +50,7 @@ export const Forside = (props: ForsideProps) => {
       {props.forside?.paneler?.map((panel) => {
         if (panel._type === "video") {
           return (
-            <div>
+            <div key={panel._key}>
               <div className={style.panelWrapper}>
                 <div className={style.videoWrapper}>
                   {panel.heading && (

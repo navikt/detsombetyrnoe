@@ -2,7 +2,6 @@ import * as React from "react";
 import Parallax from "./Parallax";
 import { urlFor } from "../lib/sanity";
 import styled from "styled-components";
-import { SanityImageObject } from "@sanity/image-url/lib/types/types";
 import { ArtikkelI } from "./artikkel/types";
 import Video from "./Video";
 import { HTMLAttributes } from "react";

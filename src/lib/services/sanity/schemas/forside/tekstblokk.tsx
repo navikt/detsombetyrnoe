@@ -1,6 +1,6 @@
 import { GiUnicorn } from "react-icons/gi";
 import * as React from "react";
-import TekstblokkPreview from "../../../../../../sanity/components/TekstblokkPreview";
+import TekstblokkPreview from "../../../../../sanity/components/TekstblokkPreview";
 import { defineField, defineType } from "sanity";
 
 export const Tekstblokk = defineType({

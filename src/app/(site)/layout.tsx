@@ -1,12 +1,11 @@
 import { Metadata, Viewport } from "next";
-import { VisualEditing } from "next-sanity";
+import { VisualEditing } from "next-sanity/visual-editing";
 import { draftMode } from "next/headers";
 import { Footer } from "src/components/footer/Footer";
 import { TrackingProvider } from "src/contexts/tracking-context";
 import { sanityFetch } from "src/lib/services/sanity/fetch";
 import { getMetaData } from "src/lib/services/sanity/model/metadata/metadataQuery";
-import "/src/app/(site)/globals.css";
-import Script from "next/script";
+import "./globals.css";
 import { CookieConsentProvider } from "src/components/cookieConsent/CookieConsentContext";
 import { CookieConsentBanner } from "src/components/cookieConsent/CookieConsentBanner";
 import { Umami } from "src/components/Umami";
@@ -31,6 +30,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const forside = await sanityFetch<{ bakgrunnsfarge: string; lysTekst: boolean }>({
     query: `*[_id == "forside"][0] {bakgrunnsfarge,lysTekst}`,
   });
+
+  const isEnabled = (await draftMode()).isEnabled;
   return (
     <html lang="nb">
       <head>
@@ -42,7 +43,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         />
       </head>
       <body>
-        {draftMode().isEnabled && (
+        {isEnabled && (
           <div>
             <a className="p-4 bg-blue-300 block" href="/api/disable-draft">
               Disable preview mode
@@ -62,7 +63,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             />
           </TrackingProvider>
         </CookieConsentProvider>
-        {draftMode().isEnabled && <VisualEditing />}
+        {isEnabled && <VisualEditing />}
       </body>
     </html>
   );

@@ -1,5 +1,5 @@
 import { groq } from "next-sanity";
-import { Forside } from "../../../sanity/components/forside/Forside";
+import { Forside } from "../../sanity/components/forside/Forside";
 import { ArtikkelI } from "src/components/artikkel/types";
 import { CustomComponentProps } from "src/components/CustomComponent";
 import { NøkkeltallData } from "src/components/nøkkeltall/Nøkkeltall";

@@ -7,7 +7,7 @@ import styled from "styled-components";
 import ArtikkelPreview from "./artikkel/ArtikkelPreview";
 import { PridePanel } from "./PridePanel";
 import { SikkerhetStillinger } from "./landingPage/SikkerhetStillinger";
-import style from "../../sanity/components/forside/Forside.module.css";
+import style from "src/sanity/components/forside/Forside.module.css";
 import Video from "./Video";
 import Nøkkeltall from "./nøkkeltall/Nøkkeltall";
 import { StillingI, UtviklerHeleNorge } from "src/app/(site)/page";

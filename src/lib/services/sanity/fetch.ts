@@ -9,22 +9,9 @@ import { sanityReadToken } from "src/lib/services/sanity/tokens";
  * and will also fetch from the CDN.
  * When using the "previewDrafts" perspective then the data is fetched from the live API and isn't cached, it will also fetch draft content that isn't published yet.
  */
-export async function sanityFetch<QueryResponse>({
-  query,
-  params = {},
-  perspective = draftMode().isEnabled ? "previewDrafts" : "published",
-  /**
-   * Stega embedded Content Source Maps are used by Visual Editing by both the Sanity Presentation Tool and Vercel Visual Editing.
-   * The Sanity Presentation Tool will enable Draft Mode when loading up the live preview, and we use it as a signal for when to embed source maps.
-   * When outside of the Sanity Studio we also support the Vercel Toolbar Visual Editing feature, which is only enabled in production when it's a Vercel Preview Deployment.
-   */
-  stega = perspective === "previewDrafts",
-}: {
-  query: string;
-  params?: QueryParams;
-  perspective?: Omit<ClientPerspective, "raw">;
-  stega?: boolean;
-}) {
+export async function sanityFetch<QueryResponse>({ query, params = {} }: { query: string; params?: QueryParams }) {
+  const perspective = (await draftMode()).isEnabled ? "previewDrafts" : "published";
+  const stega = perspective === "previewDrafts";
   if (perspective === "previewDrafts") {
     return client.fetch<QueryResponse>(query, params, {
       stega,

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import withErrorBoundary from "../../src/components/withErrorBoundary";
+import withErrorBoundary from "../../components/withErrorBoundary";
 import { IconType } from "react-icons";
 
 interface Props {

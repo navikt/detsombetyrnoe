@@ -3,13 +3,13 @@ import Forfatter from "src/components/Forfatter";
 import { getForfatterBySlug } from "src/lib/services/sanity/model/forfatter/forfatterQuery";
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 const ForfatterPage = async ({ params }: Props) => {
-  const forfatter = await getForfatterBySlug(params.slug);
+  const forfatter = await getForfatterBySlug((await params).slug);
 
   if (!forfatter) {
     return notFound();
