@@ -1,22 +1,10 @@
-import * as React from "react";
-import styled from "styled-components";
 import Link from "next/link";
-import { navFrontend } from "../../styles/navFarger";
+import style from "./Footer.module.css";
 
-const Style = styled.footer`
-  a,
-  a:visited {
-    color: ${navFrontend.navBlaDarken20};
-    font-weight: 400;
-  }
-`;
-
-function Footer({ isSikkerhet }: { isSikkerhet?: boolean }) {
+export function Footer({ isSikkerhet }: { isSikkerhet?: boolean }) {
   return (
-    <Style>
+    <footer className={style.footer}>
       <Link href={isSikkerhet ? "/jobb-med-sikkerhet" : "/"}>Tilbake til forsiden</Link>
-    </Style>
+    </footer>
   );
 }
-
-export default Footer;

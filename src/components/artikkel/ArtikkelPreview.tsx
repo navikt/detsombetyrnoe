@@ -1,48 +1,18 @@
-import * as React from "react";
-import styled from "styled-components";
 import { ArtikkelI } from "./types";
 import BildeKollasj from "../BildeKollasj";
+import style from "./ArtikkelPreview.module.css";
+import Link from "next/link";
 
-const Style = styled.div`
-  --content-max-width: min(32.5rem, 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 1rem;
-`;
-
-const LesMerLink = styled.a`
-  font-weight: bold;
-`;
-
-const Tekst = styled.div`
-  margin-bottom: 5vh;
-  p {
-    margin: 2rem 0;
-  }
-  h3 {
-    margin-top: 1.75rem;
-  }
-  max-width: var(--content-max-width);
-  overflow-wrap: break-word;
-
-  @media (max-width: 600px) {
-    hyphens: auto;
-  }
-`;
-
-function ArtikkelPreview(props: ArtikkelI) {
+export function ArtikkelPreview(props: ArtikkelI) {
   return (
-    <Style>
-      <Tekst>
+    <div className={style.artikkelPreview}>
+      <div className={style.artikkelPreviewTekst}>
         <h2>{props.tittel}</h2>
         {props.undertittel && <h3>{props.undertittel}</h3>}
         <p>{props.ingress}</p>
-        <LesMerLink href={props.slug.current}>{props.lesMerTekst}</LesMerLink>
-      </Tekst>
+        <Link href={props.slug.current}>{props.lesMerTekst}</Link>
+      </div>
       <BildeKollasj media={props.bilder} />
-    </Style>
+    </div>
   );
 }
-
-export default ArtikkelPreview;

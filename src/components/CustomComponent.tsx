@@ -4,7 +4,7 @@ import Panel from "./Panel";
 import Bloggposter from "./forside/Bloggposter";
 import { WebcruiterStillinger } from "./landingPage/WebcruiterStillinger";
 import styled from "styled-components";
-import ArtikkelPreview from "./artikkel/ArtikkelPreview";
+import { ArtikkelPreview } from "./artikkel/ArtikkelPreview";
 import { PridePanel } from "./PridePanel";
 import { SikkerhetStillinger } from "./landingPage/SikkerhetStillinger";
 import style from "src/sanity/components/forside/Forside.module.css";

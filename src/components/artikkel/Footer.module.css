@@ -1,0 +1,7 @@
+.footer {
+  a,
+  a:visited {
+    color: var(--dsbn-colour-dark-blue);
+    font-weight: 400;
+  }
+}

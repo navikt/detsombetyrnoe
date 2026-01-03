@@ -1,0 +1,28 @@
+.artikkelPreview {
+  --content-max-width: min(32.5rem, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.artikkelPreview a {
+  font-weight: bold;
+}
+
+.artikkelPreviewTekst {
+  margin-bottom: 5vh;
+  max-width: var(--content-max-width);
+  overflow-wrap: break-word;
+
+  @media (max-width: 600px) {
+    hyphens: auto;
+  }
+
+  p {
+    margin: 2rem 0;
+  }
+  h3 {
+    margin-top: 1.75rem;
+  }
+}

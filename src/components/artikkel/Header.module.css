@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  a,
+  a:visited {
+    color: var(--dsbn-colour-dark-blue);
+    font-weight: 400;
+  }
+  svg {
+    width: 4rem;
+    fill: var(--dsbn-colour-nav-red);
+  }
+}

@@ -2,8 +2,8 @@ import Head from "next/head";
 import styled from "styled-components";
 import { cssVars } from "../../styles/cssVars";
 import { fontSize } from "../../styles/TypografiNyttDesign";
-import Footer from "./Footer";
-import Header from "./Header";
+import { Footer } from "./Footer";
+import { Header } from "./Header";
 
 const Style = styled.div`
   min-height: 100vh;

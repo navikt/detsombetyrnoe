@@ -5,7 +5,7 @@ import { Header } from "../../../components/forside/Header";
 import CustomComponent from "../../../components/CustomComponent";
 import Panel from "../../../components/Panel";
 import Nøkkeltall from "../../../components/nøkkeltall/Nøkkeltall";
-import ArtikkelPreview from "../../../components/artikkel/ArtikkelPreview";
+import { ArtikkelPreview } from "../../../components/artikkel/ArtikkelPreview";
 import { WebcruiterStillinger } from "../../../components/landingPage/WebcruiterStillinger";
 import Video from "../../../components/Video";
 import style from "./Forside.module.css";

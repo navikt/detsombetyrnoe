@@ -1,13 +1,10 @@
-import * as React from "react";
 import { ReactNode, RefObject } from "react";
 import styled, { css } from "styled-components";
-import Spinner from "./Spinner";
 
 interface Props {
   lysBakgrunn?: boolean;
   lysTekst?: boolean;
   children: ReactNode;
-  spinner?: boolean;
   className?: string;
   id?: string;
   forwardRef?: RefObject<HTMLDivElement>;
@@ -52,7 +49,7 @@ const Panel = (props: Props) => (
     className={props.className}
     ref={props.forwardRef}
   >
-    {props.spinner ? <Spinner /> : props.children}
+    {props.children}
   </Style>
 );
 
