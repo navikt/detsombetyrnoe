@@ -1,0 +1,26 @@
+.forfatterStyle {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.forfatterStyle p {
+  margin-left: 0.5rem;
+}
+
+.forfatterImage {
+  border-radius: 50%;
+  height: calc(1.5rem + 4vmin);
+}
+
+.styledA {
+  display: inline-block;
+  color: #333;
+  text-decoration: none;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.styledA:hover {
+  transform: scale(1.05);
+}

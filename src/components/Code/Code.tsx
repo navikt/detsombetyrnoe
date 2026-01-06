@@ -1,35 +1,9 @@
 import * as React from "react";
-import styled from "styled-components";
-import { navFrontend } from "../../styles/navFarger";
 import Prism from "prismjs";
 import "prismjs/components/prism-typescript";
-import { codeHighLightStyle } from "./CodeHighLightStyle";
 import { useMount } from "react-use";
 import { useRef } from "react";
-
-const Style = styled.div`
-  background: #222;
-  color: white;
-  border-radius: 0.2rem;
-  overflow: hidden;
-  && {
-    margin: 3rem auto;
-    max-width: calc(var(--content-max-width) * 1.3);
-  }
-  font-size: 0.9rem;
-  ${codeHighLightStyle};
-`;
-
-const LanguageStyle = styled.div`
-  padding: 0.2rem 1rem;
-  background: linear-gradient(90deg, ${navFrontend.navDypBlaDarken60}, ${navFrontend.navDypBlaDarken80});
-`;
-
-const StyledPre = styled.pre`
-  overflow-x: auto;
-  tab-width: 4;
-  padding: 1rem;
-`;
+import styles from "./Code.module.css";
 
 interface Props {
   value: {
@@ -49,14 +23,14 @@ function Code(props: Props) {
   const language = props.value.language;
 
   return (
-    <Style>
-      <LanguageStyle>{language}</LanguageStyle>
-      <StyledPre>
+    <div className={styles.style}>
+      <div className={styles.languageStyle}>{language}</div>
+      <pre className={styles.styledPre}>
         <code ref={ref} className={"language-" + language}>
           {props.value.code}
         </code>
-      </StyledPre>
-    </Style>
+      </pre>
+    </div>
   );
 }
 

@@ -1,0 +1,11 @@
+.style > * {
+  max-width: 32.5rem;
+}
+
+.style ul {
+  margin-top: 4rem;
+}
+
+.style h2 {
+  padding: 2vmin;
+}

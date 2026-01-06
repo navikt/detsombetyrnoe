@@ -1,5 +1,5 @@
 import { ReactNode, RefObject } from "react";
-import styled, { css } from "styled-components";
+import styles from "./Panel.module.css";
 
 interface Props {
   lysBakgrunn?: boolean;
@@ -10,47 +10,20 @@ interface Props {
   forwardRef?: RefObject<HTMLDivElement>;
 }
 
-export const lysTekst = css`
-  color: white;
-  a {
-    color: #eee;
-  }
-  a:hover,
-  a:active {
-    color: white;
-  }
-`;
+const Panel = (props: Props) => {
+  const backgroundColor = props.lysBakgrunn ? "#e9e7e7" : "#32414f";
+  const textClass = props.lysTekst ? styles.lightText : styles.darkText;
 
-export const mørkTekst = css`
-  color: #333;
-`;
-
-const Style = styled.div<{ backgroundColor: string; lysTekst: boolean }>`
-  --background-color: ${(props) => props.backgroundColor};
-  background-color: var(--background-color);
-  ${(props) => (props.lysTekst ? lysTekst : mørkTekst)};
-  min-height: 110vh;
-  padding: 20vmin 5vmin;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  /*> * {
-    max-width: 100%;
-  }*/
-`;
-
-const Panel = (props: Props) => (
-  <Style
-    backgroundColor={props.lysBakgrunn ? "#e9e7e7" : "#32414f"}
-    lysTekst={!!props.lysTekst}
-    id={props.id}
-    className={props.className}
-    ref={props.forwardRef}
-  >
-    {props.children}
-  </Style>
-);
+  return (
+    <div
+      className={`${styles.panel} ${textClass} ${props.className || ""}`}
+      style={{ "--background-color": backgroundColor } as React.CSSProperties}
+      id={props.id}
+      ref={props.forwardRef}
+    >
+      {props.children}
+    </div>
+  );
+};
 
 export default Panel;

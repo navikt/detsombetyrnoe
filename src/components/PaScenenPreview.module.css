@@ -1,0 +1,24 @@
+.event {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.authorList {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.authorItem {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.socialIconContainer {
+  display: inline-flex;
+  margin-left: 0.5rem;
+}

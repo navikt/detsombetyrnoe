@@ -1,36 +1,16 @@
 import * as React from "react";
-import styled from "styled-components";
 import Link from "next/link";
-
-const Style = styled.a<{ fontSize: string }>`
-  display: inline-block;
-  text-decoration: none;
-  font-size: ${(props) => props.fontSize};
-  margin-bottom: 1rem;
-  color: inherit !important;
-  .blogg {
-    font-weight: 300;
-    display: block;
-    margin-left: 1em;
-    margin-top: -0.35em;
-    font-size: 1.5em;
-  }
-`;
-
-const Heading = styled.div`
-  font-weight: bold;
-  font-size: 2em;
-`;
+import styles from "./Header.module.css";
 
 function Header(props: { fontSize: string; h1?: boolean; className?: string }) {
   return (
     <Link href="/blogg" passHref legacyBehavior>
-      <Style fontSize={props.fontSize} className={props.className}>
-        <Heading as={props.h1 ? "h1" : "div"}>
+      <a className={`${styles.style} ${props.className || ""}`} style={{ fontSize: props.fontSize }}>
+        <div className={styles.heading} role={props.h1 ? "heading" : undefined}>
           <span>NAV IT</span>
           <span className="blogg">Blogg.</span>
-        </Heading>
-      </Style>
+        </div>
+      </a>
     </Link>
   );
 }

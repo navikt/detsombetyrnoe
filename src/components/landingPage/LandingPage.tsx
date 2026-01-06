@@ -1,13 +1,11 @@
 "use client";
 import React from "react";
-import styled from "styled-components";
 import CustomComponent from "../CustomComponent";
 import { Header } from "../forside/Header";
 import SEO from "../SEO";
 import Tekstblokk from "../Tekstblokk";
 import { LandingssideProps } from "src/app/(site)/jobb-med-sikkerhet/page";
-
-const Content = styled.div``;
+import styles from "./LandingPage.module.css";
 
 export const LandingPage = (props: LandingssideProps) => {
   const { landingPage, metaData } = props;
@@ -30,7 +28,7 @@ export const LandingPage = (props: LandingssideProps) => {
         tilForsidenLenke
         bildeSrc="/sikkerhet_header.jpg"
       />
-      <Content>
+      <div className={styles.content}>
         {/*<div>
           <PanelWrapper>
             <VideoWrapper>
@@ -56,7 +54,7 @@ export const LandingPage = (props: LandingssideProps) => {
             );
           }
         })}
-      </Content>
+      </div>
     </div>
   );
 };

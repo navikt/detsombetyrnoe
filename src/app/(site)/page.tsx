@@ -26,13 +26,6 @@ const landingssideQuery = groq`{
           heading,
           _type
         },
-        utviklereHeleNorge[] {
-          sted,
-          geopoint {
-            lat,
-            lng
-          }
-        }
       },
     "metaData": ${metaDataGroq},
     "bloggposter": *[_type == "blogpost"] | order(_createdAt desc) [0..4] {
@@ -96,11 +89,6 @@ export interface VideoProps {
   heading?: string;
 }
 
-export interface UtviklerHeleNorge {
-  sted: string;
-  geopoint: { lat: number; lng: number };
-}
-
 export interface ForsideProps {
   forside?: {
     overskrift: string;
@@ -109,7 +97,6 @@ export interface ForsideProps {
     bakgrunnsvideoWebm?: string;
     lysTekst?: boolean;
     paneler?: (PanelProps | CustomComponentProps | VideoProps)[];
-    utviklereHeleNorge: UtviklerHeleNorge[];
   };
   metaData: Metadata;
   bloggposter: ForisdeBloggpostI[];
@@ -136,12 +123,12 @@ export const generateMetadata = async () => {
   };
 };
 
-const Page = async ({ searchParams }: { searchParams: Record<string, string> }) => {
+const Page = async ({ searchParams }: { searchParams: Promise<Record<string, string>> }) => {
   const data = await sanityFetch<ForsideProps>({
     query: landingssideQuery,
   });
 
-  const kommerFra = searchParams.kommerFra || "direkte";
+  const kommerFra = (await searchParams).kommerFra || "direkte";
   metrics.pageVisitsCounter.inc({ path: "/", kommerFra });
 
   return <Forside {...data} />;

@@ -1,0 +1,34 @@
+/* Global styles */
+
+html {
+  font-size: 112.5%;
+  font-weight: 300;
+  background-color: var(--nav-bla-darken-80);
+  color: #333;
+}
+
+@media (min-width: 1000px) {
+  html {
+    font-size: 125%;
+  }
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  background-color: white;
+}
+
+* {
+  box-sizing: border-box;
+  line-height: 1.4;
+}
+
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem var(--fokus-farge);
+}
+
+img {
+  width: 100%;
+  display: block;
+}

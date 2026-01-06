@@ -1,0 +1,22 @@
+.styledFigure {
+  margin: 3rem auto;
+  transition: 0.3s;
+}
+
+.styledFigure.zoom {
+  max-width: 100%;
+}
+
+.styledFigure:not(.zoom) {
+  max-width: calc(var(--content-max-width) * 0.7);
+}
+
+.styledFigure figcaption {
+  opacity: 0.8;
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+.image {
+  width: 100%;
+}

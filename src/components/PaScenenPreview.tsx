@@ -3,34 +3,7 @@ import { SocialIcon } from "react-social-icons";
 import { LandingssideProps, NavPaScenen } from "src/app/(site)/pa-scenen/page";
 import { ArtikkelLayout } from "src/components/artikkel/ArtkkelLayout";
 import { CardItem } from "src/components/CardItem";
-import { styled } from "styled-components";
-
-const Event = styled.p`
-  margin-block-start: 1rem;
-  margin-block-end: 1rem;
-`;
-
-const AuthorList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-`;
-
-const AuthorItem = styled.li`
-  min-width: 15rem;
-  padding: 1rem;
-  border: 1px solid #f0eeee;
-`;
-
-const SocialIconContainer = styled.div`
-  display: flex;
-  gap: 0.5rem;
-`;
-
-const StyledSocialIcon = styled(SocialIcon)`
-  height: 2rem !important;
-  width: 2rem !important;
-`;
+import styles from "./PaScenenPreview.module.css";
 
 export const PaScenenPreview = ({ data }: { data: LandingssideProps }) => {
   const paneler = data.landingPage?.paneler;
@@ -46,19 +19,19 @@ export const PaScenenPreview = ({ data }: { data: LandingssideProps }) => {
             <a href={event.url} rel="norefferer noopener nofollow">
               <h2>{event.tittel}</h2>
             </a>
-            {event.event && <Event>Event: {event.event}</Event>}
-            <AuthorList>
+            {event.event && <p className={styles.event}>Event: {event.event}</p>}
+            <ul className={styles.authorList}>
               {event.foredragsholdere.map((foredragsholder) => (
-                <AuthorItem key={foredragsholder.navn}>
+                <li key={foredragsholder.navn} className={styles.authorItem}>
                   <p>{foredragsholder.navn}</p>
-                  <SocialIconContainer>
+                  <div className={styles.socialIconContainer}>
                     {foredragsholder.sosialeMedier?.map((sosialtMedie) => (
-                      <StyledSocialIcon key={sosialtMedie} url={sosialtMedie} />
+                      <SocialIcon key={sosialtMedie} url={sosialtMedie} style={{ height: "2rem", width: "2rem" }} />
                     ))}
-                  </SocialIconContainer>
-                </AuthorItem>
+                  </div>
+                </li>
               ))}
-            </AuthorList>
+            </ul>
           </CardItem>
         ))}
       </ul>

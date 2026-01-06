@@ -1,0 +1,30 @@
+/* CSS Variables for NAV colors */
+:root {
+  --nav-rod: #c30000;
+  --nav-oransje: #ff9100;
+  --nav-lime-gronn: #a2ad00;
+  --nav-gronn: #06893a;
+  --nav-lilla: #634689;
+  --nav-dyp-bla: #005b82;
+  --nav-bla: #0067c5;
+  --nav-lys-bla: #66cbec;
+  --nav-mork-gra: #3e3832;
+  --nav-gra-80: #59514b;
+  --nav-gra-60: #78706a;
+  --nav-gra-40: #b7b1a9;
+  --nav-gra-20: #c6c2bf;
+  --nav-lys-gra: #e9e7e7;
+  --fokus-farge: #254b6d;
+  --orange-focus: #ffbd66;
+  --red-error: #ba3a26;
+  --white: #fff;
+  --gray-background: #e9e7e7;
+  --nav-bla-darken-80: #003a5d;
+  --nav-dyp-bla-darken-20: #0c5472;
+  --nav-dyp-bla-darken-40: #194d62;
+  --nav-dyp-bla-darken-60: #254652;
+  --nav-dyp-bla-darken-80: #323f42;
+
+  /* Content width variables */
+  --content-max-width: 60rem;
+}

@@ -1,0 +1,32 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 15rem));
+  grid-gap: 4rem;
+}
+
+@media (min-width: 100em) {
+  .list {
+    grid-template-columns: repeat(4, 15rem);
+  }
+}
+
+@media (max-width: 100em) and (min-width: 768px) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .list {
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .list {
+    word-break: break-word;
+    hyphens: auto;
+  }
+}

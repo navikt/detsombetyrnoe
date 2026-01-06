@@ -1,5 +1,4 @@
 import { MdWeb } from "react-icons/md";
-import heleNorgeUtvikler from "../heleNorgeUtvikler";
 import { defineType } from "sanity";
 
 export const ForsideIkon = MdWeb;
@@ -52,13 +51,6 @@ export const Forside = defineType({
           type: "video",
         },
       ],
-    },
-    {
-      name: "utviklereHeleNorge",
-      title: "Utviklere over hele Norge",
-
-      type: "array",
-      of: [heleNorgeUtvikler],
     },
   ],
   preview: {

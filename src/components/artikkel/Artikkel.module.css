@@ -1,0 +1,10 @@
+.styledBlockContent {
+  margin-bottom: calc(5rem + 5vmin);
+}
+
+.styledBlockContent > * {
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin-left: auto;
+  margin-right: auto;
+}

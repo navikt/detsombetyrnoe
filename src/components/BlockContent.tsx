@@ -1,48 +1,46 @@
 import * as React from "react";
 import { PortableText, PortableTextComponents } from "@portabletext/react";
-import styled from "styled-components";
+import styles from "./BlockContent.module.css";
 import ArtikkelBilde from "./ArtikkelBilde";
 import Code from "./Code/Code";
-import { navFrontend } from "../styles/navFarger";
-import { fontSize, headerStyles } from "../styles/TypografiNyttDesign";
 import FilopplastingLenke from "./FilopplastingLenke";
 import Lenke from "./Lenke";
 
-const H2 = styled.h2`
-  margin-top: calc(2vmin + 2rem);
-  margin-bottom: calc(0.2vmin + 0.2rem);
-  ${fontSize.s4};
-`;
+const H2 = ({ children, ...props }: any) => (
+  <h2 {...props} className={styles.h2}>
+    {children}
+  </h2>
+);
 
-const H3 = styled.h3`
-  margin-top: calc(1.5vmin + 1.5rem);
-  margin-bottom: calc(0.1vmin + 0.1rem);
-  ${fontSize.s5};
-`;
+const H3 = ({ children, ...props }: any) => (
+  <h3 {...props} className={styles.h3}>
+    {children}
+  </h3>
+);
 
-const A = styled.a`
-  color: ${navFrontend.navBla};
-  :visited {
-    color: ${navFrontend.navBla};
-  }
-`;
+const A = ({ children, ...props }: any) => (
+  <a {...props} className={styles.link}>
+    {children}
+  </a>
+);
 
-const UL = styled.ul`
-  list-style: disc;
-  ul {
-    list-style: circle;
-  }
-`;
+const UL = ({ children, ...props }: any) => (
+  <ul {...props} className={styles.bulletList}>
+    {children}
+  </ul>
+);
 
-const OL = styled.ol`
-  list-style: decimal;
-`;
+const OL = ({ children, ...props }: any) => (
+  <ol {...props} className={styles.numberedList}>
+    {children}
+  </ol>
+);
 
-const LI = styled.li`
-  margin: 0.3rem 0;
-  padding-left: 0.3rem;
-  line-height: 1.7;
-`;
+const LI = ({ children, ...props }: any) => (
+  <li {...props} className={styles.listItem}>
+    {children}
+  </li>
+);
 
 const components: PortableTextComponents = {
   block: {
@@ -68,30 +66,13 @@ const components: PortableTextComponents = {
   },
 };
 
-const StyledDiv = styled.div`
-  font-weight: 400;
-  ul,
-  ol {
-    padding-left: 1.5rem;
-    margin-bottom: 1.5rem;
-    ul,
-    ol {
-      margin-bottom: 0;
-    }
-    li {
-    }
-  }
-  p {
-    line-height: 1.7;
-    margin-bottom: 2rem !important;
-  }
-`;
-
 function BlockContent(props: { blocks: any; className?: string }) {
+  const combinedClassName = `${styles.container} ${props.className || ""}`;
+
   return (
-    <StyledDiv className={props.className}>
+    <div className={combinedClassName}>
       <PortableText value={props.blocks} components={components} />
-    </StyledDiv>
+    </div>
   );
 }
 

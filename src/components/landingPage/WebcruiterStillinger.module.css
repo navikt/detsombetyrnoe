@@ -1,0 +1,48 @@
+.style {
+  --content-max-width: min(32.5rem, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tekst {
+  margin-bottom: 5vh;
+  max-width: var(--content-max-width);
+}
+
+.tekst p {
+  margin: 2rem 0;
+}
+
+.stillingPanel {
+  display: block;
+  flex: 1;
+  border: 0.5rem solid #ffffff;
+  background-color: #ffffff;
+  color: #262626 !important;
+  padding: 1rem;
+  text-decoration: none;
+}
+
+.stillingPanel:hover,
+.stillingPanel:focus {
+  background-color: #004367;
+  color: #ffffff !important;
+  transform: scale(1.05);
+}
+
+.flexContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 80rem;
+}
+
+.flexContainer.column {
+  flex-direction: column;
+}
+
+.flexContainer.row {
+  flex-direction: row;
+}

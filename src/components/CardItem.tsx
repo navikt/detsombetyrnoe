@@ -1,23 +1,19 @@
-import styled from "styled-components";
+import React from "react";
+import styles from "./CardItem.module.css";
 
-export const CardItem = styled.li`
-  margin: 2rem 0;
-  transition: 0.3s;
-  padding: 2vmin;
-  position: relative;
+interface CardItemProps {
+  children: React.ReactNode;
+  className?: string;
+}
 
-  &:hover {
-    box-shadow: 0 0 0.5rem #888;
-    transform: scale(1.02);
-  }
-  a {
-    display: block;
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-  i {
-    color: #333;
-  }
-`;
+export const CardItem = React.forwardRef<HTMLLIElement, CardItemProps>(({ children, className }, ref) => {
+  const combinedClassName = `${styles.cardItem} ${className || ""}`;
+
+  return (
+    <li ref={ref} className={combinedClassName}>
+      {children}
+    </li>
+  );
+});
+
+CardItem.displayName = "CardItem";

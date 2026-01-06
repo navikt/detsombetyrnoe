@@ -1,0 +1,38 @@
+.style {
+  min-height: 100vh;
+  padding: 4vmin 4vmin 30vmin;
+  --content-max-width: 30rem;
+}
+
+.content {
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.content h1 {
+  font-size: calc(1rem + 10vmin);
+  font-weight: 600;
+  line-height: 1;
+  margin: 4rem 0 1rem;
+}
+
+.styledForfattere {
+  margin-left: 0.2rem;
+}
+
+.mainImage {
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.publishedDate {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  font-family: monospace;
+}
+
+.styledBlockContent > * {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}

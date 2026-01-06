@@ -2,7 +2,7 @@ import * as React from "react";
 import { useMount } from "react-use";
 import * as basicScroll from "basicscroll";
 import { CSSProperties, ReactNode, useRef } from "react";
-import styled from "styled-components";
+import styles from "./Parallax.module.css";
 
 type Props = {
   children: ReactNode;
@@ -11,11 +11,6 @@ type Props = {
   className?: string;
   style?: CSSProperties;
 };
-
-const Style = styled.div`
-  transition: 0.5s ease-out;
-  transform: translate(var(--xSpeed), var(--ySpeed));
-`;
 
 function Parallax(props: Props) {
   const ref = useRef<HTMLDivElement>(null);
@@ -44,9 +39,9 @@ function Parallax(props: Props) {
   });
 
   return (
-    <Style ref={ref} className={props.className} style={props.style}>
+    <div ref={ref} className={`${styles.style} ${props.className || ""}`} style={props.style}>
       {props.children}
-    </Style>
+    </div>
   );
 }
 

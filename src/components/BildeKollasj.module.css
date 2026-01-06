@@ -1,0 +1,20 @@
+.twoImageWrapper {
+  position: relative;
+}
+
+.twoImageWrapper img {
+  height: min(40vw, 30rem);
+  width: auto;
+  display: block;
+}
+
+.normalWrapper {
+  width: calc(var(--content-max-width) * 1.15);
+  max-width: 100vw;
+}
+
+.normalWrapper img {
+  display: block;
+  margin: 1rem 0;
+  width: 100%;
+}

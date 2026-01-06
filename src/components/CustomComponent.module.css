@@ -1,0 +1,23 @@
+.style {
+  --content-max-width: min(40rem, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tekst {
+  margin-bottom: 5vh;
+  max-width: var(--content-max-width);
+}
+
+.tekst p {
+  margin: 2rem 0;
+}
+
+.panelMedVideo {
+  display: block !important;
+}
+
+.sikkerhetNokkeltall {
+  --content-max-width: min(40rem, 100%);
+}

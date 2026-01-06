@@ -1,0 +1,23 @@
+.style {
+  color: inherit !important;
+  text-decoration: none;
+  display: block;
+}
+
+.style h2 {
+  font-weight: normal;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.coverImage {
+  width: 100%;
+}
+
+.content {
+  margin-top: 0.5rem;
+}
+
+.content > * {
+  margin-bottom: 0.5rem;
+}

@@ -1,0 +1,32 @@
+.container {
+  text-align: center;
+}
+
+.container > *:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+@keyframes slideInRotate {
+  from {
+    transform: rotateX(90deg) scaleY(2) translateY(-0.5rem);
+  }
+}
+
+.number {
+  animation: slideInRotate 0.5s backwards;
+  animation-delay: var(--animation-delay);
+  animation-play-state: var(--animation-play-state);
+  transform-origin: bottom;
+  font-size: 5rem;
+  line-height: 0.9;
+  font-weight: 600;
+  color: #99c93d;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.description {
+  font-size: 0.8rem;
+}

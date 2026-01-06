@@ -1,0 +1,61 @@
+.container {
+  font-weight: 400;
+}
+
+.container ul,
+.container ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.container ul ul,
+.container ul ol,
+.container ol ul,
+.container ol ol {
+  margin-bottom: 0;
+}
+
+.container p {
+  line-height: 1.7;
+  margin-bottom: 2rem !important;
+}
+
+.h2 {
+  margin-top: calc(2vmin + 2rem);
+  margin-bottom: calc(0.2vmin + 0.2rem);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.h3 {
+  margin-top: calc(1.5vmin + 1.5rem);
+  margin-bottom: calc(0.1vmin + 0.1rem);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.link {
+  color: #0067c5;
+}
+
+.link:visited {
+  color: #0067c5;
+}
+
+.bulletList {
+  list-style: disc;
+}
+
+.bulletList ul {
+  list-style: circle;
+}
+
+.numberedList {
+  list-style: decimal;
+}
+
+.listItem {
+  margin: 0.3rem 0;
+  padding-left: 0.3rem;
+  line-height: 1.7;
+}

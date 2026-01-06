@@ -1,0 +1,24 @@
+.cardItem {
+  margin: 2rem 0;
+  transition: 0.3s;
+  padding: 2vmin;
+  position: relative;
+}
+
+.cardItem:hover {
+  box-shadow: 0 0 0.5rem #888;
+  transform: scale(1.02);
+}
+
+.cardItem a {
+  display: block;
+  text-decoration: none;
+}
+
+.cardItem a:hover {
+  text-decoration: underline;
+}
+
+.cardItem i {
+  color: #333;
+}

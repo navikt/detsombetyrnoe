@@ -1,0 +1,21 @@
+.style {
+  min-height: 100vh;
+  padding: 4vmin;
+}
+
+.maxWidth {
+  max-width: 60rem;
+  margin: auto;
+}
+
+.styledOl {
+  margin: 4rem 0;
+  display: grid;
+  grid-gap: 4rem;
+}
+
+@media (min-width: 40em) {
+  .styledOl {
+    grid-template-columns: 1fr 1fr;
+  }
+}

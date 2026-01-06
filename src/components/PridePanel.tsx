@@ -1,27 +1,21 @@
-import styled from "styled-components";
+import React from "react";
+import styles from "./PridePanel.module.css";
 
-const Style = styled.div`
-  display: flex;
-  flex-direction: column;
-  > * {
-    max-width: 100%;
-  }
-`;
+interface ColoredLineProps {
+  color: string;
+}
 
-const ColoredLine = styled.div<{ color: string }>`
-  --background-color: ${(props) => props.color};
-  background-color: var(--background-color);
-  width: 100%;
-  height: 2rem;
-`;
+const ColoredLine: React.FC<ColoredLineProps> = ({ color }) => (
+  <div className={styles.coloredLine} style={{ "--pride-color": color } as React.CSSProperties} />
+);
 
 export const PridePanel = () => (
-  <Style>
+  <div className={styles.container}>
     <ColoredLine color="#E50000" />
     <ColoredLine color="#FF8D00" />
     <ColoredLine color="#FFEE00" />
     <ColoredLine color="#028121" />
     <ColoredLine color="#004CFF" />
     <ColoredLine color="#770088" />
-  </Style>
+  </div>
 );

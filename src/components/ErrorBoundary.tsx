@@ -2,8 +2,7 @@ import * as React from "react";
 import { ErrorInfo } from "react";
 import { isTest } from "../utils/environment";
 import { loggError } from "../utils/logger";
-import styled from "styled-components";
-import { navFrontend } from "../styles/navFarger";
+import styles from "./ErrorBoundary.module.css";
 
 interface Props {
   boundaryName?: string;
@@ -15,13 +14,6 @@ interface State {
   error?: Error;
   errorInfo?: ErrorInfo;
 }
-
-const Style = styled.div`
-  padding: 2rem;
-  text-align: center;
-  background-color: ${navFrontend.navBlaDarken80};
-  color: white;
-`;
 
 class ErrorBoundary extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -43,7 +35,7 @@ class ErrorBoundary extends React.Component<Props, State> {
 
   render() {
     if (this.state.hasError) {
-      return <Style>Beklager, det skjedde en teknisk feil 🤷‍♀️</Style>;
+      return <div className={styles.style}>Beklager, det skjedde en teknisk feil 🤷‍♀️</div>;
     }
     return this.props.children;
   }

@@ -1,29 +1,10 @@
 import * as React from "react";
 import Parallax from "./Parallax";
 import { urlFor } from "../lib/sanity";
-import styled from "styled-components";
 import { ArtikkelI } from "./artikkel/types";
 import Video from "./Video";
 import { HTMLAttributes } from "react";
-
-const TwoImageWrapper = styled.div`
-  position: relative;
-  img {
-    height: min(40vw, 30rem);
-    width: auto;
-    display: block;
-  }
-`;
-
-const NormalWrapper = styled.div`
-  img {
-    display: block;
-    margin: 1rem 0;
-    width: 100%;
-  }
-  width: calc(var(--content-max-width) * 1.15);
-  max-width: 100vw;
-`;
+import styles from "./BildeKollasj.module.css";
 
 type MediaI = ArtikkelI["bilder"][0];
 
@@ -38,23 +19,23 @@ function BildeKollasj(props: Props) {
 
   if (props.media.length === 2) {
     return (
-      <TwoImageWrapper>
+      <div className={styles.twoImageWrapper}>
         <Parallax speedY={-2} speedX={2} style={{ paddingLeft: "10vmin" }}>
           <Media media={props.media[0]} style={{ marginLeft: "auto" }} />
         </Parallax>
         <Parallax speedY={2} speedX={-2} style={{ paddingRight: "10vmin", marginTop: "-5vmin" }}>
           <Media media={props.media[1]} />
         </Parallax>
-      </TwoImageWrapper>
+      </div>
     );
   }
 
   return (
-    <NormalWrapper>
+    <div className={styles.normalWrapper}>
       {props.media.map((bilde) => (
         <Media media={bilde} key={bilde._key} />
       ))}
-    </NormalWrapper>
+    </div>
   );
 }
 

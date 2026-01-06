@@ -1,64 +1,27 @@
 "use client";
 import * as React from "react";
-import styled from "styled-components";
 import { Forfatter as ForfatterInterface } from "src/lib/services/sanity/model/forfatter/forfatterQuery";
 import { urlFor } from "../lib/sanity";
 import BloggPostPreview from "./blogg/BloggPostPreview";
-
-const Style = styled.div`
-  max-width: 50rem;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-  min-height: 100vh;
-`;
-
-const Navnelinje = styled.div`
-  display: flex;
-  align-items: center;
-  h1 {
-    font-weight: 300;
-  }
-`;
-
-const Portrett = styled.img`
-  border-radius: 50%;
-  margin-right: 2rem;
-`;
-
-const Bio = styled.div`
-  margin: 1rem 0;
-`;
-
-const Innlegg = styled.div`
-  margin: 2rem 0 6rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 2rem;
-  @media (max-width: 40em) {
-    grid-template-columns: 1fr;
-  }
-`;
-
-const StyledH2 = styled.h2`
-  font-weight: 400;
-  margin: 4rem 0 2rem;
-`;
+import styles from "./Forfatter.module.css";
 
 function Forfatter(props: ForfatterInterface) {
   return (
-    <Style>
-      <Navnelinje>
-        {props.mainImage && <Portrett src={urlFor(props.mainImage).width(200).height(200).url() || ""} alt="" />}
+    <div className={styles.style}>
+      <div className={styles.navnelinje}>
+        {props.mainImage && (
+          <img className={styles.portrett} src={urlFor(props.mainImage).width(200).height(200).url() || ""} alt="" />
+        )}
         <h1>{props.navn}</h1>
-      </Navnelinje>
-      <Bio>{props.bio}</Bio>
-      <StyledH2>Blogginnlegg fra {props.navn}:</StyledH2>
-      <Innlegg>
+      </div>
+      <div className={styles.bio}>{props.bio}</div>
+      <h2 className={styles.styledH2}>Blogginnlegg fra {props.navn}:</h2>
+      <div className={styles.innlegg}>
         {props.blogposts?.map((post) => (
           <BloggPostPreview post={post} />
         ))}
-      </Innlegg>
-    </Style>
+      </div>
+    </div>
   );
 }
 

@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import styled from "styled-components";
 import Header from "./Header";
 import Forfattere from "./Forfattere";
 import { urlFor } from "../../lib/sanity";
@@ -10,46 +9,7 @@ import { formatterDato } from "../../utils/formatterDato";
 import { useTracking } from "../../contexts/tracking-context";
 import { useMount } from "react-use";
 import { BlogpostData } from "src/lib/services/sanity/model/blogg/bloggQuery";
-
-const Style = styled.div`
-  min-height: 100vh;
-  padding: 4vmin 4vmin 30vmin;
-  --content-max-width: 30rem;
-`;
-
-const Content = styled.div`
-  max-width: 50rem;
-  margin: 0 auto;
-  h1 {
-    font-size: calc(1rem + 10vmin);
-    font-weight: 600;
-    line-height: 1;
-    margin: 4rem 0 1rem;
-  }
-`;
-
-const StyledForfattere = styled(Forfattere)`
-  margin-left: 0.2rem;
-`;
-
-const MainImage = styled.img`
-  width: 100%;
-  margin: 2rem 0;
-`;
-
-const PublishedDate = styled.div`
-  max-width: var(--content-max-width);
-  margin: 0 auto;
-  margin-bottom: 2rem;
-  font-family: monospace;
-`;
-
-const StyledBlockContent = styled(BlockContent)`
-  > * {
-    max-width: var(--content-max-width);
-    margin: 0 auto;
-  }
-`;
+import styles from "./BloggPost.module.css";
 
 const Bloggside = (props: BlogpostData) => {
   const { logEvent } = useTracking();
@@ -63,24 +23,25 @@ const Bloggside = (props: BlogpostData) => {
   });
 
   return (
-    <Style lang={props.language}>
+    <div className={styles.style} lang={props.language}>
       <Head>
         <title>{props.tittel}</title>
       </Head>
-      <Content>
+      <div className={styles.content}>
         <Header fontSize=".75rem" />
         <h1>{props.tittel}</h1>
-        <StyledForfattere forfattere={props.forfattere} lenkeTilForfatterside={true} />
+        <Forfattere className={styles.styledForfattere} forfattere={props.forfattere} lenkeTilForfatterside={true} />
         {props.mainImage && (
-          <MainImage
+          <img
+            className={styles.mainImage}
             src={urlFor(props.mainImage).width(1080).height(540).bg("fff").format("jpg").url() || ""}
             alt={props.mainImage?.altTekst}
           />
         )}
-        <PublishedDate>{formatterDato(props._createdAt)}</PublishedDate>
-        <StyledBlockContent blocks={props.body} />
-      </Content>
-    </Style>
+        <div className={styles.publishedDate}>{formatterDato(props._createdAt)}</div>
+        <BlockContent className={styles.styledBlockContent} blocks={props.body} />
+      </div>
+    </div>
   );
 };
 

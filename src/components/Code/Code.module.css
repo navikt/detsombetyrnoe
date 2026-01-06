@@ -1,0 +1,22 @@
+@import "./CodeHighlight.css";
+
+.style {
+  background: #222;
+  color: white;
+  border-radius: 0.2rem;
+  overflow: hidden;
+  margin: 3rem auto;
+  max-width: calc(var(--content-max-width) * 1.3);
+  font-size: 0.9rem;
+}
+
+.languageStyle {
+  padding: 0.2rem 1rem;
+  background: linear-gradient(90deg, var(--nav-dyp-bla-darken-60), var(--nav-dyp-bla-darken-80));
+}
+
+.styledPre {
+  overflow-x: auto;
+  tab-size: 4;
+  padding: 1rem;
+}

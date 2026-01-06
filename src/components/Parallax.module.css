@@ -1,0 +1,4 @@
+.style {
+  transition: 0.5s ease-out;
+  transform: translate(var(--xSpeed), var(--ySpeed));
+}

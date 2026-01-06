@@ -1,0 +1,27 @@
+.panel {
+  background-color: var(--background-color);
+  min-height: 110vh;
+  padding: 20vmin 5vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.lightText {
+  color: white;
+}
+
+.lightText a {
+  color: #eee;
+}
+
+.lightText a:hover,
+.lightText a:active {
+  color: white;
+}
+
+.darkText {
+  color: #333;
+}

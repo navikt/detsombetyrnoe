@@ -11,7 +11,6 @@ import filopplasting from "./schemas/filopplasting";
 import landingPage from "./schemas/landingPage";
 import pa_scenen from "./schemas/pa_scenen";
 import stilling from "./schemas/stilling";
-import heleNorgeUtvikler from "./schemas/heleNorgeUtvikler";
 
 export const schemaTypes = [
   BlockContent,
@@ -26,6 +25,5 @@ export const schemaTypes = [
   landingPage,
   pa_scenen,
   stilling,
-  heleNorgeUtvikler,
   ...forsideSchema,
 ];

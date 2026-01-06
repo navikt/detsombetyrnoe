@@ -1,40 +1,7 @@
 import * as React from "react";
-import styled, { keyframes } from "styled-components";
+import styles from "./Tall.module.css";
 import { isNøkkeltallTekst, NøkkeltallListe, NøkkeltallTekst } from "./types";
-import { navFrontend } from "../../styles/navFarger";
 import { useRef } from "react";
-
-const Style = styled.li`
-  text-align: center;
-  > *:not(:last-child) {
-    margin-bottom: 0.5rem;
-  }
-`;
-
-const animation = keyframes`
-  from {
-    transform: rotateX(90deg) scaleY(2) translateY(-.5rem);
-  }
-`;
-
-const NumberStyle = styled.p<{ inVeiwport: boolean; delay: number }>`
-  animation: ${animation} 0.5s backwards;
-  animation-delay: ${(props) => props.delay}s;
-  animation-play-state: ${(props) => (props.inVeiwport ? "running" : "paused")};
-  transform-origin: bottom;
-  font-size: 5rem;
-  line-height: 0.9;
-  font-weight: 600;
-  color: ${navFrontend.navGronnLighten40};
-`;
-
-const TitleStyle = styled.p`
-  font-weight: bold;
-`;
-
-const TekstStyle = styled.p`
-  font-size: 0.8rem;
-`;
 
 interface Props {
   nøkkeltall: NøkkeltallListe | NøkkeltallTekst;
@@ -51,14 +18,19 @@ function Tall(props: Props) {
   const rect = ref.current?.getBoundingClientRect();
   const delay = rect ? (rect.left / 3 + rect.top / 4) * 0.001 : 0;
 
+  const numberStyle = {
+    "--animation-delay": `${delay}s`,
+    "--animation-play-state": props.inViewport ? "running" : "paused",
+  } as React.CSSProperties;
+
   return (
-    <Style ref={ref}>
-      <NumberStyle inVeiwport={props.inViewport} delay={delay}>
+    <li ref={ref} className={styles.container}>
+      <p className={styles.number} style={numberStyle}>
         {tall}
-      </NumberStyle>
-      <TitleStyle>{tittel}</TitleStyle>
-      <TekstStyle>{description}</TekstStyle>
-    </Style>
+      </p>
+      <p className={styles.title}>{tittel}</p>
+      <p className={styles.description}>{description}</p>
+    </li>
   );
 }
 

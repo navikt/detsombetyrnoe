@@ -1,8 +1,7 @@
 import * as React from "react";
 import { forwardRef, RefObject } from "react";
-import styled, { css } from "styled-components";
+import styles from "./Tekstblokk.module.css";
 import BlockContent from "./BlockContent";
-import { cssVars } from "../styles/cssVars";
 import { ArtikkelI } from "./artikkel/types";
 import Link from "next/link";
 
@@ -17,72 +16,25 @@ interface Props {
   forwardRef?: RefObject<HTMLDivElement>;
 }
 
-export const lysTekst = css`
-  color: white;
-  a {
-    color: #eee;
-  }
-  a:hover,
-  a:active {
-    color: white;
-  }
-`;
+const Tekstblokk = (props: Props) => {
+  const backgroundColor = props.lysBakgrunn ? "#e9e7e7" : "#32414f";
+  const textClass = props.lysTekst ? styles.lightText : styles.darkText;
+  const combinedClassName = `${styles.container} ${textClass} ${props.className || ""}`;
 
-export const mørkTekst = css`
-  color: #333;
-`;
-
-const StyledBlockContent = styled(BlockContent)`
-  > * {
-    width: 100%;
-    max-width: 650px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  margin-bottom: calc(5rem + 5vmin);
-
-  figure {
-    width: 40%;
-  }
-`;
-
-const Style = styled.div<{ backgroundColor: string; lysTekst: boolean }>`
-  --background-color: ${(props) => props.backgroundColor};
-  background-color: var(--background-color);
-  ${(props) => (props.lysTekst ? lysTekst : mørkTekst)};
-  min-height: 110vh;
-  padding: 20vmin 5vmin;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-`;
-
-const Content = styled.div`
-  max-width: 50rem;
-  margin: 0 auto;
-
-  h2 {
-    margin-bottom: 1rem;
-  }
-`;
-
-const Tekstblokk = (props: Props) => (
-  <Style
-    backgroundColor={props.lysBakgrunn ? "#e9e7e7" : "#32414f"}
-    lysTekst={!!props.lysTekst}
-    id={props.id}
-    className={props.className}
-    ref={props.forwardRef}
-  >
-    <Content>
-      <h2>{props.overskrift}</h2>
-      <StyledBlockContent blocks={props.tekst} />
-      {props.artikkel && <Link href={`/${props.artikkel.slug.current}`}>{props.artikkel.lesMerTekst}</Link>}
-    </Content>
-  </Style>
-);
+  return (
+    <div
+      className={combinedClassName}
+      style={{ "--custom-bg-color": backgroundColor } as React.CSSProperties}
+      id={props.id}
+      ref={props.forwardRef}
+    >
+      <div className={styles.content}>
+        <h2>{props.overskrift}</h2>
+        <BlockContent blocks={props.tekst} className={styles.styledBlockContent} />
+        {props.artikkel && <Link href={`/${props.artikkel.slug.current}`}>{props.artikkel.lesMerTekst}</Link>}
+      </div>
+    </div>
+  );
+};
 
 export default Tekstblokk;

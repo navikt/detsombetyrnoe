@@ -64,14 +64,7 @@ export const Forside = (props: ForsideProps) => {
         }
 
         if (panel._type === "customComponent") {
-          return (
-            <CustomComponent
-              {...panel}
-              stillinger={props.stillinger ?? []}
-              utviklereHeleNorge={props.forside?.utviklereHeleNorge}
-              key={panel.id}
-            />
-          );
+          return <CustomComponent {...panel} stillinger={props.stillinger ?? []} key={panel.id} />;
         }
         if (panel._type === "panel") {
           return (

@@ -1,16 +1,14 @@
-import * as React from "react";
 import Stillinger from "./Stillinger";
 import Panel from "./Panel";
-import Bloggposter from "./forside/Bloggposter";
 import { WebcruiterStillinger } from "./landingPage/WebcruiterStillinger";
-import styled from "styled-components";
 import { ArtikkelPreview } from "./artikkel/ArtikkelPreview";
 import { PridePanel } from "./PridePanel";
 import { SikkerhetStillinger } from "./landingPage/SikkerhetStillinger";
 import style from "src/sanity/components/forside/Forside.module.css";
 import Video from "./Video";
 import Nøkkeltall from "./nøkkeltall/Nøkkeltall";
-import { StillingI, UtviklerHeleNorge } from "src/app/(site)/page";
+import { StillingI } from "src/app/(site)/page";
+import styles from "./CustomComponent.module.css";
 
 export interface CustomComponentProps {
   _type: "customComponent";
@@ -18,31 +16,7 @@ export interface CustomComponentProps {
   lysBakgrunn?: boolean;
   lysTekst?: boolean;
   stillinger: StillingI[];
-  utviklereHeleNorge?: UtviklerHeleNorge[];
 }
-
-const Style = styled.div`
-  --content-max-width: min(40rem, 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const Tekst = styled.div`
-  margin-bottom: 5vh;
-  p {
-    margin: 2rem 0;
-  }
-  max-width: var(--content-max-width);
-`;
-
-const PanelMedVideo = styled(Panel)`
-  display: block !important;
-`;
-
-const SikkerhetNokkeltall = styled(Nøkkeltall)`
-  --content-max-width: min(40rem, 100%);
-`;
 
 function CustomComponent(props: CustomComponentProps) {
   switch (props.id) {
@@ -52,23 +26,6 @@ function CustomComponent(props: CustomComponentProps) {
           <Stillinger stillinger={props.stillinger} />
         </Panel>
       );
-    case "blogg":
-      return (
-        <Panel lysBakgrunn={props.lysBakgrunn} lysTekst={props.lysTekst}>
-          <Bloggposter />
-        </Panel>
-      );
-      {
-        /*case "heleNorgeKart":
-      return (
-        <Panel backgroundColor={props.bakgrunnsfarge} lysTekst={props.lysTekst}>
-          <div>
-            <h2 style={{ marginBottom: "0.75rem" }}>Vi har utviklere spredt rundt i landet</h2>
-            <Map markers={props.utviklereHeleNorge} />
-          </div>
-        </Panel>
-      );*/
-      }
     case "sikkerhetStillinger":
       return (
         <Panel lysBakgrunn={props.lysBakgrunn} lysTekst={props.lysTekst}>
@@ -95,38 +52,39 @@ function CustomComponent(props: CustomComponentProps) {
     case "heleNorgeLandingPageOverskrift":
       return (
         <Panel lysBakgrunn={props.lysBakgrunn} lysTekst={props.lysTekst}>
-          <Style>
-            <Tekst>
+          <div className={styles.style}>
+            <div className={styles.tekst}>
               <h2>Vi søker nå minst 10 senior utviklere</h2>
-            </Tekst>
-          </Style>
+            </div>
+          </div>
         </Panel>
       );
     case "ddos":
       return (
-        <PanelMedVideo>
+        <Panel className={styles.panelMedVideo}>
           <div className={style.panelWrapper}>
             <div className={style.videoWrapper}>
               <Video title="NAV IT - DDOS" url="https://player.vimeo.com/video/831392694?title=0&byline=0" />
             </div>
           </div>
-        </PanelMedVideo>
+        </Panel>
       );
     case "nav_sikkerhet_video":
       return (
-        <PanelMedVideo>
+        <Panel className={styles.panelMedVideo}>
           <div className={style.panelWrapper}>
             <div className={style.videoWrapper}>
               <Video title="NAV IT - Sikkerhet" url="https://player.vimeo.com/video/1015154302?title=0&byline=0" />
             </div>
           </div>
-        </PanelMedVideo>
+        </Panel>
       );
     case "sikkerhet_nokkeltall":
       return (
         <Panel lysBakgrunn={props.lysBakgrunn}>
           <div style={{ maxWidth: "50rem" }}>
-            <SikkerhetNokkeltall
+            <Nøkkeltall
+              className={styles.sikkerhetNokkeltall}
               _type="nokkeltall"
               nokkeltall={[
                 {

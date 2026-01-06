@@ -1,0 +1,24 @@
+.style {
+  opacity: 0.8;
+  display: inline-flex;
+  align-items: center;
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  color: white;
+  transition: 0.2s;
+}
+
+.style:hover,
+.style:focus {
+  opacity: 1;
+  color: white;
+  text-decoration: none;
+  transform: scale(1.05);
+}
+
+.style svg {
+  height: 2rem;
+  margin-left: 0.5rem;
+  color: currentColor;
+}

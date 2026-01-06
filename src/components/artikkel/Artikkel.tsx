@@ -1,27 +1,15 @@
 "use client";
 import * as React from "react";
-import styled from "styled-components";
 import { ArtikkelI } from "./types";
 import Error from "next/error";
 import BlockContent from "../BlockContent";
-import { cssVars } from "../../styles/cssVars";
 import MainMedia from "./MainMedia";
 import { ArtikkelLayout } from "./ArtkkelLayout";
+import styles from "./Artikkel.module.css";
 
 interface Props {
   data: ArtikkelI;
 }
-
-const StyledBlockContent = styled(BlockContent)`
-  > * {
-    width: 100%;
-    max-width: var(${cssVars.contentMaxWidth});
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  margin-bottom: calc(5rem + 5vmin);
-`;
 
 function Artikkel(props: Props) {
   const artikkel = props.data;
@@ -40,7 +28,7 @@ function Artikkel(props: Props) {
       slug={artikkel.slug.current}
     >
       <MainMedia {...coverMedia} />
-      <StyledBlockContent blocks={artikkel.innhold} />
+      <BlockContent className={styles.styledBlockContent} blocks={artikkel.innhold} />
     </ArtikkelLayout>
   );
 }

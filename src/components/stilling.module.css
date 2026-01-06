@@ -1,0 +1,17 @@
+.styledCardItem::after {
+  position: absolute;
+  bottom: 0;
+  content: "";
+  height: 3rem;
+  width: 100%;
+  display: block;
+  background: linear-gradient(transparent, var(--background-color) 60%);
+}
+
+.p {
+  margin-top: 1rem;
+  color: #333;
+  max-height: 10rem;
+  overflow: hidden;
+  padding-bottom: 1rem;
+}

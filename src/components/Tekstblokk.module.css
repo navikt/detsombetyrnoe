@@ -1,0 +1,52 @@
+.container {
+  --background-color: var(--custom-bg-color);
+  background-color: var(--background-color);
+  min-height: 110vh;
+  padding: 20vmin 5vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.lightText {
+  color: white;
+}
+
+.lightText a {
+  color: #eee;
+}
+
+.lightText a:hover,
+.lightText a:active {
+  color: white;
+}
+
+.darkText {
+  color: #333;
+}
+
+.content {
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.content h2 {
+  margin-bottom: 1rem;
+}
+
+.styledBlockContent {
+  margin-bottom: calc(5rem + 5vmin);
+}
+
+.styledBlockContent > * {
+  width: 100%;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.styledBlockContent figure {
+  width: 40%;
+}
