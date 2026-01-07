@@ -1,4 +1,6 @@
-export default {
+import { defineType } from "sanity";
+
+export const Filopplasting = defineType({
   name: "filopplasting",
   title: "Filopplasting",
   type: "file",
@@ -10,4 +12,4 @@ export default {
       validation: (Rule) => Rule.required(),
     },
   ],
-};
+});

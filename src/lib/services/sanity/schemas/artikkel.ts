@@ -1,6 +1,7 @@
 import { ImNewspaper } from "react-icons/im";
+import { defineType } from "sanity";
 
-export default {
+export const Artikkel = defineType({
   name: "artikkel",
   title: "Artikkel",
   type: "document",
@@ -58,4 +59,4 @@ export default {
       media: "bilder.0",
     },
   },
-};
+});

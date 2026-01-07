@@ -1,4 +1,6 @@
-export default {
+import { defineType } from "sanity";
+
+export const Forfatter = defineType({
   name: "forfatter",
   type: "document",
   fields: [
@@ -34,4 +36,4 @@ export default {
       of: [{ type: "url" }],
     },
   ],
-};
+});

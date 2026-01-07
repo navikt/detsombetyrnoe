@@ -2,7 +2,7 @@ import { MdWeb } from "react-icons/md";
 
 export const ForsideIkon = MdWeb;
 
-export default {
+export const LandingPage = {
   name: "landingPage",
   title: "Landing page",
   type: "document",

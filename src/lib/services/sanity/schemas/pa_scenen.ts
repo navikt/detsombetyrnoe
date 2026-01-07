@@ -1,9 +1,8 @@
-import { BsPeopleCircle } from "react-icons/bs";
+import { defineType } from "sanity";
 
-export default {
+export const PaScenen = defineType({
   name: "pa_scenen",
   type: "object",
-  //icon: BsPeopleCircle,
   fields: [
     {
       name: "tittel",
@@ -29,7 +28,7 @@ export default {
       of: [
         {
           description:
-            'Du må legge deg til under forfatterpanelet og trykke "Publish" før du dukker opp i denne lista.',
+            'Du må legge deg til under forfatterpanelet og trykke "Publish" før du dukker opp i denna lista.',
           type: "reference",
           to: [
             {
@@ -41,4 +40,4 @@ export default {
       validation: (Rule) => Rule.required(),
     },
   ],
-};
+});

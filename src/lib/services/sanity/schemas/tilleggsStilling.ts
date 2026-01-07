@@ -1,6 +1,7 @@
 import { FaHammer } from "react-icons/fa";
+import { defineType } from "sanity";
 
-export default {
+export const TilleggsStilling = defineType({
   name: "tilleggsStilling",
   title: "Tilleggsstilling",
   type: "document",
@@ -21,4 +22,4 @@ export default {
       subtitle: "uuid",
     },
   },
-};
+});

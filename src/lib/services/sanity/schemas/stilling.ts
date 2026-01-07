@@ -1,4 +1,6 @@
-export default {
+import { defineType } from "sanity";
+
+export const Stilling = defineType({
   name: "stilling",
   title: "Stilling",
   type: "document",
@@ -24,4 +26,4 @@ export default {
       type: "date",
     },
   ],
-};
+});

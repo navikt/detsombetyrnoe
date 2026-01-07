@@ -1,6 +1,7 @@
 import { MdPhoto } from "react-icons/md";
+import { defineType } from "sanity";
 
-export default {
+export const Bilde = defineType({
   name: "bilde",
   type: "image",
   icon: MdPhoto,
@@ -28,4 +29,4 @@ export default {
       },
     },
   ],
-};
+});

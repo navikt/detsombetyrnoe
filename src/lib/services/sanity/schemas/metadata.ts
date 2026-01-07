@@ -1,7 +1,8 @@
-export default {
+import { defineType } from "sanity";
+
+export const Metadata = defineType({
   type: "document",
   name: "metadata",
-  __experimental_actions: ["update", "publish"], // Har du laget et nytt datasett må du midlertidig fjerne denne for å kunne lage et nytt oppsett-dokument
   fields: [
     {
       name: "title",
@@ -25,4 +26,4 @@ export default {
       to: [{ type: "artikkel" }],
     },
   ],
-};
+});

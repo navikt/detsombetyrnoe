@@ -1,7 +1,8 @@
 import React from "react";
 import { MdOndemandVideo } from "react-icons/md";
+import { defineType } from "sanity";
 
-export default {
+export const Video = defineType({
   type: "object",
   name: "video",
   title: "Video",
@@ -32,4 +33,4 @@ export default {
       subtitle: "url",
     },
   },
-};
+});
