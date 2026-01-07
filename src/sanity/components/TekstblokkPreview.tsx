@@ -1,5 +1,4 @@
 import * as React from "react";
-import withErrorBoundary from "../../components/withErrorBoundary";
 import styles from "./TekstblokkPreview.module.css";
 
 interface Props {
@@ -23,4 +22,4 @@ function PanelPreview(props: Props) {
   );
 }
 
-export default withErrorBoundary(PanelPreview, "PanelPreview");
+export default PanelPreview;

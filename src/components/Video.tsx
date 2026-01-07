@@ -1,6 +1,5 @@
 import * as React from "react";
 import VisuallyHidden from "./VisuallyHidden";
-import withErrorBoundary from "./withErrorBoundary";
 import styles from "./Video.module.css";
 
 interface Props {
@@ -19,4 +18,4 @@ function Video(props: Props) {
   );
 }
 
-export default withErrorBoundary(Video, "Video");
+export default Video;

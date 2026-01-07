@@ -30,7 +30,7 @@ const Page = async ({ params }: Props) => {
   const data = await sanityFetch<ArtikkelI>({ query: artikkelQuery, params: { slug: (await params).slug } });
 
   if (!data) {
-    return notFound();
+    notFound();
   }
 
   metrics.pageVisitsCounter.inc({ path: "/[slug]" });

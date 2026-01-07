@@ -1,5 +1,4 @@
 import React from "react";
-import withErrorBoundary from "../../components/withErrorBoundary";
 import { IconType } from "react-icons";
 import styles from "./PanelPreview.module.css";
 
@@ -36,4 +35,4 @@ function PanelPreview(props: Props) {
   );
 }
 
-export default withErrorBoundary(PanelPreview, "PanelPreview");
+export default PanelPreview;
