@@ -24,10 +24,10 @@ spec:
     max: 4
   resources:
     requests:
-      cpu: 40m
-      memory: 128Mi
+      cpu: 60m
+      memory: 256Mi
     limits:
-      memory: 128Mi
+      memory: 256Mi
   observability:
     tracing:
       enabled: true
