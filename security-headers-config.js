@@ -6,6 +6,7 @@ const csp = {
     "'unsafe-eval'",
     "*.vimeocdn.com",
     "https://cdn.nav.no/team-researchops/sporing/sporing.js",
+    "https://core.sanity-cdn.com",
   ],
   "style-src": ["'self'", "blob:", "'unsafe-inline'", "fonts.googleapis.com", "*.vimeocdn.com"],
   "connect-src": [
