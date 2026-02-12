@@ -19,7 +19,7 @@ export const CookieConsentBanner = () => {
   }
 
   return (
-    <div className={style.consentBannerRoot}>
+    <div className={style.consentBannerRoot} data-nosnippet>
       <section aria-labelledby="cookie_heading" className={style.consentBannerSection}>
         <h2 id="cookie_heading" className={style.consentBannerBrandedText}>
           Informasjons
