@@ -64,7 +64,7 @@ function CustomComponent(props: CustomComponentProps) {
         <Panel className={styles.panelMedVideo}>
           <div className={style.panelWrapper}>
             <div className={style.videoWrapper}>
-              <Video title="NAV IT - DDOS" url="https://player.vimeo.com/video/831392694?title=0&byline=0" />
+              <Video title="Nav teknologi - DDOS" url="https://player.vimeo.com/video/831392694?title=0&byline=0" />
             </div>
           </div>
         </Panel>
@@ -74,7 +74,10 @@ function CustomComponent(props: CustomComponentProps) {
         <Panel className={styles.panelMedVideo}>
           <div className={style.panelWrapper}>
             <div className={style.videoWrapper}>
-              <Video title="NAV IT - Sikkerhet" url="https://player.vimeo.com/video/1015154302?title=0&byline=0" />
+              <Video
+                title="Nav teknologi - Sikkerhet"
+                url="https://player.vimeo.com/video/1015154302?title=0&byline=0"
+              />
             </div>
           </div>
         </Panel>

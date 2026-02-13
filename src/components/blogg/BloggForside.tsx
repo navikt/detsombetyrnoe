@@ -17,7 +17,7 @@ function BloggForside(props: Props) {
   return (
     <div className={styles.style}>
       <Head>
-        <title>NAV IT Blogg.</title>
+        <title>Nav teknologi Blogg.</title>
       </Head>
       <div className={styles.maxWidth}>
         <Header fontSize="1.5rem" h1={true} />

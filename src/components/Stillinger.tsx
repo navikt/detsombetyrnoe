@@ -6,7 +6,7 @@ const Stillinger = ({ stillinger }: { stillinger: StillingI[] }) => {
   if (!stillinger?.length) {
     return (
       <div className={styles.style}>
-        <h2 id="ledige-stillinger">Er du nysgjerrig på å jobbe i NAV IT?</h2>
+        <h2 id="ledige-stillinger">Er du nysgjerrig på å jobbe i Nav teknologi?</h2>
         <p>
           Vi har for tiden ingen ledige stillinger, men fortvil ikke! Vi er stadig på jakt etter nye kollegaer og da
           blir stillingsannonsene lagt ut her.
