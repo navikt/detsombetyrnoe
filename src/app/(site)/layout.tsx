@@ -22,9 +22,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "NAV IT",
+  title: "Nav teknologi",
   openGraph: {
-    siteName: "NAV IT",
+    siteName: "Nav teknologi",
     url: "https://www.detsombetyrnoe.no/",
   },
 };
